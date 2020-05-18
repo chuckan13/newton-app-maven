@@ -1,4 +1,4 @@
-var path = require('path');
+const path = require('path');
 
 module.exports = {
 	entry: './src/main/js/app.js',
@@ -12,7 +12,7 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: path.join(__dirname, '.'),
+				test: /\.(js|jsx)$/,
 				exclude: /(node_modules)/,
 				use: [
 					{
@@ -22,7 +22,33 @@ module.exports = {
 						}
 					}
 				]
-			}
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                     // Creates `style` nodes from JS strings
+                     'style-loader',
+                      // Translates CSS into CommonJS
+                      'css-loader',
+                      // Compiles Sass to CSS
+                      'sass-loader',
+                ],
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader?name=../img/[name].[ext]'
+                ],
+            },
+            {
+                test: /\.html$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'html-loader',
+                    },
+                ]
+            },
 		]
-	}
+    },
 };

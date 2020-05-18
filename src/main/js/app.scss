@@ -1,0 +1,81 @@
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+@import "node_modules/bootstrap/scss/functions";
+
+$theme-colors: (
+    "primary": #779ee5,
+);
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+b {
+    font-weight: bold;
+}
+
+a {
+    color: black;
+}
+
+.primary {
+    color: map-get($theme-colors, "primary");
+}
+
+.btn-main {
+    color: white;
+    background-color: map-get($theme-colors, "primary");
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    &:hover {
+        color: white;
+        background-color: theme-color-level("primary", -3);
+    }
+}
+
+.mast-left {
+    position: absolute;
+    width: 37vw;
+    bottom: -15%;
+    left: -10%;
+}
+
+.mast-right {
+    position: absolute;
+    height: 30vw;
+    right: 0;
+    bottom: -5%;
+}
+
+.masthead {
+    height: 75vh;
+    min-height: 500px;
+
+    background-color: #eeeeee;
+
+    font: {
+        family: Helvetica;
+    }
+}
+
+.line-link {
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 7px;
+    text-decoration-thickness: 2px;
+}
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 601px) {
+    .tiny-resize {
+      font-size: 12pt;
+    }
+  }
+  
+  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+  @media screen and (max-width: 600px) {
+    .tiny-resize {
+      font-size: 8pt;
+    }
+  }
