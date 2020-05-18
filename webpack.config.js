@@ -1,12 +1,19 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
 	entry: './src/main/js/app.js',
 	devtool: 'sourcemaps',
 	cache: true,
 	mode: 'development',
 	output: {
-		path: __dirname,
-		filename: './src/main/resources/static/built/bundle.js'
-	},
+		path: __dirname + '/dist',
+		filename: 'bundle.js'
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './src/main/resources/static/index.html'
+        }),
+    ],
 	module: {
 		rules: [
 			{
