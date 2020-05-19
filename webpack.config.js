@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
 	entry: './src/main/js/app.js',
 	devtool: 'sourcemaps',
@@ -35,7 +37,7 @@ module.exports = {
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
-                    'file-loader'
+                    'file-loader?name=../img/[name].[ext]'
                 ],
             },
             {
