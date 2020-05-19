@@ -41809,7 +41809,7 @@ module.exports = content.locals || {};
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../static/img/doctor.png");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/doctor.png");
 
 /***/ }),
 
@@ -41822,7 +41822,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../static/img/flexible.svg");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/flexible.svg");
 
 /***/ }),
 
@@ -41835,7 +41835,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../static/img/icon.png");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/icon.png");
 
 /***/ }),
 
@@ -41848,7 +41848,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../static/img/logo.png");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/logo.png");
 
 /***/ }),
 
@@ -41861,7 +41861,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../static/img/people.png");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/people.png");
 
 /***/ }),
 
@@ -41874,7 +41874,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../static/img/simple.svg");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/simple.svg");
 
 /***/ }),
 
@@ -41887,7 +41887,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../static/img/transparent.svg");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/transparent.svg");
 
 /***/ })
 
