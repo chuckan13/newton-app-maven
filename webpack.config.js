@@ -1,4 +1,4 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
 	entry: './src/main/js/app.js',
@@ -6,14 +6,9 @@ module.exports = {
 	cache: true,
 	mode: 'development',
 	output: {
-		path: __dirname + '/src/main/resources/static/built',
-		filename: 'bundle.js'
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './index.html'
-        }),
-    ],
+		path: __dirname,
+		filename: './src/main/resources/static/built/bundle.js'
+	},
 	module: {
 		rules: [
 			{
@@ -42,7 +37,7 @@ module.exports = {
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
-                    'file-loader'
+                    'file-loader?name=../img/[name].[ext]'
                 ],
             },
             {
