@@ -6,12 +6,12 @@ module.exports = {
 	cache: true,
 	mode: 'development',
 	output: {
-		path: __dirname + '/src/main/resources/static/built',
+		path: __dirname + '/dist',
 		filename: 'bundle.js'
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: './index.html'
+            template: './src/main/resources/static/index.html'
         }),
     ],
 	module: {
