@@ -8,13 +8,13 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
-import Logo from "../resources/img/logo.png";
-import Icon from "../resources/img/icon.png";
-import Doctor from "../resources/img/doctor.png";
-import Transparent from "../resources/img/transparent.svg";
-import Flexible from "../resources/img/flexible.svg";
-import Simple from "../resources/img/simple.svg";
-import People from "../resources/img/people.png";
+import Logo from "../resources/static/img/logo.png";
+import Icon from "../resources/static/img/icon.png";
+import Doctor from "../resources/static/img/doctor.png";
+import Transparent from "../resources/static/img/transparent.svg";
+import Flexible from "../resources/static/img/flexible.svg";
+import Simple from "../resources/static/img/simple.svg";
+import People from "../resources/static/img/people.png";
 
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";

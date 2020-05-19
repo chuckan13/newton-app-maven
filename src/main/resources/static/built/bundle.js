@@ -41518,13 +41518,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
 /* harmony import */ var react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap/Col */ "./node_modules/react-bootstrap/esm/Col.js");
 /* harmony import */ var react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap/Row */ "./node_modules/react-bootstrap/esm/Row.js");
-/* harmony import */ var _resources_img_logo_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../resources/img/logo.png */ "./src/main/resources/img/logo.png");
-/* harmony import */ var _resources_img_icon_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../resources/img/icon.png */ "./src/main/resources/img/icon.png");
-/* harmony import */ var _resources_img_doctor_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../resources/img/doctor.png */ "./src/main/resources/img/doctor.png");
-/* harmony import */ var _resources_img_transparent_svg__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../resources/img/transparent.svg */ "./src/main/resources/img/transparent.svg");
-/* harmony import */ var _resources_img_flexible_svg__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../resources/img/flexible.svg */ "./src/main/resources/img/flexible.svg");
-/* harmony import */ var _resources_img_simple_svg__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../resources/img/simple.svg */ "./src/main/resources/img/simple.svg");
-/* harmony import */ var _resources_img_people_png__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../resources/img/people.png */ "./src/main/resources/img/people.png");
+/* harmony import */ var _resources_static_img_logo_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../resources/static/img/logo.png */ "./src/main/resources/static/img/logo.png");
+/* harmony import */ var _resources_static_img_icon_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../resources/static/img/icon.png */ "./src/main/resources/static/img/icon.png");
+/* harmony import */ var _resources_static_img_doctor_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../resources/static/img/doctor.png */ "./src/main/resources/static/img/doctor.png");
+/* harmony import */ var _resources_static_img_transparent_svg__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../resources/static/img/transparent.svg */ "./src/main/resources/static/img/transparent.svg");
+/* harmony import */ var _resources_static_img_flexible_svg__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../resources/static/img/flexible.svg */ "./src/main/resources/static/img/flexible.svg");
+/* harmony import */ var _resources_static_img_simple_svg__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../resources/static/img/simple.svg */ "./src/main/resources/static/img/simple.svg");
+/* harmony import */ var _resources_static_img_people_png__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../resources/static/img/people.png */ "./src/main/resources/static/img/people.png");
 /* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
 /* harmony import */ var _app_scss__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./app.scss */ "./src/main/js/app.scss");
 /* harmony import */ var _app_scss__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_app_scss__WEBPACK_IMPORTED_MODULE_15__);
@@ -41587,11 +41587,11 @@ function Header() {
   }, "APPLY NOW"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "my-4 line-link"
   }, "HOW IT WORKS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _resources_img_icon_png__WEBPACK_IMPORTED_MODULE_8__["default"],
+    src: _resources_static_img_icon_png__WEBPACK_IMPORTED_MODULE_8__["default"],
     className: "mast-left d-none d-sm-block",
     alt: "Newton Icon"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _resources_img_doctor_png__WEBPACK_IMPORTED_MODULE_9__["default"],
+    src: _resources_static_img_doctor_png__WEBPACK_IMPORTED_MODULE_9__["default"],
     className: "mast-right d-none d-none d-sm-block",
     alt: "Doctor with patient"
   }));
@@ -41606,7 +41606,7 @@ function NavBar() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_NavBar__WEBPACK_IMPORTED_MODULE_2__["default"].Brand, {
     href: "#home"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _resources_img_logo_png__WEBPACK_IMPORTED_MODULE_7__["default"],
+    src: _resources_static_img_logo_png__WEBPACK_IMPORTED_MODULE_7__["default"],
     height: "30",
     className: "d-inline-block align-top",
     alt: "Newton Logo"
@@ -41642,17 +41642,17 @@ function Qualities() {
     sm: 3,
     className: "mb-1"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Quality, {
-    image: _resources_img_transparent_svg__WEBPACK_IMPORTED_MODULE_10__["default"],
+    image: _resources_static_img_transparent_svg__WEBPACK_IMPORTED_MODULE_10__["default"],
     alt: "Checklist",
     title: "Transparent",
     text: "No fees or APR hikes, ever."
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Quality, {
-    image: _resources_img_flexible_svg__WEBPACK_IMPORTED_MODULE_11__["default"],
+    image: _resources_static_img_flexible_svg__WEBPACK_IMPORTED_MODULE_11__["default"],
     alt: "Touch",
     title: "Flexible",
     text: "Multiple options to finance your bills."
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Quality, {
-    image: _resources_img_simple_svg__WEBPACK_IMPORTED_MODULE_12__["default"],
+    image: _resources_static_img_simple_svg__WEBPACK_IMPORTED_MODULE_12__["default"],
     alt: "Arrows",
     title: "Simple",
     text: "Monthly payments through our one-click payment portal."
@@ -41687,7 +41687,7 @@ function Mission() {
     lg: "4",
     className: "mt-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _resources_img_people_png__WEBPACK_IMPORTED_MODULE_13__["default"],
+    src: _resources_static_img_people_png__WEBPACK_IMPORTED_MODULE_13__["default"],
     height: "300",
     className: "d-inline-block align-top",
     alt: "People Illustration"
@@ -41701,7 +41701,7 @@ function Footer() {
     xs: true,
     lg: "4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: _resources_img_logo_png__WEBPACK_IMPORTED_MODULE_7__["default"],
+    src: _resources_static_img_logo_png__WEBPACK_IMPORTED_MODULE_7__["default"],
     height: "30",
     alt: "Newton Logo"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -41800,94 +41800,94 @@ module.exports = content.locals || {};
 
 /***/ }),
 
-/***/ "./src/main/resources/img/doctor.png":
-/*!*******************************************!*\
-  !*** ./src/main/resources/img/doctor.png ***!
-  \*******************************************/
+/***/ "./src/main/resources/static/img/doctor.png":
+/*!**************************************************!*\
+  !*** ./src/main/resources/static/img/doctor.png ***!
+  \**************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/doctor.png");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../static/img/doctor.png");
 
 /***/ }),
 
-/***/ "./src/main/resources/img/flexible.svg":
-/*!*********************************************!*\
-  !*** ./src/main/resources/img/flexible.svg ***!
-  \*********************************************/
+/***/ "./src/main/resources/static/img/flexible.svg":
+/*!****************************************************!*\
+  !*** ./src/main/resources/static/img/flexible.svg ***!
+  \****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/flexible.svg");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../static/img/flexible.svg");
 
 /***/ }),
 
-/***/ "./src/main/resources/img/icon.png":
-/*!*****************************************!*\
-  !*** ./src/main/resources/img/icon.png ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/icon.png");
-
-/***/ }),
-
-/***/ "./src/main/resources/img/logo.png":
-/*!*****************************************!*\
-  !*** ./src/main/resources/img/logo.png ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/logo.png");
-
-/***/ }),
-
-/***/ "./src/main/resources/img/people.png":
-/*!*******************************************!*\
-  !*** ./src/main/resources/img/people.png ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/people.png");
-
-/***/ }),
-
-/***/ "./src/main/resources/img/simple.svg":
-/*!*******************************************!*\
-  !*** ./src/main/resources/img/simple.svg ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/simple.svg");
-
-/***/ }),
-
-/***/ "./src/main/resources/img/transparent.svg":
+/***/ "./src/main/resources/static/img/icon.png":
 /*!************************************************!*\
-  !*** ./src/main/resources/img/transparent.svg ***!
+  !*** ./src/main/resources/static/img/icon.png ***!
   \************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/transparent.svg");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../static/img/icon.png");
+
+/***/ }),
+
+/***/ "./src/main/resources/static/img/logo.png":
+/*!************************************************!*\
+  !*** ./src/main/resources/static/img/logo.png ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../static/img/logo.png");
+
+/***/ }),
+
+/***/ "./src/main/resources/static/img/people.png":
+/*!**************************************************!*\
+  !*** ./src/main/resources/static/img/people.png ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../static/img/people.png");
+
+/***/ }),
+
+/***/ "./src/main/resources/static/img/simple.svg":
+/*!**************************************************!*\
+  !*** ./src/main/resources/static/img/simple.svg ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../static/img/simple.svg");
+
+/***/ }),
+
+/***/ "./src/main/resources/static/img/transparent.svg":
+/*!*******************************************************!*\
+  !*** ./src/main/resources/static/img/transparent.svg ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../static/img/transparent.svg");
 
 /***/ })
 
