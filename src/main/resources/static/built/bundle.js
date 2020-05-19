@@ -41810,7 +41810,7 @@ module.exports = content.locals || {};
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/doctor.png");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "9ab7b0f211d04c21a6b2ff3750b4af9b.png");
 
 /***/ }),
 
@@ -41823,7 +41823,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/flexible.svg");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "715c6872bcc4a03d7ae8baf02fa4bb90.svg");
 
 /***/ }),
 
@@ -41836,7 +41836,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/icon.png");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "594c598ac524294c9e8c5d988ecfcb58.png");
 
 /***/ }),
 
@@ -41849,7 +41849,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/logo.png");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "d0be83d4c0ae75e3898acd8a75780172.png");
 
 /***/ }),
 
@@ -41862,7 +41862,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/people.png");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "ee4809248858a937034dc52248beb736.png");
 
 /***/ }),
 
@@ -41875,7 +41875,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/simple.svg");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "b025d60cde9d32b733e3ceb9a8a47573.svg");
 
 /***/ }),
 
@@ -41888,7 +41888,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "../img/transparent.svg");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "c768b05309a92ae49c028f6f003f3c87.svg");
 
 /***/ })
 
