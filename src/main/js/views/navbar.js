@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Navbar from "react-bootstrap/NavBar";
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
-import NavLink from "react-router-dom/NavLink";
+
 import Logo from "../../resources/static/img/logo.png";
 
 import "../app.scss";
@@ -22,7 +22,7 @@ class NavBar extends Component {
                 <Navbar.Toggle></Navbar.Toggle>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <NavLink to="/howitworks"><Nav.Link>How it works</Nav.Link></NavLink>
+                        <Nav.Link href="/howitworks">How it works</Nav.Link>
                         <Nav.Link href="#providers">Our providers</Nav.Link>
                         <Nav.Link href="#contact">Contact us</Nav.Link>
                     </Nav>

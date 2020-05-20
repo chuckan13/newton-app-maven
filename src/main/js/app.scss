@@ -6,7 +6,7 @@ $theme-colors: (
 );
 
 * {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 b {
@@ -19,6 +19,10 @@ a {
 
 .primary {
     color: map-get($theme-colors, "primary");
+}
+
+.navbar {
+    z-index: 10;
 }
 
 .btn-main {
@@ -66,16 +70,43 @@ a {
     text-decoration-thickness: 2px;
 }
 
+.left-list {
+    position: absolute;
+    left: 0;
+}
+
+.card-option {
+    .card-title {
+        color: map-get($theme-colors, "primary");
+        font-weight: bold;
+    }
+    .card-text {
+        font-weight: bold;
+    }
+    width: 20rem;
+}
+
+.option-list {
+    @media screen and (min-width: 601px) {
+        position: absolute;
+        left: 40px;
+    }
+    @media screen and (max-width: 600px) {
+        position: relative;
+    }
+    margin-top:120px;
+}
+
 /* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
 @media screen and (min-width: 601px) {
     .tiny-resize {
-      font-size: 12pt;
+        font-size: 12pt;
     }
-  }
-  
-  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
-  @media screen and (max-width: 600px) {
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
     .tiny-resize {
-      font-size: 8pt;
+        font-size: 8pt;
     }
-  }
+}
