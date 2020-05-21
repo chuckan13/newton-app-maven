@@ -1,0 +1,27 @@
+<button id='linkButton'>Open Plaid Link</button>
+<script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+<script>
+var linkHandler = Plaid.create({
+  env: 'sandbox',
+  clientName: 'Stripe/Plaid Test',
+  key: '5475e6f532d5bc20abca96dba0c94a',
+  product: ['auth'],
+  selectAccount: true,
+  onSuccess: function(public_token, metadata) {
+    // Send the public_token and account ID to your app server.
+    console.log('public_token: ' + public_token);
+    console.log('account ID: ' + metadata.account_id);
+  },
+  onExit: function(err, metadata) {
+    // The user exited the Link flow.
+    if (err != null) {
+      // The user encountered a Plaid API error prior to exiting.
+    }
+  },
+});
+
+// Trigger the Link UI
+document.getElementById('linkButton').onclick = function() {
+  linkHandler.open();
+};
+</script>

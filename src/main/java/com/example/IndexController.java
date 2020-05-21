@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class IndexController {
     @RequestMapping(value = "/")
     public String index(Map<String, Object> model) {
-        return "index.html";
+        return "testStripePlaid.html";
     }
     // @RequestMapping("/")
     // @ResponseBody

@@ -29,6 +29,10 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
@@ -42,7 +46,7 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>9.4-1203-jdbc42</version>
+			<version>42.2.5</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.validation</groupId>
@@ -72,6 +76,11 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.plaid</groupId>
+			<artifactId>plaid-java</artifactId>
+			<version>5.7.0</version>
 		</dependency>
 
 		<dependency>
