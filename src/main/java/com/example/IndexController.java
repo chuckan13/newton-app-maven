@@ -8,12 +8,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class IndexController {
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/**/{path:[^\\.]*}")
     public String index(Map<String, Object> model) {
-        return "index.html";
-    }
-    @RequestMapping(value = "/howitworks")
-    public String howitworks(Map<String, Object> model) {
         return "index.html";
     }
     // @RequestMapping("/")
