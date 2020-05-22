@@ -25,6 +25,17 @@ public class Loginuser {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "stripe_customer_id")
+    private String stripeCustomerId;
+
+    public String getStripeCustomerId() {
+        return this.stripeCustomerId;
+    }
+
+    public void setStripeCustomerId(String stripeCustomerId) {
+        this.stripeCustomerId = stripeCustomerId;
+    }
+
     public Long getId() {
         return id;
     }
@@ -45,7 +56,7 @@ public class Loginuser {
         return password;
     }
 
-    public void setName(String fullName) {
+    public void setFullName(String fullName) {
         this.fullName = fullName;
     }
 
@@ -66,5 +77,6 @@ public class Loginuser {
         this.userName = other.getUserName();
         this.role = other.getRole();
         this.password = other.getPassword();
+        this.stripeCustomerId = other.getStripeCustomerId();
     }
 }

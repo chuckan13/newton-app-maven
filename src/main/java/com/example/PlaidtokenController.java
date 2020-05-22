@@ -1,19 +1,28 @@
 package com.example;
 
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.stripe.Stripe;
+import com.stripe.exception.StripeException;
+import com.stripe.model.Customer;
 
 @RestController
 @RequestMapping("/plaidtokens")
 public class PlaidtokenController {
     private PlaidtokenRepository repository;
+    private LoginuserRepository loginuserRepo;
 
     @Autowired
-    public PlaidtokenController(PlaidtokenRepository repository) {
+    public PlaidtokenController(PlaidtokenRepository repository, LoginuserRepository loginuserRepo) {
         this.repository = repository;
+        this.loginuserRepo = loginuserRepo;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -33,9 +42,31 @@ public class PlaidtokenController {
         return new ResponseEntity<Plaidtoken>(token, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public ResponseEntity<Plaidtoken> update(@RequestBody Plaidtoken token) {
+    @RequestMapping(value = "/new/{userId}", method = RequestMethod.POST)
+    public ResponseEntity<Plaidtoken> update(@RequestBody Plaidtoken token, @PathVariable("userId") Long userId)
+            throws IOException, StripeException {
         repository.save(token);
+        String[] tokenArray = plaidToStripe.getTokens(token.getPublicToken(), token.getAccountId());
+
+        System.out.println(tokenArray[0]);
+        System.out.println(tokenArray[1]);
+
+        Stripe.apiKey = "sk_test_3gCJKshMgnQKkUBMp6tGu0O400rZYqWFNG";
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("source", tokenArray[1]);
+
+        Customer customer = Customer.create(params);
+        // System.out.println("CUSTOMER SOURCE ");
+        // System.out.println(customer.getSources());
+
+        String customerId = customer.getId();
+
+        Loginuser currUser = loginuserRepo.findOne(userId);
+        currUser.setStripeCustomerId(customerId);
+        // currUser.updateParameters(currUser);
+        loginuserRepo.save(currUser);
+
         return get(token.getId());
     }
 

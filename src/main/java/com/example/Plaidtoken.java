@@ -16,7 +16,7 @@ public class Plaidtoken {
     @Column(name = "public_token")
     private String publicToken;
 
-    @Column(name = "accound_id")
+    @Column(name = "account_id")
     private String accountId;
 
     public Long getId() {

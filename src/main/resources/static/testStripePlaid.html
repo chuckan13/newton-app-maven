@@ -1,5 +1,6 @@
 <button id='linkButton'>Open Plaid Link</button>
 <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <script>
 var linkHandler = Plaid.create({
   env: 'sandbox',
@@ -11,6 +12,45 @@ var linkHandler = Plaid.create({
     // Send the public_token and account ID to your app server.
     console.log('public_token: ' + public_token);
     console.log('account ID: ' + metadata.account_id);
+    var tokObj = new Object();
+    tokObj.publicToken = public_token;
+    tokObj.accountId = metadata.account_id;
+    $.ajax({
+        url: '/plaidtokens/new/1',
+        type: 'post',
+        data: JSON.stringify(tokObj),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json' 
+        },
+        dataType: 'json',
+        success: function (response) {
+            console.log(response);
+        }
+    });
+
+    // $.post('/plaidtokens/new', {
+    //   "id": 5,
+    //   "publicToken": public_token,
+    //   "accountId": metadata.account_id
+    // });
+    // var tokObj = new Object();
+    // tokObj.id = 5;
+    // tokObj.publicToken = public_token;
+    // tokObj.accountId = metadata.account_id;
+    // $.postJSON = function(url, data, callback) {
+    // return jQuery.ajax({
+    //   headers: { 
+    //       'Accept': 'application/json',
+    //       'Content-Type': 'application/json' 
+    //   },
+    //   'type': 'POST',
+    //   'url': url,
+    //   'data': JSON.stringify(data),
+    //   'dataType': 'json',
+    //   'success': callback
+    //   });
+    // };
   },
   onExit: function(err, metadata) {
     // The user exited the Link flow.

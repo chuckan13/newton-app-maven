@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PlaidtokenRepository extends JpaRepository<Plaidtoken, Long> {
-    Loginuser findByUserName(String userName);
+
 }

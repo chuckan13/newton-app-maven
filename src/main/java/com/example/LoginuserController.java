@@ -33,6 +33,22 @@ public class LoginuserController {
         return new ResponseEntity<Loginuser>(user, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
+    public ResponseEntity<Loginuser> editUser(@PathVariable("id") Long id, @RequestBody Loginuser loginuser) {
+        Loginuser foundLoginuser = repository.findOne(id);
+        if (null == foundLoginuser)
+            return new ResponseEntity<Loginuser>(HttpStatus.NOT_FOUND);
+        else {
+            if (!foundLoginuser.getPassword().equals(loginuser.getPassword())) { // might be an issue if are equivalent
+                                                                                 // but not equal
+                return new ResponseEntity<Loginuser>(HttpStatus.METHOD_NOT_ALLOWED);
+            }
+            foundLoginuser.updateParameters(loginuser);
+            repository.save(foundLoginuser);
+            return get(foundLoginuser.getId());
+        }
+    }
+
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public ResponseEntity<Loginuser> update(@RequestBody Loginuser user) {
         repository.save(user);
