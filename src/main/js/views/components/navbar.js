@@ -3,9 +3,9 @@ import Navbar from "react-bootstrap/NavBar";
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 
-import Logo from "../../resources/static/img/logo.png";
+import Logo from "../../../resources/static/img/logo.png";
 
-import "../app.scss";
+import "../../app.scss";
 
 class NavBar extends Component {
     render() {
