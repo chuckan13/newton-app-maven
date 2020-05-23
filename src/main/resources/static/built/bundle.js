@@ -45827,7 +45827,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Footer() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("footer", {
     className: "footer"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_1__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_2__["default"], {
     xs: true,
@@ -45928,7 +45928,7 @@ var NavBar = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_NavBar__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        className: "mx-md-5 mt-3 align-items-center sticky-top",
+        className: "mx-md-5 mt-3 align-items-center",
         variant: "light",
         bg: "transparent",
         expand: "md"
@@ -45955,6 +45955,7 @@ var NavBar = /*#__PURE__*/function (_Component) {
         href: "#apply",
         className: "mr-3"
       }, "Apply now"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        href: "/login",
         variant: "main"
       }, "Sign In"))));
     }
@@ -46403,7 +46404,6 @@ var Login = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_6__["default"], {
         fluid: true,
         style: {
-          height: "100vh",
           padding: 0
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_js__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -46508,7 +46508,6 @@ var Register = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_6__["default"], {
         fluid: true,
         style: {
-          height: "100vh",
           padding: 0
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_js__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"], {

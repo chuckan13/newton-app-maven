@@ -11,7 +11,7 @@ class NavBar extends Component {
     render() {
         return (
             <Navbar
-                className="mx-md-5 mt-3 align-items-center sticky-top"
+                className="mx-md-5 mt-3 align-items-center"
                 variant="light"
                 bg="transparent"
                 expand="md"
@@ -35,7 +35,7 @@ class NavBar extends Component {
                         <Nav.Link href="#apply" className="mr-3">
                             Apply now
                         </Nav.Link>
-                        <Button variant="main">Sign In</Button>
+                        <Button href="/login" variant="main">Sign In</Button>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

@@ -12,7 +12,7 @@ import "../../app.scss";
 
 function Footer() {
     return (
-        <div className="footer">
+        <footer className="footer">
             <Row>
                 <Col xs lg="4">
                     <img src={Logo} height="30" alt="Newton Logo" />
@@ -40,7 +40,7 @@ function Footer() {
                     </p>
                 </Col>
             </Row>
-        </div>
+        </footer>
     );
 }
 
