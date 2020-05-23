@@ -12,7 +12,7 @@ import "../../app.scss";
 
 function Footer() {
     return (
-        <div className="position-absolute" style={{ bottom: 0, width: "100%" }}>
+        <div>
             <Row className="mx-4">
                 <Col xs lg="4">
                     <img src={Logo} height="30" alt="Newton Logo" />

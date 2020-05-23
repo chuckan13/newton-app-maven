@@ -4,6 +4,7 @@ import NavBar from "./components/navbar.js";
 import Footer from "./components/footer.js";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
 
 import "../app.scss";
 
@@ -49,7 +50,9 @@ class Register extends Component {
                         </Button>
                     </Form>
                 </Col>
-                <Footer />
+                <div className="position-absolute" style={{ bottom: 0, width: "100%" }}>
+                    <Footer />
+                </div>
             </Container>
         );
     }
