@@ -12,14 +12,12 @@ class App extends Component {
     render() {
         return (
             <BrowserRouter>
-                <div>
-                    <Switch>
-                        <Route path="/" component={Landing} exact />
-                        <Route path="/howitworks" component={HowItWorks} />
-                        <Route path="/register" component={Register} />
-                        <Route path="/login" component={Login} />
-                    </Switch>
-                </div>
+                <Switch>
+                    <Route path="/" component={Landing} exact />
+                    <Route path="/howitworks" component={HowItWorks} />
+                    <Route path="/register" component={Register} />
+                    <Route path="/login" component={Login} />
+                </Switch>
             </BrowserRouter>
         );
     }
