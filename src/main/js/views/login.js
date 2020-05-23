@@ -12,7 +12,7 @@ import "../app.scss";
 class Login extends Component {
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <NavBar />
                 <Col lg={4} md={5} sm={7} className="mx-auto mt-5">
                     <Form className="floating-form">
@@ -21,15 +21,11 @@ class Login extends Component {
                         </h2>
                         <Form.Group controlId="email">
                             <Form.Label>Email address</Form.Label>
-                            <Form.Control
-                                type="email"
-                            />
+                            <Form.Control type="email" />
                         </Form.Group>
                         <Form.Group controlId="password">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control
-                                type="password"
-                            />
+                            <Form.Control type="password" />
                         </Form.Group>
                         <Row className="justify-content-center">
                             <Button variant="primary" type="submit">
@@ -39,7 +35,7 @@ class Login extends Component {
                     </Form>
                 </Col>
                 <Footer />
-            </div>
+            </React.Fragment>
         );
     }
 }
