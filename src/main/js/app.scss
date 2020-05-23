@@ -81,6 +81,16 @@ a {
     border: 1px solid rgba(0,0,0,0.2);
 }
 
+.footer {
+    @media screen and (min-width: 601px) {
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+    @media screen and (max-width: 600px) {
+        margin: 0px;
+    }
+}
+
 .card-option {
     .card-title {
         color: map-get($theme-colors, "primary");

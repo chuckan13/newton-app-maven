@@ -12,8 +12,8 @@ import "../../app.scss";
 
 function Footer() {
     return (
-        <div>
-            <Row className="mx-4">
+        <div className="footer">
+            <Row>
                 <Col xs lg="4">
                     <img src={Logo} height="30" alt="Newton Logo" />
                 </Col>
