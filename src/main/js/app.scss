@@ -75,6 +75,12 @@ a {
     left: 0;
 }
 
+.floating-form {
+    padding: 1rem;
+    border-radius: 1.1rem;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
 .card-option {
     .card-title {
         color: map-get($theme-colors, "primary");
