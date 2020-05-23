@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Landing from "./views/landing.js";
 import HowItWorks from "./views/howitworks.js";
+import Register from "./views/register.js";
 
 class App extends Component {
     render() {
@@ -14,6 +15,7 @@ class App extends Component {
                     <Switch>
                         <Route path="/" component={Landing} exact />
                         <Route path="/howitworks" component={HowItWorks} />
+                        <Route path="/register" component={Register} />
                     </Switch>
                 </div>
             </BrowserRouter>

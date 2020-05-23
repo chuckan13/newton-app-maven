@@ -10,7 +10,7 @@ import "../../app.scss";
 class NavBar extends Component {
     render() {
         return (
-            <Navbar className="mx-md-5 mt-3 align-items-center" variant="light" bg="transparent" expand="md">
+            <Navbar className="mx-md-5 mt-3 align-items-center sticky-top" variant="light" bg="transparent" expand="md">
                 <Navbar.Brand href="/">
                     <img
                         src={Logo}
