@@ -10,7 +10,7 @@ import Button from "react-bootstrap/Button";
 
 import "../app.scss";
 
-class Register extends Component {
+class Login extends Component {
     render() {
         return (
             <Container fluid style={{ height: "100vh", padding: 0 }}>
@@ -18,7 +18,7 @@ class Register extends Component {
                 <Col lg={4} md={5} sm={7} className="mx-auto mt-5">
                     <Form className="floating-form">
                         <h2 className="text-center mb-4">
-                            <b>Register</b>
+                            <b>Login</b>
                         </h2>
                         <Form.Group controlId="email">
                             <Form.Label>Email address</Form.Label>
@@ -32,19 +32,6 @@ class Register extends Component {
                             <Form.Control
                                 type="password"
                                 placeholder="Password"
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="confirmPassword">
-                            <Form.Label>Confirm password</Form.Label>
-                            <Form.Control
-                                type="password"
-                                placeholder="Confirm Password"
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="agreeToTerms">
-                            <Form.Check
-                                type="checkbox"
-                                label="I agree to Terms and Policy."
                             />
                         </Form.Group>
                         <Row className="justify-content-center">
@@ -65,4 +52,4 @@ class Register extends Component {
     }
 }
 
-export default Register;
+export default Login;
