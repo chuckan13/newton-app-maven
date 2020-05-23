@@ -5,7 +5,6 @@ import Footer from "./components/footer.js";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 
 import "../app.scss";
@@ -13,7 +12,7 @@ import "../app.scss";
 class Register extends Component {
     render() {
         return (
-            <Container fluid style={{ padding: 0 }}>
+            <div>
                 <NavBar />
                 <Col lg={4} md={5} sm={7} className="mx-auto mt-5">
                     <Form className="floating-form">
@@ -52,7 +51,7 @@ class Register extends Component {
                     </Form>
                 </Col>
                 <Footer />
-            </Container>
+            </div>
         );
     }
 }
