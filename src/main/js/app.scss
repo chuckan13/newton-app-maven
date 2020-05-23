@@ -17,6 +17,28 @@ a {
     color: black;
 }
 
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+.footer {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    @media screen and (min-width: 601px) {
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+    @media screen and (max-width: 600px) {
+        margin: 0px;
+    }
+}
+
 .primary {
     color: map-get($theme-colors, "primary");
 }
@@ -52,8 +74,8 @@ a {
 }
 
 .masthead {
-    height: 75vh;
-    min-height: 500px;
+    height: auto;
+    min-height: 75vh;
 
     background-color: #eeeeee;
 
@@ -78,17 +100,7 @@ a {
 .floating-form {
     padding: 1rem;
     border-radius: 1.1rem;
-    border: 1px solid rgba(0,0,0,0.2);
-}
-
-.footer {
-    @media screen and (min-width: 601px) {
-        margin-left: 3rem;
-        margin-right: 3rem;
-    }
-    @media screen and (max-width: 600px) {
-        margin: 0px;
-    }
+    border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .card-option {
@@ -110,7 +122,7 @@ a {
     @media screen and (max-width: 600px) {
         position: relative;
     }
-    margin-top:120px;
+    margin-top: 120px;
 }
 
 /* If the screen size is 601px wide or more, set the font-size of <div> to 80px */

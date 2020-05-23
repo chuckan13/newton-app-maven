@@ -122,7 +122,7 @@ function Mission() {
                 <Col xs lg="4" className="mt-2">
                     <img
                         src={People}
-                        height="300"
+                        height="275"
                         className="d-inline-block align-top"
                         alt="People Illustration"
                     />

@@ -51,12 +51,7 @@ class Register extends Component {
                         </Row>
                     </Form>
                 </Col>
-                <div
-                    className="position-absolute"
-                    style={{ bottom: 0, width: "100%" }}
-                >
-                    <Footer />
-                </div>
+                <Footer />
             </Container>
         );
     }
