@@ -153,14 +153,16 @@ function Quality(props) {
 class Landing extends Component {
     render() {
         return (
-            <div>
-                <Header />
-                <Container className="px-2">
-                    <Qualities />
-                    <Mission />
-                </Container>
+            <React.Fragment>
+                <div>
+                    <Header />
+                    <Container className="px-2">
+                        <Qualities />
+                        <Mission />
+                    </Container>
+                </div>
                 <Footer />
-            </div>
+            </React.Fragment>
         );
     }
 }
