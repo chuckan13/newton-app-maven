@@ -13,7 +13,7 @@ import "../../app.scss";
 function Footer() {
     return (
         <footer className="footer text-center">
-            <Row className="w-100">
+            <Row className="w-100 mx-auto">
                 <Col xs lg="4" className="text-left">
                     <img src={Logo} height="30" alt="Newton Logo" />
                 </Col>
