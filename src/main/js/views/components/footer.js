@@ -14,7 +14,7 @@ function Footer() {
     return (
         <footer className="footer text-center">
             <Row className="w-100">
-                <Col xs lg="4">
+                <Col xs lg="4" className="text-left">
                     <img src={Logo} height="30" alt="Newton Logo" />
                 </Col>
                 <Col xs lg="4" className="justify-content-center text-center">

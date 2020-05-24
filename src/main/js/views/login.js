@@ -16,7 +16,7 @@ class Login extends Component {
                 <div>
                     <NavBar />
                     <Col lg={4} md={5} sm={7} className="mx-auto mt-5">
-                        <Form className="floating-form my-3">
+                        <Form className="floating-form mb-5">
                             <h2 className="text-center mb-4">
                                 <b>Login</b>
                             </h2>
