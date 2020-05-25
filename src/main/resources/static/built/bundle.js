@@ -45931,7 +45931,7 @@ var NavBar = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_NavBar__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        className: "mx-md-5 mt-3 align-items-center",
+        className: "mx-md-5 mt-3 align-items-center text-center",
         variant: "light",
         bg: "transparent",
         expand: "md"
@@ -45956,7 +45956,7 @@ var NavBar = /*#__PURE__*/function (_Component) {
         className: "ml-auto align-items-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Nav__WEBPACK_IMPORTED_MODULE_2__["default"].Link, {
         href: "#apply",
-        className: "mr-3"
+        className: "mx-3"
       }, "Apply now"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
         href: "/login",
         variant: "main"
