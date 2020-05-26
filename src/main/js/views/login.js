@@ -13,27 +13,29 @@ class Login extends Component {
     render() {
         return (
             <React.Fragment>
-                <NavBar background />
-                <Col lg={4} md={5} sm={7} className="mx-auto mt-5">
-                    <Form className="floating-form mb-5">
-                        <h2 className="text-center mb-4">
-                            <b>Login</b>
-                        </h2>
-                        <Form.Group controlId="email">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" />
-                        </Form.Group>
-                        <Form.Group controlId="password">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" />
-                        </Form.Group>
-                        <Row className="justify-content-center">
-                            <Button variant="main" type="submit">
-                                Submit
-                            </Button>
-                        </Row>
-                    </Form>
-                </Col>
+                <div>
+                    <NavBar />
+                    <Col lg={4} md={5} sm={7} className="mx-auto mt-5">
+                        <Form className="floating-form mb-5">
+                            <h2 className="text-center mb-4">
+                                <b>Login</b>
+                            </h2>
+                            <Form.Group controlId="email">
+                                <Form.Label>Email address</Form.Label>
+                                <Form.Control type="email" />
+                            </Form.Group>
+                            <Form.Group controlId="password">
+                                <Form.Label>Password</Form.Label>
+                                <Form.Control type="password" />
+                            </Form.Group>
+                            <Row className="justify-content-center">
+                                <Button variant="main" type="submit">
+                                    Submit
+                                </Button>
+                            </Row>
+                        </Form>
+                    </Col>
+                </div>
                 <Footer />
             </React.Fragment>
         );
