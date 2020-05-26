@@ -11,7 +11,7 @@ import Flexible from "../../resources/static/img/flexible.svg";
 import Simple from "../../resources/static/img/simple.svg";
 import People from "../../resources/static/img/people.png";
 
-import NavBar from "./components/navbar.js"
+import NavBar from "./components/navbar.js";
 import Footer from "./components/footer.js";
 
 import "../app.scss";
@@ -154,13 +154,11 @@ class Landing extends Component {
     render() {
         return (
             <React.Fragment>
-                <div>
-                    <Header />
-                    <Container className="px-2">
-                        <Qualities />
-                        <Mission />
-                    </Container>
-                </div>
+                <Header />
+                <Container className="px-2">
+                    <Qualities />
+                    <Mission />
+                </Container>
                 <Footer />
             </React.Fragment>
         );

@@ -9,12 +9,18 @@ import "../../app.scss";
 
 class NavBar extends Component {
     render() {
+        const border = {};
+        if (this.props.background) {
+            border = { borderBottom: "1px solid rgba(0,0,0,0.3)" };
+        }
+
         return (
             <Navbar
-                className="mx-md-5 mt-3 align-items-center text-center"
+                className="px-md-5 py-3 align-items-center text-center"
                 variant="light"
-                bg="transparent"
                 expand="md"
+                bg={this.props.background ? "white" : "transparent"}
+                style = {border}
             >
                 <Navbar.Brand href="/">
                     <img

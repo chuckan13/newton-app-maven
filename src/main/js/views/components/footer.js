@@ -10,9 +10,9 @@ import { FaLinkedin } from "react-icons/fa";
 
 import "../../app.scss";
 
-function Footer() {
+function Footer(props) {
     return (
-        <footer className="footer text-center">
+        <footer className="footer text-center" style={footerStyle}>
             <Row className="w-100 mx-auto">
                 <Col xs lg="4" className="text-left">
                     <img src={Logo} height="30" alt="Newton Logo" />
