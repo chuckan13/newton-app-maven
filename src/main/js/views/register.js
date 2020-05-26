@@ -38,7 +38,7 @@ class Register extends Component {
                             />
                         </Form.Group>
                         <Row className="justify-content-center">
-                            <Button variant="primary" type="submit">
+                            <Button variant="main" type="submit">
                                 Submit
                             </Button>
                         </Row>

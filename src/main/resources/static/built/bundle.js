@@ -46436,7 +46436,7 @@ var Login = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
         className: "justify-content-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        variant: "primary",
+        variant: "main",
         type: "submit"
       }, "Submit")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_js__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
@@ -46542,7 +46542,7 @@ var Register = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
         className: "justify-content-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        variant: "primary",
+        variant: "main",
         type: "submit"
       }, "Submit")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_js__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }

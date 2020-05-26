@@ -28,7 +28,7 @@ class Login extends Component {
                             <Form.Control type="password" />
                         </Form.Group>
                         <Row className="justify-content-center">
-                            <Button variant="primary" type="submit">
+                            <Button variant="main" type="submit">
                                 Submit
                             </Button>
                         </Row>
