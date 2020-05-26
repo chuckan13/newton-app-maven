@@ -10,7 +10,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 import "../../app.scss";
 
-function Footer(props) {
+function Footer() {
     return (
         <footer className="footer text-center">
             <Row className="w-100 mx-auto">

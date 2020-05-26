@@ -9,7 +9,7 @@ import "../../app.scss";
 
 class NavBar extends Component {
     render() {
-        const border = {};
+        let border = {};
         if (this.props.background) {
             border = { borderBottom: "1px solid rgba(0,0,0,0.3)" };
         }
