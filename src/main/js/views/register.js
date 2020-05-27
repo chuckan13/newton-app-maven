@@ -168,7 +168,7 @@ function RegistrationForm() {
                         type="invalid"
                         className="position-absolute"
                     >
-                        {errors.confirmPassword}
+                        {errors.terms}
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Row className="justify-content-center">
