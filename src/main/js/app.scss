@@ -58,8 +58,10 @@ body {
     border-radius: 8px;
     font-weight: bold;
     &:hover {
-        color: white;
         background-color: theme-color-level("primary", -3);
+    }
+    &:disabled {
+        background-color: theme-color-level("primary", -6);
     }
 }
 
