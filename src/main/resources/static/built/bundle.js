@@ -61175,9 +61175,11 @@ function RegistrationForm() {
     value: values.terms,
     onChange: handleChange,
     isInvalid: !!errors.terms,
-    feedback: errors.terms,
     id: "terms"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
+    type: "invalid",
+    className: "position-absolute"
+  }, errors.confirmPassword)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
     className: "justify-content-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "submit",
@@ -61204,7 +61206,7 @@ var Register = /*#__PURE__*/function (_Component) {
         lg: 4,
         md: 5,
         sm: 7,
-        className: "mx-auto mt-5"
+        className: "mx-auto mt-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(RegistrationForm, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_js__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);

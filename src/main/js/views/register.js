@@ -162,9 +162,14 @@ function RegistrationForm() {
                         value={values.terms}
                         onChange={handleChange}
                         isInvalid={!!errors.terms}
-                        feedback={errors.terms}
                         id="terms"
                     />
+                    <Form.Control.Feedback
+                        type="invalid"
+                        className="position-absolute"
+                    >
+                        {errors.confirmPassword}
+                    </Form.Control.Feedback>
                 </Form.Group>
                 <Row className="justify-content-center">
                     <Button type="submit" variant="main" disabled={!(isValid && dirty)}>
@@ -182,7 +187,7 @@ class Register extends Component {
             <React.Fragment>
                 <div>
                     <NavBar />
-                    <Col lg={4} md={5} sm={7} className="mx-auto mt-5">
+                    <Col lg={4} md={5} sm={7} className="mx-auto mt-4">
                         <RegistrationForm />
                     </Col>
                 </div>
