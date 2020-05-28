@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
 public class LoginuserController {
     private LoginuserRepository repository;
+    private NoOpPasswordEncoder noOp;
 
     @Autowired
     public LoginuserController(LoginuserRepository repository) {
@@ -64,6 +66,12 @@ public class LoginuserController {
     public ResponseEntity<Loginuser> update(@RequestBody Loginuser user, Principal principal) {
         repository.save(user);
         return get(user.getId(), principal);
+    }
+
+    @PostMapping("/sign-up")
+    public void signUp(@RequestBody Loginuser user) {
+        user.setPassword(NoOpPasswordEncoder.getInstance().encode(user.getPassword()));
+        repository.save(user);
     }
 
     @RequestMapping
