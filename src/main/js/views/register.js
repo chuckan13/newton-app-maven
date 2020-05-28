@@ -36,7 +36,9 @@ function RegistrationForm() {
         dirty,
         isValid,
     } = useFormik({
-        initialValues: {},
+        initialValues: {
+            terms: false
+        },
         validationSchema,
         onSubmit(values) {
             console.log(values);
@@ -146,6 +148,7 @@ function RegistrationForm() {
                         label="I agree to terms and conditions"
                         value={values.terms}
                         onChange={handleChange}
+                        onBlur={handleBlur}
                         isInvalid={touched.terms && !!errors.terms}
                         id="terms"
                     />

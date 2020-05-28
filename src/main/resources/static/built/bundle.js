@@ -61071,7 +61071,9 @@ var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
 
 function RegistrationForm() {
   var _useFormik = Object(formik__WEBPACK_IMPORTED_MODULE_8__["useFormik"])({
-    initialValues: {},
+    initialValues: {
+      terms: false
+    },
     validationSchema: validationSchema,
     onSubmit: function onSubmit(values) {
       console.log(values);
@@ -61169,6 +61171,7 @@ function RegistrationForm() {
     label: "I agree to terms and conditions",
     value: values.terms,
     onChange: handleChange,
+    onBlur: handleBlur,
     isInvalid: touched.terms && !!errors.terms,
     id: "terms"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
