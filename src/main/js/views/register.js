@@ -146,7 +146,7 @@ function RegistrationForm() {
                         label="I agree to terms and conditions"
                         value={values.terms}
                         onChange={handleChange}
-                        isInvalid={!!errors.terms}
+                        isInvalid={touched.terms && !!errors.terms}
                         id="terms"
                     />
                 </Form.Group>
