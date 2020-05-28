@@ -66,10 +66,7 @@ function RegistrationForm() {
                             isValid={touched.firstName && !errors.firstName}
                             isInvalid={touched.firstName && !!errors.firstName}
                         />
-                        <Form.Control.Feedback
-                            type="invalid"
-                            className="position-absolute"
-                        >
+                        <Form.Control.Feedback type="invalid">
                             {errors.firstName}
                         </Form.Control.Feedback>
                     </Form.Group>
@@ -85,10 +82,7 @@ function RegistrationForm() {
                             isValid={touched.lastName && !errors.lastName}
                             isInvalid={touched.lastName && !!errors.lastName}
                         />
-                        <Form.Control.Feedback
-                            type="invalid"
-                            className="position-absolute"
-                        >
+                        <Form.Control.Feedback type="invalid">
                             {errors.lastName}
                         </Form.Control.Feedback>
                     </Form.Group>
@@ -105,10 +99,7 @@ function RegistrationForm() {
                         isValid={touched.email && !errors.email}
                         isInvalid={touched.email && !!errors.email}
                     />
-                    <Form.Control.Feedback
-                        type="invalid"
-                        className="position-absolute"
-                    >
+                    <Form.Control.Feedback type="invalid">
                         {errors.email}
                     </Form.Control.Feedback>
                 </Form.Group>
@@ -124,10 +115,7 @@ function RegistrationForm() {
                         isValid={touched.password && !errors.password}
                         isInvalid={touched.password && !!errors.password}
                     />
-                    <Form.Control.Feedback
-                        type="invalid"
-                        className="position-absolute"
-                    >
+                    <Form.Control.Feedback type="invalid">
                         {errors.password}
                     </Form.Control.Feedback>
                 </Form.Group>
@@ -147,10 +135,7 @@ function RegistrationForm() {
                             touched.confirmPassword && !!errors.confirmPassword
                         }
                     />
-                    <Form.Control.Feedback
-                        type="invalid"
-                        className="position-absolute"
-                    >
+                    <Form.Control.Feedback type="invalid">
                         {errors.confirmPassword}
                     </Form.Control.Feedback>
                 </Form.Group>
@@ -164,15 +149,13 @@ function RegistrationForm() {
                         isInvalid={!!errors.terms}
                         id="terms"
                     />
-                    <Form.Control.Feedback
-                        type="invalid"
-                        className="position-absolute"
-                    >
-                        {errors.terms}
-                    </Form.Control.Feedback>
                 </Form.Group>
                 <Row className="justify-content-center">
-                    <Button type="submit" variant="main" disabled={!(isValid && dirty)}>
+                    <Button
+                        type="submit"
+                        variant="main"
+                        disabled={!(isValid && dirty)}
+                    >
                         Submit
                     </Button>
                 </Row>

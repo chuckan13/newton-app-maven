@@ -47,6 +47,10 @@ body {
     color: map-get($theme-colors, "primary");
 }
 
+.invalid-feedback {
+    position: absolute;
+}
+
 .navbar {
     z-index: 10;
 }
