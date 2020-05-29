@@ -160,7 +160,7 @@ function RegistrationForm() {
                         variant="main"
                         disabled={!(isValid && dirty) || isSubmitting}
                     >
-                        {isSubmitting ? "Submit" : "Loading..."}
+                        {isSubmitting ? "Loading..." : "Submit"}
                     </Button>
                 </Row>
             </Form>

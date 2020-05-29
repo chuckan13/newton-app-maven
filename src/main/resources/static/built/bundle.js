@@ -61181,7 +61181,7 @@ function RegistrationForm() {
     type: "submit",
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting
-  }, isSubmitting ? "Submit" : "Loading..."))));
+  }, isSubmitting ? "Loading..." : "Submit"))));
 }
 
 var Register = /*#__PURE__*/function (_Component) {
