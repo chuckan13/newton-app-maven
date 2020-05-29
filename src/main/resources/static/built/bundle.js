@@ -61086,7 +61086,8 @@ function RegistrationForm() {
       touched = _useFormik.touched,
       handleBlur = _useFormik.handleBlur,
       dirty = _useFormik.dirty,
-      isValid = _useFormik.isValid;
+      isValid = _useFormik.isValid,
+      isSubmitting = _useFormik.isSubmitting;
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"], {
     noValidate: true,
@@ -61179,8 +61180,8 @@ function RegistrationForm() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "submit",
     variant: "main",
-    disabled: !(isValid && dirty)
-  }, "Submit"))));
+    disabled: !(isValid && dirty) || isSubmitting
+  }, isSubmitting ? "Submit" : "Loading..."))));
 }
 
 var Register = /*#__PURE__*/function (_Component) {

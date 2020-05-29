@@ -35,6 +35,7 @@ function RegistrationForm() {
         handleBlur,
         dirty,
         isValid,
+        isSubmitting
     } = useFormik({
         initialValues: {
             terms: false
@@ -157,9 +158,9 @@ function RegistrationForm() {
                     <Button
                         type="submit"
                         variant="main"
-                        disabled={!(isValid && dirty)}
+                        disabled={!(isValid && dirty) || isSubmitting}
                     >
-                        Submit
+                        {isSubmitting ? "Submit" : "Loading..."}
                     </Button>
                 </Row>
             </Form>
