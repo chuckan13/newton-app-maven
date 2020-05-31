@@ -42,7 +42,7 @@ function RegistrationForm() {
         },
         validationSchema,
         onSubmit(values) {
-            const data = {
+            const data = JSON.stringify({
                 fullName: values.firstName + " " + values.lastName,
                 userName: values.email,
                 role: "USER",
@@ -50,14 +50,14 @@ function RegistrationForm() {
                 loanOption1: "LO1",
                 loanOption2: "LO2",
                 loanOption3: "LO3",
-            };
+            });
             fetch("https://newton-server-maven.herokuapp.com/users/new", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
                 },
-                body: JSON.stringify(data),
+                body: data,
             })
                 .then((response) => response.json())
                 .then((data) => {
