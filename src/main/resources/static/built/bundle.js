@@ -61076,8 +61076,14 @@ function RegistrationForm() {
     },
     validationSchema: validationSchema,
     onSubmit: function onSubmit(values) {
-      var data = values;
-      fetch("https://newton-server-maven.herokuapp.com/users/sign-up", {
+      var data = {
+        id: 991,
+        fullName: values.firstName + " " + values.lastName,
+        userName: values.email,
+        role: "USER",
+        password: values.password
+      };
+      fetch("https://newton-server-maven.herokuapp.com/users/new", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
