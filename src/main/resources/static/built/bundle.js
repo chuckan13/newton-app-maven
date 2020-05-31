@@ -61077,7 +61077,7 @@ function RegistrationForm() {
     validationSchema: validationSchema,
     onSubmit: function onSubmit(values) {
       var data = {
-        id: "991",
+        id: 991,
         fullName: values.firstName + " " + values.lastName,
         userName: values.email,
         role: "USER",
