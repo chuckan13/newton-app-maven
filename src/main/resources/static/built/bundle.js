@@ -61076,7 +61076,21 @@ function RegistrationForm() {
     },
     validationSchema: validationSchema,
     onSubmit: function onSubmit(values) {
-      console.log(values);
+      var data = values;
+      fetch("https://newton-server-maven.herokuapp.com/users/sign-up", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(data)
+      }).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        console.log("Success:", data);
+      })["catch"](function (error) {
+        console.error("Error:", error);
+      });
     }
   }),
       handleSubmit = _useFormik.handleSubmit,

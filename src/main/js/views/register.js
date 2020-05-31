@@ -35,14 +35,29 @@ function RegistrationForm() {
         handleBlur,
         dirty,
         isValid,
-        isSubmitting
+        isSubmitting,
     } = useFormik({
         initialValues: {
-            terms: false
+            terms: false,
         },
         validationSchema,
         onSubmit(values) {
-            console.log(values);
+            const data = values;
+            fetch("https://newton-server-maven.herokuapp.com/users/sign-up", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log("Success:", data);
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
         },
     });
 
