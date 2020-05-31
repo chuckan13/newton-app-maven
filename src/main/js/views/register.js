@@ -44,13 +44,13 @@ function RegistrationForm() {
         onSubmit(values) {
             const data = {
                 "id": 991,
-                fullName: values.firstName + " " + values.lastName,
-                userName: values.email,
-                role: "USER",
-                password: values.password,
-                loanOption1: "LO1",
-                loanOption2: "LO2",
-                loanOption3: "LO3",
+                "fullName": values.firstName + " " + values.lastName,
+                "userName": values.email,
+                "role": "USER",
+                "password": values.password,
+                "loanOption1": "LO1",
+                "loanOption2": "LO2",
+                "loanOption3": "LO3",
             };
             fetch("https://newton-server-maven.herokuapp.com/users/new", {
                 method: "POST",
@@ -58,7 +58,7 @@ function RegistrationForm() {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
                 },
-                body: JSON.stringify(data),
+                body: data,
             })
                 .then((response) => response.json())
                 .then((data) => {
