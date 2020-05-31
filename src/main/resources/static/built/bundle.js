@@ -61092,7 +61092,7 @@ function RegistrationForm() {
           "Content-Type": "application/json",
           "Accept": "application/json"
         },
-        body: data
+        body: JSON.stringify(data)
       }).then(function (response) {
         return response.json();
       }).then(function (data) {
