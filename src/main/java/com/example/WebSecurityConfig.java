@@ -47,8 +47,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // AntPathRequestMatcher("/logout"))
                 // .logoutSuccessUrl("/logout-success").permitAll();
 
-                .httpBasic().and().authorizeRequests().antMatchers(HttpMethod.GET, "/**").hasRole("USER").and().csrf()
-                .disable().formLogin().disable();
+                .httpBasic().and().authorizeRequests().antMatchers(HttpMethod.GET, "/**").hasRole("USER").and()
+                .authorizeRequests().antMatchers(HttpMethod.PATCH, "/**").hasRole("USER").and().csrf().disable()
+                .formLogin().disable();
 
     }
 }
