@@ -30,7 +30,7 @@ function LoginForm() {
 		isSubmitting
 	} = useFormik({
 		initialValues: {
-			userName: '',
+			username: '',
 			password: ''
 		},
 		validationSchema,
