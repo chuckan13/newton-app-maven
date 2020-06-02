@@ -38,13 +38,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(HttpSecurity http) throws Exception { // .anyRequest().authenticated()
         http
 
-                .csrf().disable().authorizeRequests().antMatchers("/login").permitAll().anyRequest().authenticated()
-                .and().formLogin().loginPage("/login").permitAll().and().logout().invalidateHttpSession(true)
-                .clearAuthentication(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/logout-success").permitAll();
+                .csrf().disable().authorizeRequests().antMatchers("/login").permitAll().and().formLogin()
+                .loginPage("/login").permitAll().and().logout().invalidateHttpSession(true).clearAuthentication(true)
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/logout-success")
+                .permitAll();
 
         // .httpBasic().and().authorizeRequests().antMatchers(HttpMethod.GET,
         // "/**").hasRole("USER").and()
