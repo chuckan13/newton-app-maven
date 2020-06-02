@@ -36,6 +36,8 @@ function LoginForm() {
 		validationSchema,
 		onSubmit(values) {
 			const loginData = JSON.stringify(values);
+			console.log('LOG IN VALUES');
+			console.log(values);
 			fetch('https://newton-server-maven.herokuapp.com/login', {
 				method: 'POST',
 				headers: {
@@ -44,10 +46,10 @@ function LoginForm() {
 				},
 				body: loginData
 			})
-				.then(response => response.json())
-				.then(data => {
+				.then(checkResponseStatus)
+				.then(response => {
 					console.log('success');
-					console.log('Success:', data);
+					console.log('Success:', response);
 				})
 				.catch(error => {
 					console.error('Error:', error);

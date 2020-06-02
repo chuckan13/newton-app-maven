@@ -42,7 +42,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
 
                 .csrf().disable().authorizeRequests().antMatchers("/login").permitAll().and().formLogin()
-                .loginPage("/login").permitAll().and().logout().invalidateHttpSession(true).clearAuthentication(true)
+                .loginPage("/login").defaultSuccessUrl("/", true).failureUrl("/howitworks").loginProcessingUrl("/login")
+                .permitAll().and().logout().invalidateHttpSession(true).clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/logout-success")
                 .permitAll();
 
