@@ -61014,7 +61014,7 @@ function LoginForm() {
     className: "pb-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
     type: "email",
-    name: "email",
+    name: "username",
     value: values.email,
     onChange: handleChange,
     onBlur: handleBlur,

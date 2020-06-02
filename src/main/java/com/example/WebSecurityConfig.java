@@ -40,9 +40,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception { // .anyRequest().authenticated()
         http
-
-                .csrf().disable().authorizeRequests().antMatchers("/login").permitAll().and().formLogin()
-                .loginPage("/login").defaultSuccessUrl("/", true).failureUrl("/howitworks").loginProcessingUrl("/login")
+                // leave csrf() ON during production
+                .csrf().disable().authorizeRequests().antMatchers("/login").permitAll().anyRequest().authenticated()
+                .and().formLogin().defaultSuccessUrl("/").failureUrl("/howitworks").loginProcessingUrl("/login")
                 .permitAll().and().logout().invalidateHttpSession(true).clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/logout-success")
                 .permitAll();

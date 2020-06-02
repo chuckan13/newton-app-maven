@@ -65,7 +65,7 @@ function LoginForm() {
 				<Form.Label>Email</Form.Label>
 				<Form.Control
 					type="email"
-					name="email"
+					name="username"
 					value={values.email}
 					onChange={handleChange}
 					onBlur={handleBlur}
