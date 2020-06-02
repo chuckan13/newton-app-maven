@@ -9,31 +9,93 @@ import Button from "react-bootstrap/Button";
 
 import "../app.scss";
 
+import { useFormik } from "formik";
+import * as Yup from "yup";
+
+const validationSchema = Yup.object().shape({
+    email: Yup.string().email("Must be a valid email").required("Required"),
+    password: Yup.string().required("Required"),
+});
+
+function LoginForm() {
+    const {
+        handleSubmit,
+        handleChange,
+        values,
+        errors,
+        touched,
+        handleBlur,
+        dirty,
+        isValid,
+        isSubmitting,
+    } = useFormik({
+        validationSchema,
+        onSubmit(values) {
+            console.log(values);
+        },
+    });
+    return (
+        <Form
+            noValidate
+            onSubmit={handleSubmit}
+            className="text-left floating-form mb-5"
+        >
+            <h2 className="text-center mb-4">
+                <b>Login</b>
+            </h2>
+            <Form.Group className="pb-2">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                    type="email"
+                    name="email"
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    placeholder="Email"
+                    isValid={touched.email && !errors.email}
+                    isInvalid={touched.email && !!errors.email}
+                />
+                <Form.Control.Feedback type="invalid">
+                    {errors.email}
+                </Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group className="pb-2">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                    type="password"
+                    name="password"
+                    value={values.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    placeholder="Password"
+                    isValid={touched.password && !errors.password}
+                    isInvalid={touched.password && !!errors.password}
+                />
+                <Form.Control.Feedback type="invalid">
+                    {errors.password}
+                </Form.Control.Feedback>
+            </Form.Group>
+            <Row className="justify-content-center">
+                <Button
+                    type="submit"
+                    variant="main"
+                    disabled={!(isValid && dirty) || isSubmitting}
+                >
+                    {isSubmitting ? "Loading..." : "Submit"}
+                </Button>
+            </Row>
+        </Form>
+    );
+}
+
 class Login extends Component {
     render() {
         return (
             <React.Fragment>
                 <div>
                     <NavBar />
-                    <Col lg={4} md={5} sm={7} className="mx-auto mt-5">
-                        <Form className="floating-form mb-5">
-                            <h2 className="text-center mb-4">
-                                <b>Login</b>
-                            </h2>
-                            <Form.Group controlId="email">
-                                <Form.Label>Email address</Form.Label>
-                                <Form.Control type="email" />
-                            </Form.Group>
-                            <Form.Group controlId="password">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" />
-                            </Form.Group>
-                            <Row className="justify-content-center">
-                                <Button variant="main" type="submit">
-                                    Submit
-                                </Button>
-                            </Row>
-                        </Form>
+                    <Col lg={4} md={5} sm={7} className="mx-auto mt-4">
+                        <LoginForm />
                     </Col>
                 </div>
                 <Footer />
