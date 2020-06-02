@@ -60970,6 +60970,10 @@ var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
 
 function LoginForm() {
   var _useFormik = Object(formik__WEBPACK_IMPORTED_MODULE_8__["useFormik"])({
+    initialValues: {
+      email: "",
+      password: ""
+    },
     validationSchema: validationSchema,
     onSubmit: function onSubmit(values) {
       console.log(values);

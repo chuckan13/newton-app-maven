@@ -29,6 +29,10 @@ function LoginForm() {
         isValid,
         isSubmitting,
     } = useFormik({
+        initialValues: {
+            email: "",
+            password: "",
+        },
         validationSchema,
         onSubmit(values) {
             console.log(values);
