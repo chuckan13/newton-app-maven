@@ -60964,19 +60964,34 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
-  email: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().email("Must be a valid email").required("Required"),
-  password: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required")
+  email: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().email('Must be a valid email').required('Required'),
+  password: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required('Required')
 });
 
 function LoginForm() {
   var _useFormik = Object(formik__WEBPACK_IMPORTED_MODULE_8__["useFormik"])({
     initialValues: {
-      email: "",
-      password: ""
+      username: '',
+      password: ''
     },
     validationSchema: validationSchema,
     onSubmit: function onSubmit(values) {
+      var loginData = JSON.stringify(values);
+      console.log('LOG IN VALUES');
       console.log(values);
+      fetch('https://newton-server-maven.herokuapp.com/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: loginData
+      }).then(checkResponseStatus).then(function (response) {
+        console.log('success');
+        console.log('Success:', response);
+      })["catch"](function (error) {
+        console.error('Error:', error);
+      });
     }
   }),
       handleSubmit = _useFormik.handleSubmit,
@@ -61027,7 +61042,7 @@ function LoginForm() {
     type: "submit",
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting
-  }, isSubmitting ? "Loading..." : "Submit")));
+  }, isSubmitting ? 'Loading...' : 'Submit')));
 }
 
 var Login = /*#__PURE__*/function (_Component) {
