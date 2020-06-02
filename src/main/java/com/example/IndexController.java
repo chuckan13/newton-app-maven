@@ -18,10 +18,10 @@ public class IndexController {
     // return "Welcome to home page";
     // }
 
-    // @RequestMapping("/login")
-    // public String loginPage(Map<String, Object> model) {
-    // return "login";
-    // }
+    @RequestMapping("/login")
+    public String loginPage(Map<String, Object> model) {
+        return "login.js";
+    }
 
     // @RequestMapping("/logout-success")
     // public String logoutPage(Map<String, Object> model) {

@@ -38,6 +38,7 @@ function LoginForm() {
 			const loginData = JSON.stringify(values);
 			console.log('LOG IN VALUES');
 			console.log(values);
+			debugger;
 			fetch('https://newton-server-maven.herokuapp.com/login', {
 				method: 'POST',
 				headers: {
@@ -50,6 +51,7 @@ function LoginForm() {
 				.then(response => {
 					console.log('success');
 					console.log('Success:', response);
+					debugger;
 				})
 				.catch(error => {
 					console.error('Error:', error);

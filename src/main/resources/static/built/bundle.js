@@ -60979,6 +60979,7 @@ function LoginForm() {
       var loginData = JSON.stringify(values);
       console.log('LOG IN VALUES');
       console.log(values);
+      debugger;
       fetch('https://newton-server-maven.herokuapp.com/login', {
         method: 'POST',
         headers: {
@@ -60989,6 +60990,7 @@ function LoginForm() {
       }).then(checkResponseStatus).then(function (response) {
         console.log('success');
         console.log('Success:', response);
+        debugger;
       })["catch"](function (error) {
         console.error('Error:', error);
       });
