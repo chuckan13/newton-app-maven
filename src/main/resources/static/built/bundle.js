@@ -60980,7 +60980,7 @@ function LoginForm() {
       console.log('LOG IN VALUES');
       console.log(values);
       debugger;
-      fetch('https://newton-server-maven.herokuapp.com/login', {
+      fetch('https://newton-server-maven.herokuapp.com/login-process', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
