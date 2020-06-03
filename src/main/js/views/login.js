@@ -35,17 +35,19 @@ function LoginForm() {
 		},
 		validationSchema,
 		onSubmit(values) {
-			const loginData = JSON.stringify(values);
+			let formData = new FormData();
+
+			formData.append('username', values.username);
+			formData.append('password', values.password);
+			const data = new URLSearchParams(formData);
+			// const loginData = JSON.stringify(values);
 			console.log('LOG IN VALUES');
-			console.log(values);
+			console.log(formData);
+			console.log(data);
 			debugger;
 			fetch('https://newton-server-maven.herokuapp.com/login-process', {
 				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-					Accept: 'application/json'
-				},
-				body: loginData
+				body: data
 			})
 				.then(response => {
 					debugger;

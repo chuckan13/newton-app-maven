@@ -60977,17 +60977,18 @@ function LoginForm() {
     },
     validationSchema: validationSchema,
     onSubmit: function onSubmit(values) {
-      var loginData = JSON.stringify(values);
+      var formData = new FormData();
+      formData.append('username', values.username);
+      formData.append('password', values.password);
+      var data = new URLSearchParams(formData); // const loginData = JSON.stringify(values);
+
       console.log('LOG IN VALUES');
-      console.log(values);
+      console.log(formData);
+      console.log(data);
       debugger;
       fetch('https://newton-server-maven.herokuapp.com/login-process', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json'
-        },
-        body: loginData
+        body: data
       }).then(function (response) {
         debugger;
         response.json();
