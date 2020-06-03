@@ -92,7 +92,8 @@ function LoginForm() {
 				<Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
 			</Form.Group>
 			<Row className="justify-content-center">
-				<Button type="submit" variant="main" disabled={!(isValid && dirty) || isSubmitting}>
+				{/* disabled={!(isValid && dirty) || isSubmitting} */}
+				<Button type="submit" variant="main">
 					{isSubmitting ? 'Loading...' : 'Submit'}
 				</Button>
 			</Row>

@@ -61043,8 +61043,7 @@ function LoginForm() {
     className: "justify-content-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "submit",
-    variant: "main",
-    disabled: !(isValid && dirty) || isSubmitting
+    variant: "main"
   }, isSubmitting ? 'Loading...' : 'Submit')));
 }
 
