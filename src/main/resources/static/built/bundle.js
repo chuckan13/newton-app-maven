@@ -60497,7 +60497,7 @@ var NavBar = /*#__PURE__*/function (_Component) {
 
       if (this.props.background) {
         border = {
-          borderBottom: "1px solid rgba(0,0,0,0.3)"
+          borderBottom: '1px solid rgba(0,0,0,0.3)'
         };
       }
 
@@ -60505,7 +60505,7 @@ var NavBar = /*#__PURE__*/function (_Component) {
         className: "px-md-5 py-3 align-items-center text-center",
         variant: "light",
         expand: "md",
-        bg: this.props.background ? "white" : "transparent",
+        bg: this.props.background ? 'white' : 'transparent',
         style: border
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_NavBar__WEBPACK_IMPORTED_MODULE_1__["default"].Brand, {
         href: "/"
@@ -60530,7 +60530,7 @@ var NavBar = /*#__PURE__*/function (_Component) {
         href: "#apply",
         className: "mx-3"
       }, "Apply now"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        href: "/login",
+        href: "/loginpage",
         variant: "main"
       }, "Sign In"))));
     }
