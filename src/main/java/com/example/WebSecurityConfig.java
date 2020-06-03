@@ -43,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // leave csrf() ON during production
                 .csrf().disable().authorizeRequests()
                 .antMatchers("/", "/built/bundle.js", "/resources/**", "/*.js", "/static/**", "/js/**", "/img/**",
-                        "/loginpage")
+                        "/loginpage", "/login.html")
                 .permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login").defaultSuccessUrl("/")
                 .failureUrl("/howitworks").loginProcessingUrl("/login-process").permitAll().and().logout()
                 .invalidateHttpSession(true).clearAuthentication(true)

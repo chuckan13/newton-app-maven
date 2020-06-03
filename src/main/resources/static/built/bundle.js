@@ -60530,7 +60530,7 @@ var NavBar = /*#__PURE__*/function (_Component) {
         href: "#apply",
         className: "mx-3"
       }, "Apply now"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        href: "/loginpage",
+        href: "/login",
         variant: "main"
       }, "Sign In"))));
     }

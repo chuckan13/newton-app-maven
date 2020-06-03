@@ -36,7 +36,7 @@ class NavBar extends Component {
 						<Nav.Link href="#apply" className="mx-3">
 							Apply now
 						</Nav.Link>
-						<Button href="/loginpage" variant="main">
+						<Button href="/login" variant="main">
 							Sign In
 						</Button>
 					</Nav>
