@@ -51,7 +51,8 @@ function LoginForm() {
 			})
 				.then(response => {
 					console.log('Success');
-					console.log(response);
+					console.log(response.url);
+					window.location.replace(response.url);
 				})
 				.catch(error => {
 					console.error('Error:', error);

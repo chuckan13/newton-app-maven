@@ -60991,7 +60991,8 @@ function LoginForm() {
         body: data
       }).then(function (response) {
         console.log('Success');
-        console.log(response);
+        console.log(response.url);
+        window.location.replace(response.url);
       })["catch"](function (error) {
         console.error('Error:', error);
       });
