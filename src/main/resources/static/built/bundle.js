@@ -60965,7 +60965,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
-  email: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().email('Must be a valid email').required('Required'),
+  username: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().email('Must be a valid email').required('Required'),
   password: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required('Required')
 });
 
@@ -61018,15 +61018,15 @@ function LoginForm() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
     type: "email",
     name: "username",
-    value: values.email,
+    value: values.username,
     onChange: handleChange,
     onBlur: handleBlur,
     placeholder: "Email",
-    isValid: touched.email && !errors.email,
-    isInvalid: touched.email && !!errors.email
+    isValid: touched.username && !errors.username,
+    isInvalid: touched.username && !!errors.username
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
     type: "invalid"
-  }, errors.email)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
+  }, errors.username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
     className: "pb-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
     type: "password",

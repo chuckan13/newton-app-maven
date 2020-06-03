@@ -13,7 +13,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 const validationSchema = Yup.object().shape({
-	email: Yup.string().email('Must be a valid email').required('Required'),
+	username: Yup.string().email('Must be a valid email').required('Required'),
 	password: Yup.string().required('Required')
 });
 
@@ -68,14 +68,14 @@ function LoginForm() {
 				<Form.Control
 					type="email"
 					name="username"
-					value={values.email}
+					value={values.username}
 					onChange={handleChange}
 					onBlur={handleBlur}
 					placeholder="Email"
-					isValid={touched.email && !errors.email}
-					isInvalid={touched.email && !!errors.email}
+					isValid={touched.username && !errors.username}
+					isInvalid={touched.username && !!errors.username}
 				/>
-				<Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
+				<Form.Control.Feedback type="invalid">{errors.username}</Form.Control.Feedback>
 			</Form.Group>
 			<Form.Group className="pb-2">
 				<Form.Label>Password</Form.Label>
