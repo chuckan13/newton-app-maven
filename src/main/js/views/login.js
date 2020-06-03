@@ -47,10 +47,13 @@ function LoginForm() {
 				},
 				body: loginData
 			})
-				.then(checkResponseStatus)
 				.then(response => {
+					debugger;
+					response.json();
+				})
+				.then(data => {
 					console.log('success');
-					console.log('Success:', response);
+					console.log('Success:', data);
 					debugger;
 				})
 				.catch(error => {

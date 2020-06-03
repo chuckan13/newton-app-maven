@@ -60988,9 +60988,12 @@ function LoginForm() {
           Accept: 'application/json'
         },
         body: loginData
-      }).then(checkResponseStatus).then(function (response) {
+      }).then(function (response) {
+        debugger;
+        response.json();
+      }).then(function (data) {
         console.log('success');
-        console.log('Success:', response);
+        console.log('Success:', data);
         debugger;
       })["catch"](function (error) {
         console.error('Error:', error);
