@@ -41,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception { // .anyRequest().authenticated()
         http
                 // leave csrf() ON during production
-                .csrf().disable().authorizeRequests().antMatchers("/", "/index", "/index.html").permitAll().anyRequest()
+                .csrf().disable().authorizeRequests().antMatchers("/", "/login").permitAll().anyRequest()
                 .authenticated().and().formLogin().defaultSuccessUrl("/").failureUrl("/howitworks")
                 .loginProcessingUrl("/login-process").permitAll().and().logout().invalidateHttpSession(true)
                 .clearAuthentication(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
