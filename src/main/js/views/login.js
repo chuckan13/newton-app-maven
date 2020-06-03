@@ -41,22 +41,17 @@ function LoginForm() {
 			formData.append('password', values.password);
 			const data = new URLSearchParams(formData);
 			// const loginData = JSON.stringify(values);
-			console.log('LOG IN VALUES');
-			console.log(formData);
-			console.log(data);
-			debugger;
+			// console.log('LOG IN VALUES');
+			// console.log(formData);
+			// console.log(data);
+			// debugger;
 			fetch('https://newton-server-maven.herokuapp.com/login-process', {
 				method: 'POST',
 				body: data
 			})
 				.then(response => {
-					debugger;
-					response.json();
-				})
-				.then(data => {
-					console.log('success');
-					console.log('Success:', data);
-					debugger;
+					console.log('Success');
+					console.log(response);
 				})
 				.catch(error => {
 					console.error('Error:', error);
