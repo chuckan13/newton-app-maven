@@ -61006,10 +61006,8 @@ function LoginForm() {
         },
         body: data
       }).then(function (response) {
-        return response.json();
-      }).then(function (data) {
         console.log('Success');
-        console.log(data); // window.location.replace(response.url);
+        console.log(response); // window.location.replace(response.url);
       })["catch"](function (error) {
         console.error('Error:', error);
       });
