@@ -64,10 +64,9 @@ function LoginForm() {
 				},
 				body: data
 			})
-				.then(response => response.json())
-				.then(data => {
+				.then(response => {
 					console.log('Success');
-					console.log(data);
+					console.log(response);
 					// window.location.replace(response.url);
 				})
 				.catch(error => {
