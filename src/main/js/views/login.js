@@ -35,11 +35,14 @@ function LoginForm() {
 		},
 		validationSchema,
 		onSubmit(values) {
-			let formData = new FormData();
-
-			formData.append('username', values.username);
-			formData.append('password', values.password);
-			const data = new URLSearchParams(formData);
+			// let formData = new FormData();
+			// formData.append('username', values.username);
+			// formData.append('password', values.password);
+			// const data = new URLSearchParams(formData);
+			const data = JSON.stringify({
+				username: values.username,
+				password: values.password
+			});
 			// const loginData = JSON.stringify(values);
 			// console.log('LOG IN VALUES');
 			// console.log(formData);
@@ -47,6 +50,10 @@ function LoginForm() {
 			// debugger;
 			fetch('https://newton-server-maven.herokuapp.com/login-process', {
 				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					Accept: 'application/json'
+				},
 				body: data
 			})
 				.then(response => {
