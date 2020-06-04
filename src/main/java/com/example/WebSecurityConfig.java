@@ -53,23 +53,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable().authorizeRequests()
                 .antMatchers("/", "/built/bundle.js", "/resources/**", "/*.js", "/static/**", "/js/**", "/img/**",
                         "/loginpage", "/login.html")
-                .permitAll().anyRequest().authenticated().and()
-                .addFilter(new JWTAuthenticationFilter(authenticationManager()))
-                .addFilter(new JWTAuthorizationFilter(authenticationManager())).sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        // .and().formLogin().loginPage("/login.html")
-        // .defaultSuccessUrl("/",
-        // true).failureUrl("/howitworks").loginProcessingUrl("/login-process").permitAll()
-        // .and().logout().invalidateHttpSession(true).clearAuthentication(true)
-        // .logoutRequestMatcher(new
-        // AntPathRequestMatcher("/logout")).logoutSuccessUrl("/logout-success")
-        // .permitAll();
+                .permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login.html")
+                .defaultSuccessUrl("/", true).failureUrl("/howitworks").loginProcessingUrl("/login-process").permitAll()
+                .and().logout().invalidateHttpSession(true).clearAuthentication(true)
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/logout-success")
+                .permitAll();
 
         // .httpBasic().and().authorizeRequests().antMatchers(HttpMethod.GET,
         // "/**").hasRole("USER").and()
         // .authorizeRequests().antMatchers(HttpMethod.PATCH,
         // "/**").hasRole("USER").and().csrf().disable()
         // .formLogin().disable();
+
+        // .and()
+        // .addFilter(new JWTAuthenticationFilter(authenticationManager()))
+        // .addFilter(new
+        // JWTAuthorizationFilter(authenticationManager())).sessionManagement()
+        // .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 
     }
 

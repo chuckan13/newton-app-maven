@@ -60977,37 +60977,34 @@ function LoginForm() {
     },
     validationSchema: validationSchema,
     onSubmit: function onSubmit(values) {
-      // let formData = new FormData();
-      // formData.append('username', values.username);
-      // formData.append('password', values.password);
-      // const data = new URLSearchParams(formData);
-      var data = JSON.stringify({
-        fullName: 'Niko Fotopoulos',
-        userName: values.username,
-        password: values.password,
-        role: 'USER',
-        loanOption1: '',
-        loanOption2: '',
-        loanOption3: '',
-        stripeCustomerId: '',
-        autopay: false,
-        selectedLoan: 0
-      }); // const loginData = JSON.stringify(values);
+      var formData = new FormData();
+      formData.append('username', values.username);
+      formData.append('password', values.password);
+      var data = new URLSearchParams(formData); // const data = JSON.stringify({
+      // 	fullName: 'Niko Fotopoulos',
+      // 	userName: values.username,
+      // 	password: values.password,
+      // 	role: 'USER',
+      // 	loanOption1: '',
+      // 	loanOption2: '',
+      // 	loanOption3: '',
+      // 	stripeCustomerId: '',
+      // 	autopay: false,
+      // 	selectedLoan: 0
+      // });
+      // const loginData = JSON.stringify(values);
       // console.log('LOG IN VALUES');
       // console.log(formData);
       // console.log(data);
       // debugger;
 
-      fetch('https://newton-server-maven.herokuapp.com/login', {
+      fetch('https://newton-server-maven.herokuapp.com/login-process', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json'
-        },
         body: data
       }).then(function (response) {
-        console.log('Success');
-        console.log(response.headers.get('Authorization')); // window.location.replace(response.url);
+        console.log('Success'); // console.log(response.headers.get('Authorization'));
+
+        window.location.replace(response.url);
       })["catch"](function (error) {
         console.error('Error:', error);
       });
