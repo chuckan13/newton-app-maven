@@ -68,7 +68,7 @@ function LoginForm() {
 					console.log('Success');
 					console.log(response);
 
-					resp.headers.forEach(function(val, key) {
+					response.headers.forEach(function(val, key) {
 						console.log(key + ' -> ' + val);
 					});
 					console.log(response.headers.get('Authorization'));

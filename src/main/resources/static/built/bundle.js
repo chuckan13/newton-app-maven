@@ -61008,7 +61008,7 @@ function LoginForm() {
       }).then(function (response) {
         console.log('Success');
         console.log(response);
-        resp.headers.forEach(function (val, key) {
+        response.headers.forEach(function (val, key) {
           console.log(key + ' -> ' + val);
         });
         console.log(response.headers.get('Authorization')); // window.location.replace(response.url);
