@@ -40,8 +40,16 @@ function LoginForm() {
 			// formData.append('password', values.password);
 			// const data = new URLSearchParams(formData);
 			const data = JSON.stringify({
+				fullName: 'Niko Fotopoulos',
 				userName: values.username,
-				password: values.password
+				password: values.password,
+				role: 'USER',
+				loanOption1: '',
+				loanOption2: '',
+				loanOption3: '',
+				stripeCustomerId: '',
+				autopay: false,
+				selectedLoan: 0
 			});
 			// const loginData = JSON.stringify(values);
 			// console.log('LOG IN VALUES');

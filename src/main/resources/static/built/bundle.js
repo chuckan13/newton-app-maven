@@ -60977,10 +60977,22 @@ function LoginForm() {
     },
     validationSchema: validationSchema,
     onSubmit: function onSubmit(values) {
-      var formData = new FormData();
-      formData.append('username', values.username);
-      formData.append('password', values.password);
-      var data = new URLSearchParams(formData); // const loginData = JSON.stringify(values);
+      // let formData = new FormData();
+      // formData.append('username', values.username);
+      // formData.append('password', values.password);
+      // const data = new URLSearchParams(formData);
+      var data = JSON.stringify({
+        fullName: 'Niko Fotopoulos',
+        userName: values.username,
+        password: values.password,
+        role: 'USER',
+        loanOption1: '',
+        loanOption2: '',
+        loanOption3: '',
+        stripeCustomerId: '',
+        autopay: false,
+        selectedLoan: 0
+      }); // const loginData = JSON.stringify(values);
       // console.log('LOG IN VALUES');
       // console.log(formData);
       // console.log(data);
@@ -60988,6 +61000,10 @@ function LoginForm() {
 
       fetch('https://newton-server-maven.herokuapp.com/login-process', {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
         body: data
       }).then(function (response) {
         console.log('Success');
@@ -61133,12 +61149,12 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
-  firstName: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required"),
-  lastName: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required"),
-  email: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().email("Must be a valid email").required("Required"),
-  password: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().min(8, "Must be at least 8 characters").required("Required"),
-  confirmPassword: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required").oneOf([yup__WEBPACK_IMPORTED_MODULE_9__["ref"]("password"), null], "Passwords must match"),
-  terms: yup__WEBPACK_IMPORTED_MODULE_9__["bool"]().oneOf([true], "You must agree before submitting")
+  firstName: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required('Required'),
+  lastName: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required('Required'),
+  email: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().email('Must be a valid email').required('Required'),
+  password: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().min(8, 'Must be at least 8 characters').required('Required'),
+  confirmPassword: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required('Required').oneOf([yup__WEBPACK_IMPORTED_MODULE_9__["ref"]('password'), null], 'Passwords must match'),
+  terms: yup__WEBPACK_IMPORTED_MODULE_9__["bool"]().oneOf([true], 'You must agree before submitting')
 });
 
 function RegistrationForm() {
@@ -61149,27 +61165,27 @@ function RegistrationForm() {
     validationSchema: validationSchema,
     onSubmit: function onSubmit(values) {
       var data = JSON.stringify({
-        fullName: values.firstName + " " + values.lastName,
+        fullName: values.firstName + ' ' + values.lastName,
         userName: values.email,
-        role: "USER",
+        role: 'USER',
         password: values.password,
-        loanOption1: "LO1",
-        loanOption2: "LO2",
-        loanOption3: "LO3"
+        loanOption1: 'LO1',
+        loanOption2: 'LO2',
+        loanOption3: 'LO3'
       });
-      fetch("https://newton-server-maven.herokuapp.com/users/new", {
-        method: "POST",
+      fetch('https://newton-server-maven.herokuapp.com/users/new', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
         },
         body: data
       }).then(function (response) {
         return response.json();
       }).then(function (data) {
-        console.log("Success:", data);
+        console.log('Success:', data);
       })["catch"](function (error) {
-        console.error("Error:", error);
+        console.error('Error:', error);
       });
     }
   }),
@@ -61275,7 +61291,7 @@ function RegistrationForm() {
     type: "submit",
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting
-  }, isSubmitting ? "Loading..." : "Submit"))));
+  }, isSubmitting ? 'Loading...' : 'Submit'))));
 }
 
 var Register = /*#__PURE__*/function (_Component) {
