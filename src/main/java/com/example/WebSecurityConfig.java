@@ -55,11 +55,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll().anyRequest().authenticated().and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))
                 .addFilter(new JWTAuthorizationFilter(authenticationManager())).sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().formLogin().loginPage("/login.html")
-                .defaultSuccessUrl("/", true).failureUrl("/howitworks").permitAll().and().logout()
-                .invalidateHttpSession(true).clearAuthentication(true)
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/logout-success")
-                .permitAll();
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        // .and().formLogin().loginPage("/login.html")
+        // .defaultSuccessUrl("/",
+        // true).failureUrl("/howitworks").loginProcessingUrl("/login-process").permitAll()
+        // .and().logout().invalidateHttpSession(true).clearAuthentication(true)
+        // .logoutRequestMatcher(new
+        // AntPathRequestMatcher("/logout")).logoutSuccessUrl("/logout-success")
+        // .permitAll();
 
         // .httpBasic().and().authorizeRequests().antMatchers(HttpMethod.GET,
         // "/**").hasRole("USER").and()
