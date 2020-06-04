@@ -61007,7 +61007,11 @@ function LoginForm() {
         body: data
       }).then(function (response) {
         console.log('Success');
-        console.log(response); // window.location.replace(response.url);
+        console.log(response);
+        resp.headers.forEach(function (val, key) {
+          console.log(key + ' -> ' + val);
+        });
+        console.log(response.headers.get('Authorization')); // window.location.replace(response.url);
       })["catch"](function (error) {
         console.error('Error:', error);
       });
