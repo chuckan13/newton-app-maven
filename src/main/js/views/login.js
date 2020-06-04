@@ -64,10 +64,11 @@ function LoginForm() {
 				},
 				body: data
 			})
-				.then(response => {
+				.then(response => response.json())
+				.then(data => {
 					console.log('Success');
-					console.log(response.url);
-					window.location.replace(response.url);
+					console.log(data);
+					// window.location.replace(response.url);
 				})
 				.catch(error => {
 					console.error('Error:', error);
