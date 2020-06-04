@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,10 +17,12 @@ import org.springframework.web.bind.annotation.*;
 public class LoginuserController {
 
     private LoginuserRepository repository;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public LoginuserController(LoginuserRepository repository) {
+    public LoginuserController(LoginuserRepository repository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.repository = repository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -106,7 +109,8 @@ public class LoginuserController {
 
     @PostMapping("/sign-up")
     public void signUp(@RequestBody Loginuser user) {
-        user.setPassword(NoOpPasswordEncoder.getInstance().encode(user.getPassword()));
+        // user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setPassword(NoOpPasswordEncoder.getInstance().encode(user.getPassword())); // switch to bcrypt
         repository.save(user);
     }
 
