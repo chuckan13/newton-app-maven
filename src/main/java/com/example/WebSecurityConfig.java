@@ -49,7 +49,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception { // .anyRequest().authenticated()
         http
                 // leave csrf() ON during production
-                .cors().and().csrf().disable().authorizeRequests()
+                // .cors().and().
+                .csrf().disable().authorizeRequests()
                 .antMatchers("/", "/built/bundle.js", "/resources/**", "/*.js", "/static/**", "/js/**", "/img/**",
                         "/loginpage", "/login.html")
                 .permitAll().anyRequest().authenticated().and()
