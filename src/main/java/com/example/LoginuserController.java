@@ -17,11 +17,14 @@ import org.springframework.web.bind.annotation.*;
 public class LoginuserController {
 
     private LoginuserRepository repository;
+    private LoanOptionRepository loanRepo;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public LoginuserController(LoginuserRepository repository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public LoginuserController(LoginuserRepository repository, LoanOptionRepository loanRepo,
+            BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.repository = repository;
+        this.loanRepo = loanRepo;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
@@ -99,6 +102,36 @@ public class LoginuserController {
         }
         // System.out.println(foundLoginuser.getUserName());
 
+    }
+
+    @RequestMapping(value = "/{id}/selectedloan", method = RequestMethod.GET)
+    public ResponseEntity<LoanOption> getSelectedLoanOption(@PathVariable("id") Long id, Principal principal) {
+        Loginuser user = repository.findOne(id);
+        if (null == user)
+            return new ResponseEntity<LoanOption>(HttpStatus.NOT_FOUND);
+
+        String userName = user.getUserName();
+        if (!userName.equals(principal.getName())) {
+            return new ResponseEntity<LoanOption>(HttpStatus.FORBIDDEN);
+        }
+
+        LoanOption selectedLoan = loanRepo.findOne(user.getSelectedLoan());
+        return new ResponseEntity<LoanOption>(selectedLoan, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{id}/loans", method = RequestMethod.GET)
+    public ResponseEntity<List<LoanOption>> getAllLoanOptions(@PathVariable("id") Long id, Principal principal) {
+        Loginuser user = repository.findOne(id);
+        if (null == user)
+            return new ResponseEntity<List<LoanOption>>(HttpStatus.NOT_FOUND);
+
+        String userName = user.getUserName();
+        if (!userName.equals(principal.getName())) {
+            return new ResponseEntity<List<LoanOption>>(HttpStatus.FORBIDDEN);
+        }
+
+        List<LoanOption> allLoans = loanRepo.findByUserId(id);
+        return new ResponseEntity<List<LoanOption>>(allLoans, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)

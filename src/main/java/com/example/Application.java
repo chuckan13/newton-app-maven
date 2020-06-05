@@ -28,15 +28,15 @@ public class Application {
     @Column(name = "response3")
     private String response3;
 
-    public long getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public long getUserId() {
+    public Long getUserId() {
         return this.userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

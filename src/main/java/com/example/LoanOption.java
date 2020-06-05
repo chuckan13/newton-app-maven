@@ -18,7 +18,7 @@ public class LoanOption {
     @Column(name = "id")
     private long id;
     @Column(name = "user_id")
-    private int userId;
+    private long userId;
     @Column(name = "amount_total")
     private double amountTotal;
     @Column(name = "amount_paid")
@@ -37,43 +37,43 @@ public class LoanOption {
     @Column(name = "past_dates_paid", columnDefinition = "text[]") // @JsonFormat(shape=JsonFormat.Shape.ARRAY)
     private String[] pastDatesPaid;
 
-    public int getUserId() {
+    public Long getUserId() {
         return this.userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public double getAmountTotal() {
+    public Double getAmountTotal() {
         return this.amountTotal;
     }
 
-    public void setAmountTotal(double amountTotal) {
+    public void setAmountTotal(Double amountTotal) {
         this.amountTotal = amountTotal;
     }
 
-    public double getAmountPaid() {
+    public Double getAmountPaid() {
         return this.amountPaid;
     }
 
-    public void setAmountPaid(double amountPaid) {
+    public void setAmountPaid(Double amountPaid) {
         this.amountPaid = amountPaid;
     }
 
-    public double getApr() {
+    public Double getApr() {
         return this.apr;
     }
 
-    public void setApr(double apr) {
+    public void setApr(Double apr) {
         this.apr = apr;
     }
 
-    public int getMonthsTotal() {
+    public Integer getMonthsTotal() {
         return this.monthsTotal;
     }
 
-    public void setMonthsTotal(int months) {
+    public void setMonthsTotal(Integer months) {
         this.monthsTotal = months;
     }
 

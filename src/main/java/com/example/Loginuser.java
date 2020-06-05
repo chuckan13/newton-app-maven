@@ -33,7 +33,7 @@ public class Loginuser {
     @Column(name = "stripe_customer_id")
     private String stripeCustomerId;
 
-    public long getSelectedLoan() {
+    public Long getSelectedLoan() {
         return this.selectedLoan;
     }
 
