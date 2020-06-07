@@ -46,7 +46,7 @@ function RegistrationForm() {
 				loanOption1: 'LO1',
 				loanOption2: 'LO2',
                 loanOption3: 'LO3',
-                autoPay: false,
+                autopay: false,
                 selectedLoan: 0,
                 stripeCustomerId: '',
 			});
