@@ -45,7 +45,10 @@ function RegistrationForm() {
 				password: values.password,
 				loanOption1: 'LO1',
 				loanOption2: 'LO2',
-				loanOption3: 'LO3'
+                loanOption3: 'LO3',
+                autoPay: false,
+                selectedLoan: 0,
+                stripeCustomerId: '',
 			});
 			fetch('https://newton-server-maven.herokuapp.com/api/users/sign-up', {
 				method: 'POST',
