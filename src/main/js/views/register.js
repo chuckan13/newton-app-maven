@@ -49,7 +49,8 @@ function RegistrationForm() {
                 autopay: false,
                 selectedLoan: 0,
                 stripeCustomerId: '',
-			});
+            });
+            console.log("Sent data:", data);
 			fetch('https://newton-server-maven.herokuapp.com/api/users/sign-up', {
 				method: 'POST',
 				headers: {
