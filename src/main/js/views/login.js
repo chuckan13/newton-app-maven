@@ -63,9 +63,7 @@ function LoginForm() {
 				.then(response => {
 					console.log('Success');
 					// console.log(response.headers.get('Authorization'));
-					console.log(response);
-					debugger;
-					// window.location.replace(response.url);
+					window.location.replace(response.url);
 				})
 				.catch(error => {
 					console.error('Error:', error);

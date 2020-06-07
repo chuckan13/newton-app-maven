@@ -61008,8 +61008,7 @@ function LoginForm() {
       }).then(function (response) {
         console.log('Success'); // console.log(response.headers.get('Authorization'));
 
-        console.log(response);
-        debugger; // window.location.replace(response.url);
+        window.location.replace(response.url);
       })["catch"](function (error) {
         console.error('Error:', error);
       });
