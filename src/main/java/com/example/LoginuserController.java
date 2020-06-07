@@ -141,10 +141,16 @@ public class LoginuserController {
     }
 
     @PostMapping("/sign-up")
-    public void signUp(@RequestBody Loginuser user) {
+    public ResponseEntity<?> signUp(@RequestBody Loginuser user) {
         // user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setPassword(NoOpPasswordEncoder.getInstance().encode(user.getPassword())); // switch to bcrypt
-        repository.save(user);
+        try {
+            repository.save(user);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
     }
 
     @RequestMapping
