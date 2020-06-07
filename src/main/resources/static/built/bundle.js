@@ -60296,6 +60296,7 @@ var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/in
 
 
 
+
 var App = /*#__PURE__*/function (_Component) {
   _inherits(App, _Component);
 
@@ -60322,6 +60323,9 @@ var App = /*#__PURE__*/function (_Component) {
         component: _views_register_js__WEBPACK_IMPORTED_MODULE_4__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/loginpage",
+        component: _views_login_js__WEBPACK_IMPORTED_MODULE_5__["default"]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        path: "/dashboard",
         component: _views_login_js__WEBPACK_IMPORTED_MODULE_5__["default"]
       })));
     }
@@ -61167,9 +61171,12 @@ function RegistrationForm() {
         password: values.password,
         loanOption1: 'LO1',
         loanOption2: 'LO2',
-        loanOption3: 'LO3'
+        loanOption3: 'LO3',
+        autopay: false,
+        selectedLoan: 0,
+        stripeCustomerId: ''
       });
-      fetch('https://newton-server-maven.herokuapp.com/users/sign-up', {
+      fetch('https://newton-server-maven.herokuapp.com/api/users/sign-up', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
