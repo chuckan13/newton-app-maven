@@ -47,7 +47,7 @@ function RegistrationForm() {
 				loanOption2: 'LO2',
 				loanOption3: 'LO3'
 			});
-			fetch('https://newton-server-maven.herokuapp.com/users/sign-up', {
+			fetch('https://newton-server-maven.herokuapp.com/api/users/sign-up', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
