@@ -7,7 +7,7 @@ import Landing from './views/landing.js';
 import HowItWorks from './views/howitworks.js';
 import Register from './views/register.js';
 import Login from './views/login.js';
-import Dashboard from './views/login.js';
+import Dashboard from './views/dashboard.js';
 
 class App extends Component {
 	render() {

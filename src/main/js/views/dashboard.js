@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { NavBar, Footer } from "./Common.js";
-import Col from "react-bootstrap/Col";
-import "./App.scss";
+import NavBar from './components/navbar.js';
 
 import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import ProgressBar from "react-bootstrap/ProgressBar";
@@ -11,6 +10,8 @@ import Container from "react-bootstrap/Container";
 import Check from "react-bootstrap/FormCheck";
 
 import { FaTag } from "react-icons/fa";
+
+import "../app.scss";
 
 class App extends Component {
     render() {
