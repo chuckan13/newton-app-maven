@@ -17,28 +17,34 @@ class App extends Component {
     render() {
         return (
             <React.Fragment>
-                <div className="d-flex" style={{ height: "100vh", maxHeight: "100vh", flexFlow: "column" }}>
+                <div className="d-flex" style={{ flexFlow: "column", height: "100%" }}>
                     <NavBar simple background />
                     <Row style={{ width: "100%", height: "100%", flexGrow: "1" }}>
                         <Col xs={4} style={{ backgroundColor: "#ddd" }} className="d-flex justify-content-center align-items-center">
-                            <Card
-                                className="m-0 px-3 py-4"
-                                style={{
-                                    borderRadius: "10px",
-                                    boxShadow: "1px 1px 3px 1px #9E9E9E"
-                                }}>
-                                <h4 className="primary"><b>Account Details</b></h4>
-                                <h6 className="my-2"><b>John Smith</b></h6>
-                                <hr style={{ borderColor: "#C5C5C5" }}></hr>
-                                <div className="mt-2"><b><i>Email</i></b></div> j.smith@gmail.com<br></br>
-                                <div className="mt-2"><b><i>Phone number</i></b></div> 732-123-4567<br></br>
-                                <a className="my-2" href="#personalInfo"><u>Edit personal information</u></a>
-                                <hr style={{ borderColor: "#C5C5C5" }}></hr>
-                                <div className="mt-2"><b><i>Bank</i></b></div> TD Bank<br></br>
-                                <div className="mt-2"><b><i>Account #</i></b></div> xxx-4120<br></br>
-                                <a className="mt-2" href="#bankInfo"><u>Edit bank information</u></a>
-                                <a className="mt-2" href="#paymentMethod"><u>Register a new payment method</u></a>
-                            </Card>
+                            <Row>
+                                <Card
+                                    className="m-0 px-3 py-4"
+                                    style={{
+                                        borderRadius: "10px",
+                                        boxShadow: "1px 1px 3px 1px #9E9E9E"
+                                    }}>
+                                    <h5 className="primary"><b>Account Details</b></h5>
+                                    <div className="my-1"><b>John Smith</b></div>
+                                    <hr style={{ borderColor: "#C5C5C5" }}></hr>
+                                    <div className="mt-1"><b><i>Email</i></b></div> j.smith@gmail.com<br></br>
+                                    <div className="mt-1"><b><i>Phone number</i></b></div> 732-123-4567<br></br>
+                                    <a className="my-1" href="#personalInfo"><u>Edit personal information</u></a>
+                                    <hr style={{ borderColor: "#C5C5C5" }}></hr>
+                                    <div className="mt-1"><b><i>Bank</i></b></div> TD Bank<br></br>
+                                    <div className="mt-1"><b><i>Account #</i></b></div> xxx-4120<br></br>
+                                    <a className="mt-1" href="#bankInfo"><u>Edit bank information</u></a>
+                                    <a className="mt-1" href="#paymentMethod"><u>Register a new payment method</u></a>
+                                </Card>
+                            </Row>
+                        </Col>
+                        <Col xs={4} className="py-2 px-4" style={{ fontSize: "12px", position: "absolute", bottom: "0px" }}>
+                            <b>For further assistance:</b><br></br>
+                            Give us a call at 732-987-6543 or email us at help@covered.com
                         </Col>
                         <Col xs={8}>
                             <div className="p-4">
@@ -59,10 +65,10 @@ class App extends Component {
                                 </Row>
                                 <hr style={{ borderColor: "#C5C5C5" }} />
                                 <Row className="p-4 align-items-center">
-                                    <FaTag size={24} className="d-inline" />
-                                    <h5 className="ml-3 mb-0">
+                                    <FaTag size={20} className="d-inline" />
+                                    <h6 className="ml-3 mb-0">
                                         PURCHASE DETAILS
-                                    </h5>
+                                    </h6>
                                 </Row>
                                 <Row className="p-4">
                                     <Container>
