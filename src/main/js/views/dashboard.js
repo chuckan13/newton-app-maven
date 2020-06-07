@@ -41,10 +41,10 @@ class Dashboard extends Component {
                                     <a className="mt-1" href="#paymentMethod"><u>Register a new payment method</u></a>
                                 </Card>
                             </Row>
-                        </Col>
-                        <Col xs={4} className="py-2 px-4" style={{ fontSize: "12px", position: "absolute", bottom: "0px" }}>
-                            <b>For further assistance:</b><br></br>
-                            Give us a call at 732-987-6543 or email us at help@covered.com
+                            <Row className="py-2 px-5" style={{ fontSize: "11px", position: "absolute", bottom: "0px" }}>
+                                <b>For further assistance:</b>
+                                Give us a call at 732-987-6543 or email us at help@covered.com
+                            </Row>
                         </Col>
                         <Col xs={8}>
                             <div className="p-4">
