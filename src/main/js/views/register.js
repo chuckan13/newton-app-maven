@@ -39,7 +39,7 @@ function RegistrationForm() {
 		validationSchema,
 		onSubmit(values) {
 			const data = JSON.stringify({
-				fullName: values.firstName + ' ' + values.lastName,
+				fullName: values.firstName + " " + values.lastName,
 				userName: values.email,
 				role: 'USER',
 				password: values.password,
@@ -50,7 +50,6 @@ function RegistrationForm() {
                 selectedLoan: 0,
                 stripeCustomerId: '',
             });
-            console.log("Sent data:", data);
 			fetch('https://newton-server-maven.herokuapp.com/api/users/sign-up', {
 				method: 'POST',
 				headers: {
@@ -59,7 +58,6 @@ function RegistrationForm() {
 				},
 				body: data
 			})
-				.then(response => response.json())
 				.then(data => {
 					console.log('Success:', data);
 				})
