@@ -13,7 +13,7 @@ import { FaTag } from "react-icons/fa";
 
 import "../app.scss";
 
-class App extends Component {
+class Dashboard extends Component {
     render() {
         return (
             <React.Fragment>
@@ -87,4 +87,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default Dashboard;
