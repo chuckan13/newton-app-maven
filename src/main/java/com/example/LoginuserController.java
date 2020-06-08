@@ -150,6 +150,7 @@ public class LoginuserController {
 
         try {
             if (repository.findByUserName(user.getUserName()) != null) {
+                System.out.println("User already exists");
                 return new ResponseEntity<>("Account already exists for that email.", HttpStatus.BAD_REQUEST);
             }
             user.setPassword(NoOpPasswordEncoder.getInstance().encode(user.getPassword())); // switch to bcrypt
