@@ -66,7 +66,7 @@ public class LoginuserController {
             }
             foundLoginuser.updateParameters(loginuser);
             repository.save(foundLoginuser);
-            return get(foundLoginuser.getId(), principal);
+            return get(principal);
         }
     }
 
@@ -101,7 +101,7 @@ public class LoginuserController {
             }
             foundLoginuser.updateParameters(loginuser);
             repository.save(foundLoginuser);
-            return get(foundLoginuser.getId(), principal);
+            return get(principal);
         }
         // System.out.println(foundLoginuser.getUserName());
 
@@ -140,7 +140,7 @@ public class LoginuserController {
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public ResponseEntity<Loginuser> update(@RequestBody Loginuser user, Principal principal) {
         repository.save(user);
-        return get(user.getId(), principal);
+        return get(principal);
     }
 
     @PostMapping("/sign-up")
