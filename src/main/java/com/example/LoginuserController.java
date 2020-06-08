@@ -28,18 +28,19 @@ public class LoginuserController {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Loginuser> get(@PathVariable("id") Long id, Principal principal) {
-        Loginuser user = repository.findOne(id);
-        if (null == user)
-            return new ResponseEntity<Loginuser>(HttpStatus.NOT_FOUND);
+    // @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    // public ResponseEntity<Loginuser> get(@PathVariable("id") Long id, Principal
+    // principal) {
+    // Loginuser user = repository.findOne(id);
+    // if (null == user)
+    // return new ResponseEntity<Loginuser>(HttpStatus.NOT_FOUND);
 
-        String userName = user.getUserName();
-        if (!userName.equals(principal.getName())) {
-            return new ResponseEntity<Loginuser>(HttpStatus.FORBIDDEN);
-        }
-        return new ResponseEntity<Loginuser>(user, HttpStatus.OK);
-    }
+    // String userName = user.getUserName();
+    // if (!userName.equals(principal.getName())) {
+    // return new ResponseEntity<Loginuser>(HttpStatus.FORBIDDEN);
+    // }
+    // return new ResponseEntity<Loginuser>(user, HttpStatus.OK);
+    // }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Loginuser> delete(@PathVariable("id") Long id, Principal principal) {
@@ -69,21 +70,23 @@ public class LoginuserController {
         }
     }
 
-    @RequestMapping(value = "/username/{userName:.+}", method = RequestMethod.GET)
-    public ResponseEntity<Loginuser> getByUserName(@PathVariable("userName") String userName, Principal principal)
-            throws UnsupportedEncodingException {
-        String resultName = URLDecoder.decode(userName, "UTF-8");
-        Loginuser user = repository.findByUserName(resultName);
-        if (user == null)
-            return new ResponseEntity<Loginuser>(HttpStatus.NOT_FOUND);
-        else {
-            if (!user.getUserName().equals(principal.getName())) {
-                return new ResponseEntity<Loginuser>(HttpStatus.FORBIDDEN);
-            }
-            return new ResponseEntity<Loginuser>(user, HttpStatus.OK);
-        }
+    // @RequestMapping(value = "/username/{userName:.+}", method =
+    // RequestMethod.GET)
+    // public ResponseEntity<Loginuser> getByUserName(@PathVariable("userName")
+    // String userName, Principal principal)
+    // throws UnsupportedEncodingException {
+    // String resultName = URLDecoder.decode(userName, "UTF-8");
+    // Loginuser user = repository.findByUserName(resultName);
+    // if (user == null)
+    // return new ResponseEntity<Loginuser>(HttpStatus.NOT_FOUND);
+    // else {
+    // if (!user.getUserName().equals(principal.getName())) {
+    // return new ResponseEntity<Loginuser>(HttpStatus.FORBIDDEN);
+    // }
+    // return new ResponseEntity<Loginuser>(user, HttpStatus.OK);
+    // }
 
-    }
+    // }
 
     @RequestMapping(value = "/username/{userName:.+}", method = RequestMethod.PATCH)
     public ResponseEntity<Loginuser> editUserByUserName(@PathVariable("userName") String userName,
@@ -153,8 +156,17 @@ public class LoginuserController {
 
     }
 
-    @RequestMapping
-    public List<Loginuser> all() {
-        return repository.findAll();
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public ResponseEntity<Loginuser> get(Principal principal) {
+        Loginuser user = repository.findByUserName(principal.getName());
+        if (null == user)
+            return new ResponseEntity<Loginuser>(HttpStatus.NOT_FOUND);
+
+        String userName = user.getUserName();
+        if (!userName.equals(principal.getName())) {
+            return new ResponseEntity<Loginuser>(HttpStatus.FORBIDDEN);
+        }
+        return new ResponseEntity<Loginuser>(user, HttpStatus.OK);
+
     }
 }
