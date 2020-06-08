@@ -149,6 +149,7 @@ public class LoginuserController {
         // user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 
         try {
+            System.out.println(repository.findByUserName(user.getUserName()).getUserName());
             if (repository.findByUserName(user.getUserName()) != null) {
                 System.out.println("User already exists");
                 return new ResponseEntity<>("Account already exists for that email.", HttpStatus.BAD_REQUEST);
