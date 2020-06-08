@@ -54,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // .cors().and().
                 .csrf().disable().authorizeRequests()
                 .antMatchers("/", "/built/bundle.js", "/resources/**", "/*.js", "/static/**", "/js/**", "/img/**",
-                        "/loginpage", "/login.html", "/register")
+                        "/loginpage", "/login.html", "/register", "/api/users/sign-up")
                 .permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login.html")
                 .defaultSuccessUrl("/dashboard", true).failureUrl("/howitworks").loginProcessingUrl("/login-process")
                 .permitAll().and().logout().invalidateHttpSession(true).clearAuthentication(true)
