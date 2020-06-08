@@ -137,17 +137,22 @@ public class LoginuserController {
         return new ResponseEntity<List<LoanOption>>(allLoans, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public ResponseEntity<Loginuser> update(@RequestBody Loginuser user, Principal principal) {
-        repository.save(user);
-        return get(principal);
-    }
+    // @RequestMapping(value = "/new", method = RequestMethod.POST)
+    // public ResponseEntity<Loginuser> update(@RequestBody Loginuser user,
+    // Principal principal) {
+    // repository.save(user);
+    // return get(principal);
+    // }
 
     @PostMapping("/sign-up")
     public ResponseEntity<?> signUp(@RequestBody Loginuser user) {
         // user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setPassword(NoOpPasswordEncoder.getInstance().encode(user.getPassword())); // switch to bcrypt
+
         try {
+            if (repository.findByUserName(user.getUserName()) != null) {
+                return new ResponseEntity<>("Account already exists for that email.", HttpStatus.BAD_REQUEST);
+            }
+            user.setPassword(NoOpPasswordEncoder.getInstance().encode(user.getPassword())); // switch to bcrypt
             repository.save(user);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
