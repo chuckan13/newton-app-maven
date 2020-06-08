@@ -147,13 +147,13 @@ public class LoginuserController {
     @PostMapping("/sign-up")
     public ResponseEntity<?> signUp(@RequestBody Loginuser user) {
         // user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-
+        System.out.println("Registration");
+        System.out.println(repository.findByUserName(user.getUserName()).getUserName());
+        if (repository.findByUserName(user.getUserName()) != null) {
+            System.out.println("User already exists");
+            return new ResponseEntity<>("Account already exists for that email.", HttpStatus.BAD_REQUEST);
+        }
         try {
-            System.out.println(repository.findByUserName(user.getUserName()).getUserName());
-            if (repository.findByUserName(user.getUserName()) != null) {
-                System.out.println("User already exists");
-                return new ResponseEntity<>("Account already exists for that email.", HttpStatus.BAD_REQUEST);
-            }
             user.setPassword(NoOpPasswordEncoder.getInstance().encode(user.getPassword())); // switch to bcrypt
             repository.save(user);
             return new ResponseEntity<>(HttpStatus.OK);

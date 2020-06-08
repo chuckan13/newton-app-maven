@@ -39,17 +39,17 @@ function RegistrationForm() {
 		validationSchema,
 		onSubmit(values) {
 			const data = JSON.stringify({
-				fullName: values.firstName + " " + values.lastName,
+				fullName: values.firstName + ' ' + values.lastName,
 				userName: values.email,
 				role: 'USER',
 				password: values.password,
 				loanOption1: 'LO1',
 				loanOption2: 'LO2',
-                loanOption3: 'LO3',
-                autopay: false,
-                selectedLoan: 0,
-                stripeCustomerId: '',
-            });
+				loanOption3: 'LO3',
+				autopay: false,
+				selectedLoan: 0,
+				stripeCustomerId: ''
+			});
 			fetch('https://newton-server-maven.herokuapp.com/api/users/sign-up', {
 				method: 'POST',
 				headers: {
