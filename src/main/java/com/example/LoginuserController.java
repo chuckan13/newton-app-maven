@@ -156,7 +156,7 @@ public class LoginuserController {
 
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping
     public ResponseEntity<Loginuser> get(Principal principal) {
         Loginuser user = repository.findByUserName(principal.getName());
         if (null == user)
