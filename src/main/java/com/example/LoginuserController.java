@@ -42,17 +42,18 @@ public class LoginuserController {
     // return new ResponseEntity<Loginuser>(user, HttpStatus.OK);
     // }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Loginuser> delete(@PathVariable("id") Long id, Principal principal) {
-        Loginuser user = repository.findOne(id);
-        if (user == null)
-            return new ResponseEntity<Loginuser>(HttpStatus.NOT_FOUND);
-        if (!user.getUserName().equals(principal.getName())) {
-            return new ResponseEntity<Loginuser>(HttpStatus.FORBIDDEN);
-        }
-        repository.delete(user);
-        return new ResponseEntity<Loginuser>(user, HttpStatus.OK);
-    }
+    // @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    // public ResponseEntity<Loginuser> delete(@PathVariable("id") Long id,
+    // Principal principal) {
+    // Loginuser user = repository.findOne(id);
+    // if (user == null)
+    // return new ResponseEntity<Loginuser>(HttpStatus.NOT_FOUND);
+    // if (!user.getUserName().equals(principal.getName())) {
+    // return new ResponseEntity<Loginuser>(HttpStatus.FORBIDDEN);
+    // }
+    // repository.delete(user);
+    // return new ResponseEntity<Loginuser>(user, HttpStatus.OK);
+    // }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
     public ResponseEntity<Loginuser> editUser(@PathVariable("id") Long id, @RequestBody Loginuser loginuser,
@@ -146,14 +147,12 @@ public class LoginuserController {
 
     @PostMapping("/sign-up")
     public ResponseEntity<?> signUp(@RequestBody Loginuser user) {
-        // user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        System.out.println("Registration");
-        System.out.println(repository.findByUserName(user.getUserName()).getUserName());
         if (repository.findByUserName(user.getUserName()) != null) {
             System.out.println("User already exists");
-            return new ResponseEntity<>("Account already exists for that email.", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Account already exists for that email.", HttpStatus.CONFLICT);
         }
         try {
+            // user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             user.setPassword(NoOpPasswordEncoder.getInstance().encode(user.getPassword())); // switch to bcrypt
             repository.save(user);
             return new ResponseEntity<>(HttpStatus.OK);
