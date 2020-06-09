@@ -55,10 +55,9 @@ public class LoginuserController {
     // return new ResponseEntity<Loginuser>(user, HttpStatus.OK);
     // }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PATCH)
-    public ResponseEntity<Loginuser> editUser(@PathVariable("id") Long id, @RequestBody Loginuser loginuser,
-            Principal principal) {
-        Loginuser foundLoginuser = repository.findOne(id);
+    @RequestMapping(method = RequestMethod.PATCH)
+    public ResponseEntity<Loginuser> editUser(@RequestBody Loginuser loginuser, Principal principal) {
+        Loginuser foundLoginuser = repository.findByUserName(principal.getName());
         if (null == foundLoginuser)
             return new ResponseEntity<Loginuser>(HttpStatus.NOT_FOUND);
         else {
@@ -89,28 +88,31 @@ public class LoginuserController {
 
     // }
 
-    @RequestMapping(value = "/username/{userName:.+}", method = RequestMethod.PATCH)
-    public ResponseEntity<Loginuser> editUserByUserName(@PathVariable("userName") String userName,
-            @RequestBody Loginuser loginuser, Principal principal) throws UnsupportedEncodingException {
-        String resultName = URLDecoder.decode(userName, "UTF-8");
-        Loginuser foundLoginuser = repository.findByUserName(resultName);
-        if (null == foundLoginuser)
-            return new ResponseEntity<Loginuser>(HttpStatus.NOT_FOUND);
-        else {
-            if (!foundLoginuser.getUserName().equals(principal.getName())) {
-                return new ResponseEntity<Loginuser>(HttpStatus.FORBIDDEN);
-            }
-            foundLoginuser.updateParameters(loginuser);
-            repository.save(foundLoginuser);
-            return get(principal);
-        }
-        // System.out.println(foundLoginuser.getUserName());
+    // @RequestMapping(value = "/username/{userName:.+}", method =
+    // RequestMethod.PATCH)
+    // public ResponseEntity<Loginuser> editUserByUserName(@PathVariable("userName")
+    // String userName,
+    // @RequestBody Loginuser loginuser, Principal principal) throws
+    // UnsupportedEncodingException {
+    // String resultName = URLDecoder.decode(userName, "UTF-8");
+    // Loginuser foundLoginuser = repository.findByUserName(resultName);
+    // if (null == foundLoginuser)
+    // return new ResponseEntity<Loginuser>(HttpStatus.NOT_FOUND);
+    // else {
+    // if (!foundLoginuser.getUserName().equals(principal.getName())) {
+    // return new ResponseEntity<Loginuser>(HttpStatus.FORBIDDEN);
+    // }
+    // foundLoginuser.updateParameters(loginuser);
+    // repository.save(foundLoginuser);
+    // return get(principal);
+    // }
+    // // System.out.println(foundLoginuser.getUserName());
 
-    }
+    // }
 
-    @RequestMapping(value = "/{id}/selectedloan", method = RequestMethod.GET)
-    public ResponseEntity<LoanOption> getSelectedLoanOption(@PathVariable("id") Long id, Principal principal) {
-        Loginuser user = repository.findOne(id);
+    @RequestMapping(value = "/selectedloan", method = RequestMethod.GET)
+    public ResponseEntity<LoanOption> getSelectedLoanOption(Principal principal) {
+        Loginuser user = repository.findByUserName(principal.getName());
         if (null == user)
             return new ResponseEntity<LoanOption>(HttpStatus.NOT_FOUND);
 
@@ -123,9 +125,9 @@ public class LoginuserController {
         return new ResponseEntity<LoanOption>(selectedLoan, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}/loans", method = RequestMethod.GET)
-    public ResponseEntity<List<LoanOption>> getAllLoanOptions(@PathVariable("id") Long id, Principal principal) {
-        Loginuser user = repository.findOne(id);
+    @RequestMapping(value = "/loans", method = RequestMethod.GET)
+    public ResponseEntity<List<LoanOption>> getAllLoanOptions(Principal principal) {
+        Loginuser user = repository.findByUserName(principal.getName());
         if (null == user)
             return new ResponseEntity<List<LoanOption>>(HttpStatus.NOT_FOUND);
 
@@ -134,7 +136,7 @@ public class LoginuserController {
             return new ResponseEntity<List<LoanOption>>(HttpStatus.FORBIDDEN);
         }
 
-        List<LoanOption> allLoans = loanRepo.findByUserId(id);
+        List<LoanOption> allLoans = loanRepo.findByUserId(user.getId());
         return new ResponseEntity<List<LoanOption>>(allLoans, HttpStatus.OK);
     }
 
@@ -162,7 +164,7 @@ public class LoginuserController {
 
     }
 
-    @RequestMapping
+    @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<Loginuser> get(Principal principal) {
         Loginuser user = repository.findByUserName(principal.getName());
         if (null == user)
