@@ -61541,15 +61541,17 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
-  firstName: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required('Required'),
-  lastName: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required('Required'),
-  email: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().email('Must be a valid email').required('Required'),
-  password: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().min(8, 'Must be at least 8 characters').required('Required'),
-  confirmPassword: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required('Required').oneOf([yup__WEBPACK_IMPORTED_MODULE_9__["ref"]('password'), null], 'Passwords must match'),
-  terms: yup__WEBPACK_IMPORTED_MODULE_9__["bool"]().oneOf([true], 'You must agree before submitting')
+  firstName: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required"),
+  lastName: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required"),
+  email: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().email("Must be a valid email").required("Required"),
+  password: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().min(8, "Must be at least 8 characters").required("Required"),
+  confirmPassword: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required").oneOf([yup__WEBPACK_IMPORTED_MODULE_9__["ref"]("password"), null], "Passwords must match"),
+  terms: yup__WEBPACK_IMPORTED_MODULE_9__["bool"]().oneOf([true], "You must agree before submitting")
 });
 
 function RegistrationForm() {
+  var registrationFailed = false;
+
   var _useFormik = Object(formik__WEBPACK_IMPORTED_MODULE_8__["useFormik"])({
     initialValues: {
       terms: false
@@ -61557,28 +61559,36 @@ function RegistrationForm() {
     validationSchema: validationSchema,
     onSubmit: function onSubmit(values) {
       var data = JSON.stringify({
-        fullName: values.firstName + ' ' + values.lastName,
+        fullName: values.firstName + " " + values.lastName,
         userName: values.email,
-        role: 'USER',
+        role: "USER",
         password: values.password,
-        loanOption1: 'LO1',
-        loanOption2: 'LO2',
-        loanOption3: 'LO3',
+        loanOption1: "LO1",
+        loanOption2: "LO2",
+        loanOption3: "LO3",
         autopay: false,
         selectedLoan: 0,
-        stripeCustomerId: ''
+        stripeCustomerId: ""
       });
-      fetch('https://newton-server-maven.herokuapp.com/api/users/sign-up', {
-        method: 'POST',
+      fetch("https://newton-server-maven.herokuapp.com/api/users/sign-up", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json'
+          "Content-Type": "application/json",
+          Accept: "application/json"
         },
         body: data
       }).then(function (data) {
-        console.log('Success:', data);
+        console.log("Success:", data);
+
+        if (data.status == 409) {
+          registrationFailed = true;
+        } else if (data.status == 200) {
+          alert("Account created!");
+        } else {
+          console.log("Unspecified response status received.");
+        }
       })["catch"](function (error) {
-        console.error('Error:', error);
+        console.error("Error:", error);
       });
     }
   }),
@@ -61679,12 +61689,14 @@ function RegistrationForm() {
     isInvalid: touched.terms && !!errors.terms,
     id: "terms"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    className: "justify-content-center"
+    className: "justify-content-center pb-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "submit",
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting
-  }, isSubmitting ? 'Loading...' : 'Submit'))));
+  }, isSubmitting ? "Loading..." : "Submit")), registrationFailed && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
+    type: "invalid"
+  }, "The email you chose is already taken. Please use a different email or sign in with the email above.")));
 }
 
 var Register = /*#__PURE__*/function (_Component) {
