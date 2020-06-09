@@ -200,9 +200,9 @@ function RegistrationForm() {
                     </Button>
                 </Row>
                 {registrationFailed && (
-                    <Form.Control.Feedback type="invalid">
+                    <div className="invalid-feedback">
                         The email you chose is already taken. Please use a different email or sign in with the email above.
-                    </Form.Control.Feedback>
+                    </div>
                 )}
             </Form>
         </React.Fragment>

@@ -61452,8 +61452,8 @@ function LoginForm() {
     type: "submit",
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting
-  }, isSubmitting ? "Loading..." : "Submit")), loginFailed && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
-    type: "invalid"
+  }, isSubmitting ? "Loading..." : "Submit")), loginFailed && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "invalid-feedback"
   }, "Your email or password is incorrect."));
 }
 
@@ -61694,8 +61694,8 @@ function RegistrationForm() {
     type: "submit",
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting
-  }, isSubmitting ? "Loading..." : "Submit")), registrationFailed && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
-    type: "invalid"
+  }, isSubmitting ? "Loading..." : "Submit")), registrationFailed && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "invalid-feedback"
   }, "The email you chose is already taken. Please use a different email or sign in with the email above.")));
 }
 

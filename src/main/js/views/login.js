@@ -126,9 +126,9 @@ function LoginForm() {
                 </Button>
             </Row>
             {loginFailed &&
-                <Form.Control.Feedback type="invalid">
+                <div className="invalid-feedback">
                     Your email or password is incorrect.
-                </Form.Control.Feedback>
+                </div>
             }
         </Form>
     );
