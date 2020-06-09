@@ -61358,7 +61358,7 @@ var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
 });
 
 function LoginForm() {
-  var loginFailed = false;
+  var loginFailed = null;
 
   var _useFormik = Object(formik__WEBPACK_IMPORTED_MODULE_8__["useFormik"])({
     initialValues: {
@@ -61397,7 +61397,9 @@ function LoginForm() {
         if (response.ok) {
           window.location.replace(response.url);
         } else {
-          loginFailed = true;
+          loginFailed = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "invalid-feedback d-block"
+          }, "Your email or password is incorrect.");
         }
       })["catch"](function (error) {
         console.error("Error:", error);
@@ -61447,14 +61449,12 @@ function LoginForm() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
     type: "invalid"
   }, errors.password)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    className: "justify-content-center pb-2"
+    className: "justify-content-center pb-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "submit",
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting
-  }, isSubmitting ? "Loading..." : "Submit")), loginFailed && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "invalid-feedback"
-  }, "Your email or password is incorrect."));
+  }, isSubmitting ? "Loading..." : "Submit"), loginFailed));
 }
 
 var Login = /*#__PURE__*/function (_Component) {
@@ -61550,7 +61550,7 @@ var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
 });
 
 function RegistrationForm() {
-  var registrationFailed = false;
+  var registrationFailed = null;
 
   var _useFormik = Object(formik__WEBPACK_IMPORTED_MODULE_8__["useFormik"])({
     initialValues: {
@@ -61581,7 +61581,9 @@ function RegistrationForm() {
         console.log("Success:", data);
 
         if (data.status == 409) {
-          registrationFailed = true;
+          registrationFailed = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "invalid-feedback d-block"
+          }, "The email you chose is already taken.");
         } else if (data.status == 200) {
           alert("Account created!");
         } else {
@@ -61689,14 +61691,12 @@ function RegistrationForm() {
     isInvalid: touched.terms && !!errors.terms,
     id: "terms"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    className: "justify-content-center pb-2"
+    className: "justify-content-center pb-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "submit",
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting
-  }, isSubmitting ? "Loading..." : "Submit")), registrationFailed && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "invalid-feedback"
-  }, "The email you chose is already taken. Please use a different email or sign in with the email above.")));
+  }, isSubmitting ? "Loading..." : "Submit"), registrationFailed)));
 }
 
 var Register = /*#__PURE__*/function (_Component) {

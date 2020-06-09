@@ -26,7 +26,7 @@ const validationSchema = Yup.object().shape({
 });
 
 function RegistrationForm() {
-    let registrationFailed = false;
+    let registrationFailed = null;
     const {
         handleSubmit,
         handleChange,
@@ -69,7 +69,11 @@ function RegistrationForm() {
                 .then((data) => {
                     console.log("Success:", data);
                     if (data.status == 409) {
-                        registrationFailed = true;
+                        registrationFailed = (
+                            <div className="invalid-feedback d-block">
+                                The email you chose is already taken.
+                            </div>
+                        );
                     } else if (data.status == 200) {
                         alert("Account created!");
                     } else {
@@ -190,7 +194,7 @@ function RegistrationForm() {
                         id="terms"
                     />
                 </Form.Group>
-                <Row className="justify-content-center pb-2">
+                <Row className="justify-content-center pb-3">
                     <Button
                         type="submit"
                         variant="main"
@@ -198,12 +202,8 @@ function RegistrationForm() {
                     >
                         {isSubmitting ? "Loading..." : "Submit"}
                     </Button>
+                    {registrationFailed}
                 </Row>
-                {registrationFailed && (
-                    <div className="invalid-feedback">
-                        The email you chose is already taken. Please use a different email or sign in with the email above.
-                    </div>
-                )}
             </Form>
         </React.Fragment>
     );

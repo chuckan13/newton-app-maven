@@ -18,7 +18,7 @@ const validationSchema = Yup.object().shape({
 });
 
 function LoginForm() {
-    let loginFailed = false;
+    let loginFailed = null;
     const {
         handleSubmit,
         handleChange,
@@ -67,7 +67,11 @@ function LoginForm() {
                     if (response.ok) {
                         window.location.replace(response.url);
                     } else {
-                        loginFailed = true;
+                        loginFailed = (
+                            <div className="invalid-feedback d-block">
+                                Your email or password is incorrect.
+                            </div>
+                        );
                     }
                 })
                 .catch((error) => {
@@ -116,7 +120,7 @@ function LoginForm() {
                     {errors.password}
                 </Form.Control.Feedback>
             </Form.Group>
-            <Row className="justify-content-center pb-2">
+            <Row className="justify-content-center pb-3">
                 <Button
                     type="submit"
                     variant="main"
@@ -124,12 +128,8 @@ function LoginForm() {
                 >
                     {isSubmitting ? "Loading..." : "Submit"}
                 </Button>
+                {loginFailed}
             </Row>
-            {loginFailed &&
-                <div className="invalid-feedback">
-                    Your email or password is incorrect.
-                </div>
-            }
         </Form>
     );
 }
