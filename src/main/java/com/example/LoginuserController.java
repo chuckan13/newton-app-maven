@@ -28,33 +28,6 @@ public class LoginuserController {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    // @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    // public ResponseEntity<Loginuser> get(@PathVariable("id") Long id, Principal
-    // principal) {
-    // Loginuser user = repository.findOne(id);
-    // if (null == user)
-    // return new ResponseEntity<Loginuser>(HttpStatus.NOT_FOUND);
-
-    // String userName = user.getUserName();
-    // if (!userName.equals(principal.getName())) {
-    // return new ResponseEntity<Loginuser>(HttpStatus.FORBIDDEN);
-    // }
-    // return new ResponseEntity<Loginuser>(user, HttpStatus.OK);
-    // }
-
-    // @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    // public ResponseEntity<Loginuser> delete(@PathVariable("id") Long id,
-    // Principal principal) {
-    // Loginuser user = repository.findOne(id);
-    // if (user == null)
-    // return new ResponseEntity<Loginuser>(HttpStatus.NOT_FOUND);
-    // if (!user.getUserName().equals(principal.getName())) {
-    // return new ResponseEntity<Loginuser>(HttpStatus.FORBIDDEN);
-    // }
-    // repository.delete(user);
-    // return new ResponseEntity<Loginuser>(user, HttpStatus.OK);
-    // }
-
     @RequestMapping(method = RequestMethod.PATCH)
     public ResponseEntity<Loginuser> editUser(@RequestBody Loginuser loginuser, Principal principal) {
         Loginuser foundLoginuser = repository.findByUserName(principal.getName());
@@ -69,46 +42,6 @@ public class LoginuserController {
             return get(principal);
         }
     }
-
-    // @RequestMapping(value = "/username/{userName:.+}", method =
-    // RequestMethod.GET)
-    // public ResponseEntity<Loginuser> getByUserName(@PathVariable("userName")
-    // String userName, Principal principal)
-    // throws UnsupportedEncodingException {
-    // String resultName = URLDecoder.decode(userName, "UTF-8");
-    // Loginuser user = repository.findByUserName(resultName);
-    // if (user == null)
-    // return new ResponseEntity<Loginuser>(HttpStatus.NOT_FOUND);
-    // else {
-    // if (!user.getUserName().equals(principal.getName())) {
-    // return new ResponseEntity<Loginuser>(HttpStatus.FORBIDDEN);
-    // }
-    // return new ResponseEntity<Loginuser>(user, HttpStatus.OK);
-    // }
-
-    // }
-
-    // @RequestMapping(value = "/username/{userName:.+}", method =
-    // RequestMethod.PATCH)
-    // public ResponseEntity<Loginuser> editUserByUserName(@PathVariable("userName")
-    // String userName,
-    // @RequestBody Loginuser loginuser, Principal principal) throws
-    // UnsupportedEncodingException {
-    // String resultName = URLDecoder.decode(userName, "UTF-8");
-    // Loginuser foundLoginuser = repository.findByUserName(resultName);
-    // if (null == foundLoginuser)
-    // return new ResponseEntity<Loginuser>(HttpStatus.NOT_FOUND);
-    // else {
-    // if (!foundLoginuser.getUserName().equals(principal.getName())) {
-    // return new ResponseEntity<Loginuser>(HttpStatus.FORBIDDEN);
-    // }
-    // foundLoginuser.updateParameters(loginuser);
-    // repository.save(foundLoginuser);
-    // return get(principal);
-    // }
-    // // System.out.println(foundLoginuser.getUserName());
-
-    // }
 
     @RequestMapping(value = "/selectedloan", method = RequestMethod.GET)
     public ResponseEntity<LoanOption> getSelectedLoanOption(Principal principal) {
@@ -139,13 +72,6 @@ public class LoginuserController {
         List<LoanOption> allLoans = loanRepo.findByUserId(user.getId());
         return new ResponseEntity<List<LoanOption>>(allLoans, HttpStatus.OK);
     }
-
-    // @RequestMapping(value = "/new", method = RequestMethod.POST)
-    // public ResponseEntity<Loginuser> update(@RequestBody Loginuser user,
-    // Principal principal) {
-    // repository.save(user);
-    // return get(principal);
-    // }
 
     @PostMapping("/sign-up")
     public ResponseEntity<?> signUp(@RequestBody Loginuser user) {
