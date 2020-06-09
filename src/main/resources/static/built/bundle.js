@@ -61059,7 +61059,7 @@ var HowItWorks = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Here's how to finance with isaac.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
         step: 1,
         title: "Health first, pay later.",
-        body: "After your physician's office bills you the out-of-pocket cost, \r they will send you our secure loan application so you can get a\r decision within 2 business days.",
+        body: "After your physician's office bills you the out-of-pocket cost,  they will send you our secure loan application so you can get a decision within 2 business days.",
         button: "OUR PROVIDERS",
         image: _resources_static_img_healthdesk_png__WEBPACK_IMPORTED_MODULE_7__["default"],
         alt: "Health center front desk.",
@@ -61085,13 +61085,13 @@ var HowItWorks = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
         step: 2,
         title: "Choose how you pay.",
-        body: "Select the payment schedule you like best, then confirm your loan.\r We\u2019ll never charge more than you see up front.",
+        body: "Select the payment schedule you like best, then confirm your loan. We\u2019ll never charge more than you see up front.",
         align: "right",
         height: "600px"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
         step: 3,
         title: "Make easy monthly payments.",
-        body: "Just sign in at isaac.com. We'll send you email and text\r reminders whenever a payment's coming up, or setup scheduled payments.\r That's it!",
+        body: "Just sign in at isaac.com. We'll send you email and text reminders whenever a payment's coming up, or setup scheduled payments. That's it!",
         align: "left",
         image: _resources_static_img_exampleloan_png__WEBPACK_IMPORTED_MODULE_9__["default"],
         height: "400px"
@@ -61353,21 +61353,23 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
-  username: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().email('Must be a valid email').required('Required'),
-  password: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required('Required')
+  username: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().email("Must be a valid email").required("Required"),
+  password: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required")
 });
 
 function LoginForm() {
+  var loginFailed = false;
+
   var _useFormik = Object(formik__WEBPACK_IMPORTED_MODULE_8__["useFormik"])({
     initialValues: {
-      username: '',
-      password: ''
+      username: "",
+      password: ""
     },
     validationSchema: validationSchema,
     onSubmit: function onSubmit(values) {
       var formData = new FormData();
-      formData.append('username', values.username);
-      formData.append('password', values.password);
+      formData.append("username", values.username);
+      formData.append("password", values.password);
       var data = new URLSearchParams(formData); // const data = JSON.stringify({
       // 	fullName: 'Niko Fotopoulos',
       // 	userName: values.username,
@@ -61386,15 +61388,19 @@ function LoginForm() {
       // console.log(data);
       // debugger;
 
-      fetch('https://newton-server-maven.herokuapp.com/login-process', {
-        method: 'POST',
+      fetch("https://newton-server-maven.herokuapp.com/login-process", {
+        method: "POST",
         body: data
       }).then(function (response) {
-        console.log('Success'); // console.log(response.headers.get('Authorization'));
+        console.log("Success"); // console.log(response.headers.get('Authorization'));
 
-        window.location.replace(response.url);
+        if (response.ok) {
+          window.location.replace(response.url);
+        } else {
+          loginFailed = true;
+        }
       })["catch"](function (error) {
-        console.error('Error:', error);
+        console.error("Error:", error);
       });
     }
   }),
@@ -61441,12 +61447,14 @@ function LoginForm() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
     type: "invalid"
   }, errors.password)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    className: "justify-content-center"
+    className: "justify-content-center pb-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "submit",
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting
-  }, isSubmitting ? 'Loading...' : 'Submit')));
+  }, isSubmitting ? "Loading..." : "Submit")), loginFailed && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
+    type: "invalid"
+  }, "Your email or password is incorrect."));
 }
 
 var Login = /*#__PURE__*/function (_Component) {
@@ -61549,7 +61557,7 @@ function RegistrationForm() {
     validationSchema: validationSchema,
     onSubmit: function onSubmit(values) {
       var data = JSON.stringify({
-        fullName: values.firstName + " " + values.lastName,
+        fullName: values.firstName + ' ' + values.lastName,
         userName: values.email,
         role: 'USER',
         password: values.password,
