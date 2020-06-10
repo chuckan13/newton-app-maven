@@ -72,7 +72,7 @@ class LoginForm extends Component {
                     .then((response) => {
                         console.log("Success");
                         // console.log(response.headers.get('Authorization'));
-                        if (response.ok) {
+                        if (response.url === "https://newton-server-maven.herokuapp.com/dashboard") {
                             window.location.replace(response.url);
                         } else {
                             loginFailed = (
@@ -87,7 +87,7 @@ class LoginForm extends Component {
                     });
             },
         });
-        
+
         return (
             <Form
                 noValidate
