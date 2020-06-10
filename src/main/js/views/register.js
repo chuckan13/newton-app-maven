@@ -128,7 +128,6 @@ function RegistrationForm() {
 						/>
 						<Form.Control.Feedback type="invalid">
 							{errors.lastName}
-							{registrationFailed}
 						</Form.Control.Feedback>
 					</Form.Group>
 				</Form.Row>
@@ -196,6 +195,7 @@ function RegistrationForm() {
 						id="terms"
 					/>
 				</Form.Group>
+				<Row>{registrationFailed}</Row>
 				<Row className="justify-content-center pb-3">
 					<Button
 						type="submit"
