@@ -183,7 +183,7 @@ function RegistrationForm() {
 						{errors.confirmPassword}
 					</Form.Control.Feedback>
 				</Form.Group>
-				<Form.Group className="pb-2">
+				<Form.Group className="pb-0 mb-0">
 					<Form.Check
 						required
 						name="terms"
@@ -195,13 +195,13 @@ function RegistrationForm() {
 						id="terms"
 					/>
 				</Form.Group>
-				<Row>{registrationFailed}</Row>
+				{registrationFailed}
 				<Row className="justify-content-center pb-3">
 					<Button
 						type="submit"
 						variant="main"
 						disabled={!(isValid && dirty) || isSubmitting}
-						className="m-2"
+						className="mt-5"
 					>
 						{isSubmitting ? "Loading..." : "Submit"}
 					</Button>
