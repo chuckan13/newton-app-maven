@@ -128,6 +128,7 @@ function RegistrationForm() {
 						/>
 						<Form.Control.Feedback type="invalid">
 							{errors.lastName}
+							{registrationFailed}
 						</Form.Control.Feedback>
 					</Form.Group>
 				</Form.Row>
@@ -204,7 +205,6 @@ function RegistrationForm() {
 						{isSubmitting ? "Loading..." : "Submit"}
 					</Button>
 				</Row>
-				{registrationFailed}
 			</Form>
 		</React.Fragment>
 	);

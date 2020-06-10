@@ -61676,7 +61676,7 @@ function RegistrationForm() {
     isInvalid: touched.lastName && !!errors.lastName
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
     type: "invalid"
-  }, errors.lastName))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
+  }, errors.lastName, registrationFailed))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
     className: "pb-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
     type: "email",
@@ -61732,7 +61732,7 @@ function RegistrationForm() {
     type: "submit",
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting
-  }, isSubmitting ? "Loading..." : "Submit"), registrationFailed)));
+  }, isSubmitting ? "Loading..." : "Submit"))));
 }
 
 var Register = /*#__PURE__*/function (_Component) {
