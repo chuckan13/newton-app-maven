@@ -37,7 +37,8 @@ function RegistrationForm() {
 		handleBlur,
 		dirty,
 		isValid,
-		isSubmitting,
+        isSubmitting,
+        setSubmitting,
 	} = useFormik({
 		initialValues: {
 			terms: false,
@@ -80,7 +81,10 @@ function RegistrationForm() {
 					} else {
 						console.log("Unspecified response status received.");
 					}
-				})
+                })
+                .then(() => {
+                    setSubmitting(false);
+                })
 				.catch((error) => {
 					console.error("Error:", error);
 				});

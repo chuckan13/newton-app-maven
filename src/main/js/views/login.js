@@ -30,6 +30,7 @@ function LoginForm() {
         dirty,
         isValid,
         isSubmitting,
+        setSubmitting,
     } = useFormik({
         initialValues: {
             username: "",
@@ -77,6 +78,9 @@ function LoginForm() {
                             </div>
                         );
                     }
+                })
+                .then(() => {
+                    setSubmitting(false);
                 })
                 .catch((error) => {
                     console.error("Error:", error);

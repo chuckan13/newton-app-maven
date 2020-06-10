@@ -61416,6 +61416,8 @@ function LoginForm() {
             className: "invalid-feedback d-block"
           }, "Your email or password is incorrect."));
         }
+      }).then(function () {
+        setSubmitting(false);
       })["catch"](function (error) {
         console.error("Error:", error);
       });
@@ -61429,7 +61431,8 @@ function LoginForm() {
       handleBlur = _useFormik.handleBlur,
       dirty = _useFormik.dirty,
       isValid = _useFormik.isValid,
-      isSubmitting = _useFormik.isSubmitting;
+      isSubmitting = _useFormik.isSubmitting,
+      setSubmitting = _useFormik.setSubmitting;
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"], {
     noValidate: true,
@@ -61620,6 +61623,8 @@ function RegistrationForm() {
         } else {
           console.log("Unspecified response status received.");
         }
+      }).then(function () {
+        setSubmitting(false);
       })["catch"](function (error) {
         console.error("Error:", error);
       });
@@ -61633,7 +61638,8 @@ function RegistrationForm() {
       handleBlur = _useFormik.handleBlur,
       dirty = _useFormik.dirty,
       isValid = _useFormik.isValid,
-      isSubmitting = _useFormik.isSubmitting;
+      isSubmitting = _useFormik.isSubmitting,
+      setSubmitting = _useFormik.setSubmitting;
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"], {
     noValidate: true,
