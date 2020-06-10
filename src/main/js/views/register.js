@@ -201,6 +201,7 @@ function RegistrationForm() {
 						type="submit"
 						variant="main"
 						disabled={!(isValid && dirty) || isSubmitting}
+						className="m-2"
 					>
 						{isSubmitting ? "Loading..." : "Submit"}
 					</Button>

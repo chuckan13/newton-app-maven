@@ -61731,7 +61731,8 @@ function RegistrationForm() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "submit",
     variant: "main",
-    disabled: !(isValid && dirty) || isSubmitting
+    disabled: !(isValid && dirty) || isSubmitting,
+    className: "m-2"
   }, isSubmitting ? "Loading..." : "Submit"))));
 }
 
