@@ -61357,115 +61357,136 @@ var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
   password: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required")
 });
 
-function LoginForm() {
-  var loginFailed = null;
+var LoginForm = /*#__PURE__*/function (_Component) {
+  _inherits(LoginForm, _Component);
 
-  var _useFormik = Object(formik__WEBPACK_IMPORTED_MODULE_8__["useFormik"])({
-    initialValues: {
-      username: "",
-      password: ""
-    },
-    validationSchema: validationSchema,
-    onSubmit: function onSubmit(values) {
-      var formData = new FormData();
-      formData.append("username", values.username);
-      formData.append("password", values.password);
-      var data = new URLSearchParams(formData); // const data = JSON.stringify({
-      // 	fullName: 'Niko Fotopoulos',
-      // 	userName: values.username,
-      // 	password: values.password,
-      // 	role: 'USER',
-      // 	loanOption1: '',
-      // 	loanOption2: '',
-      // 	loanOption3: '',
-      // 	stripeCustomerId: '',
-      // 	autopay: false,
-      // 	selectedLoan: 0
-      // });
-      // const loginData = JSON.stringify(values);
-      // console.log('LOG IN VALUES');
-      // console.log(formData);
-      // console.log(data);
-      // debugger;
+  var _super = _createSuper(LoginForm);
 
-      fetch("https://newton-server-maven.herokuapp.com/login-process", {
-        method: "POST",
-        body: data
-      }).then(function (response) {
-        console.log("Success"); // console.log(response.headers.get('Authorization'));
+  function LoginForm(props) {
+    var _this;
 
-        if (response.ok) {
-          window.location.replace(response.url);
-        } else {
-          loginFailed = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "invalid-feedback d-block"
-          }, "Your email or password is incorrect.");
+    _classCallCheck(this, LoginForm);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      loginFailed: null
+    };
+    return _this;
+  }
+
+  _createClass(LoginForm, [{
+    key: "render",
+    value: function render() {
+      var _useFormik = Object(formik__WEBPACK_IMPORTED_MODULE_8__["useFormik"])({
+        initialValues: {
+          username: "",
+          password: ""
+        },
+        validationSchema: validationSchema,
+        onSubmit: function onSubmit(values) {
+          var formData = new FormData();
+          formData.append("username", values.username);
+          formData.append("password", values.password);
+          var data = new URLSearchParams(formData); // const data = JSON.stringify({
+          // 	fullName: 'Niko Fotopoulos',
+          // 	userName: values.username,
+          // 	password: values.password,
+          // 	role: 'USER',
+          // 	loanOption1: '',
+          // 	loanOption2: '',
+          // 	loanOption3: '',
+          // 	stripeCustomerId: '',
+          // 	autopay: false,
+          // 	selectedLoan: 0
+          // });
+          // const loginData = JSON.stringify(values);
+          // console.log('LOG IN VALUES');
+          // console.log(formData);
+          // console.log(data);
+          // debugger;
+
+          fetch("https://newton-server-maven.herokuapp.com/login-process", {
+            method: "POST",
+            body: data
+          }).then(function (response) {
+            console.log("Success"); // console.log(response.headers.get('Authorization'));
+
+            if (response.ok) {
+              window.location.replace(response.url);
+            } else {
+              loginFailed = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+                className: "invalid-feedback d-block"
+              }, "Your email or password is incorrect.");
+            }
+          })["catch"](function (error) {
+            console.error("Error:", error);
+          });
         }
-      })["catch"](function (error) {
-        console.error("Error:", error);
-      });
+      }),
+          handleSubmit = _useFormik.handleSubmit,
+          handleChange = _useFormik.handleChange,
+          values = _useFormik.values,
+          errors = _useFormik.errors,
+          touched = _useFormik.touched,
+          handleBlur = _useFormik.handleBlur,
+          dirty = _useFormik.dirty,
+          isValid = _useFormik.isValid,
+          isSubmitting = _useFormik.isSubmitting;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        noValidate: true,
+        onSubmit: handleSubmit,
+        className: "text-left floating-form mb-5"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "text-center mb-4"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Login")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
+        className: "pb-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
+        type: "email",
+        name: "username",
+        value: values.username,
+        onChange: handleChange,
+        onBlur: handleBlur,
+        placeholder: "Email",
+        isValid: touched.username && !errors.username,
+        isInvalid: touched.username && !!errors.username
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
+        type: "invalid"
+      }, errors.username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
+        className: "pb-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
+        type: "password",
+        name: "password",
+        value: values.password,
+        onChange: handleChange,
+        onBlur: handleBlur,
+        placeholder: "Password",
+        isValid: touched.password && !errors.password,
+        isInvalid: touched.password && !!errors.password
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
+        type: "invalid"
+      }, errors.password)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        className: "justify-content-center pb-3"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        type: "submit",
+        variant: "main",
+        disabled: !(isValid && dirty) || isSubmitting
+      }, isSubmitting ? "Loading..." : "Submit"), loginFailed));
     }
-  }),
-      handleSubmit = _useFormik.handleSubmit,
-      handleChange = _useFormik.handleChange,
-      values = _useFormik.values,
-      errors = _useFormik.errors,
-      touched = _useFormik.touched,
-      handleBlur = _useFormik.handleBlur,
-      dirty = _useFormik.dirty,
-      isValid = _useFormik.isValid,
-      isSubmitting = _useFormik.isSubmitting;
+  }]);
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    noValidate: true,
-    onSubmit: handleSubmit,
-    className: "text-left floating-form mb-5"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-    className: "text-center mb-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Login")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    type: "email",
-    name: "username",
-    value: values.username,
-    onChange: handleChange,
-    onBlur: handleBlur,
-    placeholder: "Email",
-    isValid: touched.username && !errors.username,
-    isInvalid: touched.username && !!errors.username
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
-    type: "invalid"
-  }, errors.username)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    type: "password",
-    name: "password",
-    value: values.password,
-    onChange: handleChange,
-    onBlur: handleBlur,
-    placeholder: "Password",
-    isValid: touched.password && !errors.password,
-    isInvalid: touched.password && !!errors.password
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
-    type: "invalid"
-  }, errors.password)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    className: "justify-content-center pb-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    type: "submit",
-    variant: "main",
-    disabled: !(isValid && dirty) || isSubmitting
-  }, isSubmitting ? "Loading..." : "Submit"), loginFailed));
-}
+  return LoginForm;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-var Login = /*#__PURE__*/function (_Component) {
-  _inherits(Login, _Component);
+var Login = /*#__PURE__*/function (_Component2) {
+  _inherits(Login, _Component2);
 
-  var _super = _createSuper(Login);
+  var _super2 = _createSuper(Login);
 
   function Login() {
     _classCallCheck(this, Login);
 
-    return _super.apply(this, arguments);
+    return _super2.apply(this, arguments);
   }
 
   _createClass(Login, [{
@@ -61549,165 +61570,186 @@ var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
   terms: yup__WEBPACK_IMPORTED_MODULE_9__["bool"]().oneOf([true], "You must agree before submitting")
 });
 
-function RegistrationForm() {
-  var registrationFailed = null;
+var RegistrationForm = /*#__PURE__*/function (_Component) {
+  _inherits(RegistrationForm, _Component);
 
-  var _useFormik = Object(formik__WEBPACK_IMPORTED_MODULE_8__["useFormik"])({
-    initialValues: {
-      terms: false
-    },
-    validationSchema: validationSchema,
-    onSubmit: function onSubmit(values) {
-      var data = JSON.stringify({
-        fullName: values.firstName + " " + values.lastName,
-        userName: values.email,
-        role: "USER",
-        password: values.password,
-        loanOption1: "LO1",
-        loanOption2: "LO2",
-        loanOption3: "LO3",
-        autopay: false,
-        selectedLoan: 0,
-        stripeCustomerId: ""
-      });
-      fetch("https://newton-server-maven.herokuapp.com/api/users/sign-up", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
+  var _super = _createSuper(RegistrationForm);
+
+  function RegistrationForm() {
+    var _this;
+
+    _classCallCheck(this, RegistrationForm);
+
+    _this = _super.call(this);
+    _this.state = {
+      registrationFailed: null
+    };
+    return _this;
+  }
+
+  _createClass(RegistrationForm, [{
+    key: "render",
+    value: function render() {
+      var _useFormik = Object(formik__WEBPACK_IMPORTED_MODULE_8__["useFormik"])({
+        initialValues: {
+          terms: false
         },
-        body: data
-      }).then(function (data) {
-        console.log("Success:", data);
+        validationSchema: validationSchema,
+        onSubmit: function onSubmit(values) {
+          var data = JSON.stringify({
+            fullName: values.firstName + " " + values.lastName,
+            userName: values.email,
+            role: "USER",
+            password: values.password,
+            loanOption1: "LO1",
+            loanOption2: "LO2",
+            loanOption3: "LO3",
+            autopay: false,
+            selectedLoan: 0,
+            stripeCustomerId: ""
+          });
+          fetch("https://newton-server-maven.herokuapp.com/api/users/sign-up", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json"
+            },
+            body: data
+          }).then(function (data) {
+            console.log("Success:", data);
 
-        if (data.status == 409) {
-          registrationFailed = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "invalid-feedback d-block"
-          }, "The email you chose is already taken.");
-        } else if (data.status == 200) {
-          alert("Account created!");
-        } else {
-          console.log("Unspecified response status received.");
+            if (data.status == 409) {
+              registrationFailed = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+                className: "invalid-feedback d-block"
+              }, "The email you chose is already taken.");
+            } else if (data.status == 200) {
+              alert("Account created!");
+            } else {
+              console.log("Unspecified response status received.");
+            }
+          })["catch"](function (error) {
+            console.error("Error:", error);
+          });
         }
-      })["catch"](function (error) {
-        console.error("Error:", error);
-      });
+      }),
+          handleSubmit = _useFormik.handleSubmit,
+          handleChange = _useFormik.handleChange,
+          values = _useFormik.values,
+          errors = _useFormik.errors,
+          touched = _useFormik.touched,
+          handleBlur = _useFormik.handleBlur,
+          dirty = _useFormik.dirty,
+          isValid = _useFormik.isValid,
+          isSubmitting = _useFormik.isSubmitting;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        noValidate: true,
+        onSubmit: handleSubmit,
+        className: "text-left floating-form mb-5"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "text-center mb-4"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Register")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Row, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
+        as: react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"],
+        md: "6",
+        className: "pb-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "First name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
+        type: "text",
+        name: "firstName",
+        value: values.firstName,
+        onChange: handleChange,
+        onBlur: handleBlur,
+        placeholder: "First name",
+        isValid: touched.firstName && !errors.firstName,
+        isInvalid: touched.firstName && !!errors.firstName
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
+        type: "invalid"
+      }, errors.firstName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
+        as: react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"],
+        md: "6",
+        className: "pb-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Last name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
+        type: "text",
+        name: "lastName",
+        value: values.lastName,
+        onChange: handleChange,
+        onBlur: handleBlur,
+        placeholder: "Last name",
+        isValid: touched.lastName && !errors.lastName,
+        isInvalid: touched.lastName && !!errors.lastName
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
+        type: "invalid"
+      }, errors.lastName))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
+        className: "pb-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
+        type: "email",
+        name: "email",
+        value: values.email,
+        onChange: handleChange,
+        onBlur: handleBlur,
+        placeholder: "Email",
+        isValid: touched.email && !errors.email,
+        isInvalid: touched.email && !!errors.email
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
+        type: "invalid"
+      }, errors.email)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
+        className: "pb-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
+        type: "password",
+        name: "password",
+        value: values.password,
+        onChange: handleChange,
+        onBlur: handleBlur,
+        placeholder: "Password",
+        isValid: touched.password && !errors.password,
+        isInvalid: touched.password && !!errors.password
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
+        type: "invalid"
+      }, errors.password)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
+        className: "pb-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Confirm password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
+        type: "password",
+        name: "confirmPassword",
+        value: values.confirmPassword,
+        onChange: handleChange,
+        onBlur: handleBlur,
+        placeholder: "Confirm password",
+        isValid: touched.confirmPassword && !errors.confirmPassword,
+        isInvalid: touched.confirmPassword && !!errors.confirmPassword
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
+        type: "invalid"
+      }, errors.confirmPassword)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
+        className: "pb-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Check, {
+        required: true,
+        name: "terms",
+        label: "I agree to terms and conditions",
+        value: values.terms,
+        onChange: handleChange,
+        onBlur: handleBlur,
+        isInvalid: touched.terms && !!errors.terms,
+        id: "terms"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        className: "justify-content-center pb-3"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        type: "submit",
+        variant: "main",
+        disabled: !(isValid && dirty) || isSubmitting
+      }, isSubmitting ? "Loading..." : "Submit"), registrationFailed)));
     }
-  }),
-      handleSubmit = _useFormik.handleSubmit,
-      handleChange = _useFormik.handleChange,
-      values = _useFormik.values,
-      errors = _useFormik.errors,
-      touched = _useFormik.touched,
-      handleBlur = _useFormik.handleBlur,
-      dirty = _useFormik.dirty,
-      isValid = _useFormik.isValid,
-      isSubmitting = _useFormik.isSubmitting;
+  }]);
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    noValidate: true,
-    onSubmit: handleSubmit,
-    className: "text-left floating-form mb-5"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-    className: "text-center mb-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Register")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Row, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    as: react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"],
-    md: "6",
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "First name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    type: "text",
-    name: "firstName",
-    value: values.firstName,
-    onChange: handleChange,
-    onBlur: handleBlur,
-    placeholder: "First name",
-    isValid: touched.firstName && !errors.firstName,
-    isInvalid: touched.firstName && !!errors.firstName
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
-    type: "invalid"
-  }, errors.firstName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    as: react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"],
-    md: "6",
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Last name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    type: "text",
-    name: "lastName",
-    value: values.lastName,
-    onChange: handleChange,
-    onBlur: handleBlur,
-    placeholder: "Last name",
-    isValid: touched.lastName && !errors.lastName,
-    isInvalid: touched.lastName && !!errors.lastName
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
-    type: "invalid"
-  }, errors.lastName))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    type: "email",
-    name: "email",
-    value: values.email,
-    onChange: handleChange,
-    onBlur: handleBlur,
-    placeholder: "Email",
-    isValid: touched.email && !errors.email,
-    isInvalid: touched.email && !!errors.email
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
-    type: "invalid"
-  }, errors.email)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    type: "password",
-    name: "password",
-    value: values.password,
-    onChange: handleChange,
-    onBlur: handleBlur,
-    placeholder: "Password",
-    isValid: touched.password && !errors.password,
-    isInvalid: touched.password && !!errors.password
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
-    type: "invalid"
-  }, errors.password)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Confirm password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    type: "password",
-    name: "confirmPassword",
-    value: values.confirmPassword,
-    onChange: handleChange,
-    onBlur: handleBlur,
-    placeholder: "Confirm password",
-    isValid: touched.confirmPassword && !errors.confirmPassword,
-    isInvalid: touched.confirmPassword && !!errors.confirmPassword
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
-    type: "invalid"
-  }, errors.confirmPassword)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Check, {
-    required: true,
-    name: "terms",
-    label: "I agree to terms and conditions",
-    value: values.terms,
-    onChange: handleChange,
-    onBlur: handleBlur,
-    isInvalid: touched.terms && !!errors.terms,
-    id: "terms"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    className: "justify-content-center pb-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    type: "submit",
-    variant: "main",
-    disabled: !(isValid && dirty) || isSubmitting
-  }, isSubmitting ? "Loading..." : "Submit"), registrationFailed)));
-}
+  return RegistrationForm;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-var Register = /*#__PURE__*/function (_Component) {
-  _inherits(Register, _Component);
+var Register = /*#__PURE__*/function (_Component2) {
+  _inherits(Register, _Component2);
 
-  var _super = _createSuper(Register);
+  var _super2 = _createSuper(Register);
 
   function Register() {
     _classCallCheck(this, Register);
 
-    return _super.apply(this, arguments);
+    return _super2.apply(this, arguments);
   }
 
   _createClass(Register, [{
