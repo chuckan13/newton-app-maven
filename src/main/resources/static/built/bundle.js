@@ -60832,11 +60832,9 @@ var Dashboard = /*#__PURE__*/function (_Component) {
       fetch('https://newton-server-maven.herokuapp.com/api/users').then(function (response) {
         return response.json();
       }).then(function (data) {
-        _this2.setState({
+        return _this2.setState({
           user: data
         });
-
-        console.log(data);
       });
     }
   }, {

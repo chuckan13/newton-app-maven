@@ -16,14 +16,28 @@ import "../app.scss";
 class Dashboard extends Component {
     constructor() {
         super();
-
-        this.state = {user: null};
+        
+        this.state = {
+            user: {
+                autopay: false,
+                fullName: "Loading name...",
+                id: -1,
+                loanOption1: "Loading LO1...",
+                loanOption2: "Loading LO2...",
+                loanOption3: "Loading LO3...",
+                password: "Loading password...",
+                role: "Loading role...",
+                selectedLoan: 0,
+                stripeCustomerId: "",
+                userName: "Loading email...",
+            }
+        };
     }
 
     componentDidMount() {
         fetch('https://newton-server-maven.herokuapp.com/api/users')
         .then(response => response.json())
-        .then(data => {this.setState({user: data}); console.log(data)});
+        .then(data => this.setState({user: data}));
     }
 
     render() {
