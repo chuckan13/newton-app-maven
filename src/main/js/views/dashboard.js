@@ -16,18 +16,15 @@ import "../app.scss";
 class Dashboard extends Component {
     constructor() {
         super();
+        
         this.state = {user: null};
-
-        fetch('https://newton-server-maven.herokuapp.com/api/users')
-        .then(response => response.json())
-        .then(data => {this.setState({user: data}); console.log(data)});
     }
 
-    // componentDidMount() {
-    //     fetch('https://newton-server-maven.herokuapp.com/api/users')
-    //     .then(response => response.json())
-    //     .then(data => this.setState({user: data}));
-    // }
+    componentDidMount() {
+        fetch('https://newton-server-maven.herokuapp.com/api/users')
+        .then(response => response.json())
+        .then(data => this.setState({user: data}));
+    }
 
     render() {
         const {user} = this.state;
