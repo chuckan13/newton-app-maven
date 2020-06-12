@@ -43,6 +43,15 @@ public class LoginuserController {
         }
     }
 
+    @RequestMapping(value = "/signinstatus", method = RequestMethod.GET)
+    public boolean getSignInStatus(Principal principal) {
+        if (principal == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     @RequestMapping(value = "/selectedloan", method = RequestMethod.GET)
     public ResponseEntity<LoanOption> getSelectedLoanOption(Principal principal) {
         Loginuser user = repository.findByUserName(principal.getName());
