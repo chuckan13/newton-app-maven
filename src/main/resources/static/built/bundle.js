@@ -60822,7 +60822,9 @@ var Dashboard = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       fetch('https://newton-server-maven.herokuapp.com/api/users').then(function (response) {
-        return console.log(response);
+        return response.json();
+      }).then(function (data) {
+        return console.log(data);
       });
     }
   }, {

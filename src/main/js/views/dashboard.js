@@ -15,7 +15,7 @@ import "../app.scss";
 
 class Dashboard extends Component {
     componentDidMount() {
-        fetch('https://newton-server-maven.herokuapp.com/api/users').then((response) => console.log(response));
+        fetch('https://newton-server-maven.herokuapp.com/api/users').then(response => response.json()).then(data => console.log(data));
     }
 
     render() {
