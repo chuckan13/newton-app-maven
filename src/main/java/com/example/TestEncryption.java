@@ -29,7 +29,7 @@ public class TestEncryption {
         return null;
 
     }
-
+}
 // public static void main(String[] args) {// https://www.grc.com/passwords.htm
 // String salt = KeyGenerators.string().generateKey();
 // String encryptThis = "Encrypt this text.";
