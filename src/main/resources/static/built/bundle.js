@@ -60817,9 +60817,21 @@ var Dashboard = /*#__PURE__*/function (_Component) {
 
     _classCallCheck(this, Dashboard);
 
-    _this = _super.call(this);
+    _this = _super.call(this, props);
     _this.state = {
-      user: null
+      user: {
+        autopay: false,
+        fullName: "Loading name...",
+        id: -1,
+        loanOption1: "Loading LO1...",
+        loanOption2: "Loading LO2...",
+        loanOption3: "Loading LO3...",
+        password: "Loading password...",
+        role: "Loading role...",
+        selectedLoan: 0,
+        stripeCustomerId: "",
+        userName: "Loading email..."
+      }
     };
     return _this;
   }
