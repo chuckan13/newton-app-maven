@@ -18,13 +18,17 @@ class Dashboard extends Component {
         super();
 
         this.state = {user: null};
-    }
 
-    componentWillMount() {
         fetch('https://newton-server-maven.herokuapp.com/api/users')
         .then(response => response.json())
-        .then(data => {this.setState({user: data}); console.log(data)});
+        .then(data => this.setState({user: data}));
     }
+
+    // componentWillMount() {
+    //     fetch('https://newton-server-maven.herokuapp.com/api/users')
+    //     .then(response => response.json())
+    //     .then(data => this.setState({user: data}));
+    // }
 
     render() {
         const {user} = this.state;
