@@ -30,20 +30,15 @@ public class TestEncryption {
 
     }
 
-    // public static void main(String[] args) {// https://www.grc.com/passwords.htm
-    // String salt = KeyGenerators.string().generateKey();
-    // String salt2 = KeyGenerators.string().generateKey();
-    // String secret = KeyGenerators.string().generateKey();
-    // String encryptThis = "Encrypt this text.";
-    // String encryptedText = encrypt(encryptThis,
-    // "5B51A851C400B78B47C06B7F421F32557B3259B0695B4F4C50106AFE81AB6210");
-    // String decryptedText = decrypt(encryptedText,
-    // "5B51A851C400B78B47C06B7F421F32557B3259B0695B4F4C50106AFE81AB6210");
+// public static void main(String[] args) {// https://www.grc.com/passwords.htm
+// String salt = KeyGenerators.string().generateKey();
+// String encryptThis = "Encrypt this text.";
+// String encryptedText = encrypt(encryptThis, salt);
+// String decryptedText = decrypt(encryptedText, salt);
 
-    // System.out.println(salt);
-    // System.out.println(secret);
-    // System.out.println(encryptThis);
-    // System.out.println(encryptedText);
-    // System.out.println(decryptedText);
-    // }
-}
+// System.out.println(salt);
+// System.out.println(encryptThis);
+// System.out.println(encryptedText);
+// System.out.println(decryptedText);
+// }
+// }
