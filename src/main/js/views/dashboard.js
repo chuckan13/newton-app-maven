@@ -16,7 +16,6 @@ import "../app.scss";
 class Dashboard extends Component {
     constructor() {
         super();
-
         this.state = {user: null};
 
         fetch('https://newton-server-maven.herokuapp.com/api/users')

@@ -60821,25 +60821,24 @@ var Dashboard = /*#__PURE__*/function (_Component) {
     _this.state = {
       user: null
     };
+    fetch('https://newton-server-maven.herokuapp.com/api/users').then(function (response) {
+      return response.json();
+    }).then(function (data) {
+      _this.setState({
+        user: data
+      });
+
+      console.log(data);
+    });
     return _this;
-  }
+  } // componentDidMount() {
+  //     fetch('https://newton-server-maven.herokuapp.com/api/users')
+  //     .then(response => response.json())
+  //     .then(data => this.setState({user: data}));
+  // }
+
 
   _createClass(Dashboard, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      fetch('https://newton-server-maven.herokuapp.com/api/users').then(function (response) {
-        return response.json();
-      }).then(function (data) {
-        _this2.setState({
-          user: data
-        });
-
-        console.log(data);
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
       var user = this.state.user;
