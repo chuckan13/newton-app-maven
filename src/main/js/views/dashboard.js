@@ -43,9 +43,9 @@ class Dashboard extends Component {
                                         boxShadow: "1px 1px 3px 1px #9E9E9E"
                                     }}>
                                     <h5 className="primary"><b>Account Details</b></h5>
-                                    <div className="my-1"><b>John Smith</b></div>
+                                    <div className="my-1"><b>{user.fullName}</b></div>
                                     <hr style={{ borderColor: "#C5C5C5" }}></hr>
-                                    <div className="mt-1"><b><i>Email</i></b></div> j.smith@gmail.com<br></br>
+                                    <div className="mt-1"><b><i>Email</i></b></div>{user.userName}<br></br>
                                     <div className="mt-1"><b><i>Phone number</i></b></div> 732-123-4567<br></br>
                                     <a className="my-1" href="#personalInfo"><u>Edit personal information</u></a>
                                     <hr style={{ borderColor: "#C5C5C5" }}></hr>
@@ -66,7 +66,7 @@ class Dashboard extends Component {
                                     <h4 className="m-0">
                                         <b>Bella Dental</b>
                                     </h4>
-                                    <div className="d-flex"><Check />Autopay: On</div>
+                                <div className="d-flex"><Check />Autopay: {user.auotpay ?  "On" : "Off"}</div>
                                 </Row>
                                 <hr style={{ borderColor: "#C5C5C5" }} />
                                 <Row className="p-4 d-flex justify-content-between align-items-center">
