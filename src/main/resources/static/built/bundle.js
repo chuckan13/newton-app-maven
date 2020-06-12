@@ -60832,15 +60832,18 @@ var Dashboard = /*#__PURE__*/function (_Component) {
       fetch('https://newton-server-maven.herokuapp.com/api/users').then(function (response) {
         return response.json();
       }).then(function (data) {
-        return _this2.setState({
+        _this2.setState({
           user: data
         });
+
+        console.log(data);
       });
     }
   }, {
     key: "render",
     value: function render() {
       var user = this.state.user;
+      console.log(user);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex",
         style: {
@@ -60872,7 +60875,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         className: "primary"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Account Details")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "my-1"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, user.fullName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "John Smith")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
         style: {
           borderColor: "#C5C5C5"
         }

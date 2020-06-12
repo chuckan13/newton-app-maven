@@ -23,11 +23,12 @@ class Dashboard extends Component {
     componentWillMount() {
         fetch('https://newton-server-maven.herokuapp.com/api/users')
         .then(response => response.json())
-        .then(data => this.setState({user: data}));
+        .then(data => {this.setState({user: data}); console.log(data)});
     }
 
     render() {
         const {user} = this.state;
+        console.log(user);
         return (
             <React.Fragment>
                 <div className="d-flex" style={{ flexFlow: "column", height: "100%" }}>
@@ -42,7 +43,7 @@ class Dashboard extends Component {
                                         boxShadow: "1px 1px 3px 1px #9E9E9E"
                                     }}>
                                     <h5 className="primary"><b>Account Details</b></h5>
-                                    <div className="my-1"><b>{user.fullName}</b></div>
+                                    <div className="my-1"><b>John Smith</b></div>
                                     <hr style={{ borderColor: "#C5C5C5" }}></hr>
                                     <div className="mt-1"><b><i>Email</i></b></div> j.smith@gmail.com<br></br>
                                     <div className="mt-1"><b><i>Phone number</i></b></div> 732-123-4567<br></br>
