@@ -60739,7 +60739,12 @@ var NavBar = /*#__PURE__*/function (_Component) {
         alt: "Newton Logo"
       })), this.props.simple ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
         className: "ml-auto",
-        variant: "main"
+        variant: "main",
+        onClick: function onClick() {
+          fetch("https://newton-server-maven.herokuapp.com/api/logout").then(function () {
+            return window.location.replace("https://newton-server-maven.herokuapp.com/");
+          });
+        }
       }, "Log Out") : links);
     }
   }]);

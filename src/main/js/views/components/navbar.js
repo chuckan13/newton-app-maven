@@ -27,7 +27,9 @@ class NavBar extends Component {
                         <Nav.Link href="#apply" className="mx-3">
                             Apply now
                         </Nav.Link>
-                        <Button variant="main" href="/login">Login</Button>
+                        <Button variant="main" href="/login">
+                            Login
+                        </Button>
                     </Nav>
                 </Navbar.Collapse>
             </React.Fragment>
@@ -50,7 +52,19 @@ class NavBar extends Component {
                     />
                 </Navbar.Brand>
                 {this.props.simple ? (
-                    <Button className="ml-auto" variant="main">
+                    <Button
+                        className="ml-auto"
+                        variant="main"
+                        onClick={() => {
+                            fetch(
+                                "https://newton-server-maven.herokuapp.com/api/logout"
+                            ).then(() =>
+                                window.location.replace(
+                                    "https://newton-server-maven.herokuapp.com/"
+                                )
+                            );
+                        }}
+                    >
                         Log Out
                     </Button>
                 ) : (
