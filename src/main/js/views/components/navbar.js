@@ -57,7 +57,7 @@ class NavBar extends Component {
                         variant="main"
                         onClick={() => {
                             fetch(
-                                "https://newton-server-maven.herokuapp.com/api/logout"
+                                "https://newton-server-maven.herokuapp.com/logout"
                             ).then(() =>
                                 window.location.replace(
                                     "https://newton-server-maven.herokuapp.com/"

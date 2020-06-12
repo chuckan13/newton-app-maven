@@ -60741,7 +60741,7 @@ var NavBar = /*#__PURE__*/function (_Component) {
         className: "ml-auto",
         variant: "main",
         onClick: function onClick() {
-          fetch("https://newton-server-maven.herokuapp.com/api/logout").then(function () {
+          fetch("https://newton-server-maven.herokuapp.com/logout").then(function () {
             return window.location.replace("https://newton-server-maven.herokuapp.com/");
           });
         }
