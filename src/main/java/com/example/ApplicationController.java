@@ -24,14 +24,14 @@ public class ApplicationController {
         return new ResponseEntity<Application>(application, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Application> delete(@PathVariable("id") Long id) {
-        Application application = repository.findOne(id);
-        if (application == null)
-            return new ResponseEntity<Application>(HttpStatus.NOT_FOUND);
-        repository.delete(application);
-        return new ResponseEntity<Application>(application, HttpStatus.OK);
-    }
+    // @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    // public ResponseEntity<Application> delete(@PathVariable("id") Long id) {
+    // Application application = repository.findOne(id);
+    // if (application == null)
+    // return new ResponseEntity<Application>(HttpStatus.NOT_FOUND);
+    // repository.delete(application);
+    // return new ResponseEntity<Application>(application, HttpStatus.OK);
+    // }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public ResponseEntity<Application> update(@RequestBody Application application) {
