@@ -60825,8 +60825,8 @@ var Dashboard = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(Dashboard, [{
-    key: "componentWillMount",
-    value: function componentWillMount() {
+    key: "componentDidMount",
+    value: function componentDidMount() {
       var _this2 = this;
 
       fetch('https://newton-server-maven.herokuapp.com/api/users').then(function (response) {

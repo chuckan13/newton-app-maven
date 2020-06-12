@@ -20,7 +20,7 @@ class Dashboard extends Component {
         this.state = {user: null};
     }
 
-    componentWillMount() {
+    componentDidMount() {
         fetch('https://newton-server-maven.herokuapp.com/api/users')
         .then(response => response.json())
         .then(data => {this.setState({user: data}); console.log(data)});
