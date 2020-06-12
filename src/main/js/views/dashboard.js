@@ -15,7 +15,7 @@ import "../app.scss";
 
 class Dashboard extends Component {
     constructor() {
-        super(props);
+        super();
         
         this.state = {
             user: {

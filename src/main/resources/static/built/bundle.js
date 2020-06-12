@@ -60817,7 +60817,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
 
     _classCallCheck(this, Dashboard);
 
-    _this = _super.call(this, props);
+    _this = _super.call(this);
     _this.state = {
       user: {
         autopay: false,
