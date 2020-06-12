@@ -14,11 +14,20 @@ import { FaTag } from "react-icons/fa";
 import "../app.scss";
 
 class Dashboard extends Component {
+    constructor() {
+        super();
+
+        this.state = {user: null};
+    }
+
     componentDidMount() {
-        fetch('https://newton-server-maven.herokuapp.com/api/users').then(response => response.json()).then(data => console.log(data));
+        fetch('https://newton-server-maven.herokuapp.com/api/users')
+        .then(response => response.json())
+        .then(data => this.setState({user: data}));
     }
 
     render() {
+        const {user} = this.state;
         return (
             <React.Fragment>
                 <div className="d-flex" style={{ flexFlow: "column", height: "100%" }}>
@@ -33,7 +42,7 @@ class Dashboard extends Component {
                                         boxShadow: "1px 1px 3px 1px #9E9E9E"
                                     }}>
                                     <h5 className="primary"><b>Account Details</b></h5>
-                                    <div className="my-1"><b>John Smith</b></div>
+                                    <div className="my-1"><b>{user.fullName}</b></div>
                                     <hr style={{ borderColor: "#C5C5C5" }}></hr>
                                     <div className="mt-1"><b><i>Email</i></b></div> j.smith@gmail.com<br></br>
                                     <div className="mt-1"><b><i>Phone number</i></b></div> 732-123-4567<br></br>
