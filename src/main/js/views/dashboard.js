@@ -121,13 +121,12 @@ class Dashboard extends Component {
                                         <br />
                                         <b>${loan.amountTotal}</b>
                                         <ProgressBar now={(loan.amountTotal > 0) ? loan.amountPaid / loan.amountTotal * 100 : 40} className="mt-3" />
-                                        <Row className="d-flex" style={{justifyContent: "space-between"}}>
-                                            <div style={{textJustify: "left"}}>PAID:<br />${loan.amountPaid}</div>
-                                            <div style={{textJustify: "right"}}>REMAINING:<br />${loan.amountTotal-loan.amountPaid}</div>
+                                        <Row className="d-flex m-0 pt-1" style={{justifyContent: "space-between"}}>
+                                            <div style={{textAlign: "left"}}>PAID<br /><b>${loan.amountPaid}</b></div>
+                                            <div style={{textAlign: "right"}}>REMAINING<br /><b>${loan.amountTotal-loan.amountPaid}</b></div>
                                         </Row>
                                     </Container>
-                                    <br />
-                                    <Container>
+                                    <Container className="mt-4">
                                         LOAN TIMELINE
                                         <br />
                                         <Container className="d-flex" style={{ overflowX: "auto" }}>
