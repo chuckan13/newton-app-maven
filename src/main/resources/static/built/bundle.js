@@ -60866,7 +60866,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         });
       });
       var user = this.state.user;
-      fetch('https://newton-server-maven.herokuapp.com/api/loans/' + str(user.selectedLoan)).then(function (response) {
+      fetch('https://newton-server-maven.herokuapp.com/api/loans/' + String(user.selectedLoan)).then(function (response) {
         return response.json();
       }).then(function (data) {
         return _this2.setState({
