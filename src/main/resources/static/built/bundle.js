@@ -61577,13 +61577,10 @@ var Login = /*#__PURE__*/function (_Component) {
   _createClass(Login, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      fetch("https://newton-server-maven.herokuapp.com/api/users", {
-        method: "GET",
-        body: data
-      }).then(function (response) {
-        console.log("Success"); // console.log(response.headers.get('Authorization'));
-
-        if (response.status == 400) window.location.replace("https://newton-server-maven.herokuapp.com/dashboard");
+      fetch("https://newton-server-maven.herokuapp.com/api/users/signinstatus").then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        if (data == false) window.location.replace("https://newton-server-maven.herokuapp.com/dashboard");
       })["catch"](function (error) {
         console.error("Error:", error);
       });

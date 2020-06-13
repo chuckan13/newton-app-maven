@@ -146,15 +146,15 @@ function LoginForm() {
 
 class Login extends Component {
     componentDidMount() {
-        fetch("https://newton-server-maven.herokuapp.com/api/users", {
-            method: "GET",
-            body: data,
-        })
-            .then((response) => {
-                console.log("Success");
-                // console.log(response.headers.get('Authorization'));
-                if (response.status == 400)
-                    window.location.replace("https://newton-server-maven.herokuapp.com/dashboard");
+        fetch(
+            "https://newton-server-maven.herokuapp.com/api/users/signinstatus"
+        )
+            .then((response) => response.json())
+            .then((data) => {
+                if (data == false)
+                    window.location.replace(
+                        "https://newton-server-maven.herokuapp.com/dashboard"
+                    );
             })
             .catch((error) => {
                 console.error("Error:", error);
