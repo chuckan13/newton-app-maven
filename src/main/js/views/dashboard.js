@@ -86,7 +86,7 @@ class Dashboard extends Component {
                                     <a className="mt-1" href="#paymentMethod"><u>Register a new payment method</u></a>
                                 </Card>
                             </Row>
-                            <Row className="py-2 px-5" style={{ fontSize: "11px", position: "absolute", bottom: "0px" }}>
+                            <Row className="py-2 px-5" style={{ position: "absolute", bottom: "0px" }}>
                                 <b>For further assistance:</b>
                                 Give us a call at 732-987-6543 or email us at help@covered.com
                             </Row>
@@ -100,7 +100,7 @@ class Dashboard extends Component {
                                     <div className="d-flex"><Check />Autopay: {user.autopay ? "On" : "Off"}</div>
                                 </Row>
                                 <hr style={{ borderColor: "#C5C5C5" }} />
-                                <Row className="p-4 d-flex justify-content-between align-items-center">
+                                <Row className="px-4 py-2 d-flex justify-content-between align-items-center">
                                     <h5 className="m-0">
                                         <b>${loan.amountTotal / loan.totalMonths}</b> due on <b>{loan.nextPaymentDate}</b>
                                     </h5>
@@ -121,7 +121,7 @@ class Dashboard extends Component {
                                         <br />
                                         <b>${loan.amountTotal}</b>
                                         <ProgressBar now={(loan.amountTotal > 0) ? loan.amountPaid / loan.amountTotal * 100 : 40} className="mt-3" />
-                                        <Row className="d-flex m-0 pt-1" style={{justifyContent: "space-between"}}>
+                                        <Row className="d-flex m-0 py-2" style={{justifyContent: "space-between"}}>
                                             <div style={{textAlign: "left"}}>PAID<br /><b>${loan.amountPaid}</b></div>
                                             <div style={{textAlign: "right"}}>REMAINING<br /><b>${loan.amountTotal-loan.amountPaid}</b></div>
                                         </Row>
