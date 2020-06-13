@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Container from "react-bootstrap/Container";
 import Check from "react-bootstrap/FormCheck";
-import HorizontalScroll from 'react-scroll-horizontal'
+// import HorizontalScroll from 'react-scroll-horizontal'
 
 import { FaTag } from "react-icons/fa";
 
@@ -126,12 +126,18 @@ class Dashboard extends Component {
                                     </Container>
                                 </Row>
                                 <Row>
-                                    <HorizontalScroll>
+                                    <Container className="d-flex" style={{overflowX: "auto"}}>
+                                        <span key={0}>Processed: {loan.processedDate}</span>
+                                        {loan.pastDatesPaid.map((date, index) => (
+                                            <span key={index + 1}>Paid: {date}</span>
+                                        ))}
+                                    </Container>
+                                    {/* <HorizontalScroll>
                                         <li key={0}>Processed: {loan.processedDate}</li>
                                         {loan.pastDatesPaid.map((date, index) => (
                                             <li key={index + 1}>Paid: {date}</li>
                                         ))}
-                                    </HorizontalScroll>
+                                    </HorizontalScroll> */}
                                 </Row>
                             </div>
                         </Col>
