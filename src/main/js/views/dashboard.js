@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Container from "react-bootstrap/Container";
 import Check from "react-bootstrap/FormCheck";
+import HorizontalScroll from 'react-scroll-horizontal'
 
 import { FaTag } from "react-icons/fa";
 
@@ -16,7 +17,7 @@ import "../app.scss";
 class Dashboard extends Component {
     constructor() {
         super();
-        
+
         this.state = {
             user: {
                 autopay: false,
@@ -48,19 +49,19 @@ class Dashboard extends Component {
 
     componentDidMount() {
         fetch('https://newton-server-maven.herokuapp.com/api/users')
-        .then(response => response.json())
-        .then(data => this.setState({user: data}));
+            .then(response => response.json())
+            .then(data => this.setState({ user: data }));
 
-        const {user} = this.state;
+        const { user } = this.state;
 
-        fetch('https://newton-server-maven.herokuapp.com/api/loans/'+String(user.selectedLoan))
-        .then(response => response.json())
-        .then(data => this.setState({loan: data}));
+        fetch('https://newton-server-maven.herokuapp.com/api/loans/' + String(user.selectedLoan))
+            .then(response => response.json())
+            .then(data => this.setState({ loan: data }));
     }
 
     render() {
-        const {user, loan} = this.state;
-        // console.log(user, loan);
+        const { user, loan } = this.state;
+        console.log(user, loan);
         return (
             <React.Fragment>
                 <div className="d-flex" style={{ flexFlow: "column", height: "100%" }}>
@@ -98,12 +99,12 @@ class Dashboard extends Component {
                                     <h4 className="m-0">
                                         <b>{loan.medicalCenter}</b>
                                     </h4>
-                                <div className="d-flex"><Check />Autopay: {user.autopay ?  "On" : "Off"}</div>
+                                    <div className="d-flex"><Check />Autopay: {user.autopay ? "On" : "Off"}</div>
                                 </Row>
                                 <hr style={{ borderColor: "#C5C5C5" }} />
                                 <Row className="p-4 d-flex justify-content-between align-items-center">
                                     <h5 className="m-0">
-                                    <b>${loan.amountTotal/loan.totalMonths}</b> due on <b>{loan.nextPaymentDate}</b>
+                                        <b>${loan.amountTotal / loan.totalMonths}</b> due on <b>{loan.nextPaymentDate}</b>
                                     </h5>
                                     <Button variant="main">
                                         Make one-time payment
@@ -121,11 +122,15 @@ class Dashboard extends Component {
                                         TOTAL OF PAYMENTS
                                         <br />
                                         <b>{loan.amountPaid}</b>
-                                        <ProgressBar now={(loan.amountTotal > 0) ?  loan.amountPaid/loan.amountTotal*100 : 40} className="mt-3" />
+                                        <ProgressBar now={(loan.amountTotal > 0) ? loan.amountPaid / loan.amountTotal * 100 : 40} className="mt-3" />
                                     </Container>
                                 </Row>
                                 <Row>
-
+                                    <HorizontalScroll>
+                                        {loan.pastDatesPaid.map(date => (
+                                            <li>{date}</li>
+                                        ))}
+                                    </HorizontalScroll>
                                 </Row>
                             </div>
                         </Col>
