@@ -151,8 +151,8 @@ class Login extends Component {
         )
             .then((response) => response.json())
             .then((data) => {
-                console.log("Success: " + data);
-                if (data == false)
+                console.log("Success: ", data);
+                if (data == true)
                     window.location.replace(
                         "https://newton-server-maven.herokuapp.com/dashboard"
                     );

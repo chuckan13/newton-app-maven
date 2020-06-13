@@ -61580,8 +61580,8 @@ var Login = /*#__PURE__*/function (_Component) {
       fetch("https://newton-server-maven.herokuapp.com/api/users/signinstatus").then(function (response) {
         return response.json();
       }).then(function (data) {
-        console.log("Success: " + data);
-        if (data == false) window.location.replace("https://newton-server-maven.herokuapp.com/dashboard");
+        console.log("Success: ", data);
+        if (data == true) window.location.replace("https://newton-server-maven.herokuapp.com/dashboard");
       })["catch"](function (error) {
         console.error("Error:", error);
       });
