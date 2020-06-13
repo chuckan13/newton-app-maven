@@ -59,17 +59,17 @@ function LoginForm() {
             // console.log(formData);
             // console.log(data);
             // debugger;
-            fetch(
-                "https://newton-server-maven.herokuapp.com/login-process",
-                {
-                    method: "POST",
-                    body: data,
-                }
-            )
+            fetch("https://newton-server-maven.herokuapp.com/login-process", {
+                method: "POST",
+                body: data,
+            })
                 .then((response) => {
                     console.log("Success");
                     // console.log(response.headers.get('Authorization'));
-                    if (response.url === "https://newton-server-maven.herokuapp.com/dashboard") {
+                    if (
+                        response.url ===
+                        "https://newton-server-maven.herokuapp.com/dashboard"
+                    ) {
                         window.location.replace(response.url);
                     } else {
                         setLoginFailed(
@@ -129,7 +129,6 @@ function LoginForm() {
                     {errors.password}
                 </Form.Control.Feedback>
             </Form.Group>
-            {loginFailed}
             <Row className="justify-content-center pb-3">
                 <Button
                     type="submit"
@@ -140,11 +139,28 @@ function LoginForm() {
                     {isSubmitting ? "Loading..." : "Submit"}
                 </Button>
             </Row>
+            {loginFailed}
         </Form>
     );
 }
 
 class Login extends Component {
+    componentDidMount() {
+        fetch("https://newton-server-maven.herokuapp.com/api/users", {
+            method: "GET",
+            body: data,
+        })
+            .then((response) => {
+                console.log("Success");
+                // console.log(response.headers.get('Authorization'));
+                if (response.status == 400)
+                    window.location.replace("https://newton-server-maven.herokuapp.com/dashboard");
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    }
+
     render() {
         return (
             <React.Fragment>

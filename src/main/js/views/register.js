@@ -199,7 +199,6 @@ function RegistrationForm() {
 						id="terms"
 					/>
 				</Form.Group>
-				{registrationFailed}
 				<Row className="justify-content-center pb-3">
 					<Button
 						type="submit"
@@ -210,6 +209,7 @@ function RegistrationForm() {
 						{isSubmitting ? "Loading..." : "Submit"}
 					</Button>
 				</Row>
+                {registrationFailed}
 			</Form>
 		</React.Fragment>
 	);

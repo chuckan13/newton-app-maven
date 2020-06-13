@@ -60940,7 +60940,6 @@ var Dashboard = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("u", null, "Register a new payment method")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
         className: "py-2 px-5",
         style: {
-          fontSize: "11px",
           position: "absolute",
           bottom: "0px"
         }
@@ -61554,14 +61553,14 @@ function LoginForm() {
     isInvalid: touched.password && !!errors.password
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
     type: "invalid"
-  }, errors.password)), loginFailed, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, errors.password)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
     className: "justify-content-center pb-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "submit",
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting,
     className: "mt-5"
-  }, isSubmitting ? "Loading..." : "Submit")));
+  }, isSubmitting ? "Loading..." : "Submit")), loginFailed);
 }
 
 var Login = /*#__PURE__*/function (_Component) {
@@ -61576,6 +61575,20 @@ var Login = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(Login, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      fetch("https://newton-server-maven.herokuapp.com/api/users", {
+        method: "GET",
+        body: data
+      }).then(function (response) {
+        console.log("Success"); // console.log(response.headers.get('Authorization'));
+
+        if (response.status == 400) window.location.replace("https://newton-server-maven.herokuapp.com/dashboard");
+      })["catch"](function (error) {
+        console.error("Error:", error);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_js__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -61815,14 +61828,14 @@ function RegistrationForm() {
     onBlur: handleBlur,
     isInvalid: touched.terms && !!errors.terms,
     id: "terms"
-  })), registrationFailed, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
     className: "justify-content-center pb-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "submit",
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting,
     className: "mt-5"
-  }, isSubmitting ? "Loading..." : "Submit"))));
+  }, isSubmitting ? "Loading..." : "Submit")), registrationFailed));
 }
 
 var Register = /*#__PURE__*/function (_Component) {
