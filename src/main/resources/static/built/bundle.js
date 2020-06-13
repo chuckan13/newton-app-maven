@@ -60836,6 +60836,18 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         selectedLoan: 0,
         stripeCustomerId: "",
         userName: "Loading email..."
+      },
+      loan: {
+        id: 0,
+        amountTotal: 0,
+        amountPaid: 0,
+        apr: 0,
+        totalMonths: 0,
+        pastDatesPaid: [],
+        nextPaymentDate: "Loading payment date...",
+        processedDate: "Loading processed date...",
+        medicalCenter: "Loading medical center...",
+        userId: -1
       }
     };
     return _this;
@@ -60853,12 +60865,22 @@ var Dashboard = /*#__PURE__*/function (_Component) {
           user: data
         });
       });
+      var user = this.state.user;
+      fetch('https://newton-server-maven.herokuapp.com/api/loans/' + str(user.selectedLoan)).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        return _this2.setState({
+          loan: data
+        });
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      var user = this.state.user;
-      console.log(user);
+      var _this$state = this.state,
+          user = _this$state.user,
+          loan = _this$state.loan;
+      console.log(user, loan);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex",
         style: {

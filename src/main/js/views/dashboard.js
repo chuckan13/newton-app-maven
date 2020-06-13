@@ -30,6 +30,18 @@ class Dashboard extends Component {
                 selectedLoan: 0,
                 stripeCustomerId: "",
                 userName: "Loading email...",
+            },
+            loan: {
+                id: 0,
+                amountTotal: 0,
+                amountPaid: 0,
+                apr: 0,
+                totalMonths: 0,
+                pastDatesPaid: [],
+                nextPaymentDate: "Loading payment date...",
+                processedDate: "Loading processed date...",
+                medicalCenter: "Loading medical center...",
+                userId: -1
             }
         };
     }
@@ -38,11 +50,17 @@ class Dashboard extends Component {
         fetch('https://newton-server-maven.herokuapp.com/api/users')
         .then(response => response.json())
         .then(data => this.setState({user: data}));
+
+        const {user} = this.state;
+
+        fetch('https://newton-server-maven.herokuapp.com/api/loans/'+str(user.selectedLoan))
+        .then(response => response.json())
+        .then(data => this.setState({loan: data}));
     }
 
     render() {
-        const {user} = this.state;
-        console.log(user);
+        const {user, loan} = this.state;
+        console.log(user, loan);
         return (
             <React.Fragment>
                 <div className="d-flex" style={{ flexFlow: "column", height: "100%" }}>
