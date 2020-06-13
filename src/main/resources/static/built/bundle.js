@@ -60722,7 +60722,7 @@ var NavBar = /*#__PURE__*/function (_Component) {
         className: "mx-3"
       }, "Apply now"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
         variant: "main",
-        href: "/login"
+        href: "/loginpage"
       }, "Login"))));
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_NavBar__WEBPACK_IMPORTED_MODULE_1__["default"], {
         className: "px-md-5 py-3 align-items-center text-center",
