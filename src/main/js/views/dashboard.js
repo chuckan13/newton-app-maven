@@ -52,7 +52,7 @@ class Dashboard extends Component {
             .then(response => response.json())
             .then(data => this.setState({ user: data }));
 
-        fetch('https://newton-server-maven.herokuapp.com/api/loans/selectedloan')
+        fetch('https://newton-server-maven.herokuapp.com/api/users/selectedloan')
             .then(response => response.json())
             .then(data => this.setState({ loan: data }));
     }
@@ -122,8 +122,8 @@ class Dashboard extends Component {
                                         <b>${loan.amountTotal}</b>
                                         <ProgressBar now={(loan.amountTotal > 0) ? loan.amountPaid / loan.amountTotal * 100 : 40} className="mt-3" />
                                         <Row className="d-flex" style={{justifyContent: "space-between"}}>
-                                            <div>PAID:<br />{loan.amountPaid}</div>
-                                            <div>REMAINING:<br />{loan.amountTotal-loan.amountPaid}</div>
+                                            <div>PAID:<br />${loan.amountPaid}</div>
+                                            <div>REMAINING:<br />${loan.amountTotal-loan.amountPaid}</div>
                                         </Row>
                                     </Container>
                                     <br />
