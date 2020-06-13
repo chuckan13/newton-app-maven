@@ -132,6 +132,12 @@ class Dashboard extends Component {
                                             {loan.pastDatesPaid.map((date, index) => (
                                                 <span className="p-4" key={index + 1}>Paid:<br />{date}</span>
                                             ))}
+                                            {loan.pastDatesPaid.map((date, index) => (
+                                                <span className="p-4" key={index + 1}>Paid:<br />{date}</span>
+                                            ))}
+                                            {loan.pastDatesPaid.map((date, index) => (
+                                                <span className="p-4" key={index + 1}>Paid:<br />{date}</span>
+                                            ))}
                                         </Container>
                                     </Container>
                                 </Row>

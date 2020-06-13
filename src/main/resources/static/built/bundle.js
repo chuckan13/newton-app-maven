@@ -60994,6 +60994,16 @@ var Dashboard = /*#__PURE__*/function (_Component) {
           className: "p-4",
           key: index + 1
         }, "Paid:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), date);
+      }), loan.pastDatesPaid.map(function (date, index) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "p-4",
+          key: index + 1
+        }, "Paid:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), date);
+      }), loan.pastDatesPaid.map(function (date, index) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "p-4",
+          key: index + 1
+        }, "Paid:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), date);
       })))))))));
     }
   }]);
