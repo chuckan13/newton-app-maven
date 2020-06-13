@@ -121,14 +121,15 @@ class Dashboard extends Component {
                                     <Container>
                                         TOTAL OF PAYMENTS
                                         <br />
-                                        <b>{loan.amountPaid}</b>
+                                        <b>${loan.amountPaid}</b>
                                         <ProgressBar now={(loan.amountTotal > 0) ? loan.amountPaid / loan.amountTotal * 100 : 40} className="mt-3" />
                                     </Container>
                                 </Row>
                                 <Row>
                                     <HorizontalScroll>
-                                        {loan.pastDatesPaid.map(date => (
-                                            <li>{date}</li>
+                                        <li key={0}>Processed: {loan.processedDate}</li>
+                                        {loan.pastDatesPaid.map((date, index) => (
+                                            <li key={index + 1}>Paid: {date}</li>
                                         ))}
                                     </HorizontalScroll>
                                 </Row>
