@@ -61500,7 +61500,7 @@ function LoginForm() {
           window.location.replace(response.url);
         } else {
           setLoginFailed( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "invalid-feedback d-block"
+            className: "invalid-feedback d-block position-static pt-2"
           }, "Your email or password is incorrect."));
         }
       }).then(function () {
@@ -61554,13 +61554,13 @@ function LoginForm() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
     type: "invalid"
   }, errors.password)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    className: "justify-content-center pb-3"
+    className: "justify-content-center text-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "submit",
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting,
     className: "mt-5"
-  }, isSubmitting ? "Loading..." : "Submit")), loginFailed);
+  }, isSubmitting ? "Loading..." : "Submit"), loginFailed));
 }
 
 var Login = /*#__PURE__*/function (_Component) {
@@ -61580,6 +61580,7 @@ var Login = /*#__PURE__*/function (_Component) {
       fetch("https://newton-server-maven.herokuapp.com/api/users/signinstatus").then(function (response) {
         return response.json();
       }).then(function (data) {
+        console.log("Success: " + data);
         if (data == false) window.location.replace("https://newton-server-maven.herokuapp.com/dashboard");
       })["catch"](function (error) {
         console.error("Error:", error);
@@ -61714,7 +61715,7 @@ function RegistrationForm() {
 
         if (data.status == 409) {
           setRegistrationFailed( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "invalid-feedback d-block"
+            className: "invalid-feedback d-block position-static pt-2"
           }, "The email you chose is already taken."));
         } else if (data.status == 200) {
           alert("Account created!");
@@ -61826,13 +61827,13 @@ function RegistrationForm() {
     isInvalid: touched.terms && !!errors.terms,
     id: "terms"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    className: "justify-content-center pb-3"
+    className: "justify-content-center text-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "submit",
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting,
     className: "mt-5"
-  }, isSubmitting ? "Loading..." : "Submit")), registrationFailed));
+  }, isSubmitting ? "Loading..." : "Submit"), registrationFailed)));
 }
 
 var Register = /*#__PURE__*/function (_Component) {

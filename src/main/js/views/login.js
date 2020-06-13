@@ -73,7 +73,7 @@ function LoginForm() {
                         window.location.replace(response.url);
                     } else {
                         setLoginFailed(
-                            <div className="invalid-feedback d-block">
+                            <div className="invalid-feedback d-block position-static pt-2">
                                 Your email or password is incorrect.
                             </div>
                         );
@@ -129,7 +129,7 @@ function LoginForm() {
                     {errors.password}
                 </Form.Control.Feedback>
             </Form.Group>
-            <Row className="justify-content-center pb-3">
+            <Row className="justify-content-center text-center">
                 <Button
                     type="submit"
                     variant="main"
@@ -138,8 +138,8 @@ function LoginForm() {
                 >
                     {isSubmitting ? "Loading..." : "Submit"}
                 </Button>
+                {loginFailed}
             </Row>
-            {loginFailed}
         </Form>
     );
 }
@@ -151,6 +151,7 @@ class Login extends Component {
         )
             .then((response) => response.json())
             .then((data) => {
+                console.log("Success: " + data);
                 if (data == false)
                     window.location.replace(
                         "https://newton-server-maven.herokuapp.com/dashboard"
