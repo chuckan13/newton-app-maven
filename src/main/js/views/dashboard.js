@@ -60,7 +60,7 @@ class Dashboard extends Component {
 
     render() {
         const {user, loan} = this.state;
-        console.log(user, loan);
+        // console.log(user, loan);
         return (
             <React.Fragment>
                 <div className="d-flex" style={{ flexFlow: "column", height: "100%" }}>
@@ -96,14 +96,14 @@ class Dashboard extends Component {
                             <div className="p-4">
                                 <Row className="p-4 d-flex justify-content-between align-items-center">
                                     <h4 className="m-0">
-                                        <b>Bella Dental</b>
+                                        <b>{loan.medicalCenter}</b>
                                     </h4>
-                                <div className="d-flex"><Check />Autopay: {user.auotpay ?  "On" : "Off"}</div>
+                                <div className="d-flex"><Check />Autopay: {user.autopay ?  "On" : "Off"}</div>
                                 </Row>
                                 <hr style={{ borderColor: "#C5C5C5" }} />
                                 <Row className="p-4 d-flex justify-content-between align-items-center">
                                     <h5 className="m-0">
-                                        <b>$61.38</b> due on <b>Jun. 9, 2020</b>
+                                    <b>${loan.amountTotal/loan.totalMonths}</b> due on <b>{loan.nextPaymentDate}</b>
                                     </h5>
                                     <Button variant="main">
                                         Make one-time payment
@@ -120,9 +120,12 @@ class Dashboard extends Component {
                                     <Container>
                                         TOTAL OF PAYMENTS
                                         <br />
-                                        <b>$3241.17</b>
-                                        <ProgressBar now={40} className="mt-3" />
+                                        <b>{loan.amountPaid}</b>
+                                        <ProgressBar now={(loan.amountTotal > 0) ?  loan.amountPaid/loan.amountTotal*100 : 40} className="mt-3" />
                                     </Container>
+                                </Row>
+                                <Row>
+
                                 </Row>
                             </div>
                         </Col>
