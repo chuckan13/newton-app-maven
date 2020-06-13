@@ -78,12 +78,12 @@ class Dashboard extends Component {
                                     <h5 className="primary"><b>Account Details</b></h5>
                                     <div className="my-1"><b>{user.fullName}</b></div>
                                     <hr style={{ borderColor: "#C5C5C5" }}></hr>
-                                    <div className="mt-1"><b><i>Email</i></b></div>{user.userName}<br></br>
-                                    <div className="mt-1"><b><i>Phone number</i></b></div> 732-123-4567<br></br>
+                                    <div className="mt-1"><b><i>Email</i></b></div>{user.userName}<br />
+                                    <div className="mt-1"><b><i>Phone number</i></b></div> 732-123-4567<br />
                                     <a className="my-1" href="#personalInfo"><u>Edit personal information</u></a>
                                     <hr style={{ borderColor: "#C5C5C5" }}></hr>
-                                    <div className="mt-1"><b><i>Bank</i></b></div> TD Bank<br></br>
-                                    <div className="mt-1"><b><i>Account #</i></b></div> xxx-4120<br></br>
+                                    <div className="mt-1"><b><i>Bank</i></b></div> TD Bank<br />
+                                    <div className="mt-1"><b><i>Account #</i></b></div> xxx-4120<br />
                                     <a className="mt-1" href="#bankInfo"><u>Edit bank information</u></a>
                                     <a className="mt-1" href="#paymentMethod"><u>Register a new payment method</u></a>
                                 </Card>
@@ -124,22 +124,16 @@ class Dashboard extends Component {
                                         <b>${loan.amountPaid}</b>
                                         <ProgressBar now={(loan.amountTotal > 0) ? loan.amountPaid / loan.amountTotal * 100 : 40} className="mt-3" />
                                     </Container>
-                                </Row>
-                                <Row className="p-4">
-                                    LOAN TIMELINE
-                                    <br />
-                                    <Container className="d-flex" style={{overflowX: "auto"}}>
-                                        <span className="p-2" key={0}>Processed:<br></br>{loan.processedDate}</span>
-                                        {loan.pastDatesPaid.map((date, index) => (
-                                            <span className="p-2" key={index + 1}>Paid:<br></br>{date}</span>
-                                        ))}
+                                    <Container>
+                                        LOAN TIMELINE
+                                        <br />
+                                        <Container className="d-flex" style={{ overflowX: "auto" }}>
+                                            <span className="p-4" key={0}>Processed:<br />{loan.processedDate}</span>
+                                            {loan.pastDatesPaid.map((date, index) => (
+                                                <span className="p-4" key={index + 1}>Paid:<br />{date}</span>
+                                            ))}
+                                        </Container>
                                     </Container>
-                                    {/* <HorizontalScroll>
-                                        <li key={0}>Processed: {loan.processedDate}</li>
-                                        {loan.pastDatesPaid.map((date, index) => (
-                                            <li key={index + 1}>Paid: {date}</li>
-                                        ))}
-                                    </HorizontalScroll> */}
                                 </Row>
                             </div>
                         </Col>
