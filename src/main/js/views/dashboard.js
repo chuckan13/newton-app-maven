@@ -72,7 +72,7 @@ class Dashboard extends Component {
 						>
 							<Row>
 								<Card
-									className="m-0 px-3 py-4"
+									className="m-0 px-3 py-4 mb-5"
 									style={{
 										borderRadius: '10px',
 										boxShadow: '1px 1px 3px 1px #9E9E9E'
@@ -128,22 +128,22 @@ class Dashboard extends Component {
 							</Row>
 						</Col>
 						<Col md={8} xs={12}>
-							<div className="p-4">
+							<div className="py-4 px-0 px-sm-4">
 								<Row className="p-4 d-flex justify-content-between align-items-center">
-									<h4 className="m-0">
+									<h4 className="m-0 mt-1">
 										<b>{loan.medicalCenter}</b>
 									</h4>
-									<div className="d-flex">
+									<div className="d-flex mt-2">
 										<Check />Autopay: {user.autopay ? 'On' : 'Off'}
 									</div>
 								</Row>
 								<hr style={{ borderColor: '#C5C5C5' }} />
-								<Row className="px-4 py-2 d-flex justify-content-between align-items-center">
+								<Row className="px-4 py-2 d-flex justify-content-lg-between justify-content-center align-items-center">
 									<h5 className="m-0">
 										<b>${loan.amountTotal / loan.totalMonths}</b> due on{' '}
 										<b>{loan.nextPaymentDate}</b>
 									</h5>
-									<Button variant="main">Make one-time payment</Button>
+									<Button variant="main mt-3 mt-lg-0">Make one-time payment</Button>
 								</Row>
 								<hr style={{ borderColor: '#C5C5C5' }} />
 								<Row className="p-4 align-items-center">

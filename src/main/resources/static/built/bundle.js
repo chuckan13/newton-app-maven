@@ -61006,7 +61006,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         },
         className: "d-none d-md-flex justify-content-center align-items-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        className: "m-0 px-3 py-4",
+        className: "m-0 px-3 py-4 mb-5",
         style: {
           borderRadius: '10px',
           boxShadow: '1px 1px 3px 1px #9E9E9E'
@@ -61050,23 +61050,23 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         md: 8,
         xs: 12
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "p-4"
+        className: "py-4 px-0 px-sm-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
         className: "p-4 d-flex justify-content-between align-items-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-        className: "m-0"
+        className: "m-0 mt-1"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, loan.medicalCenter)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "d-flex"
+        className: "d-flex mt-2"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_FormCheck__WEBPACK_IMPORTED_MODULE_8__["default"], null), "Autopay: ", user.autopay ? 'On' : 'Off')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
         style: {
           borderColor: '#C5C5C5'
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        className: "px-4 py-2 d-flex justify-content-between align-items-center"
+        className: "px-4 py-2 d-flex justify-content-lg-between justify-content-center align-items-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         className: "m-0"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "$", loan.amountTotal / loan.totalMonths), " due on", ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, loan.nextPaymentDate)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        variant: "main"
+        variant: "main mt-3 mt-lg-0"
       }, "Make one-time payment")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
         style: {
           borderColor: '#C5C5C5'
