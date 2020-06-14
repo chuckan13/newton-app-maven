@@ -157,7 +157,8 @@ class Dashboard extends Component {
 										<b>${loan.amountTotal}</b>
 										<ProgressBar
 											now={loan.amountTotal > 0 ? loan.amountPaid / loan.amountTotal * 100 : 40}
-											className="mt-3 primary"
+                                            className="mt-3"
+                                            variant="custom"
 										/>
 										<Row className="d-flex m-0 py-2" style={{ justifyContent: 'space-between' }}>
 											<div style={{ textAlign: 'left' }}>
