@@ -52,7 +52,7 @@ class Dashboard extends Component {
 			.then(response => response.json())
 			.then(data => this.setState({ user: data }));
 
-		fetch('https://newton-server-maven.herokuapp.com/api/loans/selectedloan')
+		fetch('https://newton-server-maven.herokuapp.com/api/users/selectedloan')
 			.then(response => response.json())
 			.then(data => this.setState({ loan: data }));
 	}
@@ -68,7 +68,7 @@ class Dashboard extends Component {
 						<Col
 							xs={4}
 							style={{ backgroundColor: '#ddd' }}
-							className="d-flex justify-content-center align-items-center"
+							className="d-none d-md-flex justify-content-center align-items-center"
 						>
 							<Row>
 								<Card
@@ -122,15 +122,12 @@ class Dashboard extends Component {
 									</a>
 								</Card>
 							</Row>
-							<Row
-								className="py-2 px-5"
-								style={{ fontSize: '11px', position: 'absolute', bottom: '0px' }}
-							>
+							<Row className="py-2 px-5" style={{ position: 'absolute', bottom: '0px' }}>
 								<b>For further assistance:</b>
 								Give us a call at 732-987-6543 or email us at help@covered.com
 							</Row>
 						</Col>
-						<Col xs={8}>
+						<Col md={8} xs={true}>
 							<div className="p-4">
 								<Row className="p-4 d-flex justify-content-between align-items-center">
 									<h4 className="m-0">
@@ -141,7 +138,7 @@ class Dashboard extends Component {
 									</div>
 								</Row>
 								<hr style={{ borderColor: '#C5C5C5' }} />
-								<Row className="p-4 d-flex justify-content-between align-items-center">
+								<Row className="px-4 py-2 d-flex justify-content-between align-items-center">
 									<h5 className="m-0">
 										<b>${loan.amountTotal / loan.totalMonths}</b> due on{' '}
 										<b>{loan.nextPaymentDate}</b>
@@ -162,19 +159,18 @@ class Dashboard extends Component {
 											now={loan.amountTotal > 0 ? loan.amountPaid / loan.amountTotal * 100 : 40}
 											className="mt-3"
 										/>
-										<Row className="d-flex" style={{ justifyContent: 'space-between' }}>
-											<div>
-												PAID:<br />
-												{loan.amountPaid}
+										<Row className="d-flex m-0 py-2" style={{ justifyContent: 'space-between' }}>
+											<div style={{ textAlign: 'left' }}>
+												PAID<br />
+												<b>${loan.amountPaid}</b>
 											</div>
-											<div>
-												REMAINING:<br />
-												{loan.amountTotal - loan.amountPaid}
+											<div style={{ textAlign: 'right' }}>
+												REMAINING<br />
+												<b>${loan.amountTotal - loan.amountPaid}</b>
 											</div>
 										</Row>
 									</Container>
-									<br />
-									<Container>
+									<Container className="mt-4">
 										LOAN TIMELINE
 										<br />
 										<Container className="d-flex" style={{ overflowX: 'auto' }}>

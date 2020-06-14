@@ -59,21 +59,21 @@ function LoginForm() {
             // console.log(formData);
             // console.log(data);
             // debugger;
-            fetch(
-                "https://newton-server-maven.herokuapp.com/login-process",
-                {
-                    method: "POST",
-                    body: data,
-                }
-            )
+            fetch("https://newton-server-maven.herokuapp.com/login-process", {
+                method: "POST",
+                body: data,
+            })
                 .then((response) => {
                     console.log("Success");
                     // console.log(response.headers.get('Authorization'));
-                    if (response.url === "https://newton-server-maven.herokuapp.com/dashboard") {
+                    if (
+                        response.url ===
+                        "https://newton-server-maven.herokuapp.com/dashboard"
+                    ) {
                         window.location.replace(response.url);
                     } else {
                         setLoginFailed(
-                            <div className="invalid-feedback d-block">
+                            <div className="invalid-feedback d-block position-static pt-2">
                                 Your email or password is incorrect.
                             </div>
                         );
@@ -129,8 +129,7 @@ function LoginForm() {
                     {errors.password}
                 </Form.Control.Feedback>
             </Form.Group>
-            {loginFailed}
-            <Row className="justify-content-center pb-3">
+            <Row className="justify-content-center text-center">
                 <Button
                     type="submit"
                     variant="main"
@@ -139,12 +138,30 @@ function LoginForm() {
                 >
                     {isSubmitting ? "Loading..." : "Submit"}
                 </Button>
+                {loginFailed}
             </Row>
         </Form>
     );
 }
 
 class Login extends Component {
+    componentDidMount() {
+        fetch(
+            "https://newton-server-maven.herokuapp.com/api/users/signinstatus"
+        )
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("Success: ", data);
+                if (data == true)
+                    window.location.replace(
+                        "https://newton-server-maven.herokuapp.com/dashboard"
+                    );
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
+    }
+
     render() {
         return (
             <React.Fragment>

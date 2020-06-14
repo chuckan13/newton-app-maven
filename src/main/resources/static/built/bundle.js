@@ -60722,7 +60722,7 @@ var NavBar = /*#__PURE__*/function (_Component) {
         className: "mx-3"
       }, "Apply now"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
         variant: "main",
-        href: "/login"
+        href: "/loginpage"
       }, "Login"))));
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_NavBar__WEBPACK_IMPORTED_MODULE_1__["default"], {
         className: "px-md-5 py-3 align-items-center text-center",
@@ -60866,7 +60866,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
           user: data
         });
       });
-      fetch('https://newton-server-maven.herokuapp.com/api/loans/selectedloan').then(function (response) {
+      fetch('https://newton-server-maven.herokuapp.com/api/users/selectedloan').then(function (response) {
         return response.json();
       }).then(function (data) {
         return _this2.setState({
@@ -60901,7 +60901,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         style: {
           backgroundColor: "#ddd"
         },
-        className: "d-flex justify-content-center align-items-center"
+        className: "d-none d-md-flex justify-content-center align-items-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_4__["default"], {
         className: "m-0 px-3 py-4",
         style: {
@@ -60940,12 +60940,12 @@ var Dashboard = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("u", null, "Register a new payment method")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
         className: "py-2 px-5",
         style: {
-          fontSize: "11px",
           position: "absolute",
           bottom: "0px"
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "For further assistance:"), "Give us a call at 732-987-6543 or email us at help@covered.com")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        xs: 8
+        md: 8,
+        xs: true
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "p-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -60959,7 +60959,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
           borderColor: "#C5C5C5"
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        className: "p-4 d-flex justify-content-between align-items-center"
+        className: "px-4 py-2 d-flex justify-content-between align-items-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         className: "m-0"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "$", loan.amountTotal / loan.totalMonths), " due on ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, loan.nextPaymentDate)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -60981,11 +60981,21 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         now: loan.amountTotal > 0 ? loan.amountPaid / loan.amountTotal * 100 : 40,
         className: "mt-3"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        className: "d-flex",
+        className: "d-flex m-0 py-2",
         style: {
           justifyContent: "space-between"
         }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "PAID:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), loan.amountPaid), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "REMAINING:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), loan.amountTotal - loan.amountPaid))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__["default"], null, "LOAN TIMELINE", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: {
+          textAlign: "left"
+        }
+      }, "PAID", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "$", loan.amountPaid)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        style: {
+          textAlign: "right"
+        }
+      }, "REMAINING", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "$", loan.amountTotal - loan.amountPaid)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        className: "mt-4"
+      }, "LOAN TIMELINE", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__["default"], {
         className: "d-flex",
         style: {
           overflowX: "auto"
@@ -61491,7 +61501,7 @@ function LoginForm() {
           window.location.replace(response.url);
         } else {
           setLoginFailed( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "invalid-feedback d-block"
+            className: "invalid-feedback d-block position-static pt-2"
           }, "Your email or password is incorrect."));
         }
       }).then(function () {
@@ -61544,14 +61554,14 @@ function LoginForm() {
     isInvalid: touched.password && !!errors.password
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
     type: "invalid"
-  }, errors.password)), loginFailed, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    className: "justify-content-center pb-3"
+  }, errors.password)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    className: "justify-content-center text-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "submit",
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting,
     className: "mt-5"
-  }, isSubmitting ? "Loading..." : "Submit")));
+  }, isSubmitting ? "Loading..." : "Submit"), loginFailed));
 }
 
 var Login = /*#__PURE__*/function (_Component) {
@@ -61566,6 +61576,18 @@ var Login = /*#__PURE__*/function (_Component) {
   }
 
   _createClass(Login, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      fetch("https://newton-server-maven.herokuapp.com/api/users/signinstatus").then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        console.log("Success: ", data);
+        if (data == true) window.location.replace("https://newton-server-maven.herokuapp.com/dashboard");
+      })["catch"](function (error) {
+        console.error("Error:", error);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_js__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -61694,7 +61716,7 @@ function RegistrationForm() {
 
         if (data.status == 409) {
           setRegistrationFailed( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "invalid-feedback d-block"
+            className: "invalid-feedback d-block position-static pt-2"
           }, "The email you chose is already taken."));
         } else if (data.status == 200) {
           alert("Account created!");
@@ -61805,14 +61827,14 @@ function RegistrationForm() {
     onBlur: handleBlur,
     isInvalid: touched.terms && !!errors.terms,
     id: "terms"
-  })), registrationFailed, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    className: "justify-content-center pb-3"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    className: "justify-content-center text-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "submit",
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting,
     className: "mt-5"
-  }, isSubmitting ? "Loading..." : "Submit"))));
+  }, isSubmitting ? "Loading..." : "Submit"), registrationFailed)));
 }
 
 var Register = /*#__PURE__*/function (_Component) {
