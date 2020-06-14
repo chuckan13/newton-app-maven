@@ -8,6 +8,7 @@ import HowItWorks from './views/howitworks.js';
 import Register from './views/register.js';
 import Login from './views/login.js';
 import Dashboard from './views/dashboard.js';
+import Error from './views/404.js';
 
 class App extends Component {
 	render() {
@@ -19,6 +20,7 @@ class App extends Component {
 					<Route path="/register" component={Register} />
 					<Route path="/loginpage" component={Login} />
                     <Route path="/dashboard" component={Dashboard} />
+                    <Route component={Error} />
 				</Switch>
 			</BrowserRouter>
 		);
