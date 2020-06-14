@@ -60983,7 +60983,13 @@ var Dashboard = /*#__PURE__*/function (_Component) {
           user = _this$state.user,
           loan = _this$state.loan;
       console.log(user, loan);
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "d-flex",
+        style: {
+          flexFlow: 'column',
+          height: '100%'
+        }
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         simple: true,
         background: true
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -60991,7 +60997,8 @@ var Dashboard = /*#__PURE__*/function (_Component) {
           width: '100%',
           height: '100%',
           flexGrow: '1'
-        }
+        },
+        className: "mx-auto"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"], {
         xs: 4,
         style: {
@@ -61105,7 +61112,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
           className: "p-4",
           key: index + 1
         }, "Paid:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), date);
-      }))))))));
+      })))))))));
     }
   }]);
 
