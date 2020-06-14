@@ -60882,7 +60882,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
           loan = _this$state.loan;
       console.log(user, loan);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "d-none d-md-flex",
+        className: "d-flex",
         style: {
           flexFlow: "column",
           height: "100%"
@@ -60901,7 +60901,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         style: {
           backgroundColor: "#ddd"
         },
-        className: "d-flex justify-content-center align-items-center"
+        className: "d-none d-md-flex justify-content-center align-items-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_4__["default"], {
         className: "m-0 px-3 py-4",
         style: {
@@ -60945,7 +60945,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "For further assistance:"), "Give us a call at 732-987-6543 or email us at help@covered.com")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"], {
         md: 8,
-        xs: 12
+        xs: true
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "p-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
