@@ -6,6 +6,7 @@ import Logo from "../../resources/static/img/logo.png";
 import "../app.scss";
 
 import { FaGrinBeamSweat } from "react-icons/fa";
+import { FaMusic } from "react-icons/fa";
 
 class Error extends Component {
     render() {
@@ -13,7 +14,7 @@ class Error extends Component {
             <React.Fragment>
                 <Container className="mt-5 pt-3">
                     <Row className="justify-content-center">
-                        <Logo />
+                        <img src={Logo} height="100" alt="Newton Logo" className="mb-5" />
                     </Row>
                     <h1>404</h1>
                     <Row className="align-items-center px-2">
@@ -28,8 +29,8 @@ class Error extends Component {
                         below to go to our homepage.
                     </p>
                     <Row className="justify-content-center justify-content-md-start">
-                        <Button href="/" variant="main" className="mt-5">
-                            Homepage
+                        <Button href="/" variant="main" className="mt-5 ml-3">
+                            Take me home <FaMusic className="ml-1"/>
                         </Button>
                     </Row>
                 </Container>
