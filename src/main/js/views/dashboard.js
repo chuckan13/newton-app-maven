@@ -62,7 +62,7 @@ class Dashboard extends Component {
         console.log(user, loan);
         return (
             <React.Fragment>
-                <div className="d-flex" style={{ flexFlow: "column", height: "100%" }}>
+                <div className="d-none d-md-flex" style={{ flexFlow: "column", height: "100%" }}>
                     <NavBar simple background />
                     <Row style={{ width: "100%", height: "100%", flexGrow: "1" }}>
                         <Col xs={4} style={{ backgroundColor: "#ddd" }} className="d-flex justify-content-center align-items-center">
@@ -91,7 +91,7 @@ class Dashboard extends Component {
                                 Give us a call at 732-987-6543 or email us at help@covered.com
                             </Row>
                         </Col>
-                        <Col xs={8}>
+                        <Col md={8} xs={12}>
                             <div className="p-4">
                                 <Row className="p-4 d-flex justify-content-between align-items-center">
                                     <h4 className="m-0">
