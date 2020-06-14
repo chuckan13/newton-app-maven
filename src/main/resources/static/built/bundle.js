@@ -60640,7 +60640,7 @@ var Error = /*#__PURE__*/function (_Component) {
         className: "justify-content-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: _resources_static_img_logo_png__WEBPACK_IMPORTED_MODULE_4__["default"],
-        height: "100",
+        height: "40",
         alt: "Newton Logo",
         className: "mb-5"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "404"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_2__["default"], {

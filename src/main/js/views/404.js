@@ -14,7 +14,7 @@ class Error extends Component {
             <React.Fragment>
                 <Container className="mt-5 pt-3">
                     <Row className="justify-content-center">
-                        <img src={Logo} height="100" alt="Newton Logo" className="mb-5" />
+                        <img src={Logo} height="40" alt="Newton Logo" className="mb-5" />
                     </Row>
                     <h1>404</h1>
                     <Row className="align-items-center px-2">
