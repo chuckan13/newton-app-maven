@@ -62,7 +62,7 @@ class Dashboard extends Component {
 		console.log(user, loan);
 		return (
 			<React.Fragment>
-				<div className="d-flex" style={{ flexFlow: 'column', height: '100%' }}>
+				<div className="d-flex" style={{ flexFlow: 'column', height: '100%', width: '100vw' }}>
 					<NavBar simple background />
 					<Row style={{ width: '100%', height: '100%', flexGrow: '1' }} className="mx-auto">
 						<Col
@@ -171,23 +171,23 @@ class Dashboard extends Component {
 											</div>
 										</Row>
 									</Container>
-									<Container className="mt-4">
+								</Row>
+                                <Container className="mt-4">
 										LOAN TIMELINE
 										<br />
 										<Container className="d-flex" style={{ overflowX: 'auto' }}>
-											<span className="p-4" key={0}>
+											<span className="p-4" key={0} style={{minWidth: '150px'}}>
 												Processed:<br />
 												{loan.processedDate}
 											</span>
 											{loan.pastDatesPaid.map((date, index) => (
-												<span className="p-4" key={index + 1}>
+												<span className="p-4" style={{minWidth: '150px'}} key={index + 1}>
 													Paid:<br />
 													{date}
 												</span>
 											))}
 										</Container>
 									</Container>
-								</Row>
 							</div>
 						</Col>
 					</Row>

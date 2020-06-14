@@ -60635,27 +60635,27 @@ var Error = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        className: "mt-5 pt-3"
+        className: "mt-2 pt-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        className: "justify-content-center"
+        className: "justify-content-center justify-content-sm-start"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: _resources_static_img_logo_png__WEBPACK_IMPORTED_MODULE_4__["default"],
         height: "40",
         alt: "Newton Logo",
         className: "mb-5"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "404"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        className: "align-items-center px-2"
+        className: "align-items-center px-2 pb-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        className: "display-1 primary"
+        className: "display-2 display-sm-1 primary"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Uh oh...")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__["FaGrinBeamSweat"], {
-        className: "primary ml-5",
+        className: "primary ml-0 ml-sm-5",
         size: 120
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "The page you're looking for doesn't exist!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Try checking the previous page, or click the button below to go to our homepage."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_2__["default"], {
         className: "justify-content-center justify-content-md-start"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
         href: "/",
         variant: "main",
-        className: "mt-5 ml-3"
+        className: "mt-sm-5 mt-2 ml-3"
       }, "Take me home ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__["FaMusic"], {
         className: "ml-1"
       })))));
@@ -60987,7 +60987,8 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         className: "d-flex",
         style: {
           flexFlow: 'column',
-          height: '100%'
+          height: '100%',
+          width: '100vw'
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         simple: true,
@@ -61097,7 +61098,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         style: {
           textAlign: 'right'
         }
-      }, "REMAINING", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "$", loan.amountTotal - loan.amountPaid)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }, "REMAINING", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "$", loan.amountTotal - loan.amountPaid))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__["default"], {
         className: "mt-4"
       }, "LOAN TIMELINE", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__["default"], {
         className: "d-flex",
@@ -61106,13 +61107,19 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "p-4",
-        key: 0
+        key: 0,
+        style: {
+          minWidth: '150px'
+        }
       }, "Processed:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), loan.processedDate), loan.pastDatesPaid.map(function (date, index) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "p-4",
+          style: {
+            minWidth: '150px'
+          },
           key: index + 1
         }, "Paid:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), date);
-      })))))))));
+      }))))))));
     }
   }]);
 
