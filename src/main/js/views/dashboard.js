@@ -91,7 +91,7 @@ class Dashboard extends Component {
                                 Give us a call at 732-987-6543 or email us at help@covered.com
                             </Row>
                         </Col>
-                        <Col md={8} xs={true}>
+                        <Col md={8} xs={12}>
                             <div className="p-4">
                                 <Row className="p-4 d-flex justify-content-between align-items-center">
                                     <h4 className="m-0">
@@ -120,7 +120,7 @@ class Dashboard extends Component {
                                         TOTAL OF PAYMENTS
                                         <br />
                                         <b>${loan.amountTotal}</b>
-                                        <ProgressBar now={(loan.amountTotal > 0) ? loan.amountPaid / loan.amountTotal * 100 : 40} className="mt-3" />
+                                        <ProgressBar now={(loan.amountTotal > 0) ? loan.amountPaid / loan.amountTotal * 100 : 40} className="mt-3 primary" />
                                         <Row className="d-flex m-0 py-2" style={{justifyContent: "space-between"}}>
                                             <div style={{textAlign: "left"}}>PAID<br /><b>${loan.amountPaid}</b></div>
                                             <div style={{textAlign: "right"}}>REMAINING<br /><b>${loan.amountTotal-loan.amountPaid}</b></div>
