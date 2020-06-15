@@ -61072,7 +61072,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         variant: "main"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_10__["FaUser"], {
         size: 20,
-        className: "d-inline",
+        className: "d-inline mr-2 mb-1",
         color: "white"
       }), " Account Details"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Collapse__WEBPACK_IMPORTED_MODULE_9__["default"], {
         "in": this.state.accountDetailsOpen

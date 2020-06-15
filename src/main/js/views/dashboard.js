@@ -144,7 +144,7 @@ class Dashboard extends Component {
 										className="primary"
 										variant="main"
 									>
-										<FaUser size={20} className="d-inline" color="white" /> Account Details
+										<FaUser size={20} className="d-inline mr-2 mb-1" color="white" /> Account Details
         							</Button>
 									<Collapse in={this.state.accountDetailsOpen}>
 										<Card
