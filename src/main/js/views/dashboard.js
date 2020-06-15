@@ -63,7 +63,7 @@ class Dashboard extends Component {
 		console.log(user, loan);
 		return (
 			<React.Fragment>
-				<div className="d-flex" style={{ flexFlow: 'column', height: '100%' }}>
+				<div className="d-flex" style={{ flexFlow: 'column', height: '100%', width: '100vw' }}>
 					<NavBar simple background />
 					<Row style={{ width: '100%', height: '100%', flexGrow: '1' }} className="mx-auto">
 						<Col
@@ -73,7 +73,7 @@ class Dashboard extends Component {
 						>
 							<Row>
 								<Card
-									className="m-0 px-3 py-4"
+									className="m-0 px-3 py-4 mb-5"
 									style={{
 										borderRadius: '10px',
 										boxShadow: '1px 1px 3px 1px #9E9E9E'
@@ -129,7 +129,7 @@ class Dashboard extends Component {
 							</Row>
 						</Col>
 						<Col md={8} xs={12}>
-							<div className="p-4">
+							<div className="py-4 px-0 px-sm-4">
 								<Row className="p-4 d-flex d-md-none justify-content-between align-items-center">
 									<Button
 										onClick={() => this.setState({ accountDetailsOpen: !accountDetailsOpen })}
@@ -147,20 +147,20 @@ class Dashboard extends Component {
 									</Collapse>
 								</Row>
 								<Row className="p-4 d-flex justify-content-between align-items-center">
-									<h4 className="m-0">
+									<h4 className="m-0 mt-1">
 										<b>{loan.medicalCenter}</b>
 									</h4>
-									<div className="d-flex">
+									<div className="d-flex mt-2">
 										<Check />Autopay: {user.autopay ? 'On' : 'Off'}
 									</div>
 								</Row>
 								<hr style={{ borderColor: '#C5C5C5' }} />
-								<Row className="px-4 py-2 d-flex justify-content-between align-items-center">
+								<Row className="px-4 py-2 d-flex justify-content-lg-between justify-content-center align-items-center">
 									<h5 className="m-0">
 										<b>${loan.amountTotal / loan.totalMonths}</b> due on{' '}
 										<b>{loan.nextPaymentDate}</b>
 									</h5>
-									<Button variant="main">Make one-time payment</Button>
+									<Button variant="main mt-3 mt-lg-0">Make one-time payment</Button>
 								</Row>
 								<hr style={{ borderColor: '#C5C5C5' }} />
 								<Row className="p-4 align-items-center">
@@ -188,23 +188,23 @@ class Dashboard extends Component {
 											</div>
 										</Row>
 									</Container>
-									<Container className="mt-4">
-										LOAN TIMELINE
-										<br />
-										<Container className="d-flex" style={{ overflowX: 'auto' }}>
-											<span className="p-4" key={0}>
-												Processed:<br />
-												{loan.processedDate}
-											</span>
-											{loan.pastDatesPaid.map((date, index) => (
-												<span className="p-4" key={index + 1}>
-													Paid:<br />
-													{date}
-												</span>
-											))}
-										</Container>
-									</Container>
 								</Row>
+								<Container className="mt-4">
+									LOAN TIMELINE
+										<br />
+									<Container className="d-flex" style={{ overflowX: 'auto' }}>
+										<span className="p-4" key={0} style={{ minWidth: '150px' }}>
+											Processed:<br />
+											{loan.processedDate}
+										</span>
+										{loan.pastDatesPaid.map((date, index) => (
+											<span className="p-4" style={{ minWidth: '150px' }} key={index + 1}>
+												Paid:<br />
+												{date}
+											</span>
+										))}
+									</Container>
+								</Container>
 							</div>
 						</Col>
 					</Row>

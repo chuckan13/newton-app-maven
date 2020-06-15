@@ -60635,7 +60635,7 @@ var Error = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        className: "mt-5 pt-3"
+        className: "mt-2 pt-3"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_2__["default"], {
         className: "justify-content-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -60644,18 +60644,18 @@ var Error = /*#__PURE__*/function (_Component) {
         alt: "Newton Logo",
         className: "mb-5"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "404"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        className: "align-items-center px-2"
+        className: "align-items-center px-2 pb-3 justify-content-center justify-content-sm-start"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-        className: "display-1 primary"
+        className: "display-2 display-sm-1 primary"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Uh oh...")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__["FaGrinBeamSweat"], {
-        className: "primary ml-5",
+        className: "primary ml-0 ml-sm-5",
         size: 120
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "The page you're looking for doesn't exist!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Try checking the previous page, or click the button below to go to our homepage."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_2__["default"], {
         className: "justify-content-center justify-content-md-start"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
         href: "/",
         variant: "main",
-        className: "mt-5 ml-3"
+        className: "mt-sm-5 mt-2 ml-3"
       }, "Take me home ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_6__["FaMusic"], {
         className: "ml-1"
       })))));
@@ -60987,7 +60987,8 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         className: "d-flex",
         style: {
           flexFlow: 'column',
-          height: '100%'
+          height: '100%',
+          width: '100vw'
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
         simple: true,
@@ -61006,7 +61007,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         },
         className: "d-none d-md-flex justify-content-center align-items-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        className: "m-0 px-3 py-4",
+        className: "m-0 px-3 py-4 mb-5",
         style: {
           borderRadius: '10px',
           boxShadow: '1px 1px 3px 1px #9E9E9E'
@@ -61050,23 +61051,23 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         md: 8,
         xs: 12
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "p-4"
+        className: "py-4 px-0 px-sm-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
         className: "p-4 d-flex justify-content-between align-items-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
-        className: "m-0"
+        className: "m-0 mt-1"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, loan.medicalCenter)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "d-flex"
+        className: "d-flex mt-2"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_FormCheck__WEBPACK_IMPORTED_MODULE_8__["default"], null), "Autopay: ", user.autopay ? 'On' : 'Off')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
         style: {
           borderColor: '#C5C5C5'
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        className: "px-4 py-2 d-flex justify-content-between align-items-center"
+        className: "px-4 py-2 d-flex justify-content-lg-between justify-content-center align-items-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         className: "m-0"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "$", loan.amountTotal / loan.totalMonths), " due on", ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, loan.nextPaymentDate)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        variant: "main"
+        variant: "main mt-3 mt-lg-0"
       }, "Make one-time payment")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
         style: {
           borderColor: '#C5C5C5'
@@ -61097,7 +61098,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         style: {
           textAlign: 'right'
         }
-      }, "REMAINING", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "$", loan.amountTotal - loan.amountPaid)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }, "REMAINING", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "$", loan.amountTotal - loan.amountPaid))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__["default"], {
         className: "mt-4"
       }, "LOAN TIMELINE", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__["default"], {
         className: "d-flex",
@@ -61106,13 +61107,19 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "p-4",
-        key: 0
+        key: 0,
+        style: {
+          minWidth: '150px'
+        }
       }, "Processed:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), loan.processedDate), loan.pastDatesPaid.map(function (date, index) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "p-4",
+          style: {
+            minWidth: '150px'
+          },
           key: index + 1
         }, "Paid:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), date);
-      })))))))));
+      }))))))));
     }
   }]);
 
