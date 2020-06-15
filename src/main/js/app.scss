@@ -47,6 +47,14 @@ body {
     color: map-get($theme-colors, "primary");
 }
 
+.progress-bar-custom {
+    background-color: map-get($theme-colors, "primary");
+}
+
+.progress-bar.bg-custom {
+    background-color: map-get($theme-colors, "primary");
+}
+
 .invalid-feedback {
     position: absolute;
 }
