@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Container from 'react-bootstrap/Container';
 import Check from 'react-bootstrap/FormCheck';
-import Collapse from 'react-bootstrap/Collapse'
+import Collapse from 'react-bootstrap/Collapse';
 
 import { FaTag, FaUser } from 'react-icons/fa';
 
@@ -39,6 +39,7 @@ class Dashboard extends Component {
 				apr: 0,
 				totalMonths: 0,
 				pastDatesPaid: [],
+				nextPaymentAmount: 0,
 				nextPaymentDate: 'Loading payment date...',
 				processedDate: 'Loading processed date...',
 				medicalCenter: 'Loading medical center...',
@@ -60,50 +61,51 @@ class Dashboard extends Component {
 
 	render() {
 		const { user, loan, accountDetailsOpen } = this.state;
-        console.log(user, loan);
+		console.log(user, loan);
 
-        const accountInfo =
-            <React.Fragment>
-                <div className="my-1">
-                    <b>{user.fullName}</b>
-                </div>
-                <hr style={{ borderColor: '#C5C5C5' }} />
-                <div className="mt-1">
-                    <b>
-                        <i>Email</i>
-                    </b>
-                </div>
-                {user.userName}
-                <br />
-                <div className="mt-1">
-                    <b>
-                        <i>Phone number</i>
-                    </b>
-                </div>{' '}
-                732-123-4567<br />
-                <a className="my-1" href="#personalInfo">
-                    <u>Edit personal information</u>
-                </a>
-                <hr style={{ borderColor: '#C5C5C5' }} />
-                <div className="mt-1">
-                    <b>
-                        <i>Bank</i>
-                    </b>
-                </div>{' '}
-                TD Bank<br />
-                <div className="mt-1">
-                    <b>
-                        <i>Account #</i>
-                    </b>
-                </div>{' '}
-                xxx-4120<br />
-                <a className="mt-1" href="#bankInfo">
-                    <u>Edit bank information</u>
-                </a>
-                <a className="mt-1" href="#paymentMethod">
-                    <u>Register a new payment method</u>
-                </a>
-            </React.Fragment>
+		const accountInfo = (
+			<React.Fragment>
+				<div className="my-1">
+					<b>{user.fullName}</b>
+				</div>
+				<hr style={{ borderColor: '#C5C5C5' }} />
+				<div className="mt-1">
+					<b>
+						<i>Email</i>
+					</b>
+				</div>
+				{user.userName}
+				<br />
+				<div className="mt-1">
+					<b>
+						<i>Phone number</i>
+					</b>
+				</div>{' '}
+				732-123-4567<br />
+				<a className="my-1" href="#personalInfo">
+					<u>Edit personal information</u>
+				</a>
+				<hr style={{ borderColor: '#C5C5C5' }} />
+				<div className="mt-1">
+					<b>
+						<i>Bank</i>
+					</b>
+				</div>{' '}
+				TD Bank<br />
+				<div className="mt-1">
+					<b>
+						<i>Account #</i>
+					</b>
+				</div>{' '}
+				xxx-4120<br />
+				<a className="mt-1" href="#bankInfo">
+					<u>Edit bank information</u>
+				</a>
+				<a className="mt-1" href="#paymentMethod">
+					<u>Register a new payment method</u>
+				</a>
+			</React.Fragment>
+		);
 
 		return (
 			<React.Fragment>
@@ -144,8 +146,9 @@ class Dashboard extends Component {
 										className="primary"
 										variant="main"
 									>
-										<FaUser size={20} className="d-inline mr-2 mb-1" color="white" /> Account Details
-        							</Button>
+										<FaUser size={20} className="d-inline mr-2 mb-1" color="white" /> Account
+										Details
+									</Button>
 									<Collapse in={this.state.accountDetailsOpen}>
 										<Card
 											id="collapse-content"
@@ -170,8 +173,7 @@ class Dashboard extends Component {
 								<hr style={{ borderColor: '#C5C5C5' }} />
 								<Row className="px-4 py-2 d-flex justify-content-lg-between justify-content-center align-items-center">
 									<h5 className="m-0">
-										<b>${loan.amountTotal / loan.totalMonths}</b> due on{' '}
-										<b>{loan.nextPaymentDate}</b>
+										<b>${loan.nextPaymentAmount}</b> due on <b>{loan.nextPaymentDate}</b>
 									</h5>
 									<Button variant="main mt-3 mt-lg-0">Make one-time payment</Button>
 								</Row>
@@ -204,7 +206,7 @@ class Dashboard extends Component {
 								</Row>
 								<Container className="mt-4">
 									LOAN TIMELINE
-										<br />
+									<br />
 									<Container className="d-flex" style={{ overflowX: 'auto' }}>
 										<span className="p-4" key={0} style={{ minWidth: '150px' }}>
 											Processed:<br />
