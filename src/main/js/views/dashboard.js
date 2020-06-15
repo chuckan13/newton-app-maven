@@ -10,7 +10,7 @@ import Container from 'react-bootstrap/Container';
 import Check from 'react-bootstrap/FormCheck';
 import Collapse from 'react-bootstrap/Collapse'
 
-import { FaTag } from 'react-icons/fa';
+import { FaTag, FaUser } from 'react-icons/fa';
 
 import '../app.scss';
 
@@ -130,7 +130,7 @@ class Dashboard extends Component {
 						</Col>
 						<Col md={8} xs={12}>
 							<div className="py-4 px-0 px-sm-4">
-								<Row className="p-4 d-flex d-md-none justify-content-center align-items-center">
+								<Row className="p-4 d-flex d-md-none justify-content-between align-items-center">
 									<Button
 										onClick={() => this.setState({ accountDetailsOpen: !accountDetailsOpen })}
 										aria-controls="collapse-content"
@@ -138,12 +138,12 @@ class Dashboard extends Component {
 										className="primary"
 										variant="main"
 									>
-										Account Details
+										<FaUser size={20} className="d-inline" color="white" />
         							</Button>
 									<Collapse in={this.state.accountDetailsOpen}>
 										<Card
 											id="collapse-content"
-											className="m-0 px-3 py-4 mb-5"
+											className="mt-3 px-3 py-4"
 											style={{
 												borderRadius: '10px',
 												boxShadow: '1px 1px 3px 1px #9E9E9E'

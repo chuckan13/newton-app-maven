@@ -61058,7 +61058,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "py-4 px-0 px-sm-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        className: "p-4 d-flex d-md-none justify-content-center align-items-center"
+        className: "p-4 d-flex d-md-none justify-content-between align-items-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
         onClick: function onClick() {
           return _this3.setState({
@@ -61069,11 +61069,15 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         "aria-expanded": accountDetailsOpen,
         className: "primary",
         variant: "main"
-      }, "Account Details"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Collapse__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_10__["FaUser"], {
+        size: 20,
+        className: "d-inline",
+        color: "white"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Collapse__WEBPACK_IMPORTED_MODULE_9__["default"], {
         "in": this.state.accountDetailsOpen
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_4__["default"], {
         id: "collapse-content",
-        className: "m-0 px-3 py-4 mb-5",
+        className: "mt-3 px-3 py-4",
         style: {
           borderRadius: '10px',
           boxShadow: '1px 1px 3px 1px #9E9E9E'
