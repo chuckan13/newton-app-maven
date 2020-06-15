@@ -32,6 +32,16 @@ public class Loginuser {
     private boolean autopay;
     @Column(name = "stripe_customer_id")
     private String stripeCustomerId;
+    @Column(name = "phone")
+    private String phone;
+
+    public String getPhone() {
+        return this.phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public Long getSelectedLoan() {
         return this.selectedLoan;
@@ -128,5 +138,6 @@ public class Loginuser {
         this.stripeCustomerId = other.getStripeCustomerId();
         this.selectedLoan = other.getSelectedLoan();
         this.autopay = other.isAutopay();
+        this.phone = other.getPhone();
     }
 }
