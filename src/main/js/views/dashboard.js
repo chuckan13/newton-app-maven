@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Container from 'react-bootstrap/Container';
 import Check from 'react-bootstrap/FormCheck';
-// import HorizontalScroll from 'react-scroll-horizontal'
+import Collapse from 'react-bootstrap/Collapse'
 
 import { FaTag } from 'react-icons/fa';
 
@@ -43,7 +43,8 @@ class Dashboard extends Component {
 				processedDate: 'Loading processed date...',
 				medicalCenter: 'Loading medical center...',
 				userId: -1
-			}
+			},
+			accountDetailsOpen: false
 		};
 	}
 
@@ -58,7 +59,7 @@ class Dashboard extends Component {
 	}
 
 	render() {
-		const { user, loan } = this.state;
+		const { user, loan, accountDetailsOpen } = this.state;
 		console.log(user, loan);
 		return (
 			<React.Fragment>
@@ -129,6 +130,22 @@ class Dashboard extends Component {
 						</Col>
 						<Col md={8} xs={12}>
 							<div className="p-4">
+								<Row className="p-4 d-flex d-md-none justify-content-between align-items-center">
+									<Button
+										onClick={() => this.setState({ accountDetailsOpen: !accountDetailsOpen })}
+										aria-controls="example-collapse-text"
+										aria-expanded={accountDetailsOpen}
+									>
+										Account Details
+        						</Button>
+									<Collapse in={this.state.accountDetailsOpen}>
+										<div id="example-collapse-text">
+											Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+											terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+											labore wes anderson cred nesciunt sapiente ea proident.
+        								</div>
+									</Collapse>
+								</Row>
 								<Row className="p-4 d-flex justify-content-between align-items-center">
 									<h4 className="m-0">
 										<b>{loan.medicalCenter}</b>
@@ -157,8 +174,8 @@ class Dashboard extends Component {
 										<b>${loan.amountTotal}</b>
 										<ProgressBar
 											now={loan.amountTotal > 0 ? loan.amountPaid / loan.amountTotal * 100 : 40}
-                                            className="mt-3"
-                                            variant="custom"
+											className="mt-3"
+											variant="custom"
 										/>
 										<Row className="d-flex m-0 py-2" style={{ justifyContent: 'space-between' }}>
 											<div style={{ textAlign: 'left' }}>
