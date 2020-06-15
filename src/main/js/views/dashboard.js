@@ -130,20 +130,68 @@ class Dashboard extends Component {
 						</Col>
 						<Col md={8} xs={12}>
 							<div className="py-4 px-0 px-sm-4">
-								<Row className="p-4 d-flex d-md-none justify-content-between align-items-center">
+								<Row className="p-4 d-flex d-md-none justify-content-center align-items-center">
 									<Button
 										onClick={() => this.setState({ accountDetailsOpen: !accountDetailsOpen })}
-										aria-controls="example-collapse-text"
+										aria-controls="collapse-content"
 										aria-expanded={accountDetailsOpen}
+										className="primary"
+										variant="main"
 									>
 										Account Details
-        						</Button>
+        							</Button>
 									<Collapse in={this.state.accountDetailsOpen}>
-										<div id="example-collapse-text">
-											Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-											terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-											labore wes anderson cred nesciunt sapiente ea proident.
-        								</div>
+										<Card
+											id="collapse-content"
+											className="m-0 px-3 py-4 mb-5"
+											style={{
+												borderRadius: '10px',
+												boxShadow: '1px 1px 3px 1px #9E9E9E'
+											}}
+										>
+											<h5 className="primary">
+												<b>Account Details</b>
+											</h5>
+											<div className="my-1">
+												<b>{user.fullName}</b>
+											</div>
+											<hr style={{ borderColor: '#C5C5C5' }} />
+											<div className="mt-1">
+												<b>
+													<i>Email</i>
+												</b>
+											</div>
+											{user.userName}
+											<br />
+											<div className="mt-1">
+												<b>
+													<i>Phone number</i>
+												</b>
+											</div>{' '}
+											732-123-4567<br />
+											<a className="my-1" href="#personalInfo">
+												<u>Edit personal information</u>
+											</a>
+											<hr style={{ borderColor: '#C5C5C5' }} />
+											<div className="mt-1">
+												<b>
+													<i>Bank</i>
+												</b>
+											</div>{' '}
+											TD Bank<br />
+											<div className="mt-1">
+												<b>
+													<i>Account #</i>
+												</b>
+											</div>{' '}
+											xxx-4120<br />
+											<a className="mt-1" href="#bankInfo">
+												<u>Edit bank information</u>
+											</a>
+											<a className="mt-1" href="#paymentMethod">
+												<u>Register a new payment method</u>
+											</a>
+										</Card>
 									</Collapse>
 								</Row>
 								<Row className="p-4 d-flex justify-content-between align-items-center">
