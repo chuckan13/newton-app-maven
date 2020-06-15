@@ -27,6 +27,8 @@ public class LoanOption {
     private double apr;
     @Column(name = "months_total")
     private int monthsTotal;
+    @Column(name = "next_payment_amount")
+    private double nextPaymentAmount;
     @Column(name = "next_payment_date")
     private String nextPaymentDate;
     @Column(name = "medical_center")
@@ -36,6 +38,17 @@ public class LoanOption {
     @Type(type = "string-array")
     @Column(name = "past_dates_paid", columnDefinition = "text[]") // @JsonFormat(shape=JsonFormat.Shape.ARRAY)
     private String[] pastDatesPaid;
+    @Type(type = "string-array")
+    @Column(name = "past_charge_obj", columnDefinition = "text[]")
+    private String[] pastChargeObj;
+
+    public String[] getPastChargeObj() {
+        return this.pastChargeObj;
+    }
+
+    public void setPastChargeObj(String[] pastChargeObj) {
+        this.pastChargeObj = pastChargeObj;
+    }
 
     public Long getUserId() {
         return this.userId;
@@ -113,6 +126,14 @@ public class LoanOption {
         return id;
     }
 
+    public Double getNextPaymentAmount() {
+        return this.nextPaymentAmount;
+    }
+
+    public void setNextPaymentAmount(Double nextPaymentAmount) {
+        this.nextPaymentAmount = nextPaymentAmount;
+    }
+
     public void updateParameters(LoanOption other) {
         this.amountTotal = other.getAmountTotal();
         this.apr = other.getApr();
@@ -123,5 +144,7 @@ public class LoanOption {
         this.medicalCenter = other.getMedicalCenter();
         this.processedDate = other.getProcessedDate();
         this.userId = other.getUserId();
+        this.nextPaymentAmount = other.getNextPaymentAmount();
+        this.pastChargeObj = other.getPastChargeObj();
     }
 }

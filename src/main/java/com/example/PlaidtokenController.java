@@ -1,6 +1,7 @@
 package com.example;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,16 +43,16 @@ public class PlaidtokenController {
         return new ResponseEntity<Plaidtoken>(token, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/new/{userId}", method = RequestMethod.POST)
-    public ResponseEntity<Plaidtoken> update(@RequestBody Plaidtoken token, @PathVariable("userId") Long userId)
+    @RequestMapping(value = "/new/", method = RequestMethod.POST)
+    public ResponseEntity<Plaidtoken> update(@RequestBody Plaidtoken token, Principal principal)
             throws IOException, StripeException {
         repository.save(token);
         String[] tokenArray = plaidToStripe.getTokens(token.getPublicToken(), token.getAccountId());
 
-        System.out.println(tokenArray[0]);
-        System.out.println(tokenArray[1]);
+        // System.out.println(tokenArray[0]);
+        // System.out.println(tokenArray[1]);
 
-        Stripe.apiKey = "sk_test_3gCJKshMgnQKkUBMp6tGu0O400rZYqWFNG";
+        Stripe.apiKey = "sk_test_3gCJKshMgnQKkUBMp6tGu0O400rZYqWFNG"; // change put into heroku
 
         Map<String, Object> params = new HashMap<>();
         params.put("source", tokenArray[1]);
@@ -61,8 +62,8 @@ public class PlaidtokenController {
         // System.out.println(customer.getSources());
 
         String customerId = customer.getId();
-
-        Loginuser currUser = loginuserRepo.findOne(userId);
+        Loginuser currUser = loginuserRepo.findByUserName(principal.getName());
+        // Loginuser currUser = loginuserRepo.findOne(userId);
         currUser.setStripeCustomerId(customerId);
         // currUser.updateParameters(currUser);
         loginuserRepo.save(currUser);
