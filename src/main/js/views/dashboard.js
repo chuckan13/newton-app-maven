@@ -60,7 +60,51 @@ class Dashboard extends Component {
 
 	render() {
 		const { user, loan, accountDetailsOpen } = this.state;
-		console.log(user, loan);
+        console.log(user, loan);
+
+        const accountInfo =
+            <React.Fragment>
+                <div className="my-1">
+                    <b>{user.fullName}</b>
+                </div>
+                <hr style={{ borderColor: '#C5C5C5' }} />
+                <div className="mt-1">
+                    <b>
+                        <i>Email</i>
+                    </b>
+                </div>
+                {user.userName}
+                <br />
+                <div className="mt-1">
+                    <b>
+                        <i>Phone number</i>
+                    </b>
+                </div>{' '}
+                732-123-4567<br />
+                <a className="my-1" href="#personalInfo">
+                    <u>Edit personal information</u>
+                </a>
+                <hr style={{ borderColor: '#C5C5C5' }} />
+                <div className="mt-1">
+                    <b>
+                        <i>Bank</i>
+                    </b>
+                </div>{' '}
+                TD Bank<br />
+                <div className="mt-1">
+                    <b>
+                        <i>Account #</i>
+                    </b>
+                </div>{' '}
+                xxx-4120<br />
+                <a className="mt-1" href="#bankInfo">
+                    <u>Edit bank information</u>
+                </a>
+                <a className="mt-1" href="#paymentMethod">
+                    <u>Register a new payment method</u>
+                </a>
+            </React.Fragment>
+
 		return (
 			<React.Fragment>
 				<div className="d-flex" style={{ flexFlow: 'column', height: '100%', width: '100vw' }}>
@@ -82,45 +126,7 @@ class Dashboard extends Component {
 									<h5 className="primary">
 										<b>Account Details</b>
 									</h5>
-									<div className="my-1">
-										<b>{user.fullName}</b>
-									</div>
-									<hr style={{ borderColor: '#C5C5C5' }} />
-									<div className="mt-1">
-										<b>
-											<i>Email</i>
-										</b>
-									</div>
-									{user.userName}
-									<br />
-									<div className="mt-1">
-										<b>
-											<i>Phone number</i>
-										</b>
-									</div>{' '}
-									732-123-4567<br />
-									<a className="my-1" href="#personalInfo">
-										<u>Edit personal information</u>
-									</a>
-									<hr style={{ borderColor: '#C5C5C5' }} />
-									<div className="mt-1">
-										<b>
-											<i>Bank</i>
-										</b>
-									</div>{' '}
-									TD Bank<br />
-									<div className="mt-1">
-										<b>
-											<i>Account #</i>
-										</b>
-									</div>{' '}
-									xxx-4120<br />
-									<a className="mt-1" href="#bankInfo">
-										<u>Edit bank information</u>
-									</a>
-									<a className="mt-1" href="#paymentMethod">
-										<u>Register a new payment method</u>
-									</a>
+									{accountInfo}
 								</Card>
 							</Row>
 							<Row className="py-2 px-5" style={{ position: 'absolute', bottom: '0px' }}>
@@ -138,7 +144,7 @@ class Dashboard extends Component {
 										className="primary"
 										variant="main"
 									>
-										<FaUser size={20} className="d-inline" color="white" />
+										<FaUser size={20} className="d-inline" color="white" /> Account Details
         							</Button>
 									<Collapse in={this.state.accountDetailsOpen}>
 										<Card
@@ -149,48 +155,7 @@ class Dashboard extends Component {
 												boxShadow: '1px 1px 3px 1px #9E9E9E'
 											}}
 										>
-											<h5 className="primary">
-												<b>Account Details</b>
-											</h5>
-											<div className="my-1">
-												<b>{user.fullName}</b>
-											</div>
-											<hr style={{ borderColor: '#C5C5C5' }} />
-											<div className="mt-1">
-												<b>
-													<i>Email</i>
-												</b>
-											</div>
-											{user.userName}
-											<br />
-											<div className="mt-1">
-												<b>
-													<i>Phone number</i>
-												</b>
-											</div>{' '}
-											732-123-4567<br />
-											<a className="my-1" href="#personalInfo">
-												<u>Edit personal information</u>
-											</a>
-											<hr style={{ borderColor: '#C5C5C5' }} />
-											<div className="mt-1">
-												<b>
-													<i>Bank</i>
-												</b>
-											</div>{' '}
-											TD Bank<br />
-											<div className="mt-1">
-												<b>
-													<i>Account #</i>
-												</b>
-											</div>{' '}
-											xxx-4120<br />
-											<a className="mt-1" href="#bankInfo">
-												<u>Edit bank information</u>
-											</a>
-											<a className="mt-1" href="#paymentMethod">
-												<u>Register a new payment method</u>
-											</a>
+											{accountInfo}
 										</Card>
 									</Collapse>
 								</Row>
