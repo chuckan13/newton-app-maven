@@ -130,7 +130,7 @@ class Dashboard extends Component {
 						</Col>
 						<Col md={8} xs={12}>
 							<div className="py-4 px-0 px-sm-4">
-								<Row className="p-4 d-flex d-md-none justify-content-between align-items-center">
+								<Row className="p-4 d-flex d-md-none justify-content-center align-items-center">
 									<Button
 										onClick={() => this.setState({ accountDetailsOpen: !accountDetailsOpen })}
 										aria-controls="collapse-content"
