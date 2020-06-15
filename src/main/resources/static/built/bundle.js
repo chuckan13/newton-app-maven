@@ -60877,9 +60877,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_bootstrap_ProgressBar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap/ProgressBar */ "./node_modules/react-bootstrap/esm/ProgressBar.js");
 /* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap/Container */ "./node_modules/react-bootstrap/esm/Container.js");
 /* harmony import */ var react_bootstrap_FormCheck__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap/FormCheck */ "./node_modules/react-bootstrap/esm/FormCheck.js");
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
-/* harmony import */ var _app_scss__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../app.scss */ "./src/main/js/app.scss");
-/* harmony import */ var _app_scss__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_app_scss__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var react_bootstrap_Collapse__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap/Collapse */ "./node_modules/react-bootstrap/esm/Collapse.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
+/* harmony import */ var _app_scss__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../app.scss */ "./src/main/js/app.scss");
+/* harmony import */ var _app_scss__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_app_scss__WEBPACK_IMPORTED_MODULE_11__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -60910,7 +60911,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
- // import HorizontalScroll from 'react-scroll-horizontal'
+
 
 
 
@@ -60951,7 +60952,8 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         processedDate: 'Loading processed date...',
         medicalCenter: 'Loading medical center...',
         userId: -1
-      }
+      },
+      accountDetailsOpen: false
     };
     return _this;
   }
@@ -60979,9 +60981,12 @@ var Dashboard = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+
       var _this$state = this.state,
           user = _this$state.user,
-          loan = _this$state.loan;
+          loan = _this$state.loan,
+          accountDetailsOpen = _this$state.accountDetailsOpen;
       console.log(user, loan);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex",
@@ -61053,6 +61058,20 @@ var Dashboard = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "py-4 px-0 px-sm-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        className: "p-4 d-flex d-md-none justify-content-between align-items-center"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        onClick: function onClick() {
+          return _this3.setState({
+            accountDetailsOpen: !accountDetailsOpen
+          });
+        },
+        "aria-controls": "example-collapse-text",
+        "aria-expanded": accountDetailsOpen
+      }, "Account Details"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Collapse__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        "in": this.state.accountDetailsOpen
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "example-collapse-text"
+      }, "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
         className: "p-4 d-flex justify-content-between align-items-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "m-0 mt-1"
@@ -61074,7 +61093,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
         className: "p-4 align-items-center"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_9__["FaTag"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_10__["FaTag"], {
         size: 20,
         className: "d-inline"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
