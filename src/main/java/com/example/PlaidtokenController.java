@@ -43,7 +43,7 @@ public class PlaidtokenController {
         return new ResponseEntity<Plaidtoken>(token, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/new/", method = RequestMethod.POST)
+    @RequestMapping(value = "/new", method = RequestMethod.POST)
     public ResponseEntity<Plaidtoken> update(@RequestBody Plaidtoken token, Principal principal)
             throws IOException, StripeException {
         repository.save(token);
