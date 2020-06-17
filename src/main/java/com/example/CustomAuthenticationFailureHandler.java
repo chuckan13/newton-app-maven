@@ -23,10 +23,14 @@ public class CustomAuthenticationFailureHandler extends SimpleUrlAuthenticationF
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
             AuthenticationException exception) throws IOException, ServletException {
-        System.out.println("FAULRE HANDLER");
-        System.out.println(exception.getClass().getName());
-        System.out.println(exception.getClass().getSimpleName());
-        System.out.println(exception.getClass().getCanonicalName());
-        getRedirectStrategy().sendRedirect(request, response, "/howitworks");
+        // System.out.println("FAULRE HANDLER");
+        // System.out.println(exception.getClass().getName());
+        // System.out.println(exception.getClass().getSimpleName());
+        // System.out.println(exception.getClass().getCanonicalName());
+        if (exception.getClass().getSimpleName().equals("BadCredentialsException")) {
+            getRedirectStrategy().sendRedirect(request, response, "/badcredentials");
+        } else if (exception.getClass().getSimpleName().equals("SessionAuthenticationException")) {
+            getRedirectStrategy().sendRedirect(request, response, "/sessionauth");
+        }
     }
 }

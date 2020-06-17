@@ -68,7 +68,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // .failureUrl("/howitworks")
                 .csrf().disable().authorizeRequests()
                 .antMatchers("/", "/built/bundle.js", "/resources/**", "/*.js", "/static/**", "/js/**", "/img/**",
-                        "/loginpage", "/login.html", "/register", "/api/users/sign-up")
+                        "/loginpage", "/login.html", "/register", "/api/users/sign-up", "/howitworks",
+                        "/badcredentials", "/sessionauth")
                 .permitAll().anyRequest().authenticated().and().authorizeRequests()
                 .antMatchers("/loginpage", "/login.html", "/login-process").anonymous().and().formLogin()
                 .loginPage("/login.html").defaultSuccessUrl("/dashboard", true)
