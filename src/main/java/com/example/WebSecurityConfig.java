@@ -26,6 +26,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 // import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 // import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.cors.CorsConfiguration;
@@ -64,14 +65,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 // leave csrf() ON during production
                 // .cors().and().
+                // .failureUrl("/howitworks")
                 .csrf().disable().authorizeRequests()
                 .antMatchers("/", "/built/bundle.js", "/resources/**", "/*.js", "/static/**", "/js/**", "/img/**",
                         "/loginpage", "/login.html", "/register", "/api/users/sign-up")
                 .permitAll().anyRequest().authenticated().and().authorizeRequests()
                 .antMatchers("/loginpage", "/login.html", "/login-process").anonymous().and().formLogin()
-                .loginPage("/login.html").defaultSuccessUrl("/dashboard", true).failureUrl("/howitworks")
-                .loginProcessingUrl("/login-process").permitAll().and().logout().deleteCookies("JSESSIONID")
-                .invalidateHttpSession(true).clearAuthentication(true)
+                .loginPage("/login.html").defaultSuccessUrl("/dashboard", true)
+                .failureHandler(customAuthenticationFailureHandler()).loginProcessingUrl("/login-process").permitAll()
+                .and().logout().deleteCookies("JSESSIONID").invalidateHttpSession(true).clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/logout-success")
                 .permitAll().and().sessionManagement().maximumSessions(1).maxSessionsPreventsLogin(true)
                 .expiredUrl("/login?expired=true");
@@ -103,5 +105,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", new CorsConfiguration());
         return source;
+    }
+
+    @Bean
+    public AuthenticationFailureHandler customAuthenticationFailureHandler() {
+        return new CustomAuthenticationFailureHandler();
     }
 }
