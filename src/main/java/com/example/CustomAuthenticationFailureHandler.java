@@ -24,9 +24,9 @@ public class CustomAuthenticationFailureHandler extends SimpleUrlAuthenticationF
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
             AuthenticationException exception) throws IOException, ServletException {
         System.out.println("FAULRE HANDLER");
-        System.out.println(request);
-        System.out.println(response);
-        System.out.println(exception);
+        System.out.println(exception.getClass().getName());
+        System.out.println(exception.getClass().getSimpleName());
+        System.out.println(exception.getClass().getCanonicalName());
         getRedirectStrategy().sendRedirect(request, response, "/howitworks");
     }
 }

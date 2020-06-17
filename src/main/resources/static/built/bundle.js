@@ -61596,8 +61596,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
-  username: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().email("Must be a valid email").required("Required"),
-  password: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required")
+  username: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().email('Must be a valid email').required('Required'),
+  password: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required('Required')
 });
 
 function LoginForm() {
@@ -61608,14 +61608,14 @@ function LoginForm() {
 
   var _useFormik = Object(formik__WEBPACK_IMPORTED_MODULE_8__["useFormik"])({
     initialValues: {
-      username: "",
-      password: ""
+      username: '',
+      password: ''
     },
     validationSchema: validationSchema,
     onSubmit: function onSubmit(values) {
       var formData = new FormData();
-      formData.append("username", values.username);
-      formData.append("password", values.password);
+      formData.append('username', values.username);
+      formData.append('password', values.password);
       var data = new URLSearchParams(formData); // const data = JSON.stringify({
       // 	fullName: 'Niko Fotopoulos',
       // 	userName: values.username,
@@ -61634,15 +61634,16 @@ function LoginForm() {
       // console.log(data);
       // debugger;
 
-      fetch("https://newton-server-maven.herokuapp.com/login-process", {
-        method: "POST",
+      fetch('https://newton-server-maven.herokuapp.com/login-process', {
+        method: 'POST',
         body: data
       }).then(function (response) {
-        console.log("Success"); // console.log(response.headers.get('Authorization'));
+        console.log('Success'); // console.log(response.headers.get('Authorization'));
 
-        if (response.url === "https://newton-server-maven.herokuapp.com/dashboard") {
+        if (response.url === 'https://newton-server-maven.herokuapp.com/dashboard') {
           window.location.replace(response.url);
         } else {
+          console.log(response);
           setLoginFailed( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "invalid-feedback d-block position-static pt-2"
           }, "Your email or password is incorrect."));
@@ -61650,7 +61651,7 @@ function LoginForm() {
       }).then(function () {
         setSubmitting(false);
       })["catch"](function (error) {
-        console.error("Error:", error);
+        console.error('Error:', error);
       });
     }
   }),
@@ -61704,7 +61705,7 @@ function LoginForm() {
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting,
     className: "mt-5"
-  }, isSubmitting ? "Loading..." : "Submit"), loginFailed));
+  }, isSubmitting ? 'Loading...' : 'Submit'), loginFailed));
 }
 
 var Login = /*#__PURE__*/function (_Component) {
@@ -61721,13 +61722,13 @@ var Login = /*#__PURE__*/function (_Component) {
   _createClass(Login, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      fetch("https://newton-server-maven.herokuapp.com/api/users/signinstatus").then(function (response) {
+      fetch('https://newton-server-maven.herokuapp.com/api/users/signinstatus').then(function (response) {
         return response.json();
       }).then(function (data) {
-        console.log("Success: ", data);
-        if (data == true) window.location.replace("https://newton-server-maven.herokuapp.com/dashboard");
+        console.log('Success: ', data);
+        if (data == true) window.location.replace('https://newton-server-maven.herokuapp.com/dashboard');
       })["catch"](function (error) {
-        console.error("Error:", error);
+        console.error('Error:', error);
       });
     }
   }, {
