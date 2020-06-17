@@ -56,11 +56,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/built/bundle.js", "/resources/**", "/*.js", "/static/**", "/js/**", "/img/**",
                         "/loginpage", "/login.html", "/register", "/api/users/sign-up")
                 .permitAll().anyRequest().authenticated().and().authorizeRequests()
-                .antMatchers("/loginpage", "/login.html").anonymous().and().formLogin().loginPage("/login.html")
-                .defaultSuccessUrl("/dashboard", true).failureUrl("/howitworks").loginProcessingUrl("/login-process")
-                .permitAll().and().logout().invalidateHttpSession(true).clearAuthentication(true)
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/logout-success")
-                .permitAll();
+                .antMatchers("/loginpage", "/login.html", "/login-process").anonymous().and().formLogin()
+                .loginPage("/login.html").defaultSuccessUrl("/dashboard", true).failureUrl("/howitworks")
+                .loginProcessingUrl("/login-process").permitAll().and().logout().invalidateHttpSession(true)
+                .clearAuthentication(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/logout-success").permitAll();
 
         // .httpBasic().and().authorizeRequests().antMatchers(HttpMethod.GET,
         // "/**").hasRole("USER").and()
