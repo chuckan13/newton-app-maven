@@ -95,10 +95,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
         auth.userDetailsService(userDetailsService).passwordEncoder(NoOpPasswordEncoder.getInstance()); // change to
                                                                                                         // bcrypt
-        // ServletConfig conf = httpServlet.getServletConfig();
-        ServletContext context = httpServlet.getServletContext();
-        context.setSessionTrackingModes(EnumSet.of(SessionTrackingMode.COOKIE));
-        context.addListener(new SessionListener());
+
     }
 
     @Bean
