@@ -73,10 +73,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/logout-success")
                 .permitAll().and().sessionManagement().maximumSessions(1).maxSessionsPreventsLogin(true)
                 .expiredUrl("/login?expired=true");
-        ServletConfig conf = httpServlet.getServletConfig();
-        ServletContext context = conf.getServletContext();
-        context.setSessionTrackingModes(EnumSet.of(SessionTrackingMode.COOKIE));
-        context.addListener(new SessionListener());
+
         // .httpBasic().and().authorizeRequests().antMatchers(HttpMethod.GET,
         // "/**").hasRole("USER").and()
         // .authorizeRequests().antMatchers(HttpMethod.PATCH,
@@ -96,6 +93,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
         auth.userDetailsService(userDetailsService).passwordEncoder(NoOpPasswordEncoder.getInstance()); // change to
                                                                                                         // bcrypt
+        // ServletConfig conf = httpServlet.getServletConfig();
+        ServletContext context = httpServlet.getServletContext();
+        context.setSessionTrackingModes(EnumSet.of(SessionTrackingMode.COOKIE));
+        context.addListener(new SessionListener());
     }
 
     @Bean
