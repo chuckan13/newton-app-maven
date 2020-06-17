@@ -34,14 +34,14 @@ public class PlaidtokenController {
         return new ResponseEntity<Plaidtoken>(token, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<Plaidtoken> delete(@PathVariable("id") Long id) {
-        Plaidtoken token = repository.findOne(id);
-        if (token == null)
-            return new ResponseEntity<Plaidtoken>(HttpStatus.NOT_FOUND);
-        repository.delete(token);
-        return new ResponseEntity<Plaidtoken>(token, HttpStatus.OK);
-    }
+    // @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    // public ResponseEntity<Plaidtoken> delete(@PathVariable("id") Long id) {
+    // Plaidtoken token = repository.findOne(id);
+    // if (token == null)
+    // return new ResponseEntity<Plaidtoken>(HttpStatus.NOT_FOUND);
+    // repository.delete(token);
+    // return new ResponseEntity<Plaidtoken>(token, HttpStatus.OK);
+    // }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public ResponseEntity<Plaidtoken> update(@RequestBody Plaidtoken token, Principal principal)

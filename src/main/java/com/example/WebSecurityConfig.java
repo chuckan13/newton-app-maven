@@ -60,7 +60,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login.html").defaultSuccessUrl("/dashboard", true).failureUrl("/howitworks")
                 .loginProcessingUrl("/login-process").permitAll().and().logout().invalidateHttpSession(true)
                 .clearAuthentication(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/logout-success").permitAll();
+                .logoutSuccessUrl("/logout-success").permitAll().and().sessionManagement().maximumSessions(1)
+                .expiredUrl("/login?expired=true");
 
         // .httpBasic().and().authorizeRequests().antMatchers(HttpMethod.GET,
         // "/**").hasRole("USER").and()
