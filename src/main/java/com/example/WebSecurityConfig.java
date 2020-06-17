@@ -4,6 +4,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+
+import java.util.EnumSet;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
+import javax.servlet.SessionTrackingMode;
+import javax.servlet.http.HttpServlet;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 // import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -33,6 +41,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    HttpServlet httpServlet;
+
     public WebSecurityConfig(MyUserDetailsService userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userDetailsService = userDetailsService;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
@@ -58,11 +68,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll().anyRequest().authenticated().and().authorizeRequests()
                 .antMatchers("/loginpage", "/login.html", "/login-process").anonymous().and().formLogin()
                 .loginPage("/login.html").defaultSuccessUrl("/dashboard", true).failureUrl("/howitworks")
-                .loginProcessingUrl("/login-process").permitAll().and().logout().invalidateHttpSession(true)
-                .clearAuthentication(true).logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/logout-success").permitAll().and().sessionManagement().maximumSessions(1)
+                .loginProcessingUrl("/login-process").permitAll().and().logout().deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true).clearAuthentication(true)
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/logout-success")
+                .permitAll().and().sessionManagement().maximumSessions(1).maxSessionsPreventsLogin(true)
                 .expiredUrl("/login?expired=true");
-
+        ServletConfig conf = httpServlet.getServletConfig();
+        ServletContext context = conf.getServletContext();
+        context.setSessionTrackingModes(EnumSet.of(SessionTrackingMode.COOKIE));
+        context.addListener(new SessionListener());
         // .httpBasic().and().authorizeRequests().antMatchers(HttpMethod.GET,
         // "/**").hasRole("USER").and()
         // .authorizeRequests().antMatchers(HttpMethod.PATCH,
