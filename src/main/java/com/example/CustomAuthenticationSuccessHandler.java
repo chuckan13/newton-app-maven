@@ -37,7 +37,8 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
     @Override
     public void onAuthenticationSuccess(final HttpServletRequest request, final HttpServletResponse response,
             final Authentication authentication) throws IOException {
-        System.out.println("IN SUCESS");
+        // System.out.println("IN SUCESS");
+        request.getSession().setMaxInactiveInterval(60 * 2);
         handle(request, response, authentication);
         clearAuthenticationAttributes(request);
     }
@@ -71,12 +72,12 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
             final Authentication authentication) throws IOException {
 
         final String targetUrl = determineTargetUrl(authentication);
-        System.out.println("Target url" + targetUrl);
+        // System.out.println("Target url" + targetUrl);
         if (response.isCommitted()) {
             System.out.println("Response has already been committed. Unable to redirect to " + targetUrl);
             return;
         }
-        System.out.println(" IN HANDLE");
+        // System.out.println(" IN HANDLE");
         redirectStrategy.sendRedirect(request, response, targetUrl);
     }
 }
