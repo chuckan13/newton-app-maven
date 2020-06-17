@@ -54,16 +54,17 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 
         final Map<String, String> roleTargetUrlMap = new HashMap<>();
         roleTargetUrlMap.put("ROLE_USER", "/dashboard");
+        return roleTargetUrlMap.get("ROLE_USER");
+        // final Collection<? extends GrantedAuthority> authorities =
+        // authentication.getAuthorities();
+        // for (final GrantedAuthority grantedAuthority : authorities) {
+        // final String authorityName = grantedAuthority.getAuthority();
+        // if (roleTargetUrlMap.containsKey(authorityName)) {
+        // return roleTargetUrlMap.get(authorityName);
+        // }
+        // }
 
-        final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-        for (final GrantedAuthority grantedAuthority : authorities) {
-            final String authorityName = grantedAuthority.getAuthority();
-            if (roleTargetUrlMap.containsKey(authorityName)) {
-                return roleTargetUrlMap.get(authorityName);
-            }
-        }
-
-        throw new IllegalStateException();
+        // throw new IllegalStateException();
     }
 
     protected void handle(final HttpServletRequest request, final HttpServletResponse response,
