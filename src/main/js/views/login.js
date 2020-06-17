@@ -76,7 +76,7 @@ function LoginForm() {
 							</div>
 						);
 					} else {
-						console.log(response);
+						// console.log(response);
 						setLoginFailed(
 							<div className="invalid-feedback d-block position-static pt-2">
 								You are already signed in. If this is not the case, please contact Covered support team.

@@ -38,7 +38,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
     public void onAuthenticationSuccess(final HttpServletRequest request, final HttpServletResponse response,
             final Authentication authentication) throws IOException {
         // System.out.println("IN SUCESS");
-        request.getSession().setMaxInactiveInterval(60 * 2);
+        request.getSession().setMaxInactiveInterval(60 * 60);
         handle(request, response, authentication);
         clearAuthenticationAttributes(request);
     }

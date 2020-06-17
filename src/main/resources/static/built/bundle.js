@@ -61648,7 +61648,7 @@ function LoginForm() {
             className: "invalid-feedback d-block position-static pt-2"
           }, "Your email or password is incorrect."));
         } else {
-          console.log(response);
+          // console.log(response);
           setLoginFailed( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "invalid-feedback d-block position-static pt-2"
           }, "You are already signed in. If this is not the case, please contact Covered support team."));
