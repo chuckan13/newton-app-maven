@@ -69,7 +69,7 @@ function LoginForm() {
 					if (response.url === 'https://newton-server-maven.herokuapp.com/dashboard') {
 						window.location.replace(response.url);
 					} else if (response.url === 'https://newton-server-maven.herokuapp.com/badcredentials') {
-						console.log(response);
+						// console.log(response);
 						setLoginFailed(
 							<div className="invalid-feedback d-block position-static pt-2">
 								Your email or password is incorrect.

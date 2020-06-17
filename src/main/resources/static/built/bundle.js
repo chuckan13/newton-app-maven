@@ -61643,7 +61643,7 @@ function LoginForm() {
         if (response.url === 'https://newton-server-maven.herokuapp.com/dashboard') {
           window.location.replace(response.url);
         } else if (response.url === 'https://newton-server-maven.herokuapp.com/badcredentials') {
-          console.log(response);
+          // console.log(response);
           setLoginFailed( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "invalid-feedback d-block position-static pt-2"
           }, "Your email or password is incorrect."));
