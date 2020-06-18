@@ -67,7 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // leave csrf() ON during production
                 // .cors().and().
                 // .failureUrl("/howitworks")
-                .csrf().disable().authorizeRequests()
+                .requiresChannel().anyRequest().requiresSecure().and().csrf().disable().authorizeRequests()
                 .antMatchers("/", "/built/bundle.js", "/resources/**", "/*.js", "/static/**", "/js/**", "/img/**",
                         "/loginpage", "/login.html", "/register", "/api/users/sign-up", "/howitworks",
                         "/badcredentials", "/sessionauth")
