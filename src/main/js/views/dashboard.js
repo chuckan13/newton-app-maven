@@ -41,6 +41,7 @@ function PaymentModal(props) {
 		size="lg"
 		aria-labelledby="contained-modal-title-vcenter"
 		centered
+		style={{maxWidth: "600px"}}
 	  >
 		<Modal.Header closeButton>
 		  <Modal.Title id="contained-modal-title-vcenter" className="primary">
@@ -54,7 +55,7 @@ function PaymentModal(props) {
 		  </p>
 		</Modal.Body>
 		<Modal.Footer>
-		  <Button onClick={props.onHide} variant="main">Pay Now</Button>
+		  <Button onClick={props.onHide} variant="main" className="mx-auto">Pay Now</Button>
 		</Modal.Footer>
 	  </Modal>
 	);
