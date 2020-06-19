@@ -81,7 +81,7 @@ class Dashboard extends Component {
 						<i>Phone number</i>
 					</b>
 				</div>
-				{user.phone}
+				{user.phone.substring(0, 3)}-{user.phone.substring(3, 6)}-{user.phone.substring(6)}
 				<br />
 				<a className="my-1" href="#personalInfo">
 					<u>Edit personal information</u>

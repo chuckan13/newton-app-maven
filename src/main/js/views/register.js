@@ -51,6 +51,7 @@ function RegistrationForm() {
         validationSchema,
         onSubmit(values) {
             values.phone = values.phone.replace(/\D/g, '');
+            values.phone = values.phone.substring(values.phone.length - 10);
             const data = JSON.stringify({
                 fullName: values.firstName + " " + values.lastName,
                 userName: values.email,
