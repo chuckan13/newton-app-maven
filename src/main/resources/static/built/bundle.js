@@ -52822,6 +52822,442 @@ function useWaitForDOMRef(ref, onResolved) {
 
 /***/ }),
 
+/***/ "./node_modules/react-plaid-link/dist/index.umd.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/react-plaid-link/dist/index.umd.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {(function (global, factory) {
+   true ? factory(exports, __webpack_require__(/*! react */ "./node_modules/react/index.js")) :
+  undefined;
+}(this, (function (exports, react) { 'use strict';
+
+  var react__default = 'default' in react ? react['default'] : react;
+
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+
+    return obj;
+  }
+
+  function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly) symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+      keys.push.apply(keys, symbols);
+    }
+
+    return keys;
+  }
+
+  function _objectSpread2(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i] != null ? arguments[i] : {};
+
+      if (i % 2) {
+        ownKeys(Object(source), true).forEach(function (key) {
+          _defineProperty(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        ownKeys(Object(source)).forEach(function (key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+    }
+
+    return target;
+  }
+
+  function _objectWithoutPropertiesLoose(source, excluded) {
+    if (source == null) return {};
+    var target = {};
+    var sourceKeys = Object.keys(source);
+    var key, i;
+
+    for (i = 0; i < sourceKeys.length; i++) {
+      key = sourceKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      target[key] = source[key];
+    }
+
+    return target;
+  }
+
+  function _objectWithoutProperties(source, excluded) {
+    if (source == null) return {};
+
+    var target = _objectWithoutPropertiesLoose(source, excluded);
+
+    var key, i;
+
+    if (Object.getOwnPropertySymbols) {
+      var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+
+      for (i = 0; i < sourceSymbolKeys.length; i++) {
+        key = sourceSymbolKeys[i];
+        if (excluded.indexOf(key) >= 0) continue;
+        if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+        target[key] = source[key];
+      }
+    }
+
+    return target;
+  }
+
+  function _slicedToArray(arr, i) {
+    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+  }
+
+  function _arrayWithHoles(arr) {
+    if (Array.isArray(arr)) return arr;
+  }
+
+  function _iterableToArrayLimit(arr, i) {
+    if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+    var _arr = [];
+    var _n = true;
+    var _d = false;
+    var _e = undefined;
+
+    try {
+      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);
+
+        if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;
+      _e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"] != null) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+
+    return _arr;
+  }
+
+  function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(n);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+  }
+
+  function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+
+    for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+    return arr2;
+  }
+
+  function _nonIterableRest() {
+    throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+
+  var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+  function unwrapExports (x) {
+  	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+  }
+
+  function createCommonjsModule(fn, module) {
+  	return module = { exports: {} }, fn(module, module.exports), module.exports;
+  }
+
+  var useScript_1 = createCommonjsModule(function (module, exports) {
+
+  var __rest = commonjsGlobal && commonjsGlobal.__rest || function (s, e) {
+    var t = {};
+
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+
+    if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+      if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
+    }
+    return t;
+  };
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+
+
+  function useScript(_a) {
+    var src = _a.src,
+        attributes = __rest(_a, ["src"]);
+
+    var _b = react__default.useState(true),
+        loading = _b[0],
+        setLoading = _b[1];
+
+    var _c = react__default.useState(null),
+        error = _c[0],
+        setError = _c[1];
+
+    react__default.useEffect(function () {
+      if (!isBrowser) return;
+      var scriptEl = document.createElement('script');
+      scriptEl.setAttribute('src', src);
+      Object.keys(attributes).forEach(function (key) {
+        if (scriptEl[key] === undefined) {
+          scriptEl.setAttribute(key, attributes[key]);
+        } else {
+          scriptEl[key] = attributes[key];
+        }
+      });
+
+      var handleLoad = function () {
+        setLoading(false);
+      };
+
+      var handleError = function (error) {
+        setError(error);
+      };
+
+      scriptEl.addEventListener('load', handleLoad);
+      scriptEl.addEventListener('error', handleError);
+      document.body.appendChild(scriptEl);
+      return function () {
+        scriptEl.removeEventListener('load', handleLoad);
+        scriptEl.removeEventListener('error', handleError);
+      }; // we need to ignore the attributes as they're a new object per call, so we'd never skip an effect call
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [src]);
+    return [loading, error];
+  }
+
+  exports.default = useScript;
+  var isBrowser = typeof window !== 'undefined' && typeof window.document !== 'undefined';
+  });
+
+  unwrapExports(useScript_1);
+
+  var lib = createCommonjsModule(function (module, exports) {
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+
+
+  exports.default = useScript_1.default;
+  });
+
+  var useScript = unwrapExports(lib);
+
+  var renameKeyInObject = function renameKeyInObject(o, oldKey, newKey) {
+    var newObject = {};
+    delete Object.assign(newObject, o, _defineProperty({}, newKey, o[oldKey]))[oldKey];
+    return newObject;
+  };
+  /**
+   * Wrap link handler creation and instance to clean up iframe via destroy() method
+   */
+
+
+  var createPlaid = function createPlaid(options) {
+    var state = {
+      plaid: null,
+      open: false,
+      onExitCallback: null
+    }; // If Plaid is not available, throw an Error
+
+    if (typeof window === 'undefined' || !window.Plaid) {
+      throw new Error('Plaid not loaded');
+    }
+
+    var config = renameKeyInObject(options, 'publicKey', 'key');
+    state.plaid = window.Plaid.create(_objectSpread2({}, config, {
+      onExit: function onExit() {
+        config.onExit && config.onExit.apply(config, arguments);
+        state.onExitCallback && state.onExitCallback();
+      }
+    }));
+
+    var open = function open() {
+      if (!state.plaid) {
+        return;
+      }
+
+      state.open = true;
+      state.onExitCallback = null;
+      state.plaid.open();
+    };
+
+    var exit = function exit(exitOptions, callback) {
+      if (!state.open || !state.plaid) {
+        callback && callback();
+        return;
+      }
+
+      state.onExitCallback = callback;
+      state.plaid.exit(exitOptions);
+
+      if (exitOptions && exitOptions.force) {
+        state.open = false;
+      }
+    };
+
+    var destroy = function destroy() {
+      if (!state.plaid) {
+        return;
+      }
+
+      state.plaid.destroy();
+      state.plaid = null;
+    };
+
+    return {
+      open: open,
+      exit: exit,
+      destroy: destroy
+    };
+  };
+
+  var PLAID_LINK_STABLE_URL = 'https://cdn.plaid.com/link/v2/stable/link-initialize.js';
+
+  var noop = function noop() {};
+  /**
+   * This hook loads Plaid script and manages the Plaid Link creation for you.
+   * You get easy open & exit methods to call and loading & error states.
+   *
+   * This will destroy the Plaid UI on un-mounting so it's up to you to be
+   * graceful to the user.
+   *
+   * A new Plaid instance is created every time the token and products options change.
+   * It's up to you to prevent unnecessary re-creations on re-render.
+   */
+
+
+  var usePlaidLink = function usePlaidLink(options) {
+    // Asynchronously load the plaid/link/stable url into the DOM
+    var _useScript = useScript({
+      src: PLAID_LINK_STABLE_URL
+    }),
+        _useScript2 = _slicedToArray(_useScript, 2),
+        loading = _useScript2[0],
+        error = _useScript2[1]; // internal state
+
+
+    var _useState = react.useState(null),
+        _useState2 = _slicedToArray(_useState, 2),
+        plaid = _useState2[0],
+        setPlaid = _useState2[1];
+
+    var _useState3 = react.useState(false),
+        _useState4 = _slicedToArray(_useState3, 2),
+        iframeLoaded = _useState4[0],
+        setIframeLoaded = _useState4[1];
+
+    react.useEffect(function () {
+      // If the link.js script is still loading, return prematurely
+      if (loading) {
+        return;
+      }
+
+      if (error || !window.Plaid) {
+        // eslint-disable-next-line no-console
+        console.error('Error loading Plaid', error);
+        return;
+      } // if an old plaid instance exists, destroy it before
+      // creating a new one
+
+
+      if (plaid != null) {
+        plaid.exit({
+          force: true
+        }, function () {
+          return plaid.destroy();
+        });
+      }
+
+      var next = createPlaid(_objectSpread2({}, options, {
+        onLoad: function onLoad() {
+          setIframeLoaded(true);
+          options.onLoad && options.onLoad();
+        }
+      }));
+      setPlaid(next); // destroy the Plaid iframe factory
+
+      return function () {
+        return next.exit({
+          force: true
+        }, function () {
+          return next.destroy();
+        });
+      };
+    }, [loading, error, options.token, (options.product || []).slice().sort().join(',')]);
+    return {
+      error: error,
+      ready: !loading || iframeLoaded,
+      exit: plaid ? plaid.exit : noop,
+      open: plaid ? plaid.open : noop
+    };
+  };
+
+  var PlaidLink = function PlaidLink(props) {
+    var children = props.children,
+        style = props.style,
+        className = props.className,
+        config = _objectWithoutProperties(props, ["children", "style", "className"]);
+
+    var _usePlaidLink = usePlaidLink(_objectSpread2({}, config)),
+        error = _usePlaidLink.error,
+        open = _usePlaidLink.open;
+
+    return react__default.createElement("button", {
+      disabled: Boolean(error),
+      type: "button",
+      className: className,
+      style: _objectSpread2({
+        padding: '6px 4px',
+        outline: 'none',
+        background: '#FFFFFF',
+        border: '2px solid #F1F1F1',
+        borderRadius: '4px'
+      }, style),
+      onClick: function onClick() {
+        return open();
+      }
+    }, children);
+  };
+  PlaidLink.displayName = 'PlaidLink';
+
+  exports.PlaidLink = PlaidLink;
+  exports.usePlaidLink = usePlaidLink;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
 /***/ "./node_modules/react-router-dom/esm/react-router-dom.js":
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
@@ -62692,19 +63128,21 @@ var NavBar = /*#__PURE__*/function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_navbar_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/navbar.js */ "./src/main/js/views/components/navbar.js");
-/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
-/* harmony import */ var react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap/Col */ "./node_modules/react-bootstrap/esm/Col.js");
-/* harmony import */ var react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap/Card */ "./node_modules/react-bootstrap/esm/Card.js");
-/* harmony import */ var react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap/Row */ "./node_modules/react-bootstrap/esm/Row.js");
-/* harmony import */ var react_bootstrap_ProgressBar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap/ProgressBar */ "./node_modules/react-bootstrap/esm/ProgressBar.js");
-/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap/Container */ "./node_modules/react-bootstrap/esm/Container.js");
-/* harmony import */ var react_bootstrap_FormCheck__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap/FormCheck */ "./node_modules/react-bootstrap/esm/FormCheck.js");
-/* harmony import */ var react_bootstrap_Collapse__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap/Collapse */ "./node_modules/react-bootstrap/esm/Collapse.js");
-/* harmony import */ var react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-bootstrap/Modal */ "./node_modules/react-bootstrap/esm/Modal.js");
-/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
-/* harmony import */ var _app_scss__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../app.scss */ "./src/main/js/app.scss");
-/* harmony import */ var _app_scss__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_app_scss__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var react_plaid_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-plaid-link */ "./node_modules/react-plaid-link/dist/index.umd.js");
+/* harmony import */ var react_plaid_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_plaid_link__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_navbar_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/navbar.js */ "./src/main/js/views/components/navbar.js");
+/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap/Col */ "./node_modules/react-bootstrap/esm/Col.js");
+/* harmony import */ var react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap/Card */ "./node_modules/react-bootstrap/esm/Card.js");
+/* harmony import */ var react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap/Row */ "./node_modules/react-bootstrap/esm/Row.js");
+/* harmony import */ var react_bootstrap_ProgressBar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap/ProgressBar */ "./node_modules/react-bootstrap/esm/ProgressBar.js");
+/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap/Container */ "./node_modules/react-bootstrap/esm/Container.js");
+/* harmony import */ var react_bootstrap_FormCheck__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap/FormCheck */ "./node_modules/react-bootstrap/esm/FormCheck.js");
+/* harmony import */ var react_bootstrap_Collapse__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-bootstrap/Collapse */ "./node_modules/react-bootstrap/esm/Collapse.js");
+/* harmony import */ var react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-bootstrap/Modal */ "./node_modules/react-bootstrap/esm/Modal.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
+/* harmony import */ var _app_scss__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../app.scss */ "./src/main/js/app.scss");
+/* harmony import */ var _app_scss__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_app_scss__WEBPACK_IMPORTED_MODULE_13__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -62755,13 +63193,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 function PaymentModalButton() {
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(false),
       _React$useState2 = _slicedToArray(_React$useState, 2),
       modalShow = _React$useState2[0],
       setModalShow = _React$useState2[1];
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
     variant: "main mt-3 mt-lg-0",
     onClick: function onClick() {
       return setModalShow(true);
@@ -62775,68 +63214,76 @@ function PaymentModalButton() {
 }
 
 function PaymentModal(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__["default"], _extends({}, props, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_11__["default"], _extends({}, props, {
     size: "lg",
     "aria-labelledby": "contained-modal-title-vcenter",
     centered: true,
     dialogClassName: "modal-max-width"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__["default"].Header, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_11__["default"].Header, {
     closeButton: true
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__["default"].Title, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_11__["default"].Title, {
     id: "contained-modal-title-vcenter",
     className: "primary"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Make one-time payment"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__["default"].Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "By clicking the button below, you will be taken to a secure payment portal where you can pay your monthly balance.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__["default"].Footer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    onClick: props.onHide,
-    id: "linkButton",
-    variant: "main",
-    className: "mx-auto"
-  }, "Pay Now"), PlaidButtonLogic()));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Make one-time payment"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_11__["default"].Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "By clicking the button below, you will be taken to a secure payment portal where you can pay your monthly balance.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_11__["default"].Footer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(PlaidButton, {
+    onHide: props.onHide
+  })));
 }
 
-function PlaidButtonLogic() {
-  /*#__PURE__*/
-  react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
-    src: "https://cdn.plaid.com/link/v2/stable/link-initialize.js"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
-    src: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"
-  }));
-  var linkHandler = Plaid.create({
-    env: 'sandbox',
-    clientName: 'Stripe/Plaid Test',
-    key: '5475e6f532d5bc20abca96dba0c94a',
-    product: ['auth'],
-    selectAccount: true,
-    onSuccess: function onSuccess(public_token, metadata) {
-      // Send the public_token and account ID to your app server.
-      console.log('public_token: ' + public_token);
-      console.log('account ID: ' + metadata.account_id);
-      var tokObj = new Object();
-      tokObj.publicToken = public_token;
-      tokObj.accountId = metadata.account_id;
-      $.ajax({
-        url: '/plaidtokens/new/1',
-        type: 'post',
-        data: JSON.stringify(tokObj),
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        dataType: 'json',
-        success: function success(response) {
-          console.log(response);
-        }
-      });
-    },
-    onExit: function onExit(err, metadata) {
-      // The user exited the Link flow.
-      if (err != null) {// The user encountered a Plaid API error prior to exiting.
+function PlaidButton() {
+  var onSuccess = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (token, metadata) {
+    // Send the public_token and account ID to your app server.
+    console.log('token: ' + token);
+    console.log('account ID: ' + metadata.account_id);
+    var tokObj = new Object();
+    tokObj.publicToken = token;
+    tokObj.accountId = metadata.account_id;
+    $.ajax({
+      url: '/plaidtokens/new/1',
+      type: 'post',
+      data: JSON.stringify(tokObj),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      dataType: 'json',
+      success: function success(response) {
+        console.log(response);
       }
-    }
-  }); // Trigger the Link UI
+    });
+  }, []);
 
-  document.getElementById('linkButton').onclick = function () {
-    linkHandler.open();
+  var onExit = function onExit(err, metadata) {
+    // The user exited the Link flow.
+    if (err != null) {
+      // The user encountered a Plaid API error prior to exiting.
+      console.log("Error: ", err);
+      console.log("Metadata: ", metadata);
+    }
   };
+
+  var config = {
+    clientName: 'Stripe/Plaid Test',
+    env: 'sandbox',
+    product: ['auth'],
+    publicKey: '5475e6f532d5bc20abca96dba0c94a',
+    onSuccess: onSuccess,
+    onExit: onExit // ...
+
+  };
+
+  var _usePlaidLink = Object(react_plaid_link__WEBPACK_IMPORTED_MODULE_1__["usePlaidLink"])(config),
+      open = _usePlaidLink.open,
+      ready = _usePlaidLink.ready,
+      error = _usePlaidLink.error;
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    onClick: function onClick() {
+      props.onHide, open();
+    },
+    disabled: !ready,
+    variant: "main",
+    className: "mx-auto"
+  }, "Pay Now");
 }
 
 var Dashboard = /*#__PURE__*/function (_Component) {
@@ -62948,23 +63395,23 @@ var Dashboard = /*#__PURE__*/function (_Component) {
           height: '100%',
           width: '100vw'
         }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
         simple: true,
         background: true
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_6__["default"], {
         style: {
           width: '100%',
           height: '100%',
           flexGrow: '1'
         },
         className: "mx-auto"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_4__["default"], {
         xs: 4,
         style: {
           backgroundColor: '#ddd'
         },
         className: "d-none d-md-flex justify-content-center align-items-center"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_6__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__["default"], {
         className: "m-0 px-3 py-4 mb-5",
         style: {
           borderRadius: '10px',
@@ -62972,20 +63419,20 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         className: "primary"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Account Details")), accountInfo)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Account Details")), accountInfo)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_6__["default"], {
         className: "py-2 px-5",
         style: {
           position: 'absolute',
           bottom: '0px'
         }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "For further assistance:"), "Give us a call at 732-987-6543 or email us at help@covered.com")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "For further assistance:"), "Give us a call at 732-987-6543 or email us at help@covered.com")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_4__["default"], {
         md: 8,
         xs: 12
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "py-4 px-0 px-sm-4"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_6__["default"], {
         className: "p-4 d-flex d-md-none justify-content-center align-items-center"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
         onClick: function onClick() {
           return _this3.setState({
             accountDetailsOpen: !accountDetailsOpen
@@ -62995,30 +63442,30 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         "aria-expanded": accountDetailsOpen,
         className: "primary",
         variant: "main"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_11__["FaUser"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_12__["FaUser"], {
         size: 20,
         className: "d-inline mr-2 mb-1",
         color: "white"
-      }), " Account Details"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Collapse__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      }), " Account Details"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Collapse__WEBPACK_IMPORTED_MODULE_10__["default"], {
         "in": this.state.accountDetailsOpen
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_5__["default"], {
         id: "collapse-content",
         className: "mt-3 px-3 py-4",
         style: {
           borderRadius: '10px',
           boxShadow: '1px 1px 3px 1px #9E9E9E'
         }
-      }, accountInfo))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, accountInfo))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_6__["default"], {
         className: "p-4 d-flex justify-content-between align-items-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "m-0 mt-1"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, loan.medicalCenter)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "d-flex mt-2"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_FormCheck__WEBPACK_IMPORTED_MODULE_8__["default"], null), "Autopay: ", user.autopay ? 'On' : 'Off')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_FormCheck__WEBPACK_IMPORTED_MODULE_9__["default"], null), "Autopay: ", user.autopay ? 'On' : 'Off')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
         style: {
           borderColor: '#C5C5C5'
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_6__["default"], {
         className: "px-4 py-2 d-flex justify-content-lg-between justify-content-center align-items-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
         className: "m-0"
@@ -63026,20 +63473,20 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         style: {
           borderColor: '#C5C5C5'
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_6__["default"], {
         className: "p-4 align-items-center"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_11__["FaTag"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_12__["FaTag"], {
         size: 20,
         className: "d-inline"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
         className: "ml-3 mb-0"
-      }, "PURCHASE DETAILS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, "PURCHASE DETAILS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_6__["default"], {
         className: "p-4"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__["default"], null, "TOTAL OF PAYMENTS", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "$", loan.amountTotal), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_ProgressBar__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_8__["default"], null, "TOTAL OF PAYMENTS", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "$", loan.amountTotal), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_ProgressBar__WEBPACK_IMPORTED_MODULE_7__["default"], {
         now: loan.amountTotal > 0 ? loan.amountPaid / loan.amountTotal * 100 : 40,
         className: "mt-3",
         variant: "custom"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_6__["default"], {
         className: "d-flex m-0 py-2",
         style: {
           justifyContent: 'space-between'
@@ -63052,9 +63499,9 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         style: {
           textAlign: 'right'
         }
-      }, "REMAINING", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "$", loan.amountTotal - loan.amountPaid))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }, "REMAINING", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "$", loan.amountTotal - loan.amountPaid))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_8__["default"], {
         className: "mt-4"
-      }, "LOAN TIMELINE", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }, "LOAN TIMELINE", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_8__["default"], {
         className: "d-flex",
         style: {
           overflowX: 'auto'

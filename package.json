@@ -16,6 +16,7 @@
     "react-dom": "^16.13.1",
     "react-horizontal-scrolling-menu": "^0.7.7",
     "react-icons": "^3.10.0",
+    "react-plaid-link": "^2.3.0-alpha.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scroll-horizontal": "^1.6.4",
