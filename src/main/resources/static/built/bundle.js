@@ -61820,10 +61820,12 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+var phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
   firstName: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required"),
   lastName: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required"),
   email: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().email("Must be a valid email").required("Required"),
+  phone: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required").matches(phoneRegExp, 'Phone number is not valid'),
   password: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().min(8, "Must be at least 8 characters").required("Required"),
   confirmPassword: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required").oneOf([yup__WEBPACK_IMPORTED_MODULE_9__["ref"]("password"), null], "Passwords must match"),
   terms: yup__WEBPACK_IMPORTED_MODULE_9__["bool"]().oneOf([true], "You must agree before submitting")
