@@ -80,8 +80,9 @@ class Dashboard extends Component {
 					<b>
 						<i>Phone number</i>
 					</b>
-				</div>{' '}
-				732-123-4567<br />
+				</div>
+				{user.phone}
+				<br />
 				<a className="my-1" href="#personalInfo">
 					<u>Edit personal information</u>
 				</a>
