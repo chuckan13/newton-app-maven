@@ -62,7 +62,7 @@ function PaymentModal(props) {
 	);
   }
 
-function PlaidButton() {
+function PlaidButton(props) {
 	const onSuccess = useCallback((token, metadata) => {
 		// Send the public_token and account ID to your app server.
 		console.log('token: ' + token);

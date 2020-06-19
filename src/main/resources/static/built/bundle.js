@@ -63229,7 +63229,7 @@ function PaymentModal(props) {
   })));
 }
 
-function PlaidButton() {
+function PlaidButton(props) {
   var onSuccess = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (token, metadata) {
     // Send the public_token and account ID to your app server.
     console.log('token: ' + token);
