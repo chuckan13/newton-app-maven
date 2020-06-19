@@ -62779,9 +62779,7 @@ function PaymentModal(props) {
     size: "lg",
     "aria-labelledby": "contained-modal-title-vcenter",
     centered: true,
-    style: {
-      maxWidth: "600px"
-    }
+    dialogClassName: "modal-40w"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__["default"].Header, {
     closeButton: true
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__["default"].Title, {

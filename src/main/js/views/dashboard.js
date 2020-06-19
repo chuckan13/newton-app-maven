@@ -41,7 +41,7 @@ function PaymentModal(props) {
 		size="lg"
 		aria-labelledby="contained-modal-title-vcenter"
 		centered
-		style={{maxWidth: "600px"}}
+		dialogClassName="modal-40w"
 	  >
 		<Modal.Header closeButton>
 		  <Modal.Title id="contained-modal-title-vcenter" className="primary">
