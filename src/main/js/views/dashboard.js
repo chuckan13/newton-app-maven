@@ -27,6 +27,7 @@ class Dashboard extends Component {
 				loanOption2: 'Loading LO2...',
 				loanOption3: 'Loading LO3...',
 				password: 'Loading password...',
+				phone: '0000000000',
 				role: 'Loading role...',
 				selectedLoan: 0,
 				stripeCustomerId: '',
