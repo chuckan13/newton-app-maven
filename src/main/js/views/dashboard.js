@@ -9,10 +9,30 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import Container from 'react-bootstrap/Container';
 import Check from 'react-bootstrap/FormCheck';
 import Collapse from 'react-bootstrap/Collapse';
+import Modal from "react-bootstrap/Modal";
 
 import { FaTag, FaUser } from 'react-icons/fa';
 
 import '../app.scss';
+
+function PaymentModalButton() {
+	const [modalShow, setModalShow] = React.useState(false);
+
+	return (
+		<React.Fragment>
+			<Button
+				variant="main mt-3 mt-lg-0" 
+				onClick={() => setModalShow(true)}
+			>
+					Make one-time payment
+			</Button>
+			<PaymentModal
+				show={modalShow}
+				onHide={() => setModalShow(false)}
+			/>
+		</React.Fragment>
+	);
+}
 
 function PaymentModal(props) {
 	return (
@@ -89,7 +109,6 @@ class Dashboard extends Component {
 
 	render() {
 		const { user, loan, accountDetailsOpen } = this.state;
-		const [modalShow, setModalShow] = React.useState(false);
 		console.log(user, loan);
 
 		const accountInfo = (
@@ -205,17 +224,8 @@ class Dashboard extends Component {
 									<h5 className="m-0">
 										<b>${loan.nextPaymentAmount}</b> due on <b>{loan.nextPaymentDate}</b>
 									</h5>
-									<Button
-										variant="main mt-3 mt-lg-0" 
-										onClick={() => setModalShow(true)}
-									>
-											Make one-time payment
-									</Button>
+									<PaymentModalButton />
 								</Row>
-								<PaymentModal
-        							show={modalShow}
-        							onHide={() => setModalShow(false)}
-      							/>
 								<hr style={{ borderColor: '#C5C5C5' }} />
 								<Row className="p-4 align-items-center">
 									<FaTag size={20} className="d-inline" />
