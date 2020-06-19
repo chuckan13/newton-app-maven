@@ -62787,9 +62787,56 @@ function PaymentModal(props) {
     className: "primary"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Make one-time payment"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__["default"].Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "By clicking the button below, you will be taken to a secure payment portal where you can pay your monthly balance.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_10__["default"].Footer, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
     onClick: props.onHide,
+    id: "linkButton",
     variant: "main",
     className: "mx-auto"
-  }, "Pay Now")));
+  }, "Pay Now"), PlaidButtonLogic()));
+}
+
+function PlaidButtonLogic() {
+  var linkHandler = Plaid.create({
+    env: 'sandbox',
+    clientName: 'Stripe/Plaid Test',
+    key: '5475e6f532d5bc20abca96dba0c94a',
+    product: ['auth'],
+    selectAccount: true,
+    onSuccess: function onSuccess(public_token, metadata) {
+      // Send the public_token and account ID to your app server.
+      console.log('public_token: ' + public_token);
+      console.log('account ID: ' + metadata.account_id);
+      var tokObj = new Object();
+      tokObj.publicToken = public_token;
+      tokObj.accountId = metadata.account_id;
+      $.ajax({
+        url: '/plaidtokens/new/1',
+        type: 'post',
+        data: JSON.stringify(tokObj),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        dataType: 'json',
+        success: function success(response) {
+          console.log(response);
+        }
+      });
+    },
+    onExit: function onExit(err, metadata) {
+      // The user exited the Link flow.
+      if (err != null) {// The user encountered a Plaid API error prior to exiting.
+      }
+    }
+  }); // Trigger the Link UI
+
+  document.getElementById('linkButton').onclick = function () {
+    linkHandler.open();
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
+    src: "https://cdn.plaid.com/link/v2/stable/link-initialize.js"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
+    src: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"
+  }));
 }
 
 var Dashboard = /*#__PURE__*/function (_Component) {

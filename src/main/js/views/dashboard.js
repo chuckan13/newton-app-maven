@@ -55,11 +55,61 @@ function PaymentModal(props) {
 		  </p>
 		</Modal.Body>
 		<Modal.Footer>
-		  <Button onClick={props.onHide} variant="main" className="mx-auto">Pay Now</Button>
+		  <Button onClick={props.onHide} id="linkButton" variant="main" className="mx-auto">Pay Now</Button>
+		  {PlaidButtonLogic()}
 		</Modal.Footer>
 	  </Modal>
 	);
   }
+
+function PlaidButtonLogic() {
+	var linkHandler = Plaid.create({
+		env: 'sandbox',
+		clientName: 'Stripe/Plaid Test',
+		key: '5475e6f532d5bc20abca96dba0c94a',
+		product: ['auth'],
+		selectAccount: true,
+		onSuccess: function(public_token, metadata) {
+			// Send the public_token and account ID to your app server.
+			console.log('public_token: ' + public_token);
+			console.log('account ID: ' + metadata.account_id);
+			var tokObj = new Object();
+			tokObj.publicToken = public_token;
+			tokObj.accountId = metadata.account_id;
+			$.ajax({
+				url: '/plaidtokens/new/1',
+				type: 'post',
+				data: JSON.stringify(tokObj),
+				headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json' 
+				},
+				dataType: 'json',
+				success: function (response) {
+					console.log(response);
+				}
+			});
+		},
+		onExit: function(err, metadata) {
+			// The user exited the Link flow.
+			if (err != null) {
+			// The user encountered a Plaid API error prior to exiting.
+			}
+		},
+	});
+
+	// Trigger the Link UI
+	document.getElementById('linkButton').onclick = function() {
+	linkHandler.open();
+	};
+
+	return (
+		<React.Fragment>
+			<script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+		</React.Fragment>
+	);
+}
 
 class Dashboard extends Component {
 	constructor() {
