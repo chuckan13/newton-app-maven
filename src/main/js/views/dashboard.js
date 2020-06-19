@@ -14,6 +14,33 @@ import { FaTag, FaUser } from 'react-icons/fa';
 
 import '../app.scss';
 
+function PaymentModal(props) {
+	return (
+	  <Modal
+		{...props}
+		size="lg"
+		aria-labelledby="contained-modal-title-vcenter"
+		centered
+	  >
+		<Modal.Header closeButton>
+		  <Modal.Title id="contained-modal-title-vcenter primary">
+			Make one-time payment
+		  </Modal.Title>
+		</Modal.Header>
+		<Modal.Body>
+		  <h4>Click the button below to pay now.</h4>
+		  <p>
+			By clicking the button below, you will be taken
+			to a payment portal where you can pay your monthly balance.
+		  </p>
+		</Modal.Body>
+		<Modal.Footer>
+		  <Button onClick={props.onHide} variant="main">Pay Now</Button>
+		</Modal.Footer>
+	  </Modal>
+	);
+  }
+
 class Dashboard extends Component {
 	constructor() {
 		super();
@@ -62,6 +89,7 @@ class Dashboard extends Component {
 
 	render() {
 		const { user, loan, accountDetailsOpen } = this.state;
+		const [modalShow, setModalShow] = React.useState(false);
 		console.log(user, loan);
 
 		const accountInfo = (
@@ -177,8 +205,17 @@ class Dashboard extends Component {
 									<h5 className="m-0">
 										<b>${loan.nextPaymentAmount}</b> due on <b>{loan.nextPaymentDate}</b>
 									</h5>
-									<Button variant="main mt-3 mt-lg-0">Make one-time payment</Button>
+									<Button
+										variant="main mt-3 mt-lg-0" 
+										onClick={() => setModalShow(true)}
+									>
+											Make one-time payment
+									</Button>
 								</Row>
+								<PaymentModal
+        							show={modalShow}
+        							onHide={() => setModalShow(false)}
+      							/>
 								<hr style={{ borderColor: '#C5C5C5' }} />
 								<Row className="p-4 align-items-center">
 									<FaTag size={20} className="d-inline" />
