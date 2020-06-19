@@ -62794,6 +62794,12 @@ function PaymentModal(props) {
 }
 
 function PlaidButtonLogic() {
+  /*#__PURE__*/
+  react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
+    src: "https://cdn.plaid.com/link/v2/stable/link-initialize.js"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
+    src: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"
+  }));
   var linkHandler = Plaid.create({
     env: 'sandbox',
     clientName: 'Stripe/Plaid Test',
@@ -62831,12 +62837,6 @@ function PlaidButtonLogic() {
   document.getElementById('linkButton').onclick = function () {
     linkHandler.open();
   };
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
-    src: "https://cdn.plaid.com/link/v2/stable/link-initialize.js"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("script", {
-    src: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"
-  }));
 }
 
 var Dashboard = /*#__PURE__*/function (_Component) {

@@ -63,6 +63,10 @@ function PaymentModal(props) {
   }
 
 function PlaidButtonLogic() {
+	<React.Fragment>
+			<script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+	</React.Fragment>
 	var linkHandler = Plaid.create({
 		env: 'sandbox',
 		clientName: 'Stripe/Plaid Test',
@@ -102,13 +106,6 @@ function PlaidButtonLogic() {
 	document.getElementById('linkButton').onclick = function() {
 	linkHandler.open();
 	};
-
-	return (
-		<React.Fragment>
-			<script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-		</React.Fragment>
-	);
 }
 
 class Dashboard extends Component {
