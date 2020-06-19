@@ -45,10 +45,12 @@ function RegistrationForm() {
         },
         validationSchema,
         onSubmit(values) {
+            values.phone = values.phone.replace(/\D/g, '');
             const data = JSON.stringify({
                 fullName: values.firstName + " " + values.lastName,
                 userName: values.email,
                 role: "USER",
+                phone: values.phone,
                 password: values.password,
                 loanOption1: "LO1",
                 loanOption2: "LO2",
@@ -57,6 +59,7 @@ function RegistrationForm() {
                 selectedLoan: 0,
                 stripeCustomerId: "",
             });
+            console.log(data);
             fetch(
                 "https://newton-server-maven.herokuapp.com/api/users/sign-up",
                 {
@@ -149,6 +152,22 @@ function RegistrationForm() {
                     />
                     <Form.Control.Feedback type="invalid">
                         {errors.email}
+                    </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group className="pb-2">
+                    <Form.Label>Phone Number</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="phone"
+                        value={values.phone}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        placeholder="Phone Number"
+                        isValid={touched.phone && !errors.phone}
+                        isInvalid={touched.phone && !!errors.phone}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.phone}
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group className="pb-2">
