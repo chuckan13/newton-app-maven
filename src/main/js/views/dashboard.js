@@ -43,15 +43,14 @@ function PaymentModal(props) {
 		centered
 	  >
 		<Modal.Header closeButton>
-		  <Modal.Title id="contained-modal-title-vcenter primary">
-			Make one-time payment
+		  <Modal.Title id="contained-modal-title-vcenter" className="primary">
+			<b>Make one-time payment</b>
 		  </Modal.Title>
 		</Modal.Header>
 		<Modal.Body>
-		  <h4>Click the button below to pay now.</h4>
 		  <p>
 			By clicking the button below, you will be taken
-			to a payment portal where you can pay your monthly balance.
+			to a secure payment portal where you can pay your monthly balance.
 		  </p>
 		</Modal.Body>
 		<Modal.Footer>

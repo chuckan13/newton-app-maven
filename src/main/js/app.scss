@@ -25,6 +25,10 @@ body {
     height: 100%;
 }
 
+.modal-content {
+    border-radius: 0.8rem;
+}
+
 #root {
     min-height: 100%;
     display: grid;
