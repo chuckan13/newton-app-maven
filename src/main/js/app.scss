@@ -55,6 +55,10 @@ body {
     background-color: map-get($theme-colors, "primary");
 }
 
+.modal-max-width {
+    max-width: 600px;
+}
+
 .progress-bar.bg-custom {
     background-color: map-get($theme-colors, "primary");
 }
