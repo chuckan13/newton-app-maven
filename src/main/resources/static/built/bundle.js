@@ -63473,7 +63473,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "collapse-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_7__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        className: "mt-3 px-3 py-4",
+        className: "mt-3 px-3 py-4 mx-auto",
         style: {
           borderRadius: '10px',
           boxShadow: '1px 1px 3px 1px #9E9E9E'

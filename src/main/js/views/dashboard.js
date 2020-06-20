@@ -261,7 +261,7 @@ class Dashboard extends Component {
 										<div id = "collapse-content">
 											<Row>
 												<Card
-													className="mt-3 px-3 py-4"
+													className="mt-3 px-3 py-4 mx-auto"
 													style={{
 														borderRadius: '10px',
 														boxShadow: '1px 1px 3px 1px #9E9E9E'
