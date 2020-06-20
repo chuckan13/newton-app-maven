@@ -25,8 +25,11 @@ public class CustomAuthenticationFailureHandler extends SimpleUrlAuthenticationF
             AuthenticationException exception) throws IOException, ServletException {
         if (exception.getClass().getSimpleName().equals("BadCredentialsException")) {
             getRedirectStrategy().sendRedirect(request, response, "/badcredentials");
-        } else if (exception.getClass().getSimpleName().equals("SessionAuthenticationException")) {
-            getRedirectStrategy().sendRedirect(request, response, "/sessionauth");
         }
+        // else if
+        // (exception.getClass().getSimpleName().equals("SessionAuthenticationException"))
+        // {
+        // getRedirectStrategy().sendRedirect(request, response, "/sessionauth");
+        // }
     }
 }
