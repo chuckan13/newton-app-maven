@@ -19,14 +19,14 @@ class NavBar extends Component {
                 <Navbar.Toggle></Navbar.Toggle>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="#about">How it works</Nav.Link>
+                        <Nav.Link href="/howitworks">How it works</Nav.Link>
                         <Nav.Link href="#providers">Our providers</Nav.Link>
                         <Nav.Link href="#contact">Contact us</Nav.Link>
                     </Nav>
                     <Nav className="ml-auto align-items-center">
-                        <Nav.Link href="#apply" className="mx-3">
+                        {/* <Nav.Link href="#apply" className="mx-3">
                             Apply now
-                        </Nav.Link>
+                        </Nav.Link> */}
                         <Button variant="main" href="/loginpage">
                             Login
                         </Button>

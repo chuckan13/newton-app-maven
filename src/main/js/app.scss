@@ -115,8 +115,12 @@ body {
     font-size: 0.9rem;
     font-weight: bold;
     text-decoration: underline;
+    color: black;
     text-underline-offset: 7px;
     text-decoration-thickness: 2px;
+    &:hover {
+        color: map-get($theme-colors, "primary");
+    }
 }
 
 .left-list {

@@ -29,10 +29,10 @@ function Header() {
 					Welcome to a new way of financing medical bills. We partner with your provider so you can make your
 					payment over time.
 				</p>
-				<Button variant="main" href="#about">
+				<Button variant="main" href="/loginpage">
 					APPLY NOW
 				</Button>
-				<p className="my-4 line-link">HOW IT WORKS</p>
+				<a className="my-4 line-link" href="/howitworks">HOW IT WORKS</a>
 			</Col>
 			<img src={Icon} className="mast-left d-none d-sm-block" alt="Newton Icon" />
 			<img src={Doctor} className="mast-right d-none d-none d-sm-block" alt="Doctor with patient" />
@@ -59,7 +59,7 @@ function Qualities() {
 				/>
 			</Row>
 			<Row>
-				<Button variant="main" href="#apply" className="mx-auto">
+				<Button variant="main" href="/howitworks" className="mx-auto">
 					LEARN MORE
 				</Button>
 			</Row>
