@@ -63808,10 +63808,10 @@ function Header() {
   }, "Welcome to a new way of financing medical bills. We partner with your provider so you can make your payment over time."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
     variant: "main",
     href: "/loginpage"
-  }, "APPLY NOW"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    className: "my-4 line-link",
+  }, "APPLY NOW"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: "my-4 mx-auto line-link",
     href: "/howitworks"
-  }, "HOW IT WORKS")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+  }, "HOW IT WORKS"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: _resources_static_img_icon_png__WEBPACK_IMPORTED_MODULE_5__["default"],
     className: "mast-left d-none d-sm-block",
     alt: "Newton Icon"

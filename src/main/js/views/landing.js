@@ -32,7 +32,11 @@ function Header() {
 				<Button variant="main" href="/loginpage">
 					APPLY NOW
 				</Button>
-				<a className="my-4 line-link" href="/howitworks">HOW IT WORKS</a>
+				<Row>
+					<a className="my-4 mx-auto line-link" href="/howitworks">
+						HOW IT WORKS
+					</a>
+				</Row>
 			</Col>
 			<img src={Icon} className="mast-left d-none d-sm-block" alt="Newton Icon" />
 			<img src={Doctor} className="mast-right d-none d-none d-sm-block" alt="Doctor with patient" />
