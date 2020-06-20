@@ -63470,8 +63470,9 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         color: "white"
       }), " Account Details"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Collapse__WEBPACK_IMPORTED_MODULE_11__["default"], {
         "in": this.state.accountDetailsOpen
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "collapse-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        id: "collapse-content",
         className: "mt-3 px-3 py-4",
         style: {
           borderRadius: '10px',
@@ -63483,7 +63484,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
           position: 'relative',
           bottom: '0px'
         }
-      }, contactInfo))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }, contactInfo)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_7__["default"], {
         className: "p-4 d-flex justify-content-between align-items-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "m-0 mt-1"
