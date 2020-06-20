@@ -259,15 +259,17 @@ class Dashboard extends Component {
 									</Button>
 									<Collapse in={this.state.accountDetailsOpen}>
 										<div id = "collapse-content">
-											<Card
-												className="mt-3 px-3 py-4"
-												style={{
-													borderRadius: '10px',
-													boxShadow: '1px 1px 3px 1px #9E9E9E'
-												}}
-											>
-												{accountInfo}
-											</Card>
+											<Row>
+												<Card
+													className="mt-3 px-3 py-4"
+													style={{
+														borderRadius: '10px',
+														boxShadow: '1px 1px 3px 1px #9E9E9E'
+													}}
+												>
+													{accountInfo}
+												</Card>
+											</Row>
 											<Row className="pt-3 px-5" style={{ position: 'relative', bottom: '0px' }}>
 												{contactInfo}
 											</Row>
