@@ -1,5 +1,6 @@
 import React, { Component, useCallback } from 'react';
 import { usePlaidLink } from 'react-plaid-link';
+import EdiText from 'react-editext'
 import NavBar from './components/navbar.js';
 
 import Button from 'react-bootstrap/Button';
@@ -163,6 +164,13 @@ class Dashboard extends Component {
 		const { user, loan, accountDetailsOpen } = this.state;
 		console.log(user, loan);
 
+		const contactInfo = (
+			<React.Fragment>
+				<b>For further assistance or to change account details:</b>
+				Give us a call at 732-987-6543 or email us at help@covered.com
+			</React.Fragment>
+		);
+
 		const accountInfo = (
 			<React.Fragment>
 				<div className="my-1">
@@ -233,8 +241,7 @@ class Dashboard extends Component {
 								</Card>
 							</Row>
 							<Row className="py-2 px-5" style={{ position: 'absolute', bottom: '0px' }}>
-								<b>For further assistance:</b>
-								Give us a call at 732-987-6543 or email us at help@covered.com
+								{contactInfo}
 							</Row>
 						</Col>
 						<Col md={8} xs={12}>
@@ -261,6 +268,9 @@ class Dashboard extends Component {
 										>
 											{accountInfo}
 										</Card>
+										<Row className="pt-3 px-5" style={{ position: 'relative', bottom: '0px' }}>
+											{contactInfo}
+										</Row>
 									</Collapse>
 								</Row>
 								<Row className="p-4 d-flex justify-content-between align-items-center">
