@@ -135,4 +135,5 @@ public class LoginuserController {
         repository.save(currUser);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
 }
