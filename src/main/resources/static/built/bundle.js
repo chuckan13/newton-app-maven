@@ -63260,7 +63260,7 @@ function PlaidButton(props) {
       type: 'post',
       data: JSON.stringify(tokObj),
       headers: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json'
       },
       dataType: 'json',
@@ -63274,8 +63274,8 @@ function PlaidButton(props) {
     // The user exited the Link flow.
     if (err != null) {
       // The user encountered a Plaid API error prior to exiting.
-      console.log("Error: ", err);
-      console.log("Metadata: ", metadata);
+      console.log('Error: ', err);
+      console.log('Metadata: ', metadata);
     }
   };
 
@@ -63328,7 +63328,9 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         role: 'Loading role...',
         selectedLoan: 0,
         stripeCustomerId: '',
-        userName: 'Loading email...'
+        userName: 'Loading email...',
+        bankName: 'Loading bank name...',
+        bankAccountId: ''
       },
       loan: {
         id: 0,
@@ -63398,7 +63400,7 @@ var Dashboard = /*#__PURE__*/function (_Component) {
         }
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "mt-1"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", null, "Bank"))), ' ', "TD Bank", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", null, "Bank"))), ' ', user.bankName, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "mt-1"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", null, "Account #"))), ' ', "xxx-4120", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "mt-1",
@@ -63685,7 +63687,7 @@ var HowItWorks = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Here's how to finance with isaac.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
         step: 1,
         title: "Health first, pay later.",
-        body: "After your physician's office bills you the out-of-pocket cost,  they will send you our secure loan application so you can get a decision within 2 business days.",
+        body: "After your physician's office bills you the out-of-pocket cost, \r they will send you our secure loan application so you can get a\r decision within 2 business days.",
         button: "OUR PROVIDERS",
         image: _resources_static_img_healthdesk_png__WEBPACK_IMPORTED_MODULE_7__["default"],
         alt: "Health center front desk.",
@@ -63711,13 +63713,13 @@ var HowItWorks = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
         step: 2,
         title: "Choose how you pay.",
-        body: "Select the payment schedule you like best, then confirm your loan. We\u2019ll never charge more than you see up front.",
+        body: "Select the payment schedule you like best, then confirm your loan.\r We\u2019ll never charge more than you see up front.",
         align: "right",
         height: "600px"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
         step: 3,
         title: "Make easy monthly payments.",
-        body: "Just sign in at isaac.com. We'll send you email and text reminders whenever a payment's coming up, or setup scheduled payments. That's it!",
+        body: "Just sign in at isaac.com. We'll send you email and text\r reminders whenever a payment's coming up, or setup scheduled payments.\r That's it!",
         align: "left",
         image: _resources_static_img_exampleloan_png__WEBPACK_IMPORTED_MODULE_9__["default"],
         height: "400px"

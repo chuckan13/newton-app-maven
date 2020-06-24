@@ -1,6 +1,6 @@
 import React, { Component, useCallback } from 'react';
 import { usePlaidLink } from 'react-plaid-link';
-import EdiText from 'react-editext'
+import EdiText from 'react-editext';
 import NavBar from './components/navbar.js';
 
 import Button from 'react-bootstrap/Button';
@@ -11,57 +11,51 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import Container from 'react-bootstrap/Container';
 import Check from 'react-bootstrap/FormCheck';
 import Collapse from 'react-bootstrap/Collapse';
-import Modal from "react-bootstrap/Modal";
+import Modal from 'react-bootstrap/Modal';
 
 import { FaTag, FaUser } from 'react-icons/fa';
 
 import '../app.scss';
 
 function PaymentModalButton() {
-	const [modalShow, setModalShow] = React.useState(false);
+	const [ modalShow, setModalShow ] = React.useState(false);
 
 	return (
 		<React.Fragment>
-			<Button
-				variant="main mt-3 mt-lg-0" 
-				onClick={() => setModalShow(true)}
-			>
-					Make one-time payment
+			<Button variant="main mt-3 mt-lg-0" onClick={() => setModalShow(true)}>
+				Make one-time payment
 			</Button>
-			<PaymentModal
-				show={modalShow}
-				onHide={() => setModalShow(false)}
-			/>
+			<PaymentModal show={modalShow} onHide={() => setModalShow(false)} />
 		</React.Fragment>
 	);
 }
 
 function PaymentModal(props) {
 	return (
-	  <Modal
-		{...props}
-		size="lg"
-		aria-labelledby="contained-modal-title-vcenter"
-		centered
-		dialogClassName="modal-max-width"
-	  >
-		<Modal.Header closeButton>
-		  <Modal.Title id="contained-modal-title-vcenter" className="primary">
-			<b>Make one-time payment</b>
-		  </Modal.Title>
-		</Modal.Header>
-		<Modal.Body>
-		  <p>
-			By clicking the button below, you will be taken
-			to a secure payment portal where you can pay your monthly balance.
-		  </p>
-		</Modal.Body>
-		<Modal.Footer>
-		  <PlaidButton onHide={props.onHide} />
-		</Modal.Footer>
-	  </Modal>
+		<Modal
+			{...props}
+			size="lg"
+			aria-labelledby="contained-modal-title-vcenter"
+			centered
+			dialogClassName="modal-max-width"
+		>
+			<Modal.Header closeButton>
+				<Modal.Title id="contained-modal-title-vcenter" className="primary">
+					<b>Make one-time payment</b>
+				</Modal.Title>
+			</Modal.Header>
+			<Modal.Body>
+				<p>
+					By clicking the button below, you will be taken to a secure payment portal where you can pay your
+					monthly balance.
+				</p>
+			</Modal.Body>
+			<Modal.Footer>
+				<PlaidButton onHide={props.onHide} />
+			</Modal.Footer>
+		</Modal>
 	);
-  }
+}
 
 function PlaidButton(props) {
 	const onSuccess = useCallback((token, metadata) => {
@@ -76,11 +70,11 @@ function PlaidButton(props) {
 			type: 'post',
 			data: JSON.stringify(tokObj),
 			headers: {
-			  'Accept': 'application/json',
-			  'Content-Type': 'application/json' 
+				Accept: 'application/json',
+				'Content-Type': 'application/json'
 			},
 			dataType: 'json',
-			success: function (response) {
+			success: function(response) {
 				console.log(response);
 			}
 		});
@@ -90,25 +84,32 @@ function PlaidButton(props) {
 		// The user exited the Link flow.
 		if (err != null) {
 			// The user encountered a Plaid API error prior to exiting.
-			console.log("Error: ", err);
-			console.log("Metadata: ", metadata);
+			console.log('Error: ', err);
+			console.log('Metadata: ', metadata);
 		}
 	};
 
 	const config = {
 		clientName: 'Stripe/Plaid Test',
 		env: 'sandbox',
-		product: ['auth'],
+		product: [ 'auth' ],
 		publicKey: '5475e6f532d5bc20abca96dba0c94a',
 		onSuccess,
-		onExit,
+		onExit
 		// ...
 	};
-	
+
 	const { open, ready, error } = usePlaidLink(config);
-	
+
 	return (
-		<Button onClick={() => {props.onHide, open()}} disabled={!ready} variant="main" className="mx-auto">
+		<Button
+			onClick={() => {
+				props.onHide, open();
+			}}
+			disabled={!ready}
+			variant="main"
+			className="mx-auto"
+		>
 			Pay Now
 		</Button>
 	);
@@ -131,7 +132,9 @@ class Dashboard extends Component {
 				role: 'Loading role...',
 				selectedLoan: 0,
 				stripeCustomerId: '',
-				userName: 'Loading email...'
+				userName: 'Loading email...',
+				bankName: 'Loading bank name...',
+				bankAccountId: ''
 			},
 			loan: {
 				id: 0,
@@ -200,7 +203,8 @@ class Dashboard extends Component {
 						<i>Bank</i>
 					</b>
 				</div>{' '}
-				TD Bank<br />
+				{user.bankName}
+				<br />
 				<div className="mt-1">
 					<b>
 						<i>Account #</i>
@@ -258,7 +262,7 @@ class Dashboard extends Component {
 										Details
 									</Button>
 									<Collapse in={this.state.accountDetailsOpen}>
-										<div id = "collapse-content">
+										<div id="collapse-content">
 											<Row>
 												<Card
 													className="mt-3 px-3 py-4 mx-auto"
