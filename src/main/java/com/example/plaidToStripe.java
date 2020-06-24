@@ -1,8 +1,11 @@
 package com.example;
 
 import com.plaid.client.PlaidClient;
+import com.plaid.client.request.AccountsGetRequest;
 import com.plaid.client.request.ItemPublicTokenExchangeRequest;
 import com.plaid.client.request.ItemStripeTokenCreateRequest;
+import com.plaid.client.response.Account;
+import com.plaid.client.response.AccountsGetResponse;
 import com.plaid.client.response.ItemPublicTokenExchangeResponse;
 import com.plaid.client.response.ItemStripeTokenCreateResponse;
 
@@ -38,7 +41,11 @@ public class plaidToStripe {
         if (exchangeResponse.isSuccessful()) {
             System.out.println("Success:");
             String accessToken = exchangeResponse.body().getAccessToken();
-            tokenArray[0] = accessToken;
+            // Pull the accounts associated with the Item
+            Response<AccountsGetResponse> response = plaidClient.service()
+                    .accountsGet(new AccountsGetRequest("ACCESS_TOKEN")).execute();
+            List<Account> accounts = response.body().getAccounts();
+            tokenArray[0] = accounts.get(0).getOfficialName();
             Response<ItemStripeTokenCreateResponse> stripeResponse = plaidClient.service()
                     .itemStripeTokenCreate(new ItemStripeTokenCreateRequest(accessToken, accountId)).execute();
 

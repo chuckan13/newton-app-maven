@@ -36,6 +36,16 @@ public class Loginuser {
     private String phone;
     @Column(name = "bank_account_id")
     private String bankAccountId;
+    @Column(name = "bank_name")
+    private String bankName;
+
+    public String getBankName() {
+        return this.bankName;
+    }
+
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
+    }
 
     public String getBankAccountId() {
         return this.bankAccountId;
@@ -150,5 +160,6 @@ public class Loginuser {
         this.autopay = other.isAutopay();
         this.phone = other.getPhone();
         this.bankAccountId = other.getBankAccountId();
+        this.bankName = other.getBankName();
     }
 }
