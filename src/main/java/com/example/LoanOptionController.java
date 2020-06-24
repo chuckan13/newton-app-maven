@@ -50,6 +50,9 @@ public class LoanOptionController {
     @RequestMapping(value = "/{id}/paynow", method = RequestMethod.POST)
     public ResponseEntity<LoanOption> payLoan(@PathVariable("id") Long id, @RequestBody Loginuser user)
             throws StripeException {
+        if (user.isAutopay()) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
         LoanOption loan = repository.findOne(id);
         Stripe.apiKey = "sk_test_3gCJKshMgnQKkUBMp6tGu0O400rZYqWFNG"; // change put into heroku
         // doublecheck that *100 is correct and check that it is actually casting
