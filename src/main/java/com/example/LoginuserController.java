@@ -4,6 +4,13 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.security.Principal;
 import java.util.List;
+
+import com.stripe.Stripe;
+import com.stripe.exception.StripeException;
+import com.stripe.model.Customer;
+import com.stripe.model.Token;
+import com.stripe.param.CustomerCreateParams;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -111,5 +118,21 @@ public class LoginuserController {
         }
         return new ResponseEntity<Loginuser>(user, HttpStatus.OK);
 
+    }
+
+    @RequestMapping(value = "/manualverify", method = RequestMethod.POST)
+    public ResponseEntity<?> manualPayment(@RequestBody Token requestToken, Principal principal)
+            throws StripeException {
+        Stripe.apiKey = "sk_test_3gCJKshMgnQKkUBMp6tGu0O400rZYqWFNG"; // change and put on heroku
+        String tokenID = requestToken.getId();
+        CustomerCreateParams params = CustomerCreateParams.builder()
+                .setDescription("Customer Object for User " + principal.getName()).setSource(tokenID).build();
+
+        Customer customer = Customer.create(params);
+        String customerId = customer.getId();
+        Loginuser currUser = repository.findByUserName(principal.getName());
+        currUser.setStripeCustomerId(customerId);
+        repository.save(currUser);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
