@@ -34,6 +34,16 @@ public class Loginuser {
     private String stripeCustomerId;
     @Column(name = "phone")
     private String phone;
+    @Column(name = "bank_account_id")
+    private String bankAccountId;
+
+    public String getBankAccountId() {
+        return this.bankAccountId;
+    }
+
+    public void setBankAccountId(String bankAccountId) {
+        this.bankAccountId = bankAccountId;
+    }
 
     public String getPhone() {
         return this.phone;
@@ -139,5 +149,6 @@ public class Loginuser {
         this.selectedLoan = other.getSelectedLoan();
         this.autopay = other.isAutopay();
         this.phone = other.getPhone();
+        this.bankAccountId = other.getBankAccountId();
     }
 }
