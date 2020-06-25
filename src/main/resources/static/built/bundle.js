@@ -64867,10 +64867,10 @@ var HowItWorks = /*#__PURE__*/function (_Component) {
       }, "Press continue to fill out our secure loan application."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
         className: "justify-content-center"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        variant: "main mt-3 mt-lg-0",
+        variant: "main my-3",
         onClick: location.href = '#application'
       }, "Continue")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "text-center mx-md-5 px-md-5 py-2"
+        className: "text-center mb-3"
       }, "Don't worry, your credit score won't be affected when you check your eligibility. If you decide to finance with isaac, your loan and payments may affect your credit score. Paying on time can help you build positive credit history."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_js__WEBPACK_IMPORTED_MODULE_11__["default"], null));
     }
   }]);

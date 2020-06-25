@@ -154,11 +154,11 @@ class HowItWorks extends Component {
                             Press continue to fill out our secure loan application.
                         </h6>
                         <Row className="justify-content-center">
-                            <Button variant="main mt-3 mt-lg-0" onClick={location.href = '#application'}>
+                            <Button variant="main my-3" onClick={location.href = '#application'}>
                                 Continue
 			                </Button>
                         </Row>
-                        <p className="text-center mx-md-5 px-md-5 py-2">
+                        <p className="text-center mb-3">
                             Don't worry, your credit score won't be affected when you check your eligibility. If you decide to finance with isaac, your loan and payments may affect your credit score. Paying on time can help you build positive credit history.
                         </p>
                     </Container>
