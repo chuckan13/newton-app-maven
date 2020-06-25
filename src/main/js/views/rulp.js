@@ -93,9 +93,9 @@ class HowItWorks extends Component {
                 <div>
                     <NavBar />
                     <Container className="px-2">
-                        <h1 className="text-center display-3 mx-md-5 px-md-5 py-2">
-                            <b>Here's how to finance with isaac.</b>
-                        </h1>
+                        <h2 className="text-center display-3 mx-md-5 px-md-5 py-2">
+                            <b>Welcome to Covered!</b>
+                        </h2>
                         <Step
                             step={1}
                             title="Health first, pay later."
@@ -147,6 +147,18 @@ class HowItWorks extends Component {
                             image={ExampleLoan}
                             height="400px"
                         />
+                        <h3 className="text-center display-3 mx-md-5 px-md-5 py-2">
+                            <b>We'll never charge you late fees or increase your loan APR.</b>
+                        </h3>
+                        <Button variant="main mt-3 mt-lg-0" onClick="location.href = '#application';">
+				            Continue
+			            </Button>
+                        <h4 className="text-center display-3 mx-md-5 px-md-5 py-2">
+                            Press continue to fill out our secure loan application. 
+                        </h4>
+                        <h4 className="text-center display-3 mx-md-5 px-md-5 py-2">
+                            Press continue to fill out our secure loan application. 
+                        </h4>
                     </Container>
                 </div>
                 <Footer />
