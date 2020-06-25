@@ -226,7 +226,6 @@ function ApplicationForm() {
                     >
                         {isSubmitting ? "Loading..." : "Submit"}
                     </Button>
-                    {registrationFailed}
                 </Row>
             </Form>
         </React.Fragment>

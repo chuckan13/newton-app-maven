@@ -63175,7 +63175,7 @@ function ApplicationForm() {
     variant: "main",
     disabled: !(isValid && dirty) || isSubmitting,
     className: "mt-5"
-  }, isSubmitting ? "Loading..." : "Submit"), registrationFailed)));
+  }, isSubmitting ? "Loading..." : "Submit"))));
 }
 
 var Register = /*#__PURE__*/function (_Component) {
