@@ -23,7 +23,7 @@ const validationSchema = Yup.object().shape({
         .required("Required"),
     city: Yup.string()
         .required("Required"),
-    zip: Yup.number
+    zip: Yup.number()
         .required("Required"),
     terms: Yup.bool().oneOf([true], "You must agree before submitting"),
 });

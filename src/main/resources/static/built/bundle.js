@@ -63016,7 +63016,7 @@ var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
   address: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required"),
   address2: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required"),
   city: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required"),
-  zip: yup__WEBPACK_IMPORTED_MODULE_9__["number"].required("Required"),
+  zip: yup__WEBPACK_IMPORTED_MODULE_9__["number"]().required("Required"),
   terms: yup__WEBPACK_IMPORTED_MODULE_9__["bool"]().oneOf([true], "You must agree before submitting")
 });
 
