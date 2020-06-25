@@ -9,6 +9,7 @@ import Register from './views/register.js';
 import Login from './views/login.js';
 import Dashboard from './views/dashboard.js';
 import Error from './views/404.js';
+import Rulp from './views/rulp.js';
 
 class App extends Component {
 	render() {
@@ -20,6 +21,7 @@ class App extends Component {
 					<Route path="/register" component={Register} />
 					<Route path="/loginpage" component={Login} />
                     <Route path="/dashboard" component={Dashboard} />
+					<Route path="/rulp" component={Rulp} />
                     <Route component={Error} />
 				</Switch>
 			</BrowserRouter>

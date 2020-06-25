@@ -62744,6 +62744,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_login_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/login.js */ "./src/main/js/views/login.js");
 /* harmony import */ var _views_dashboard_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/dashboard.js */ "./src/main/js/views/dashboard.js");
 /* harmony import */ var _views_404_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/404.js */ "./src/main/js/views/404.js");
+/* harmony import */ var _views_rulp_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/rulp.js */ "./src/main/js/views/rulp.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -62767,6 +62768,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+
 
 
 
@@ -62807,6 +62809,9 @@ var App = /*#__PURE__*/function (_Component) {
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/dashboard",
         component: _views_dashboard_js__WEBPACK_IMPORTED_MODULE_6__["default"]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+        path: "/rulp",
+        component: _views_rulp_js__WEBPACK_IMPORTED_MODULE_8__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         component: _views_404_js__WEBPACK_IMPORTED_MODULE_7__["default"]
       })));
@@ -63687,7 +63692,7 @@ var HowItWorks = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Here's how to finance with isaac.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
         step: 1,
         title: "Health first, pay later.",
-        body: "After your physician's office bills you the out-of-pocket cost, \r they will send you our secure loan application so you can get a\r decision within 2 business days.",
+        body: "After your physician's office bills you the out-of-pocket cost,  they will send you our secure loan application so you can get a decision within 2 business days.",
         button: "OUR PROVIDERS",
         image: _resources_static_img_healthdesk_png__WEBPACK_IMPORTED_MODULE_7__["default"],
         alt: "Health center front desk.",
@@ -63713,13 +63718,13 @@ var HowItWorks = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
         step: 2,
         title: "Choose how you pay.",
-        body: "Select the payment schedule you like best, then confirm your loan.\r We\u2019ll never charge more than you see up front.",
+        body: "Select the payment schedule you like best, then confirm your loan. We\u2019ll never charge more than you see up front.",
         align: "right",
         height: "600px"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
         step: 3,
         title: "Make easy monthly payments.",
-        body: "Just sign in at isaac.com. We'll send you email and text\r reminders whenever a payment's coming up, or setup scheduled payments.\r That's it!",
+        body: "Just sign in at isaac.com. We'll send you email and text reminders whenever a payment's coming up, or setup scheduled payments. That's it!",
         align: "left",
         image: _resources_static_img_exampleloan_png__WEBPACK_IMPORTED_MODULE_9__["default"],
         height: "400px"
@@ -64430,6 +64435,181 @@ var Register = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (Register);
+
+/***/ }),
+
+/***/ "./src/main/js/views/rulp.js":
+/*!***********************************!*\
+  !*** ./src/main/js/views/rulp.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap/Container */ "./node_modules/react-bootstrap/esm/Container.js");
+/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-bootstrap/Col */ "./node_modules/react-bootstrap/esm/Col.js");
+/* harmony import */ var react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-bootstrap/Row */ "./node_modules/react-bootstrap/esm/Row.js");
+/* harmony import */ var react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap/Image */ "./node_modules/react-bootstrap/esm/Image.js");
+/* harmony import */ var react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap/Card */ "./node_modules/react-bootstrap/esm/Card.js");
+/* harmony import */ var _resources_static_img_healthdesk_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../resources/static/img/healthdesk.png */ "./src/main/resources/static/img/healthdesk.png");
+/* harmony import */ var _resources_static_img_cloud_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../resources/static/img/cloud.png */ "./src/main/resources/static/img/cloud.png");
+/* harmony import */ var _resources_static_img_exampleloan_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../resources/static/img/exampleloan.png */ "./src/main/resources/static/img/exampleloan.png");
+/* harmony import */ var _components_navbar_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/navbar.js */ "./src/main/js/views/components/navbar.js");
+/* harmony import */ var _components_footer_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/footer.js */ "./src/main/js/views/components/footer.js");
+/* harmony import */ var _app_scss__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../app.scss */ "./src/main/js/app.scss");
+/* harmony import */ var _app_scss__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_app_scss__WEBPACK_IMPORTED_MODULE_12__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function () { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function Step(props) {
+  var button;
+
+  if (props.button) {
+    button = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      variant: "main",
+      href: "#providers"
+    }, props.button);
+  }
+
+  var text = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    className: "my-auto mx-auto",
+    style: {
+      maxWidth: "90vw"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "STEP ", props.step))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, props.title))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, props.body)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    className: "justify-content-center"
+  }, button));
+  var image = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    className: "text-align-center d-none d-md-block"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "mx-auto d-block",
+    style: {
+      maxWidth: "90vw"
+    },
+    src: props.image,
+    height: props.height,
+    alt: props.alt
+  }));
+
+  if (props.align === "right") {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      className: "py-5"
+    }, image, text);
+  } else {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      className: "py-5"
+    }, text, image);
+  }
+}
+
+function OptionCard(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    className: "card-option my-3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_6__["default"].Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_6__["default"].Title, null, props.text), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_6__["default"].Subtitle, null, props.subtext), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Card__WEBPACK_IMPORTED_MODULE_6__["default"].Text, null, props.price)));
+}
+
+var HowItWorks = /*#__PURE__*/function (_Component) {
+  _inherits(HowItWorks, _Component);
+
+  var _super = _createSuper(HowItWorks);
+
+  function HowItWorks() {
+    _classCallCheck(this, HowItWorks);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(HowItWorks, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_js__WEBPACK_IMPORTED_MODULE_10__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        className: "px-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "text-center display-3 mx-md-5 px-md-5 py-2"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Here's how to finance with isaac.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
+        step: 1,
+        title: "Health first, pay later.",
+        body: "After your physician's office bills you the out-of-pocket cost,  they will send you our secure loan application so you can get a decision within 2 business days.",
+        button: "OUR PROVIDERS",
+        image: _resources_static_img_healthdesk_png__WEBPACK_IMPORTED_MODULE_7__["default"],
+        alt: "Health center front desk.",
+        align: "left",
+        height: "300px"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Image__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        src: _resources_static_img_cloud_png__WEBPACK_IMPORTED_MODULE_8__["default"],
+        className: "left-list d-none d-md-block"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "option-list d-none d-md-block"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(OptionCard, {
+        text: "75.83/mo for 6 months",
+        subtext: "Interest (APR) 0%",
+        price: "$0"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(OptionCard, {
+        text: "51.51/mo for 9 months",
+        subtext: "Interest (APR) 4.5%",
+        price: "$8.57"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(OptionCard, {
+        text: "39.58/mo for 12 months",
+        subtext: "Interest (APR) 8%",
+        price: "$19.96"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
+        step: 2,
+        title: "Choose how you pay.",
+        body: "Select the payment schedule you like best, then confirm your loan. We\u2019ll never charge more than you see up front.",
+        align: "right",
+        height: "600px"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
+        step: 3,
+        title: "Make easy monthly payments.",
+        body: "Just sign in at isaac.com. We'll send you email and text reminders whenever a payment's coming up, or setup scheduled payments. That's it!",
+        align: "left",
+        image: _resources_static_img_exampleloan_png__WEBPACK_IMPORTED_MODULE_9__["default"],
+        height: "400px"
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_js__WEBPACK_IMPORTED_MODULE_11__["default"], null));
+    }
+  }]);
+
+  return HowItWorks;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (HowItWorks);
 
 /***/ }),
 
