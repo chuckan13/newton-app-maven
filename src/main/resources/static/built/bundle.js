@@ -63021,70 +63021,26 @@ var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
 });
 
 function ApplicationForm() {
-  /*    const {
-      handleSubmit,
-      handleChange,
-      values,
-      errors,
-      touched,
-      handleBlur,
-      dirty,
-      isValid,
-      isSubmitting,
-      setSubmitting,
-  } = useFormik({
-      initialValues: {
-          terms: false,
-      },
-      validationSchema,
-      onSubmit(values) {
-          const data = JSON.stringify({
-              fullName: values.firstName + " " + values.lastName,
-              userName: values.email,
-              role: "USER",
-              phone: values.phone,
-              password: values.password,
-              loanOption1: "LO1",
-              loanOption2: "LO2",
-              loanOption3: "LO3",
-              autopay: false,
-              selectedLoan: 0,
-              stripeCustomerId: "",
-          });
-          console.log(data);
-          fetch(
-              "https://newton-server-maven.herokuapp.com/api/users/sign-up",
-              {
-                  method: "POST",
-                  headers: {
-                      "Content-Type": "application/json",
-                      Accept: "application/json",
-                  },
-                  body: data,
-              }
-          )
-              .then((data) => {
-                  console.log("Success:", data);
-                  if (data.status == 409) {
-                      setRegistrationFailed(
-                          <div className="invalid-feedback d-block position-static pt-2">
-                              The email you chose is already taken.
-                          </div>
-                      );
-                  } else if (data.status == 200) {
-                      alert("Account created!");
-                  } else {
-                      console.log("Unspecified response status received.");
-                  }
-              })
-              .then(() => {
-                  setSubmitting(false);
-              })
-              .catch((error) => {
-                  console.error("Error:", error);
-              });
-      },
-  }); */
+  var _useFormik = Object(formik__WEBPACK_IMPORTED_MODULE_8__["useFormik"])({
+    initialValues: {
+      terms: false
+    },
+    validationSchema: validationSchema,
+    onSubmit: function onSubmit(values) {
+      console.log("Submitted!");
+    }
+  }),
+      handleSubmit = _useFormik.handleSubmit,
+      handleChange = _useFormik.handleChange,
+      values = _useFormik.values,
+      errors = _useFormik.errors,
+      touched = _useFormik.touched,
+      handleBlur = _useFormik.handleBlur,
+      dirty = _useFormik.dirty,
+      isValid = _useFormik.isValid,
+      isSubmitting = _useFormik.isSubmitting,
+      setSubmitting = _useFormik.setSubmitting;
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"], {
     noValidate: true,
     onSubmit: handleSubmit,

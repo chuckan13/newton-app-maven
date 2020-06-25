@@ -29,7 +29,7 @@ const validationSchema = Yup.object().shape({
 });
 
 function ApplicationForm() {
-    /*    const {
+    const {
         handleSubmit,
         handleChange,
         values,
@@ -46,53 +46,9 @@ function ApplicationForm() {
         },
         validationSchema,
         onSubmit(values) {
-            const data = JSON.stringify({
-                fullName: values.firstName + " " + values.lastName,
-                userName: values.email,
-                role: "USER",
-                phone: values.phone,
-                password: values.password,
-                loanOption1: "LO1",
-                loanOption2: "LO2",
-                loanOption3: "LO3",
-                autopay: false,
-                selectedLoan: 0,
-                stripeCustomerId: "",
-            });
-            console.log(data);
-            fetch(
-                "https://newton-server-maven.herokuapp.com/api/users/sign-up",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        Accept: "application/json",
-                    },
-                    body: data,
-                }
-            )
-                .then((data) => {
-                    console.log("Success:", data);
-                    if (data.status == 409) {
-                        setRegistrationFailed(
-                            <div className="invalid-feedback d-block position-static pt-2">
-                                The email you chose is already taken.
-                            </div>
-                        );
-                    } else if (data.status == 200) {
-                        alert("Account created!");
-                    } else {
-                        console.log("Unspecified response status received.");
-                    }
-                })
-                .then(() => {
-                    setSubmitting(false);
-                })
-                .catch((error) => {
-                    console.error("Error:", error);
-                });
+            console.log("Submitted!");
         },
-    }); */
+    });
 
     return (
         <React.Fragment>
