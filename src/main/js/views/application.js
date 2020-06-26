@@ -79,8 +79,7 @@ function ApplicationForm(props) {
                     <Form.Label>Name</Form.Label>
                     <Form.Control
                         readOnly
-                        defaultValue={props.user.fullName}
-                        onChange={handleChange}
+                        value={props.user.fullName}
                     />
                 </Form.Group>
 
@@ -88,8 +87,7 @@ function ApplicationForm(props) {
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                         readOnly
-                        defaultValue={props.user.userName}
-                        onChange={handleChange}
+                        value={props.user.userName}
                     />
                 </Form.Group>
 
@@ -97,8 +95,7 @@ function ApplicationForm(props) {
                     <Form.Label>Phone Number</Form.Label>
                     <Form.Control
                         readOnly
-                        defaultValue={props.user.phone}
-                        onChange={handleChange}
+                        value={props.user.phone}
                     />
                 </Form.Group>
 
