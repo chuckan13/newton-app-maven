@@ -29,13 +29,11 @@ const validationSchema = Yup.object().shape({
 });
 
 function ApplicationForm() {
-    let user = useState(null);
-
-    user= {
+    const [user, setUser] = useState({
         fullName: 'Loading name...',
         phone: '0000000000',
         userName: 'Loading email...',
-    }
+    });
 
     const {
         handleSubmit,
@@ -78,7 +76,7 @@ function ApplicationForm() {
 
     fetch('https://newton-server-maven.herokuapp.com/api/users')
     .then(response => response.json())
-    .then(data => user = data);
+    .then(data => setUser(data));
 
     return (
         <React.Fragment>
