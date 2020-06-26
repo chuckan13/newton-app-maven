@@ -87,7 +87,7 @@ function ApplicationForm(props) {
                     <Form.Label>Name</Form.Label>
                     <Form.Control
                         readOnly
-                        defaultValue={user.fullName}
+                        defaultValue={props.user.fullName}
                     />
                 </Form.Group>
 
@@ -95,7 +95,7 @@ function ApplicationForm(props) {
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                         readOnly
-                        defaultValue={user.userName}
+                        defaultValue={props.user.userName}
                     />
                 </Form.Group>
 
@@ -103,7 +103,7 @@ function ApplicationForm(props) {
                     <Form.Label>Phone Number</Form.Label>
                     <Form.Control
                         readOnly
-                        defaultValue={user.phone}
+                        defaultValue={props.user.phone}
                     />
                 </Form.Group>
 
