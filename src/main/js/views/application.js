@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 
 import NavBar from "./components/navbar.js";
 import Footer from "./components/footer.js";
@@ -28,12 +28,14 @@ const validationSchema = Yup.object().shape({
     terms: Yup.bool().oneOf([true], "You must agree before submitting"),
 });
 
-function ApplicationForm() {
-    const [user, setUser] = useState({
-        fullName: 'Loading name...',
-        phone: '0000000000',
-        userName: 'Loading email...',
-    });
+function ApplicationForm(props) {
+    const [user, setUser] = useState(
+        props.user
+    );
+
+    useEffect(() => {
+        setUser(props.user);
+    }, [props.user]);
 
     const {
         handleSubmit,
@@ -73,10 +75,6 @@ function ApplicationForm() {
             });
         },
     });
-
-    fetch('https://newton-server-maven.herokuapp.com/api/users')
-    .then(response => response.json())
-    .then(data => setUser(data));
 
     return (
         <React.Fragment>
@@ -241,6 +239,24 @@ function ApplicationForm() {
 
 class Register extends Component {
 
+    constructor() {
+		super();
+
+		this.state = {
+			user: {
+				fullName: 'Loading name...',
+				phone: '0000000000',
+				userName: 'Loading email...',
+            }
+        };
+    }
+    
+    componentDidMount() {
+        fetch('https://newton-server-maven.herokuapp.com/api/users')
+            .then(response => response.json())
+            .then(data => this.setState({user: data}));    
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -250,7 +266,7 @@ class Register extends Component {
                         <h2 className="text-center mb-4">
                             <b>Application</b>
                         </h2>
-                        <ApplicationForm />
+                        <ApplicationForm user={this.state.user}/>
                     </Col>
                 </div>
                 <Footer />

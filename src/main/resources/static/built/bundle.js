@@ -63032,15 +63032,15 @@ var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
   terms: yup__WEBPACK_IMPORTED_MODULE_9__["bool"]().oneOf([true], "You must agree before submitting")
 });
 
-function ApplicationForm() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
-    fullName: 'Loading name...',
-    phone: '0000000000',
-    userName: 'Loading email...'
-  }),
+function ApplicationForm(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(props.user),
       _useState2 = _slicedToArray(_useState, 2),
       user = _useState2[0],
       setUser = _useState2[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    setUser(props.user);
+  }, [props.user]);
 
   var _useFormik = Object(formik__WEBPACK_IMPORTED_MODULE_8__["useFormik"])({
     initialValues: {
@@ -63077,11 +63077,6 @@ function ApplicationForm() {
       isSubmitting = _useFormik.isSubmitting,
       setSubmitting = _useFormik.setSubmitting;
 
-  fetch('https://newton-server-maven.herokuapp.com/api/users').then(function (response) {
-    return response.json();
-  }).then(function (data) {
-    return setUser(data);
-  });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"], {
     noValidate: true,
     onSubmit: handleSubmit,
@@ -63213,12 +63208,35 @@ var Register = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(Register);
 
   function Register() {
+    var _this;
+
     _classCallCheck(this, Register);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this);
+    _this.state = {
+      user: {
+        fullName: 'Loading name...',
+        phone: '0000000000',
+        userName: 'Loading email...'
+      }
+    };
+    return _this;
   }
 
   _createClass(Register, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetch('https://newton-server-maven.herokuapp.com/api/users').then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        return _this2.setState({
+          user: data
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_js__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -63228,7 +63246,9 @@ var Register = /*#__PURE__*/function (_Component) {
         className: "mx-auto mt-4"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "text-center mb-4"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Application")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ApplicationForm, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_js__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Application")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ApplicationForm, {
+        user: this.state.user
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_js__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 
