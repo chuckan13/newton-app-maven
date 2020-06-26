@@ -64898,7 +64898,7 @@ var HowItWorks = /*#__PURE__*/function (_Component) {
         variant: "main my-3",
         onClick: location.href = '#application'
       }, "Continue")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "text-center mb-3"
+        className: "text-center mt-3 mb-5"
       }, "Don't worry, your credit score won't be affected when you check your eligibility. If you decide to finance with isaac, your loan and payments may affect your credit score. Paying on time can help you build positive credit history."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_js__WEBPACK_IMPORTED_MODULE_11__["default"], null));
     }
   }]);
