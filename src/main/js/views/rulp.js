@@ -93,9 +93,9 @@ class HowItWorks extends Component {
                 <div>
                     <NavBar />
                     <Container className="px-2">
-                        <h2 className="text-center mx-md-5 px-md-5 py-2">
+                        <h1 className="text-center display-4 mx-md-5 px-md-5 py-2">
                             <b>Welcome to Covered!</b>
-                        </h2>
+                        </h1>
                         <Step
                             step={1}
                             title="Health first, pay later."
@@ -147,20 +147,20 @@ class HowItWorks extends Component {
                             image={ExampleLoan}
                             height="400px"
                         />
-                        <h3 className="text-center display-3 mx-md-5 px-md-5 py-2">
+                        <h3 className="text-center mx-md-5 px-md-5 py-2">
                             <b>We'll never charge you late fees or increase your loan APR.</b>
                         </h3>
-                        <h5 className="text-center mx-md-5 px-md-5 py-2">
+                        <h6 className="text-center mx-md-5 px-md-5 py-2">
                             Press continue to fill out our secure loan application.
-                        </h5>
+                        </h6>
                         <Row className="justify-content-center">
-                            <Button variant="main mt-3 mt-lg-0" onClick={location.href = '#application'}>
+                            <Button variant="main my-3" onClick={location.href = '#application'}>
                                 Continue
 			                </Button>
                         </Row>
-                        <h5 className="text-center mx-md-5 px-md-5 py-2">
-                            Press continue to fill out our secure loan application.
-                        </h5>
+                        <p className="text-center mb-3">
+                            Don't worry, your credit score won't be affected when you check your eligibility. If you decide to finance with isaac, your loan and payments may affect your credit score. Paying on time can help you build positive credit history.
+                        </p>
                     </Container>
                 </div>
                 <Footer />
