@@ -28,7 +28,15 @@ const validationSchema = Yup.object().shape({
     terms: Yup.bool().oneOf([true], "You must agree before submitting"),
 });
 
-function ApplicationForm(props) {
+function ApplicationForm() {
+    let user = useState(null);
+
+    user= {
+        fullName: 'Loading name...',
+        phone: '0000000000',
+        userName: 'Loading email...',
+    }
+
     const {
         handleSubmit,
         handleChange,
@@ -68,6 +76,10 @@ function ApplicationForm(props) {
         },
     });
 
+    fetch('https://newton-server-maven.herokuapp.com/api/users')
+    .then(response => response.json())
+    .then(data => user = data);
+
     return (
         <React.Fragment>
             <Form
@@ -78,24 +90,24 @@ function ApplicationForm(props) {
                 <Form.Group className="pb-2">
                     <Form.Label>Name</Form.Label>
                     <Form.Control
-                        readonly
-                        defaultValue={props.user.fullName}
+                        readOnly
+                        defaultValue={user.fullName}
                     />
                 </Form.Group>
 
                 <Form.Group className="pb-2">
                     <Form.Label>Email</Form.Label>
                     <Form.Control
-                        readonly
-                        defaultValue={props.user.userName}
+                        readOnly
+                        defaultValue={user.userName}
                     />
                 </Form.Group>
 
                 <Form.Group className="pb-2">
                     <Form.Label>Phone Number</Form.Label>
                     <Form.Control
-                        readonly
-                        defaultValue={props.user.phone}
+                        readOnly
+                        defaultValue={user.phone}
                     />
                 </Form.Group>
 
@@ -179,7 +191,7 @@ function ApplicationForm(props) {
                         />
                     </Form.Group>
 
-                    <Form.Group as={Col} cmd="4" lassName="pb-2">
+                    <Form.Group as={Col} cmd="4" className="pb-2">
                         <Form.Label>State</Form.Label>
                         <Form.Control 
                             as="select"
@@ -231,23 +243,6 @@ function ApplicationForm(props) {
 
 class Register extends Component {
 
-    constructor() {
-		super();
-		this.state = {
-			user: {
-				fullName: 'Loading name...',
-				phone: '0000000000',
-				userName: 'Loading email...',
-            }
-        };
-	}
-
-    componentDidMount() {
-		fetch('https://newton-server-maven.herokuapp.com/api/users')
-			.then(response => response.json())
-            .then(data => this.setState({ user: data }));
-    }
-
     render() {
         return (
             <React.Fragment>
@@ -257,7 +252,7 @@ class Register extends Component {
                         <h2 className="text-center mb-4">
                             <b>Application</b>
                         </h2>
-                        <ApplicationForm user={this.state.user}/>
+                        <ApplicationForm />
                     </Col>
                 </div>
                 <Footer />
