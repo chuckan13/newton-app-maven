@@ -28,7 +28,7 @@ const validationSchema = Yup.object().shape({
     terms: Yup.bool().oneOf([true], "You must agree before submitting"),
 });
 
-function ApplicationForm() {
+function ApplicationForm(props) {
     const {
         handleSubmit,
         handleChange,
@@ -46,7 +46,25 @@ function ApplicationForm() {
         },
         validationSchema,
         onSubmit(values) {
-            console.log("Submitted!");
+            const data = JSON.stringify({
+                dob: values.dob,
+                ssn: values.ssn,
+                address: values.address,
+                address2: values.address2,
+                city: values.city,
+                state: values.state,
+                zip: values.zip,
+            });
+            console.log(data)
+            .then((data) => {
+                console.log("Test:", data);
+            })
+            .then(() => {
+                setSubmitting(false);
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
         },
     });
 
@@ -57,58 +75,37 @@ function ApplicationForm() {
                 onSubmit={handleSubmit}
                 className="text-left floating-form mb-5"
             >
-                <Form.Row>
-                    <Form.Group as={Col} md="6" className="pb-2">
-                        <Form.Label>First name</Form.Label>
-                        <Form.Control
-                            plaintext
-                            readonly
-                            defaultValue="fetchFirst"
-                        />
-                    </Form.Group>
-                    <Form.Group as={Col} md="6" className="pb-2">
-                        <Form.Label>Last name</Form.Label>
-                        <Form.Control
-                            plaintext
-                            readonly
-                            defaultValue="fetchLast"
-                        />
-                    </Form.Group>
-                </Form.Row>
+                <Form.Group className="pb-2">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control
+                        readonly
+                        defaultValue={props.user.fullName}
+                    />
+                </Form.Group>
 
                 <Form.Group className="pb-2">
                     <Form.Label>Email</Form.Label>
                     <Form.Control
-                        plaintext
                         readonly
-                        defaultValue="fetchEmail"
+                        defaultValue={props.user.userName}
                     />
                 </Form.Group>
 
                 <Form.Group className="pb-2">
                     <Form.Label>Phone Number</Form.Label>
                     <Form.Control
-                        type="text"
-                        name="phone"
-                        value={values.phone}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        placeholder="Phone Number"
-                        isValid={touched.phone && !errors.phone}
-                        isInvalid={touched.phone && !!errors.phone}
+                        readonly
+                        defaultValue={props.user.phone}
                     />
-                    <Form.Control.Feedback type="invalid">
-                        {errors.phone}
-                    </Form.Control.Feedback>
                 </Form.Group>
 
-                <hr />
+                <hr style={{ borderColor: '#C5C5C5' }} />
 
                 <Form.Group className="pb-2">
                     <Form.Label>Date of Birth</Form.Label>
                     <Form.Control
                         type="text"
-                        name="ssn"
+                        name="dob"
                         value={values.dob}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -138,7 +135,7 @@ function ApplicationForm() {
                     </Form.Control.Feedback>
                 </Form.Group>
 
-                <hr />
+                <hr style={{ borderColor: '#C5C5C5' }} />
 
                 <Form.Group className="pb-2">
                     <Form.Label>Address</Form.Label>
@@ -233,6 +230,24 @@ function ApplicationForm() {
 }
 
 class Register extends Component {
+
+    constructor() {
+		super();
+		this.state = {
+			user: {
+				fullName: 'Loading name...',
+				phone: '0000000000',
+				userName: 'Loading email...',
+            }
+        };
+	}
+
+    componentDidMount() {
+		fetch('https://newton-server-maven.herokuapp.com/api/users')
+			.then(response => response.json())
+            .then(data => this.setState({ user: data }));
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -242,7 +257,7 @@ class Register extends Component {
                         <h2 className="text-center mb-4">
                             <b>Application</b>
                         </h2>
-                        <ApplicationForm />
+                        <ApplicationForm user={this.state.user}/>
                     </Col>
                 </div>
                 <Footer />
