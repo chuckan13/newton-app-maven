@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component } from "react";
 
 import NavBar from "./components/navbar.js";
 import Footer from "./components/footer.js";
@@ -29,14 +29,6 @@ const validationSchema = Yup.object().shape({
 });
 
 function ApplicationForm(props) {
-    const [user, setUser] = useState(
-        props.user
-    );
-
-    useEffect(() => {
-        setUser(props.user);
-    }, [props.user]);
-
     const {
         handleSubmit,
         handleChange,
@@ -88,6 +80,7 @@ function ApplicationForm(props) {
                     <Form.Control
                         readOnly
                         defaultValue={props.user.fullName}
+                        onChange={handleChange}
                     />
                 </Form.Group>
 
@@ -96,6 +89,7 @@ function ApplicationForm(props) {
                     <Form.Control
                         readOnly
                         defaultValue={props.user.userName}
+                        onChange={handleChange}
                     />
                 </Form.Group>
 
@@ -104,6 +98,7 @@ function ApplicationForm(props) {
                     <Form.Control
                         readOnly
                         defaultValue={props.user.phone}
+                        onChange={handleChange}
                     />
                 </Form.Group>
 
