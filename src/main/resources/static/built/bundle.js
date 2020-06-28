@@ -63039,7 +63039,7 @@ function ApplicationForm(props) {
       });
       console.log(data).then(function (data) {
         console.log("Test:", data);
-        setDone(true);
+        props.setDone(true);
       }).then(function () {
         setSubmitting(false);
       })["catch"](function (error) {

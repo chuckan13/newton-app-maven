@@ -60,7 +60,7 @@ function ApplicationForm(props) {
             console.log(data)
             .then((data) => {
                 console.log("Test:", data);
-                setDone(true);
+                props.setDone(true);
             })
             .then(() => {
                 setSubmitting(false);
