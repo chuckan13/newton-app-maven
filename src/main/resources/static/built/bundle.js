@@ -63343,7 +63343,9 @@ var Register = /*#__PURE__*/function (_Component) {
   }, {
     key: "setDone",
     value: function setDone(val) {
-      this.state.applicationDone = val;
+      this.setState({
+        applicationDone: val
+      });
     }
   }, {
     key: "render",

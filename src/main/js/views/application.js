@@ -323,7 +323,9 @@ class Register extends Component {
     }
 
     setDone(val) {
-        this.state.applicationDone = val;
+        this.setState({
+            applicationDone: val
+        });
     }
 
     render() {
