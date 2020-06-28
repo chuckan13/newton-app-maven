@@ -158,7 +158,7 @@ class HowItWorks extends Component {
                                 Continue
 			                </Button>
                         </Row>
-                        <p className="text-center mb-3">
+                        <p className="text-center mt-3 mb-5">
                             Don't worry, your credit score won't be affected when you check your eligibility. If you decide to finance with isaac, your loan and payments may affect your credit score. Paying on time can help you build positive credit history.
                         </p>
                     </Container>

@@ -63016,18 +63016,43 @@ var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
   address: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required"),
   address2: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required"),
   city: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required"),
+  state: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required().notOneOf([""]),
   zip: yup__WEBPACK_IMPORTED_MODULE_9__["number"]().required("Required"),
   terms: yup__WEBPACK_IMPORTED_MODULE_9__["bool"]().oneOf([true], "You must agree before submitting")
 });
 
-function ApplicationForm() {
+function ApplicationForm(props) {
   var _useFormik = Object(formik__WEBPACK_IMPORTED_MODULE_8__["useFormik"])({
     initialValues: {
       terms: false
     },
     validationSchema: validationSchema,
     onSubmit: function onSubmit(values) {
-      console.log("Submitted!");
+      var data = JSON.stringify({
+        dob: values.dob,
+        ssn: values.ssn,
+        address: values.address,
+        address2: values.address2,
+        city: values.city,
+        state: values.state,
+        zip: values.zip
+      });
+      console.log(data);
+      fetch("https://newton-server-maven.herokuapp.com/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: data
+      }).then(function (data) {
+        console.log("Test:", data);
+        props.onFinish(true);
+      }).then(function () {
+        setSubmitting(false);
+      })["catch"](function (error) {
+        console.error("Error:", error);
+      });
     }
   }),
       handleSubmit = _useFormik.handleSubmit,
@@ -63045,46 +63070,30 @@ function ApplicationForm() {
     noValidate: true,
     onSubmit: handleSubmit,
     className: "text-left floating-form mb-5"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Row, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    as: react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"],
-    md: "6",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
     className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "First name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    plaintext: true,
-    readonly: true,
-    defaultValue: "fetchFirst"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
+    readOnly: true,
+    value: props.user.fullName
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    as: react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"],
-    md: "6",
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Last name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    plaintext: true,
-    readonly: true,
-    defaultValue: "fetchLast"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
     className: "pb-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    plaintext: true,
-    readonly: true,
-    defaultValue: "fetchEmail"
+    readOnly: true,
+    value: props.user.userName
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
     className: "pb-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Phone Number"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    type: "text",
-    name: "phone",
-    value: values.phone,
-    onChange: handleChange,
-    onBlur: handleBlur,
-    placeholder: "Phone Number",
-    isValid: touched.phone && !errors.phone,
-    isInvalid: touched.phone && !!errors.phone
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
-    type: "invalid"
-  }, errors.phone)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
+    readOnly: true,
+    value: props.user.phone
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
+    style: {
+      borderColor: '#C5C5C5'
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
     className: "pb-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Date of Birth"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
     type: "text",
-    name: "ssn",
+    name: "dob",
     value: values.dob,
     onChange: handleChange,
     onBlur: handleBlur,
@@ -63106,7 +63115,11 @@ function ApplicationForm() {
     isInvalid: touched.ssn && !!errors.ssn
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
     type: "invalid"
-  }, errors.ssn)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
+  }, errors.ssn)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
+    style: {
+      borderColor: '#C5C5C5'
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
     className: "pb-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Address"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
     type: "text",
@@ -63143,7 +63156,7 @@ function ApplicationForm() {
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
     as: react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"],
     cmd: "4",
-    lassName: "pb-2"
+    className: "pb-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "State"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
     as: "select",
     name: "state",
@@ -63153,11 +63166,125 @@ function ApplicationForm() {
     isValid: touched.state && !errors.state,
     isInvalid: touched.state && !!errors.state,
     defaultValue: "Choose..."
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "State 1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "State 2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "State 3"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: ""
+  }, "N/A"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "AK"
+  }, "Alaska"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "AL"
+  }, "Alabama"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "AR"
+  }, "Arkansas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "AZ"
+  }, "Arizona"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "CA"
+  }, "California"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "CO"
+  }, "Colorado"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "CT"
+  }, "Connecticut"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "DC"
+  }, "District of Columbia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "DE"
+  }, "Delaware"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "FL"
+  }, "Florida"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "GA"
+  }, "Georgia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "HI"
+  }, "Hawaii"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "IA"
+  }, "Iowa"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "ID"
+  }, "Idaho"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "IL"
+  }, "Illinois"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "IN"
+  }, "Indiana"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "KS"
+  }, "Kansas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "KY"
+  }, "Kentucky"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "LA"
+  }, "Louisiana"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "MA"
+  }, "Massachusetts"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "MD"
+  }, "Maryland"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "ME"
+  }, "Maine"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "MI"
+  }, "Michigan"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "MN"
+  }, "Minnesota"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "MO"
+  }, "Missouri"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "MS"
+  }, "Mississippi"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "MT"
+  }, "Montana"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "NC"
+  }, "North Carolina"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "ND"
+  }, "North Dakota"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "NE"
+  }, "Nebraska"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "NH"
+  }, "New Hampshire"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "NJ"
+  }, "New Jersey"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "NM"
+  }, "New Mexico"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "NV"
+  }, "Nevada"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "NY"
+  }, "New York"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "OH"
+  }, "Ohio"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "OK"
+  }, "Oklahoma"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "OR"
+  }, "Oregon"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "PA"
+  }, "Pennsylvania"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "PR"
+  }, "Puerto Rico"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "RI"
+  }, "Rhode Island"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "SC"
+  }, "South Carolina"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "SD"
+  }, "South Dakota"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "TN"
+  }, "Tennessee"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "TX"
+  }, "Texas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "UT"
+  }, "Utah"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "VA"
+  }, "Virginia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "VT"
+  }, "Vermont"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "WA"
+  }, "Washington"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "WI"
+  }, "Wisconsin"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "WV"
+  }, "West Virginia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "WY"
+  }, "Wyoming"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
     as: react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"],
     md: "4",
     className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Zip"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Zip"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
+    type: "text",
+    name: "zip",
+    value: values.zip,
+    onChange: handleChange,
+    onBlur: handleBlur,
+    isValid: touched.zip && !errors.zip,
+    isInvalid: touched.zip && !!errors.zip
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
     className: "pb-0 mb-0"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Check, {
     required: true,
@@ -63184,12 +63311,44 @@ var Register = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(Register);
 
   function Register() {
+    var _this;
+
     _classCallCheck(this, Register);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this);
+    _this.setDone = _this.setDone.bind(_assertThisInitialized(_this));
+    _this.state = {
+      user: {
+        fullName: 'Loading name...',
+        phone: '0000000000',
+        userName: 'Loading email...'
+      },
+      applicationDone: false
+    };
+    return _this;
   }
 
   _createClass(Register, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetch('https://newton-server-maven.herokuapp.com/api/users').then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        return _this2.setState({
+          user: data
+        });
+      });
+    }
+  }, {
+    key: "setDone",
+    value: function setDone(val) {
+      this.setState({
+        applicationDone: val
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_navbar_js__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -63197,9 +63356,22 @@ var Register = /*#__PURE__*/function (_Component) {
         md: 5,
         sm: 7,
         className: "mx-auto mt-4"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      }, this.state.applicationDone ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "text-center mb-4 primary"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Thank You!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "text-center"
+      }, "Your application will be processed within 5 business days. Click below to be taken to our homepage:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        className: "justify-content-center text-center"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        variant: "main",
+        href: "/",
+        className: "mx-auto"
+      }, "Finish"))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "text-center mb-4"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Application")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ApplicationForm, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_js__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Application")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ApplicationForm, {
+        user: this.state.user,
+        onFinish: this.setDone
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_js__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 
@@ -64870,7 +65042,7 @@ var HowItWorks = /*#__PURE__*/function (_Component) {
         variant: "main my-3",
         onClick: location.href = '#application'
       }, "Continue")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "text-center mb-3"
+        className: "text-center mt-3 mb-5"
       }, "Don't worry, your credit score won't be affected when you check your eligibility. If you decide to finance with isaac, your loan and payments may affect your credit score. Paying on time can help you build positive credit history."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_js__WEBPACK_IMPORTED_MODULE_11__["default"], null));
     }
   }]);

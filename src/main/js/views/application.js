@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 
 import NavBar from "./components/navbar.js";
 import Footer from "./components/footer.js";
@@ -23,12 +23,14 @@ const validationSchema = Yup.object().shape({
         .required("Required"),
     city: Yup.string()
         .required("Required"),
+    state: Yup.string()
+        .required().notOneOf([""]),
     zip: Yup.number()
         .required("Required"),
     terms: Yup.bool().oneOf([true], "You must agree before submitting"),
 });
 
-function ApplicationForm() {
+function ApplicationForm(props) {
     const {
         handleSubmit,
         handleChange,
@@ -46,7 +48,37 @@ function ApplicationForm() {
         },
         validationSchema,
         onSubmit(values) {
-            console.log("Submitted!");
+            const data = JSON.stringify({
+                dob: values.dob,
+                ssn: values.ssn,
+                address: values.address,
+                address2: values.address2,
+                city: values.city,
+                state: values.state,
+                zip: values.zip,
+            });
+            console.log(data);
+            fetch(
+                "https://newton-server-maven.herokuapp.com/",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                    },
+                    body: data,
+                }
+            )
+            .then((data) => {
+                console.log("Test:", data);
+                props.onFinish(true);
+            })
+            .then(() => {
+                setSubmitting(false);
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+            });
         },
     });
 
@@ -57,58 +89,37 @@ function ApplicationForm() {
                 onSubmit={handleSubmit}
                 className="text-left floating-form mb-5"
             >
-                <Form.Row>
-                    <Form.Group as={Col} md="6" className="pb-2">
-                        <Form.Label>First name</Form.Label>
-                        <Form.Control
-                            plaintext
-                            readonly
-                            defaultValue="fetchFirst"
-                        />
-                    </Form.Group>
-                    <Form.Group as={Col} md="6" className="pb-2">
-                        <Form.Label>Last name</Form.Label>
-                        <Form.Control
-                            plaintext
-                            readonly
-                            defaultValue="fetchLast"
-                        />
-                    </Form.Group>
-                </Form.Row>
+                <Form.Group className="pb-2">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control
+                        readOnly
+                        value={props.user.fullName}
+                    />
+                </Form.Group>
 
                 <Form.Group className="pb-2">
                     <Form.Label>Email</Form.Label>
                     <Form.Control
-                        plaintext
-                        readonly
-                        defaultValue="fetchEmail"
+                        readOnly
+                        value={props.user.userName}
                     />
                 </Form.Group>
 
                 <Form.Group className="pb-2">
                     <Form.Label>Phone Number</Form.Label>
                     <Form.Control
-                        type="text"
-                        name="phone"
-                        value={values.phone}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        placeholder="Phone Number"
-                        isValid={touched.phone && !errors.phone}
-                        isInvalid={touched.phone && !!errors.phone}
+                        readOnly
+                        value={props.user.phone}
                     />
-                    <Form.Control.Feedback type="invalid">
-                        {errors.phone}
-                    </Form.Control.Feedback>
                 </Form.Group>
 
-                <hr />
+                <hr style={{ borderColor: '#C5C5C5' }} />
 
                 <Form.Group className="pb-2">
                     <Form.Label>Date of Birth</Form.Label>
                     <Form.Control
                         type="text"
-                        name="ssn"
+                        name="dob"
                         value={values.dob}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -138,7 +149,7 @@ function ApplicationForm() {
                     </Form.Control.Feedback>
                 </Form.Group>
 
-                <hr />
+                <hr style={{ borderColor: '#C5C5C5' }} />
 
                 <Form.Group className="pb-2">
                     <Form.Label>Address</Form.Label>
@@ -182,7 +193,7 @@ function ApplicationForm() {
                         />
                     </Form.Group>
 
-                    <Form.Group as={Col} cmd="4" lassName="pb-2">
+                    <Form.Group as={Col} cmd="4" className="pb-2">
                         <Form.Label>State</Form.Label>
                         <Form.Control 
                             as="select"
@@ -194,15 +205,73 @@ function ApplicationForm() {
                             isInvalid={touched.state && !!errors.state}
                             defaultValue="Choose..."
                         >
-                            <option>State 1</option>
-                            <option>State 2</option>
-                            <option>State 3</option>
+                            <option value="">N/A</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DC">District of Columbia</option>
+                            <option value="DE">Delaware</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="IA">Iowa</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MD">Maryland</option>
+                            <option value="ME">Maine</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MT">Montana</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NY">New York</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="PR">Puerto Rico</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VA">Virginia</option>
+                            <option value="VT">Vermont</option>
+                            <option value="WA">Washington</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WY">Wyoming</option>
                         </Form.Control>
                     </Form.Group>
 
                     <Form.Group as={Col} md="4" className="pb-2">
                         <Form.Label>Zip</Form.Label>
-                        <Form.Control />
+                        <Form.Control
+                            type="text"
+                            name="zip"
+                            value={values.zip}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            isValid={touched.zip && !errors.zip}
+                            isInvalid={touched.zip && !!errors.zip}
+                        />
                     </Form.Group>
                 </Form.Row>
                 <Form.Group className="pb-0 mb-0">
@@ -233,16 +302,61 @@ function ApplicationForm() {
 }
 
 class Register extends Component {
+
+    constructor() {
+		super();
+
+        this.setDone = this.setDone.bind(this);
+
+		this.state = {
+			user: {
+				fullName: 'Loading name...',
+				phone: '0000000000',
+				userName: 'Loading email...',
+            },
+            applicationDone: false
+        };
+    }
+    
+    componentDidMount() {
+        fetch('https://newton-server-maven.herokuapp.com/api/users')
+            .then(response => response.json())
+            .then(data => this.setState({user: data}));    
+    }
+
+    setDone(val) {
+        this.setState({
+            applicationDone: val
+        });
+    }
+
     render() {
         return (
             <React.Fragment>
                 <div>
                     <NavBar />
+                    
                     <Col lg={4} md={5} sm={7} className="mx-auto mt-4">
-                        <h2 className="text-center mb-4">
-                            <b>Application</b>
-                        </h2>
-                        <ApplicationForm />
+                        {this.state.applicationDone ? 
+                            <React.Fragment>
+                                <h2 className="text-center mb-4 primary">
+                                    <b>Thank You!</b>
+                                </h2>
+                                <p className="text-center">
+                                    Your application will be processed within 5 business days.
+                                    Click below to be taken to our homepage:
+                                </p>
+                                <Row className="justify-content-center text-center">
+                                    <Button variant="main" href="/" className="mx-auto">Finish</Button>
+                                </Row>
+                            </React.Fragment> :
+                            <React.Fragment>
+                                <h2 className="text-center mb-4">
+                                    <b>Application</b>
+                                </h2>
+                                <ApplicationForm user={this.state.user} onFinish={this.setDone} />
+                            </React.Fragment>
+                        }
                     </Col>
                 </div>
                 <Footer />
