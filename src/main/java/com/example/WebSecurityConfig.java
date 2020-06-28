@@ -72,7 +72,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/built/bundle.js", "/resources/**", "/*.js", "/static/**", "/js/**", "/img/**",
                         "/loginpage", "/login.html", "/register", "/api/users/sign-up", "/howitworks",
                         "/badcredentials", "/sessionauth")
-                .permitAll().anyRequest().authenticated().and().authorizeRequests()
+                .permitAll().anyRequest().authenticated().and().csrf().disable().authorizeRequests()
                 .antMatchers("/loginpage", "/login.html", "/login-process").anonymous().and().formLogin()
                 .loginPage("/login.html").successHandler(customAuthenticationSuccessHandler())
                 .failureHandler(customAuthenticationFailureHandler()).loginProcessingUrl("/login-process").permitAll()
