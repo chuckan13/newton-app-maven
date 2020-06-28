@@ -25,7 +25,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 // import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 // import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+// import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
@@ -57,8 +57,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationProvider authProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(userDetailsService);
-        // provider.setPasswordEncoder(new BCryptPasswordEncoder());
-        provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
+        provider.setPasswordEncoder(new BCryptPasswordEncoder());
+        // provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());
         return provider;
     }
 
@@ -79,9 +79,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureHandler(customAuthenticationFailureHandler()).loginProcessingUrl("/login-process").permitAll()
                 .and().logout().deleteCookies("JSESSIONID").invalidateHttpSession(true).clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/logout-success")
-                .permitAll().and().headers().contentSecurityPolicy(
-                        "script-src 'self' https://trustedscripts.example.com; object-src https://trustedplugins.example.com; report-uri /csp-report-endpoint/");
-        ;
+                .permitAll();
+
+        // .and().headers().contentSecurityPolicy(
+        // "script-src 'self' https://trustedscripts.example.com; object-src
+        // https://trustedplugins.example.com; report-uri /csp-report-endpoint/")
+
         // .and().sessionManagement().maximumSessions(1).maxSessionsPreventsLogin(true).expiredUrl("/login?expired=true");
 
         // .httpBasic().and().authorizeRequests().antMatchers(HttpMethod.GET,
@@ -100,10 +103,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        // auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
-        auth.userDetailsService(userDetailsService).passwordEncoder(NoOpPasswordEncoder.getInstance()); // change to
-                                                                                                        // bcrypt
-
+        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
+        // auth.userDetailsService(userDetailsService).passwordEncoder(NoOpPasswordEncoder.getInstance());
     }
 
     @Bean

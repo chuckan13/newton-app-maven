@@ -16,7 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+// import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -96,8 +96,8 @@ public class LoginuserController {
             return new ResponseEntity<>("Account already exists for that email.", HttpStatus.CONFLICT);
         }
         try {
-            // user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-            user.setPassword(NoOpPasswordEncoder.getInstance().encode(user.getPassword())); // switch to bcrypt
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+            // user.setPassword(NoOpPasswordEncoder.getInstance().encode(user.getPassword()));
             repository.save(user);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
