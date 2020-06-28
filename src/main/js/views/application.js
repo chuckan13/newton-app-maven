@@ -314,25 +314,25 @@ class Register extends Component {
                     <NavBar />
                     
                     <Col lg={4} md={5} sm={7} className="mx-auto mt-4">
-                        {this.state.applicationDone ?
-                            <React.Fragment>
-                                <h2 className="text-center mb-4">
-                                    <b>Application</b>
-                                </h2>
-                                <ApplicationForm user={this.state.user} onFinish={this.setDone} />
-                            </React.Fragment> :
+                        {this.state.applicationDone ? 
                             <React.Fragment>
                                 <h2 className="text-center mb-4 primary">
                                     <b>Thank You!</b>
                                 </h2>
                                 <p className="text-center">
                                     Your application will be processed within 5 business days.
-                                </p>
-                                <p className="text-center">
                                     Click below to be taken to our homepage:
                                 </p>
-                                <Button variant="main" href="/">Homepage</Button>
-                            </React.Fragment> 
+                                <Row className="justify-content-center text-center">
+                                    <Button variant="main" href="/" className="mx-auto">Finish</Button>
+                                </Row>
+                            </React.Fragment> :
+                            <React.Fragment>
+                                <h2 className="text-center mb-4">
+                                    <b>Application</b>
+                                </h2>
+                                <ApplicationForm user={this.state.user} onFinish={this.setDone} />
+                            </React.Fragment>
                         }
                     </Col>
                 </div>
