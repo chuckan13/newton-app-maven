@@ -57,7 +57,18 @@ function ApplicationForm(props) {
                 state: values.state,
                 zip: values.zip,
             });
-            console.log(data)
+            console.log(data);
+            fetch(
+                "https://newton-server-maven.herokuapp.com/",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                    },
+                    body: data,
+                }
+            )
             .then((data) => {
                 console.log("Test:", data);
                 props.onFinish(true);
