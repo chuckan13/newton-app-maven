@@ -23,6 +23,8 @@ const validationSchema = Yup.object().shape({
         .required("Required"),
     city: Yup.string()
         .required("Required"),
+    state: Yup.string()
+        .required().notOneOf([""]),
     zip: Yup.number()
         .required("Required"),
     terms: Yup.bool().oneOf([true], "You must agree before submitting"),
@@ -58,6 +60,7 @@ function ApplicationForm(props) {
             console.log(data)
             .then((data) => {
                 console.log("Test:", data);
+                setDone(true);
             })
             .then(() => {
                 setSubmitting(false);
@@ -191,9 +194,59 @@ function ApplicationForm(props) {
                             isInvalid={touched.state && !!errors.state}
                             defaultValue="Choose..."
                         >
-                            <option>State 1</option>
-                            <option>State 2</option>
-                            <option>State 3</option>
+                            <option value="">N/A</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DC">District of Columbia</option>
+                            <option value="DE">Delaware</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="IA">Iowa</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MD">Maryland</option>
+                            <option value="ME">Maine</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MT">Montana</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NY">New York</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="PR">Puerto Rico</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VA">Virginia</option>
+                            <option value="VT">Vermont</option>
+                            <option value="WA">Washington</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WY">Wyoming</option>
                         </Form.Control>
                     </Form.Group>
 
@@ -239,7 +292,8 @@ class Register extends Component {
 				fullName: 'Loading name...',
 				phone: '0000000000',
 				userName: 'Loading email...',
-            }
+            },
+            applicationDone: false
         };
     }
     
@@ -249,16 +303,37 @@ class Register extends Component {
             .then(data => this.setState({user: data}));    
     }
 
+    setDone(val) {
+        this.state.applicationDone = val;
+    }
+
     render() {
         return (
             <React.Fragment>
                 <div>
                     <NavBar />
+                    
                     <Col lg={4} md={5} sm={7} className="mx-auto mt-4">
-                        <h2 className="text-center mb-4">
-                            <b>Application</b>
-                        </h2>
-                        <ApplicationForm user={this.state.user}/>
+                        {this.state.applicationDone ?
+                            <React.Fragment>
+                                <h2 className="text-center mb-4">
+                                    <b>Application</b>
+                                </h2>
+                                <ApplicationForm user={this.state.user} onFinish={this.setDone} />
+                            </React.Fragment> :
+                            <React.Fragment>
+                                <h2 className="text-center mb-4 primary">
+                                    <b>Thank You!</b>
+                                </h2>
+                                <p className="text-center">
+                                    Your application will be processed within 5 business days.
+                                </p>
+                                <p className="text-center">
+                                    Click below to be taken to our homepage:
+                                </p>
+                                <Button variant="main" href="/">Homepage</Button>
+                            </React.Fragment> 
+                        }
                     </Col>
                 </div>
                 <Footer />
