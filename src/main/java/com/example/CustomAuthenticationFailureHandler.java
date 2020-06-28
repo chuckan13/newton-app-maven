@@ -38,16 +38,16 @@ public class CustomAuthenticationFailureHandler extends SimpleUrlAuthenticationF
 
         final Locale locale = localeResolver.resolveLocale(request);
 
-        String errorMessage = messages.getMessage("message.badCredentials", null, locale);
+        String errorMessage = "Invalid Credentials";
 
         if (exception.getMessage().equalsIgnoreCase("User is disabled")) {
-            errorMessage = messages.getMessage("auth.message.disabled", null, locale);
+            errorMessage = "Your account is disabled please check your mail and click on the confirmation link";
         } else if (exception.getMessage().equalsIgnoreCase("User account has expired")) {
-            errorMessage = messages.getMessage("auth.message.expired", null, locale);
+            errorMessage = "Your registration token has expired. Please register again.";
         } else if (exception.getMessage().equalsIgnoreCase("blocked")) {
-            errorMessage = messages.getMessage("auth.message.blocked", null, locale);
+            errorMessage = "This ip is blocked for 24 hours";
         } else if (exception.getMessage().equalsIgnoreCase("unusual location")) {
-            errorMessage = messages.getMessage("auth.message.unusual.location", null, locale);
+            errorMessage = "You are trying to login from unusual location, check your email for more details";
         }
 
         request.getSession().setAttribute(WebAttributes.AUTHENTICATION_EXCEPTION, errorMessage);
