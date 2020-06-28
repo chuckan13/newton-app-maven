@@ -64122,7 +64122,7 @@ var HowItWorks = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Here's how to finance with isaac.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
         step: 1,
         title: "Health first, pay later.",
-        body: "After your physician's office bills you the out-of-pocket cost,  they will send you our secure loan application so you can get a decision within 2 business days.",
+        body: "After your physician's office bills you the out-of-pocket cost, \r they will send you our secure loan application so you can get a\r decision within 2 business days.",
         button: "OUR PROVIDERS",
         image: _resources_static_img_healthdesk_png__WEBPACK_IMPORTED_MODULE_7__["default"],
         alt: "Health center front desk.",
@@ -64148,13 +64148,13 @@ var HowItWorks = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
         step: 2,
         title: "Choose how you pay.",
-        body: "Select the payment schedule you like best, then confirm your loan. We\u2019ll never charge more than you see up front.",
+        body: "Select the payment schedule you like best, then confirm your loan.\r We\u2019ll never charge more than you see up front.",
         align: "right",
         height: "600px"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
         step: 3,
         title: "Make easy monthly payments.",
-        body: "Just sign in at isaac.com. We'll send you email and text reminders whenever a payment's coming up, or setup scheduled payments. That's it!",
+        body: "Just sign in at isaac.com. We'll send you email and text\r reminders whenever a payment's coming up, or setup scheduled payments.\r That's it!",
         align: "left",
         image: _resources_static_img_exampleloan_png__WEBPACK_IMPORTED_MODULE_9__["default"],
         height: "400px"
@@ -64471,7 +64471,9 @@ function LoginForm() {
         method: 'POST',
         body: data
       }).then(function (response) {
-        console.log('Success'); // console.log(response.headers.get('Authorization'));
+        console.log('Success');
+        console.log(response);
+        console.log(response.url); // console.log(response.headers.get('Authorization'));
 
         if (response.url === 'https://newton-server-maven.herokuapp.com/dashboard') {
           window.location.replace(response.url);
@@ -64996,7 +64998,7 @@ var HowItWorks = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Welcome to Covered!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
         step: 1,
         title: "Health first, pay later.",
-        body: "After your physician's office bills you the out-of-pocket cost,  they will send you our secure loan application so you can get a decision within 2 business days.",
+        body: "After your physician's office bills you the out-of-pocket cost, \r they will send you our secure loan application so you can get a\r decision within 2 business days.",
         button: "OUR PROVIDERS",
         image: _resources_static_img_healthdesk_png__WEBPACK_IMPORTED_MODULE_7__["default"],
         alt: "Health center front desk.",
@@ -65022,13 +65024,13 @@ var HowItWorks = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
         step: 2,
         title: "Choose how you pay.",
-        body: "Select the payment schedule you like best, then confirm your loan. We\u2019ll never charge more than you see up front.",
+        body: "Select the payment schedule you like best, then confirm your loan.\r We\u2019ll never charge more than you see up front.",
         align: "right",
         height: "600px"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Step, {
         step: 3,
         title: "Make easy monthly payments.",
-        body: "Just sign in at isaac.com. We'll send you email and text reminders whenever a payment's coming up, or setup scheduled payments. That's it!",
+        body: "Just sign in at isaac.com. We'll send you email and text\r reminders whenever a payment's coming up, or setup scheduled payments.\r That's it!",
         align: "left",
         image: _resources_static_img_exampleloan_png__WEBPACK_IMPORTED_MODULE_9__["default"],
         height: "400px"

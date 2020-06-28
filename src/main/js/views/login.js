@@ -65,6 +65,8 @@ function LoginForm() {
 			})
 				.then(response => {
 					console.log('Success');
+					console.log(response);
+					console.log(response.url);
 					// console.log(response.headers.get('Authorization'));
 					if (response.url === 'https://newton-server-maven.herokuapp.com/dashboard') {
 						window.location.replace(response.url);

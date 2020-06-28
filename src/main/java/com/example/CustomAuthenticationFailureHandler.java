@@ -38,7 +38,7 @@ public class CustomAuthenticationFailureHandler extends SimpleUrlAuthenticationF
 
         final Locale locale = localeResolver.resolveLocale(request);
 
-        String errorMessage = messages.getMessage("message.badCredentials", null, locale);
+        String errorMessage = messages.getMessage("auth.message.badCredentials", null, locale);
 
         if (exception.getMessage().equalsIgnoreCase("User is disabled")) {
             errorMessage = messages.getMessage("auth.message.disabled", null, locale);
