@@ -63316,6 +63316,7 @@ var Register = /*#__PURE__*/function (_Component) {
     _classCallCheck(this, Register);
 
     _this = _super.call(this);
+    _this.setDone = _this.setDone.bind(_assertThisInitialized(_this));
     _this.state = {
       user: {
         fullName: 'Loading name...',

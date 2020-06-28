@@ -306,6 +306,8 @@ class Register extends Component {
     constructor() {
 		super();
 
+        this.setDone = this.setDone.bind(this);
+
 		this.state = {
 			user: {
 				fullName: 'Loading name...',
