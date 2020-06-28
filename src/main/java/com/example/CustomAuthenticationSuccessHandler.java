@@ -24,7 +24,9 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
