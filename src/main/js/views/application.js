@@ -252,7 +252,15 @@ function ApplicationForm(props) {
 
                     <Form.Group as={Col} md="4" className="pb-2">
                         <Form.Label>Zip</Form.Label>
-                        <Form.Control />
+                        <Form.Control
+                            type="text"
+                            name="zip"
+                            value={values.zip}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            isValid={touched.zip && !errors.zip}
+                            isInvalid={touched.zip && !!errors.zip}
+                        />
                     </Form.Group>
                 </Form.Row>
                 <Form.Group className="pb-0 mb-0">
