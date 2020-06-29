@@ -97,6 +97,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // .formLogin().disable();
 
         // .and()
+
         // .addFilter(new JWTAuthenticationFilter(authenticationManager()))
         // .addFilter(new
         // JWTAuthorizationFilter(authenticationManager())).sessionManagement()
