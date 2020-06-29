@@ -59,6 +59,7 @@ function LoginForm() {
 			// console.log(formData);
 			// console.log(data);
 			// debugger;
+
 			fetch('https://newton-server-maven.herokuapp.com/login-process', {
 				method: 'POST',
 				body: data
