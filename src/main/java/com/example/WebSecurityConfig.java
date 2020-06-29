@@ -102,7 +102,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // .addFilter(new
         // JWTAuthorizationFilter(authenticationManager())).sessionManagement()
         // .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-
     }
 
     @Override
