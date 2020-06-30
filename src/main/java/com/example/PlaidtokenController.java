@@ -52,7 +52,7 @@ public class PlaidtokenController {
         // System.out.println(tokenArray[0]);
         // System.out.println(tokenArray[1]);
 
-        Stripe.apiKey = "sk_test_3gCJKshMgnQKkUBMp6tGu0O400rZYqWFNG"; // change put into heroku
+        Stripe.apiKey = System.getenv("STRIPE_SECRET_TEST");
 
         Map<String, Object> params = new HashMap<>();
         params.put("source", tokenArray[1]);

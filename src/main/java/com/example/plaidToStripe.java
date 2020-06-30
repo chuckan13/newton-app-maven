@@ -30,8 +30,8 @@ public class plaidToStripe {
         // Using Plaid's Java bindings (https://github.com/plaid/plaid-java)
         // Use builder to create a client
         PlaidClient plaidClient = PlaidClient.newBuilder()
-                .clientIdAndSecret("5ec56a381aa68500131cc8d5", "da5604395c6b5a109087e4fe544374")
-                .publicKey("5475e6f532d5bc20abca96dba0c94a").sandboxBaseUrl() // Use the Sandbox.
+                .clientIdAndSecret(System.getenv("PLAID_CLIENT_ID"), System.getenv("PLAID_SECRET_SANDBOX"))
+                .publicKey(System.getenv("PLAID_PUBLIC_KEY")).sandboxBaseUrl() // Use the Sandbox.
                 .build();
 
         // Required request parameters are always Request object constructor arguments

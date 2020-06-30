@@ -54,9 +54,8 @@ public class LoanOptionController {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
         LoanOption loan = repository.findOne(id);
-        Stripe.apiKey = "sk_test_3gCJKshMgnQKkUBMp6tGu0O400rZYqWFNG"; // change put into heroku
-        // doublecheck that *100 is correct and check that it is actually casting
-        // properly
+        Stripe.apiKey = System.getenv("STRIPE_SECRET_TEST"); // doublecheck that *100 is correct and check that it is
+                                                             // actually casting properly
         ChargeCreateParams params = ChargeCreateParams.builder().setAmount((long) (loan.getNextPaymentAmount() * 100))
                 .setCurrency("usd").setCustomer(user.getStripeCustomerId())
                 .setDescription("Charge for: " + user.getFullName() + "for payment date: " + loan.getNextPaymentDate())

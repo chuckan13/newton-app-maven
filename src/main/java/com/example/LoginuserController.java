@@ -123,7 +123,7 @@ public class LoginuserController {
     @RequestMapping(value = "/manualverify", method = RequestMethod.POST)
     public ResponseEntity<?> manualPayment(@RequestBody Token requestToken, Principal principal)
             throws StripeException {
-        Stripe.apiKey = "sk_test_3gCJKshMgnQKkUBMp6tGu0O400rZYqWFNG"; // change and put on heroku
+        Stripe.apiKey = System.getenv("STRIPE_SECRET_TEST");
         String tokenID = requestToken.getId();
         CustomerCreateParams params = CustomerCreateParams.builder()
                 .setDescription("Customer Object for User " + principal.getName()).setSource(tokenID).build();

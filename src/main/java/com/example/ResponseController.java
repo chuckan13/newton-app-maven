@@ -26,9 +26,7 @@ public class ResponseController {
             return new ResponseEntity<Response>(HttpStatus.NOT_FOUND);
         Response decryptedResponse = new Response();
         decryptedResponse.updateParameters(response);
-        String response_secret_key = "2o6qK89ebqLAquMAgyOS4qV38aSu1WTBhhNgDUc9Tx8jBdVovq2yfGmxFh72OBy"; // change to
-                                                                                                        // heroku config
-                                                                                                        // vars
+        String response_secret_key = System.getenv("RESPONSE_SECRET_KEY");
         TextEncryptor decryptor = Encryptors.text(response_secret_key, decryptedResponse.getSalt());
         String decryptedText = decryptor.decrypt(decryptedResponse.getText());
         decryptedResponse.setText(decryptedText);
@@ -38,9 +36,7 @@ public class ResponseController {
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public ResponseEntity<Response> update(@RequestBody Response response) {
         String oldText = response.getText();
-        String response_secret_key = "2o6qK89ebqLAquMAgyOS4qV38aSu1WTBhhNgDUc9Tx8jBdVovq2yfGmxFh72OBy"; // change to
-                                                                                                        // heroku config
-                                                                                                        // var
+        String response_secret_key = System.getenv("RESPONSE_SECRET_KEY");
         String newSalt = KeyGenerators.string().generateKey();
         TextEncryptor encryptor = Encryptors.text(response_secret_key, newSalt);
         String encryptedText = encryptor.encrypt(oldText);
