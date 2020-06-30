@@ -94,7 +94,7 @@ function PlaidButton(props) {
 		clientName: 'Stripe/Plaid Test',
 		env: 'sandbox',
 		product: [ 'auth' ],
-		publicKey: System.getenv('PLAID_PUBLIC_KEY'),
+		publicKey: process.env.REACT_APP_PLAID_PUBLIC_KEY,
 		onSuccess,
 		onExit
 		// ...
