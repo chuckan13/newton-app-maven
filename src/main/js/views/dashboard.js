@@ -67,7 +67,7 @@ function PlaidButton(props) {
 		tokObj.publicToken = token;
 		tokObj.accountId = metadata.account_id;
 		$.ajax({
-			url: '/plaidtokens/new',
+			url: '/api/plaidtokens/new',
 			type: 'post',
 			data: JSON.stringify(tokObj),
 			headers: {
