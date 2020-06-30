@@ -12,6 +12,7 @@ import Container from 'react-bootstrap/Container';
 import Check from 'react-bootstrap/FormCheck';
 import Collapse from 'react-bootstrap/Collapse';
 import Modal from 'react-bootstrap/Modal';
+import $ from 'jquery';
 
 import { FaTag, FaUser } from 'react-icons/fa';
 
@@ -66,7 +67,7 @@ function PlaidButton(props) {
 		tokObj.publicToken = token;
 		tokObj.accountId = metadata.account_id;
 		$.ajax({
-			url: '/plaidtokens/new/1',
+			url: '/plaidtokens/new',
 			type: 'post',
 			data: JSON.stringify(tokObj),
 			headers: {
@@ -93,7 +94,7 @@ function PlaidButton(props) {
 		clientName: 'Stripe/Plaid Test',
 		env: 'sandbox',
 		product: [ 'auth' ],
-		publicKey: '5475e6f532d5bc20abca96dba0c94a',
+		publicKey: System.getenv('PLAID_PUBLIC_KEY'),
 		onSuccess,
 		onExit
 		// ...

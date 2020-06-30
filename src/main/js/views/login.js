@@ -81,7 +81,9 @@ function LoginForm() {
 					} else {
 						// console.log(response);
 						setLoginFailed(
-							<div className="invalid-feedback d-block position-static pt-2">Invalid credentials.</div>
+							<div className="invalid-feedback d-block position-static pt-2">
+								Your email or password is incorrect.
+							</div>
 						);
 					}
 				})

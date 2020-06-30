@@ -19,6 +19,8 @@ public class Response {
     private long id;
     @Column(name = "application_id")
     private long applicationId;
+    @Column(name = "question")
+    private String question;
     @Column(name = "text")
     private String text;
     @Column(name = "salt")
@@ -52,9 +54,18 @@ public class Response {
         return this.id;
     }
 
+    public String getQuestion() {
+        return this.question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
     public void updateParameters(Response other) {
         this.applicationId = other.getApplicationId();
         this.text = other.getText();
         this.salt = other.getSalt();
+        this.question = other.getQuestion();
     }
 }
