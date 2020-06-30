@@ -154,7 +154,7 @@ class HowItWorks extends Component {
                             Press continue to fill out our secure loan application.
                         </h6>
                         <Row className="justify-content-center">
-                            <Button variant="main my-3" onClick={location.href = '#application'}>
+                            <Button variant="main my-3" onClick={location.href = './application'}>
                                 Continue
 			                </Button>
                         </Row>
