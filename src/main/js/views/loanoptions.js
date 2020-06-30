@@ -13,7 +13,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const validationSchema = Yup.object().shape({
-    // terms: Yup.bool().oneOf([true], "You must agree before submitting"),
+    // loanoption: Yup.bool().oneOf([1, 2, 3], "You must choose an option"),
 });
 
 function LoanOptionsForm(props) {
@@ -30,7 +30,7 @@ function LoanOptionsForm(props) {
         setSubmitting,
     } = useFormik({
         initialValues: {
-            terms: false,
+            loanoption: null,
         },
         validationSchema,
         onSubmit(values) {
@@ -80,9 +80,9 @@ function LoanOptionsForm(props) {
                         isInvalid={touched.loanoption && !!errors.loanoption}
                         defaultValue="Choose..."
                     />
-                        <option value="red">{props.options.op1}</option>
-                        <option value="green">Green</option>
-                        <option value="blue">Blue</option>
+                        <option value="1">{props.options.op1}</option>
+                        <option value="2">{props.options.op2}</option>
+                        <option value="3">{props.options.op3}</option>
                     <Form.Control.Feedback type="invalid">
                         {errors.loanoption}
                     </Form.Control.Feedback>

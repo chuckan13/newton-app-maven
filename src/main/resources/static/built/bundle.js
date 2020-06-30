@@ -64421,13 +64421,13 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({// terms: Yup.bool().oneOf([true], "You must agree before submitting"),
+var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({// loanoption: Yup.bool().oneOf([1, 2, 3], "You must choose an option"),
 });
 
 function LoanOptionsForm(props) {
   var _useFormik = Object(formik__WEBPACK_IMPORTED_MODULE_8__["useFormik"])({
     initialValues: {
-      terms: false
+      loanoption: null
     },
     validationSchema: validationSchema,
     onSubmit: function onSubmit(values) {
@@ -64478,12 +64478,12 @@ function LoanOptionsForm(props) {
     isInvalid: touched.loanoption && !!errors.loanoption,
     defaultValue: "Choose..."
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "red"
+    value: "1"
   }, props.options.op1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "green"
-  }, "Green"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "blue"
-  }, "Blue"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
+    value: "2"
+  }, props.options.op2), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "3"
+  }, props.options.op3), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
     type: "invalid"
   }, errors.loanoption)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
     className: "justify-content-center text-center"
