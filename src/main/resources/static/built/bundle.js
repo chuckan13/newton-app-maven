@@ -64421,18 +64421,10 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({
-  dob: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required"),
-  ssn: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required"),
-  address: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required"),
-  address2: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required"),
-  city: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required("Required"),
-  state: yup__WEBPACK_IMPORTED_MODULE_9__["string"]().required().notOneOf([""]),
-  zip: yup__WEBPACK_IMPORTED_MODULE_9__["number"]().required("Required"),
-  terms: yup__WEBPACK_IMPORTED_MODULE_9__["bool"]().oneOf([true], "You must agree before submitting")
+var validationSchema = yup__WEBPACK_IMPORTED_MODULE_9__["object"]().shape({// terms: Yup.bool().oneOf([true], "You must agree before submitting"),
 });
 
-function ApplicationForm(props) {
+function LoanOptionsForm(props) {
   var _useFormik = Object(formik__WEBPACK_IMPORTED_MODULE_8__["useFormik"])({
     initialValues: {
       terms: false
@@ -64440,13 +64432,7 @@ function ApplicationForm(props) {
     validationSchema: validationSchema,
     onSubmit: function onSubmit(values) {
       var data = JSON.stringify({
-        dob: values.dob,
-        ssn: values.ssn,
-        address: values.address,
-        address2: values.address2,
-        city: values.city,
-        state: values.state,
-        zip: values.zip
+        loanoption: values.loanoption
       });
       console.log(data);
       fetch("https://newton-server-maven.herokuapp.com/", {
@@ -64478,235 +64464,28 @@ function ApplicationForm(props) {
       setSubmitting = _useFormik.setSubmitting;
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    noValidate: true,
     onSubmit: handleSubmit,
     className: "text-left floating-form mb-5"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
     className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Name"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    readOnly: true,
-    value: props.user.fullName
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Email"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    readOnly: true,
-    value: props.user.userName
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Phone Number"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    readOnly: true,
-    value: props.user.phone
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
-    style: {
-      borderColor: '#C5C5C5'
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Date of Birth"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    type: "text",
-    name: "dob",
-    value: values.dob,
-    onChange: handleChange,
-    onBlur: handleBlur,
-    placeholder: "MM/DD/YYYY",
-    isValid: touched.dob && !errors.dob,
-    isInvalid: touched.dob && !!errors.dob
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
-    type: "invalid"
-  }, errors.dob)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "SSN"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    type: "text",
-    name: "ssn",
-    value: values.ssn,
-    onChange: handleChange,
-    onBlur: handleBlur,
-    placeholder: "SSN",
-    isValid: touched.ssn && !errors.ssn,
-    isInvalid: touched.ssn && !!errors.ssn
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
-    type: "invalid"
-  }, errors.ssn)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", {
-    style: {
-      borderColor: '#C5C5C5'
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Address"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    type: "text",
-    name: "address",
-    value: values.address,
-    onChange: handleChange,
-    onBlur: handleBlur,
-    placeholder: "1234 Main St",
-    isValid: touched.address && !errors.address,
-    isInvalid: touched.address && !!errors.address
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Address 2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    type: "text",
-    name: "address2",
-    value: values.address2,
-    onChange: handleChange,
-    onBlur: handleBlur,
-    placeholder: "Apartment, studio, or floor",
-    isValid: touched.address2 && !errors.address2,
-    isInvalid: touched.address2 && !!errors.address2
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Row, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    as: react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"],
-    md: "4",
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "City"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    type: "text",
-    name: "city",
-    value: values.city,
-    onChange: handleChange,
-    onBlur: handleBlur,
-    isValid: touched.city && !errors.city,
-    isInvalid: touched.city && !!errors.city
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    as: react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"],
-    cmd: "4",
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "State"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Loan Option"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
     as: "select",
-    name: "state",
-    value: values.state,
+    name: "loanoption",
+    value: values.loanoption,
     onChange: handleChange,
     onBlur: handleBlur,
-    isValid: touched.state && !errors.state,
-    isInvalid: touched.state && !!errors.state,
+    isValid: touched.loanoption && !errors.loanoption,
+    isInvalid: touched.loanoption && !!errors.loanoption,
     defaultValue: "Choose..."
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: ""
-  }, "N/A"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "AK"
-  }, "Alaska"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "AL"
-  }, "Alabama"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "AR"
-  }, "Arkansas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "AZ"
-  }, "Arizona"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "CA"
-  }, "California"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "CO"
-  }, "Colorado"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "CT"
-  }, "Connecticut"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "DC"
-  }, "District of Columbia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "DE"
-  }, "Delaware"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "FL"
-  }, "Florida"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "GA"
-  }, "Georgia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "HI"
-  }, "Hawaii"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "IA"
-  }, "Iowa"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "ID"
-  }, "Idaho"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "IL"
-  }, "Illinois"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "IN"
-  }, "Indiana"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "KS"
-  }, "Kansas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "KY"
-  }, "Kentucky"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "LA"
-  }, "Louisiana"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "MA"
-  }, "Massachusetts"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "MD"
-  }, "Maryland"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "ME"
-  }, "Maine"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "MI"
-  }, "Michigan"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "MN"
-  }, "Minnesota"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "MO"
-  }, "Missouri"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "MS"
-  }, "Mississippi"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "MT"
-  }, "Montana"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "NC"
-  }, "North Carolina"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "ND"
-  }, "North Dakota"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "NE"
-  }, "Nebraska"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "NH"
-  }, "New Hampshire"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "NJ"
-  }, "New Jersey"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "NM"
-  }, "New Mexico"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "NV"
-  }, "Nevada"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "NY"
-  }, "New York"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "OH"
-  }, "Ohio"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "OK"
-  }, "Oklahoma"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "OR"
-  }, "Oregon"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "PA"
-  }, "Pennsylvania"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "PR"
-  }, "Puerto Rico"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "RI"
-  }, "Rhode Island"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "SC"
-  }, "South Carolina"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "SD"
-  }, "South Dakota"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "TN"
-  }, "Tennessee"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "TX"
-  }, "Texas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "UT"
-  }, "Utah"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "VA"
-  }, "Virginia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "VT"
-  }, "Vermont"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "WA"
-  }, "Washington"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "WI"
-  }, "Wisconsin"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "WV"
-  }, "West Virginia"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "WY"
-  }, "Wyoming"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    as: react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_3__["default"],
-    md: "4",
-    className: "pb-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Label, null, "Zip"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control, {
-    type: "text",
-    name: "zip",
-    value: values.zip,
-    onChange: handleChange,
-    onBlur: handleBlur,
-    isValid: touched.zip && !errors.zip,
-    isInvalid: touched.zip && !!errors.zip
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Group, {
-    className: "pb-0 mb-0"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Check, {
-    required: true,
-    name: "terms",
-    label: "I agree to terms and conditions",
-    value: values.terms,
-    onChange: handleChange,
-    onBlur: handleBlur,
-    isInvalid: touched.terms && !!errors.terms,
-    id: "terms"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "red"
+  }, props.options.op1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "green"
+  }, "Green"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "blue"
+  }, "Blue"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_5__["default"].Control.Feedback, {
+    type: "invalid"
+  }, errors.loanoption)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
     className: "justify-content-center text-center"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
     type: "submit",
@@ -64716,47 +64495,38 @@ function ApplicationForm(props) {
   }, isSubmitting ? "Loading..." : "Submit"))));
 }
 
-var Register = /*#__PURE__*/function (_Component) {
-  _inherits(Register, _Component);
+var LoanOptions = /*#__PURE__*/function (_Component) {
+  _inherits(LoanOptions, _Component);
 
-  var _super = _createSuper(Register);
+  var _super = _createSuper(LoanOptions);
 
-  function Register() {
+  function LoanOptions() {
     var _this;
 
-    _classCallCheck(this, Register);
+    _classCallCheck(this, LoanOptions);
 
     _this = _super.call(this);
-    _this.setDone = _this.setDone.bind(_assertThisInitialized(_this));
     _this.state = {
-      user: {
-        fullName: 'Loading name...',
-        phone: '0000000000',
-        userName: 'Loading email...'
-      },
-      applicationDone: false
+      options: {
+        op1: 'Loading option 1...',
+        op2: 'Loading option 2...',
+        op3: 'Loading option 3...'
+      }
     };
     return _this;
   }
 
-  _createClass(Register, [{
+  _createClass(LoanOptions, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
 
-      fetch('https://newton-server-maven.herokuapp.com/api/users').then(function (response) {
+      fetch('https://newton-server-maven.herokuapp.com/api/loans').then(function (response) {
         return response.json();
       }).then(function (data) {
         return _this2.setState({
-          user: data
+          options: data
         });
-      });
-    }
-  }, {
-    key: "setDone",
-    value: function setDone(val) {
-      this.setState({
-        applicationDone: val
       });
     }
   }, {
@@ -64767,29 +64537,14 @@ var Register = /*#__PURE__*/function (_Component) {
         md: 5,
         sm: 7,
         className: "mx-auto mt-4"
-      }, this.state.applicationDone ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "text-center mb-4 primary"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Thank You!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "text-center"
-      }, "Your application will be processed within 5 business days. Click below to be taken to our homepage:"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        className: "justify-content-center text-center"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        variant: "main",
-        href: "/",
-        className: "mx-auto"
-      }, "Finish"))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "text-center mb-4"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Application")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ApplicationForm, {
-        user: this.state.user,
-        onFinish: this.setDone
-      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_js__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(LoanOptionsForm, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_footer_js__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 
-  return Register;
+  return LoanOptions;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Register);
+/* harmony default export */ __webpack_exports__["default"] = (LoanOptions);
 
 /***/ }),
 
