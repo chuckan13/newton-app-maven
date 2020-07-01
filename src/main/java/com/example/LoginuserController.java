@@ -25,13 +25,15 @@ public class LoginuserController {
 
     private LoginuserRepository repository;
     private LoanOptionRepository loanRepo;
+    private ApplicationRepository appRepo;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     public LoginuserController(LoginuserRepository repository, LoanOptionRepository loanRepo,
-            BCryptPasswordEncoder bCryptPasswordEncoder) {
+            ApplicationRepository appRepo, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.repository = repository;
         this.loanRepo = loanRepo;
+        this.appRepo = appRepo;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
@@ -104,6 +106,19 @@ public class LoginuserController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST); // make it (e, HttpStatus.BAD_REQUEST)
         }
 
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/application")
+    public ResponseEntity<Application> getApplication(Principal principal) {
+        Loginuser user = repository.findByUserName(principal.getName());
+        if (null == user)
+            return new ResponseEntity<Application>(HttpStatus.NOT_FOUND);
+        String userName = user.getUserName();
+        if (!userName.equals(principal.getName())) {
+            return new ResponseEntity<Application>(HttpStatus.FORBIDDEN);
+        }
+        Application application = appRepo.findByUserId(user.getId());
+        return new ResponseEntity<Application>(application, HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET)
