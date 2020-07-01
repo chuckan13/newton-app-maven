@@ -45,7 +45,8 @@ public class plaidToStripe {
             Response<AccountsGetResponse> response = plaidClient.service()
                     .accountsGet(new AccountsGetRequest(accessToken)).execute();
             List<Account> accounts = response.body().getAccounts();
-            tokenArray[0] = accounts.get(0).getOfficialName();
+            tokenArray[0] = accounts.get(accounts.size() - 1).getOfficialName();
+            System.out.println(accounts.size());
             System.out.println(tokenArray[0]);
             Response<ItemStripeTokenCreateResponse> stripeResponse = plaidClient.service()
                     .itemStripeTokenCreate(new ItemStripeTokenCreateRequest(accessToken, accountId)).execute();
