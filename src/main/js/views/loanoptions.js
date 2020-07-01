@@ -69,7 +69,7 @@ function LoanOptionsForm(props) {
                 className="text-left floating-form mb-5"
             >
                 <Form.Group className="pb-2">
-                    <Form.Label>Loan Option</Form.Label>
+                    <Form.Label>Loan Options</Form.Label>
                     <Form.Control
                         as="select"
                         name="loanoption"
@@ -79,10 +79,11 @@ function LoanOptionsForm(props) {
                         isValid={touched.loanoption && !errors.loanoption}
                         isInvalid={touched.loanoption && !!errors.loanoption}
                         defaultValue="Choose..."
-                    />
+                    >
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
+                    </Form.Control>
                     <Form.Control.Feedback type="invalid">
                         {errors.loanoption}
                     </Form.Control.Feedback>
