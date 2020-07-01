@@ -62,11 +62,12 @@ public class PlaidtokenController {
         // System.out.println(customer.getSources());
 
         String customerId = customer.getId();
-        String bankName = tokenArray[0];
+        // String bankName = tokenArray[0];
         Loginuser currUser = loginuserRepo.findByUserName(principal.getName());
         // Loginuser currUser = loginuserRepo.findOne(userId);
         currUser.setStripeCustomerId(customerId);
-        currUser.setBankName(bankName);
+        currUser.setBankName(token.getBankName());
+        // currUser.setBankName(bankName);
         // currUser.updateParameters(currUser);
         loginuserRepo.save(currUser);
 

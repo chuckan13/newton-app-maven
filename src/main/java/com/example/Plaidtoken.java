@@ -19,6 +19,17 @@ public class Plaidtoken {
     @Column(name = "account_id")
     private String accountId;
 
+    @Column(name = "bank_name")
+    private String bankName;
+
+    public String getBankName() {
+        return this.bankName;
+    }
+
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
+    }
+
     public Long getId() {
         return id;
     }
@@ -42,5 +53,6 @@ public class Plaidtoken {
     public void updateParameters(Plaidtoken other) {
         this.publicToken = other.getPublicToken();
         this.accountId = other.getAccountId();
+        this.bankName = other.getBankName();
     }
 }
