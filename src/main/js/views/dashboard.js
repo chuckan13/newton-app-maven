@@ -67,7 +67,7 @@ function PlaidButton(props) {
 		tokObj.publicToken = token;
 		tokObj.accountId = metadata.account_id;
 		tokObj.bankName = metadata.institution;
-		console.log('BANK NAME', metadata.institution);
+		console.log('BANK NAME', metadata.institution.name);
 		$.ajax({
 			url: '/api/plaidtokens/new',
 			type: 'post',
