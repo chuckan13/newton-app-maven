@@ -1,6 +1,5 @@
 import React, { Component, useCallback } from 'react';
 import { usePlaidLink } from 'react-plaid-link';
-import EdiText from 'react-editext';
 import NavBar from './components/navbar.js';
 
 import Button from 'react-bootstrap/Button';
@@ -9,7 +8,6 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import Container from 'react-bootstrap/Container';
-import Check from 'react-bootstrap/FormCheck';
 import Collapse from 'react-bootstrap/Collapse';
 import Modal from 'react-bootstrap/Modal';
 import $ from 'jquery';
@@ -18,20 +16,26 @@ import { FaTag, FaUser } from 'react-icons/fa';
 
 import '../app.scss';
 
-function PaymentModalButton() {
+function AutopayButton(autopay) {
 	const [ modalShow, setModalShow ] = React.useState(false);
+	const handleClick = autopay
+		? console.log("Autopay now off!")
+		: () => setModalShow(true);
 
 	return (
 		<React.Fragment>
-			<Button variant="main mt-3 mt-lg-0" onClick={() => setModalShow(true)}>
-				Make one-time payment
+			<Button
+				variant="main mt-3 mt-lg-0"
+				onClick={handleClick}
+			>
+				Autopay: {autopay}
 			</Button>
-			<PaymentModal show={modalShow} onHide={() => setModalShow(false)} />
+			<AutopayModal show={modalShow} onHide={() => setModalShow(false)} />
 		</React.Fragment>
 	);
 }
 
-function PaymentModal(props) {
+function AutopayModal(props) {
 	return (
 		<Modal
 			{...props}
@@ -42,23 +46,24 @@ function PaymentModal(props) {
 		>
 			<Modal.Header closeButton>
 				<Modal.Title id="contained-modal-title-vcenter" className="primary">
-					<b>Make one-time payment</b>
+					<b>Autopay</b>
 				</Modal.Title>
 			</Modal.Header>
 			<Modal.Body>
 				<p>
-					By clicking the button below, you will be taken to a secure payment portal where you can pay your
-					monthly balance.
+					By clicking the button below, you will be turning on Autopay, which will charge you automatically.
 				</p>
 			</Modal.Body>
 			<Modal.Footer>
-				<PlaidButton onHide={props.onHide} />
+				<Button onClick={console.log("Autopay turned on!")}>
+					Turn on Autopay
+				</ Button>
 			</Modal.Footer>
 		</Modal>
 	);
 }
 
-function PlaidButton(props) {
+function PaymentButton() {
 	const onSuccess = useCallback((token, metadata) => {
 		// Send the public_token and account ID to your app server.
 		console.log('token: ' + token);
@@ -106,14 +111,12 @@ function PlaidButton(props) {
 
 	return (
 		<Button
-			onClick={() => {
-				props.onHide, open();
-			}}
+			onClick={open}
 			disabled={!ready}
 			variant="main"
-			className="mx-auto"
+			className="mt-3 mt-lg-0"
 		>
-			Pay Now
+			Make one-time payment
 		</Button>
 	);
 }
@@ -288,7 +291,7 @@ class Dashboard extends Component {
 										<b>{loan.medicalCenter}</b>
 									</h4>
 									<div className="d-flex mt-2">
-										<Check />Autopay: {user.autopay ? 'On' : 'Off'}
+										<AutopayButton autopay = {user.autopay} />
 									</div>
 								</Row>
 								<hr style={{ borderColor: '#C5C5C5' }} />
@@ -296,7 +299,7 @@ class Dashboard extends Component {
 									<h5 className="m-0">
 										<b>${loan.nextPaymentAmount}</b> due on <b>{loan.nextPaymentDate}</b>
 									</h5>
-									<PaymentModalButton />
+									<PaymentButton />
 								</Row>
 								<hr style={{ borderColor: '#C5C5C5' }} />
 								<Row className="p-4 align-items-center">
