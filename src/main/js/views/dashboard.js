@@ -28,7 +28,7 @@ function AutopayButton(props) {
 				variant="main mt-3 mt-lg-0"
 				onClick={handleClick}
 			>
-				Autopay: {props.autopay}
+				Autopay: {props.autopay ? "On" : "Off"}
 			</Button>
 			<AutopayModal show={modalShow} onHide={() => setModalShow(false)} />
 		</React.Fragment>
@@ -55,7 +55,7 @@ function AutopayModal(props) {
 				</p>
 			</Modal.Body>
 			<Modal.Footer>
-				<Button onClick={console.log("Autopay turned on!")}>
+				<Button variant="main" className ="mx-auto" onClick={() => { props.onHide(); console.log("Autopay turned on!")}}>
 					Turn on Autopay
 				</ Button>
 			</Modal.Footer>
