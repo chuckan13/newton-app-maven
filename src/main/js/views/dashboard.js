@@ -16,9 +16,9 @@ import { FaTag, FaUser } from 'react-icons/fa';
 
 import '../app.scss';
 
-function AutopayButton(autopay) {
+function AutopayButton(props) {
 	const [ modalShow, setModalShow ] = React.useState(false);
-	const handleClick = autopay
+	const handleClick = props.autopay
 		? console.log("Autopay now off!")
 		: () => setModalShow(true);
 
@@ -28,7 +28,7 @@ function AutopayButton(autopay) {
 				variant="main mt-3 mt-lg-0"
 				onClick={handleClick}
 			>
-				Autopay: {autopay}
+				Autopay: {props.autopay}
 			</Button>
 			<AutopayModal show={modalShow} onHide={() => setModalShow(false)} />
 		</React.Fragment>
