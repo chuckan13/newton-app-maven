@@ -69,9 +69,9 @@ function LoginForm() {
 					console.log(response);
 					console.log(response.url);
 					// console.log(response.headers.get('Authorization'));
-					if (response.url === '/dashboard') {
+					if (response.url.indexOf('/dashboard') > -1) {
 						window.location.replace(response.url);
-					} else if (response.url === '/badcredentials') {
+					} else if (response.url.indexOf('/badcredentials') > -1) {
 						// console.log(response);
 						setLoginFailed(
 							<div className="invalid-feedback d-block position-static pt-2">
