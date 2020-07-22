@@ -59,7 +59,7 @@ function ApplicationForm(props) {
             });
             console.log(data);
             fetch(
-                "https://newton-server-maven.herokuapp.com/",
+                "/",
                 {
                     method: "POST",
                     headers: {
@@ -319,7 +319,7 @@ class Register extends Component {
     }
     
     componentDidMount() {
-        fetch('https://newton-server-maven.herokuapp.com/api/users')
+        fetch('/api/users')
             .then(response => response.json())
             .then(data => this.setState({user: data}));    
     }

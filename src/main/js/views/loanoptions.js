@@ -39,7 +39,7 @@ function LoanOptionsForm(props) {
             });
             console.log(data);
             fetch(
-                "https://newton-server-maven.herokuapp.com/",
+                "/",
                 {
                     method: "POST",
                     headers: {
@@ -119,7 +119,7 @@ class LoanOptions extends Component {
     }
 
     componentDidMount() {
-        fetch('https://newton-server-maven.herokuapp.com/api/loans')
+        fetch('/api/loans')
             .then(response => response.json())
             .then(data => this.setState({ options: data }));
     }
