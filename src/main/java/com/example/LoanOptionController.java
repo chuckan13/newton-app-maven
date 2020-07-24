@@ -1,12 +1,15 @@
 package com.example;
 
+import java.security.Principal;
 import java.util.Arrays;
 import java.util.List;
 
 import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Charge;
+import com.stripe.model.PaymentIntent;
 import com.stripe.param.ChargeCreateParams;
+import com.stripe.param.PaymentIntentCreateParams;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,10 +20,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/loans")
 public class LoanOptionController {
     private LoanOptionRepository repository;
+    private LoginuserRepository loginRepo;
 
     @Autowired
-    public LoanOptionController(LoanOptionRepository repository) {
+    public LoanOptionController(LoanOptionRepository repository, LoginuserRepository loginRepo) {
         this.repository = repository;
+        this.loginRepo = loginRepo;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -47,13 +52,14 @@ public class LoanOptionController {
     }
 
     // TODO: update the next payment date
-    @RequestMapping(value = "/{id}/paynow", method = RequestMethod.POST)
-    public ResponseEntity<LoanOption> payLoan(@PathVariable("id") Long id, @RequestBody Loginuser user)
+    @RequestMapping(value = "/{id}/paynowach", method = RequestMethod.POST)
+    public ResponseEntity<LoanOption> payLoanACH(@PathVariable("id") Long loanId, Principal principal)
             throws StripeException {
+        Loginuser user = loginRepo.findByUserName(principal.getName());
         if (user.isAutopay()) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
-        LoanOption loan = repository.findOne(id);
+        LoanOption loan = repository.findOne(loanId);
         Stripe.apiKey = System.getenv("STRIPE_SECRET_TEST"); // doublecheck that *100 is correct and check that it is
                                                              // actually casting properly
         ChargeCreateParams params = ChargeCreateParams.builder().setAmount((long) (loan.getNextPaymentAmount() * 100))
@@ -86,6 +92,28 @@ public class LoanOptionController {
         }
 
         return new ResponseEntity<LoanOption>(loan, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{id}/paynowcredit", method = RequestMethod.POST)
+    public ResponseEntity<String> payLoanCredit(@PathVariable("id") Long loanId, Principal principal)
+            throws StripeException {
+        Loginuser user = loginRepo.findByUserName(principal.getName());
+        if (user.isAutopay()) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+        LoanOption loan = repository.findOne(loanId);
+
+        Stripe.apiKey = System.getenv("STRIPE_SECRET_TEST");
+
+        PaymentIntentCreateParams params = PaymentIntentCreateParams.builder().setCurrency("usd")
+                .setAmount((long) (loan.getNextPaymentAmount() * 100))
+                // Verify your integration in this guide by including this parameter
+                .putMetadata("integration_check", "accept_a_payment").build();
+
+        PaymentIntent intent = PaymentIntent.create(params);
+        String clientSecret = intent.getClientSecret();
+
+        return new ResponseEntity<String>(clientSecret, HttpStatus.OK);
     }
 
     @RequestMapping

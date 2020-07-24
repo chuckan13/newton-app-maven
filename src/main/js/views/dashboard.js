@@ -18,17 +18,12 @@ import '../app.scss';
 
 function AutopayButton(props) {
 	const [ modalShow, setModalShow ] = React.useState(false);
-	const handleClick = props.autopay
-		? console.log("Autopay now off!")
-		: () => setModalShow(true);
+	const handleClick = props.autopay ? console.log('Autopay now off!') : () => setModalShow(true);
 
 	return (
 		<React.Fragment>
-			<Button
-				variant="main mt-3 mt-lg-0"
-				onClick={handleClick}
-			>
-				Autopay: {props.autopay ? "On" : "Off"}
+			<Button variant="main mt-3 mt-lg-0" onClick={handleClick}>
+				Autopay: {props.autopay ? 'On' : 'Off'}
 			</Button>
 			<AutopayModal show={modalShow} onHide={() => setModalShow(false)} />
 		</React.Fragment>
@@ -55,9 +50,16 @@ function AutopayModal(props) {
 				</p>
 			</Modal.Body>
 			<Modal.Footer>
-				<Button variant="main" className ="mx-auto" onClick={() => { props.onHide(); console.log("Autopay turned on!")}}>
+				<Button
+					variant="main"
+					className="mx-auto"
+					onClick={() => {
+						props.onHide();
+						console.log('Autopay turned on!');
+					}}
+				>
 					Turn on Autopay
-				</ Button>
+				</Button>
 			</Modal.Footer>
 		</Modal>
 	);
@@ -110,12 +112,7 @@ function PaymentButton() {
 	const { open, ready, error } = usePlaidLink(config);
 
 	return (
-		<Button
-			onClick={open}
-			disabled={!ready}
-			variant="main"
-			className="mt-3 mt-lg-0"
-		>
+		<Button onClick={open} disabled={!ready} variant="main" className="mt-3 mt-lg-0">
 			Make one-time payment
 		</Button>
 	);
@@ -291,7 +288,7 @@ class Dashboard extends Component {
 										<b>{loan.medicalCenter}</b>
 									</h4>
 									<div className="d-flex mt-2">
-										<AutopayButton autopay = {user.autopay} />
+										<AutopayButton autopay={user.autopay} />
 									</div>
 								</Row>
 								<hr style={{ borderColor: '#C5C5C5' }} />
