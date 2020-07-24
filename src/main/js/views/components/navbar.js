@@ -57,10 +57,10 @@ class NavBar extends Component {
                         variant="main"
                         onClick={() => {
                             fetch(
-                                "https://newton-server-maven.herokuapp.com/logout"
+                                "/logout"
                             ).then(() =>
                                 window.location.replace(
-                                    "https://newton-server-maven.herokuapp.com/"
+                                    "/"
                                 )
                             );
                         }}

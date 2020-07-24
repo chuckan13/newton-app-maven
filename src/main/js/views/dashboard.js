@@ -18,22 +18,25 @@ import '../app.scss';
 
 function AutopayButton(props) {
 	const [ modalShow, setModalShow ] = React.useState(false);
-	const handleClick = props.autopay ? console.log('Autopay now off!') : () => setModalShow(true);
+	const handleClick = props.autopay
+		? () => props.updateUser(false)
+		: () => setModalShow(true);
 
 	return (
 		<React.Fragment>
 			<Button variant="main mt-3 mt-lg-0" onClick={handleClick}>
 				Autopay: {props.autopay ? 'On' : 'Off'}
 			</Button>
-			<AutopayModal show={modalShow} onHide={() => setModalShow(false)} />
+			<AutopayModal show={modalShow} onHide={() => setModalShow(false)} updateUser={props.updateUser} />
 		</React.Fragment>
 	);
 }
 
 function AutopayModal(props) {
+	const {updateUser, ...modalProps} = props;
 	return (
 		<Modal
-			{...props}
+			{...modalProps}
 			size="lg"
 			aria-labelledby="contained-modal-title-vcenter"
 			centered
@@ -58,6 +61,7 @@ function AutopayModal(props) {
 						console.log('Autopay turned on!');
 					}}
 				>
+
 					Turn on Autopay
 				</Button>
 			</Modal.Footer>
@@ -154,21 +158,43 @@ class Dashboard extends Component {
 			},
 			accountDetailsOpen: false
 		};
+		this.updateUser = this.updateUser.bind(this);
 	}
 
 	componentDidMount() {
-		fetch('https://newton-server-maven.herokuapp.com/api/users')
+		fetch('/api/users')
 			.then(response => response.json())
 			.then(data => this.setState({ user: data }));
 
-		fetch('https://newton-server-maven.herokuapp.com/api/users/selectedloan')
+		fetch('/api/users/selectedloan')
 			.then(response => response.json())
 			.then(data => this.setState({ loan: data }));
 	}
 
+	updateUser(newVal) {
+		let state = this.state;
+		state.user.autopay = newVal;
+		this.setState(state);
+
+		const user = JSON.stringify(state.user);
+
+		fetch("/api/users",
+			{
+				method: "PATCH",
+				headers: {
+					"Content-Type": "application/json",
+					Accept: "application/json",
+				},
+				body: JSON.stringify(state.user),
+			}
+		)
+		.catch((error) => {
+			console.error("Error:", error);
+		});
+	}
+
 	render() {
 		const { user, loan, accountDetailsOpen } = this.state;
-		console.log(user, loan);
 
 		const contactInfo = (
 			<React.Fragment>
@@ -288,7 +314,10 @@ class Dashboard extends Component {
 										<b>{loan.medicalCenter}</b>
 									</h4>
 									<div className="d-flex mt-2">
+
 										<AutopayButton autopay={user.autopay} />
+										<AutopayButton autopay = {user.autopay} updateUser={this.updateUser} />
+
 									</div>
 								</Row>
 								<hr style={{ borderColor: '#C5C5C5' }} />

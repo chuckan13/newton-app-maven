@@ -60,7 +60,7 @@ function LoginForm() {
 			// console.log(data);
 			// debugger;
 
-			fetch('https://newton-server-maven.herokuapp.com/login-process', {
+			fetch('/login-process', {
 				method: 'POST',
 				body: data
 			})
@@ -69,9 +69,9 @@ function LoginForm() {
 					console.log(response);
 					console.log(response.url);
 					// console.log(response.headers.get('Authorization'));
-					if (response.url === 'https://newton-server-maven.herokuapp.com/dashboard') {
+					if (response.url.indexOf('/dashboard') > -1) {
 						window.location.replace(response.url);
-					} else if (response.url === 'https://newton-server-maven.herokuapp.com/badcredentials') {
+					} else if (response.url.indexOf('/badcredentials') > -1) {
 						// console.log(response);
 						setLoginFailed(
 							<div className="invalid-feedback d-block position-static pt-2">
@@ -141,11 +141,11 @@ function LoginForm() {
 
 class Login extends Component {
 	componentDidMount() {
-		fetch('https://newton-server-maven.herokuapp.com/api/users/signinstatus')
+		fetch('/api/users/signinstatus')
 			.then(response => response.json())
 			.then(data => {
 				console.log('Success: ', data);
-				if (data == true) window.location.replace('https://newton-server-maven.herokuapp.com/dashboard');
+				if (data == true) window.location.replace('/dashboard');
 			})
 			.catch(error => {
 				console.error('Error:', error);

@@ -67,7 +67,7 @@ function RegistrationForm() {
             });
             console.log(data);
             fetch(
-                "https://newton-server-maven.herokuapp.com/api/users/sign-up",
+                "/api/users/sign-up",
                 {
                     method: "POST",
                     headers: {
