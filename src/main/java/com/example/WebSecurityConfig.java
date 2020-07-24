@@ -82,7 +82,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // .cors().and().
                 // .failureUrl("/howitworks")
                 // .exceptionHandling().authenticationEntryPoint(entryPoint).and()
-                // .requiresChannel().anyRequest().requiresSecure().and().cors().and()
+                .requiresChannel().anyRequest().requiresSecure().and().cors().and()
                 .authorizeRequests()
                 .antMatchers("/", "/built/bundle.js", "/resources/**", "/*.js", "/static/**", "/js/**", "/img/**",
                         "/loginpage", "/login.html", "/register", "/api/users/sign-up", "/howitworks",
