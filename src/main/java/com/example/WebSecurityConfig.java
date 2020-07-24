@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 
+import java.util.Collections;
 import java.util.EnumSet;
 
 import javax.servlet.ServletConfig;
@@ -23,11 +24,14 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 // import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.PortMapperImpl;
+import org.springframework.security.web.PortResolverImpl;
 // import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 // import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 // import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.util.AntPathMatcher;
@@ -64,12 +68,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception { // .anyRequest().authenticated()
+        // PortMapperImpl portMapper = new PortMapperImpl();
+        // portMapper.setPortMappings(Collections.singletonMap("8080", "8080"));
+        // PortResolverImpl portResolver = new PortResolverImpl();
+        // portResolver.setPortMapper(portMapper);
+        // LoginUrlAuthenticationEntryPoint entryPoint = new
+        // LoginUrlAuthenticationEntryPoint("/login.html");
+        // entryPoint.setPortMapper(portMapper);
+        // entryPoint.setPortResolver(portResolver);
+
         http
                 // leave csrf() ON during production
                 // .cors().and().
                 // .failureUrl("/howitworks")
-
-                .requiresChannel().anyRequest().requiresSecure().and().cors().and().authorizeRequests()
+                // .exceptionHandling().authenticationEntryPoint(entryPoint).and()
+                // .requiresChannel().anyRequest().requiresSecure().and().cors().and()
+                .authorizeRequests()
                 .antMatchers("/", "/built/bundle.js", "/resources/**", "/*.js", "/static/**", "/js/**", "/img/**",
                         "/loginpage", "/login.html", "/register", "/api/users/sign-up", "/howitworks",
                         "/badcredentials", "/sessionauth")
