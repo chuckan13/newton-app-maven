@@ -63,7 +63,7 @@ Give the start script proper permissions with the following:
 chmod 755 mvnw
 ```
 
-Use the following command to run the test server:
+Use the following command to run the test server (takes ~1 minute):
 
 ```bash
 ./mvnw spring-boot:run
