@@ -7,7 +7,7 @@
     "@stripe/react-stripe-js": "^1.1.2",
     "@stripe/stripe-js": "^1.8.0",
     "bootstrap": "^4.5.0",
-    "css-loader": "^3.5.3",
+    "css-loader": "^3.6.0",
     "file-loader": "^6.0.0",
     "formik": "^2.1.4",
     "html-loader": "^1.1.0",
