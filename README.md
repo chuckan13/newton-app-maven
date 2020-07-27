@@ -57,6 +57,12 @@ Add `watch: true,` under `mode: 'development',`.
 
 ### Running The Test Server
 
+Give the start script proper permissions with the following:
+
+```bash
+chmod 755 mvnw
+```
+
 Use the following command to run the test server:
 
 ```bash
