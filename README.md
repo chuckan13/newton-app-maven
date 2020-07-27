@@ -54,3 +54,18 @@ spring.datasource.password=f160f3eaa24957c7dba158a61dbc68411b146823846d32a15defe
 ### `webpack.config.js`
 
 Add `watch: true,` under `mode: 'development',`.
+
+### Running The Test Server
+
+Use the following command to run the test server:
+
+```bash
+./mvnw spring-boot:run
+```
+
+Default test login credentials are the following:
+
+```properties
+Username: nsf2@princeton.edu
+Password: abcd1234
+```
