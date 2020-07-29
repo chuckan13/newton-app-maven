@@ -67,6 +67,12 @@ Comment out the following line:
 
 ### Running The Test Server
 
+Rebuild and start watching the files with the following:
+
+```bash
+npm run build
+```
+
 Give the start script proper permissions with the following:
 
 ```bash
