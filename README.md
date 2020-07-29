@@ -25,6 +25,7 @@ by running the following commands:
 ```bash
 git update-index --assume-unchanged src/main/resources/application.properties
 git update-index --assume-unchanged webpack.config.js
+git update-index --assume-unchanged src/main/java/com/example/WebSecurityConfig.java
 ```
 
 You can undo this change by running the following commands:
@@ -32,6 +33,7 @@ You can undo this change by running the following commands:
 ```bash
 git update-index --no-assume-unchanged src/main/resources/application.properties
 git update-index --no-assume-unchanged webpack.config.js
+git update-index --no-assume-unchanged src/main/java/com/example/WebSecurityConfig.java
 ```
 
 You can list all files that are `assume-unchanged` with the following command:
@@ -54,6 +56,14 @@ spring.datasource.password=f160f3eaa24957c7dba158a61dbc68411b146823846d32a15defe
 ### `webpack.config.js`
 
 Add `watch: true,` under `mode: 'development',`.
+
+### `src/main/java.../WebSecurityConfig.java`
+
+Comment out the following line:
+
+```java
+.requiresChannel().anyRequest().requiresSecure().and().cors().and()
+```
 
 ### Running The Test Server
 
